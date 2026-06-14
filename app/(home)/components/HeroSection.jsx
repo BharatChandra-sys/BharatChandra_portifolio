@@ -2,7 +2,7 @@
 "use client"
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { HiCode, HiArrowRight, HiDownload } from 'react-icons/hi';
+import { HiArrowRight, HiDownload } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import { config } from '@/config';
 import Link from 'next/link';
@@ -57,16 +57,7 @@ const HeroSection = () => {
           animate="show"
           className="max-w-3xl mx-auto text-center space-y-8 relative"
         >
-          {/* Badge — same style as original */}
-          <motion.div
-            variants={itemAnimation}
-            className="inline-flex items-center space-x-2 bg-secondary/10 border-[1.8px] border-zinc-900/70 px-4 py-2 rounded-full text-primary backdrop-blur-sm"
-          >
-            <HiCode className="w-5 h-5" />
-            <span className="text-sm font-medium">AI/ML Intern @ BHEL · GARI Rocketry Lead</span>
-          </motion.div>
-
-          {/* H1 — exact same structure */}
+          {/* H1 */}
           <div className="space-y-4">
             <motion.h1
               variants={itemAnimation}
