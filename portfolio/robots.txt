@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bharatchandra.me/sitemap.xml

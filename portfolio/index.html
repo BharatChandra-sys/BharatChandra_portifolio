@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════
+       PRIMARY SEO
+  ═══════════════════════════════════════════ -->
+  <title>Bharat Chandra | AI/ML Engineer &amp; Aerospace Systems Builder</title>
+  <meta name="description" content="Bharat Chandra is an AI/ML engineer and final-year CSE student at GITAM University Hyderabad building production AI systems, rocketry telemetry backends, and autonomous underwater vehicle control stacks.">
+  <meta name="keywords" content="Bharat Chandra, Bharat Chandra GITAM, Bharat Chandra AI engineer, BharatChandra-sys, GITAM Hyderabad CSE, GARI rocketry, CAN-7USAT, AUVBrain, MedVision AI, BHEL AI portal, diabetic ulcer AI, fake news analyzer, hospital management platform">
+  <meta name="author" content="Bharat Chandra">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <link rel="canonical" href="https://bharatchandra.me/">
+
+  <!-- ═══════════════════════════════════════════
+       OPEN GRAPH
+  ═══════════════════════════════════════════ -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bharatchandra.me/">
+  <meta property="og:title" content="Bharat Chandra | AI/ML Engineer">
+  <meta property="og:description" content="Building production AI systems, rocketry telemetry backends, and autonomous underwater vehicle stacks. Final-year CSE @ GITAM Hyderabad.">
+  <meta property="og:image" content="https://bharatchandra.me/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:site_name" content="Bharat Chandra — bharatchandra.me">
+
+  <!-- ═══════════════════════════════════════════
+       TWITTER CARD
+  ═══════════════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bharat Chandra | AI/ML Engineer">
+  <meta name="twitter:description" content="Building production AI systems, rocketry backends, and AUV control stacks. Final-year CSE @ GITAM Hyderabad.">
+  <meta name="twitter:image" content="https://bharatchandra.me/assets/og-image.png">
+
+  <!-- GEO TAGS -->
+  <meta name="geo.region" content="IN-TG">
+  <meta name="geo.placename" content="Hyderabad, Telangana, India">
+
+  <!-- SECURITY HEADERS (meta fallback) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+
+  <!-- FAVICON -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/bharat.jpg">
+
+  <!-- FONTS — preconnect first, then load -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- ═══════════════════════════════════════════
+       JSON-LD STRUCTURED DATA
+  ═══════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Bharat Chandra",
+    "alternateName": "BharatChandra-sys",
+    "url": "https://bharatchandra.me/",
+    "image": "https://bharatchandra.me/assets/bharat.jpg",
+    "email": "bc833498@gmail.com",
+    "jobTitle": "AI/ML Engineer",
+    "description": "Final-year CSE student at GITAM University Hyderabad building production AI systems, rocket telemetry backends, and autonomous underwater vehicle control stacks.",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "GITAM University Hyderabad",
+      "url": "https://gitam.edu"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "BHEL — Bharat Heavy Electricals Limited",
+      "url": "https://bhel.com"
+    },
+    "memberOf": {
+      "@type": "Organization",
+      "name": "GARI — GITAM Aerospace Rocketry Initiative"
+    },
+    "sameAs": [
+      "https://github.com/BharatChandra-sys",
+      "https://www.linkedin.com/in/bharat-chandra-6b29283b1/",
+      "https://orcid.org/0009-0004-4734-1635"
+    ],
+    "knowsAbout": [
+      "Machine Learning", "PyTorch", "FastAPI", "MLflow",
+      "Rocketry Telemetry Systems", "Autonomous Underwater Vehicles",
+      "Explainable AI", "PostgreSQL", "Docker", "WebSockets",
+      "Kalman Filtering", "ROS2", "Grad-CAM", "SHAP"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    }
+  }
+  </script>
+
+  <!-- ═══════════════════════════════════════════
+       STYLES
+  ═══════════════════════════════════════════ -->
+  <style>
+    /* ── CSS RESET & VARIABLES ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0F172A;
+      --surface:   #1E293B;
+      --surface2:  #243044;
+      --accent:    #38BDF8;
+      --accent2:   #F97316;
+      --text:      #F8FAFC;
+      --muted:     #94A3B8;
+      --border:    rgba(248,250,252,0.08);
+      --border-hover: rgba(248,250,252,0.18);
+      --radius:    8px;
+      --radius-lg: 14px;
+      --font-display: 'Space Grotesk', system-ui, sans-serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --max-w: 1100px;
+      --transition: 0.25s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+    button { cursor: pointer; font-family: inherit; }
+
+    /* ── LAYOUT ── */
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section { padding: 96px 0; }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; }
+    h1 { font-size: clamp(2.4rem, 6vw, 4.5rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: 1.2rem; }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(56,189,248,0.07);
+      border: 1px solid rgba(56,189,248,0.2);
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+
+    .section-title { margin-bottom: 10px; }
+    .section-sub { color: var(--muted); font-size: 1.05rem; max-width: 560px; }
+
+    /* ── HEADER / NAV ── */
+    #site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow var(--transition);
+    }
+
+    #site-header.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.4); }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 6px 14px;
+      border-radius: var(--radius);
+      transition: color var(--transition), background var(--transition);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: rgba(248,250,252,0.06);
+    }
+
+    .nav-cta {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--bg);
+      background: var(--accent);
+      padding: 8px 20px;
+      border-radius: 99px;
+      border: none;
+      transition: opacity var(--transition), transform var(--transition);
+    }
+
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px); }
+
+    /* hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.3s, opacity 0.3s;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .nav-mobile {
+      display: none;
+      flex-direction: column;
+      gap: 2px;
+      padding: 16px 24px 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    .nav-mobile.open { display: flex; }
+    .nav-mobile a {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--muted);
+      padding: 10px 12px;
+      border-radius: var(--radius);
+      transition: color var(--transition), background var(--transition);
+    }
+    .nav-mobile a:hover { color: var(--text); background: rgba(248,250,252,0.06); }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      min-height: calc(100vh - 64px);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 80px 0;
+    }
+
+    #starfield {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent2);
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.25);
+      padding: 6px 14px;
+      border-radius: 99px;
+      margin-bottom: 28px;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero-h1 {
+      animation: fadeUp 0.6s 0.1s ease both;
+      margin-bottom: 22px;
+    }
+
+    .hero-h1 .line2 { color: var(--accent); }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 580px;
+      margin-bottom: 38px;
+      animation: fadeUp 0.6s 0.2s ease both;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      animation: fadeUp 0.6s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 99px;
+      border: none;
+      transition: transform var(--transition), opacity var(--transition), box-shadow var(--transition);
+      cursor: pointer;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      box-shadow: 0 0 0 0 rgba(56,189,248,0);
+    }
+    .btn-primary:hover { box-shadow: 0 0 24px rgba(56,189,248,0.35); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border-hover);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .btn-ghost {
+      background: rgba(248,250,252,0.05);
+      color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { background: rgba(248,250,252,0.1); color: var(--text); }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin-top: 56px;
+      animation: fadeUp 0.6s 0.4s ease both;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    /* ── ABOUT ── */
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .about-photo {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+    }
+
+    /* placeholder when photo not uploaded */
+    .about-photo-placeholder {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -2px;
+    }
+
+    .about-text p { color: var(--muted); margin-bottom: 16px; line-height: 1.8; }
+    .about-text p strong { color: var(--text); }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .about-stat {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: center;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .about-stat:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+    .about-stat .num {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .about-stat .lbl {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    /* ── PROJECTS ── */
+    #projects { background: rgba(30,41,59,0.3); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+    }
+
+    .project-card.flagship { border-color: rgba(249,115,22,0.3); }
+    .project-card.flagship:hover { border-color: var(--accent2); box-shadow: 0 16px 40px rgba(249,115,22,0.15); }
+
+    .project-card.featured { border-color: rgba(56,189,248,0.2); }
+    .project-card.featured:hover { border-color: var(--accent); box-shadow: 0 16px 40px rgba(56,189,248,0.12); }
+
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      padding: 4px 10px;
+      border-radius: 99px;
+      width: fit-content;
+    }
+
+    .badge-orange { background: rgba(249,115,22,0.12); color: var(--accent2); border: 1px solid rgba(249,115,22,0.25); }
+    .badge-blue   { background: rgba(56,189,248,0.1);  color: var(--accent);  border: 1px solid rgba(56,189,248,0.22); }
+    .badge-green  { background: rgba(52,211,153,0.1);  color: #34D399;        border: 1px solid rgba(52,211,153,0.22); }
+    .badge-gray   { background: rgba(148,163,184,0.1); color: var(--muted);   border: 1px solid rgba(148,163,184,0.2); }
+    .badge-red    { background: rgba(248,113,113,0.1); color: #F87171;        border: 1px solid rgba(248,113,113,0.22); }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    .project-quote {
+      font-size: 0.82rem;
+      color: rgba(56,189,248,0.75);
+      font-style: italic;
+      border-left: 2px solid rgba(56,189,248,0.3);
+      padding-left: 12px;
+      line-height: 1.6;
+    }
+
+    .project-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .metric {
+      font-size: 0.75rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      color: var(--accent);
+      background: rgba(56,189,248,0.07);
+      border: 1px solid rgba(56,189,248,0.15);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .metric.orange { color: var(--accent2); background: rgba(249,115,22,0.07); border-color: rgba(249,115,22,0.18); }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      background: rgba(148,163,184,0.07);
+      border: 1px solid var(--border);
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: var(--font-display);
+      padding: 7px 16px;
+      border-radius: 99px;
+      border: 1.5px solid var(--border-hover);
+      color: var(--muted);
+      transition: color var(--transition), border-color var(--transition), background var(--transition);
+    }
+
+    .project-link:hover { color: var(--text); border-color: var(--accent); background: rgba(56,189,248,0.05); }
+    .project-link.primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .project-link.primary:hover { opacity: 0.88; }
+
+    /* ── EXPERIENCE ── */
+    .timeline { margin-top: 56px; position: relative; }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 28px;
+      padding-bottom: 48px;
+      position: relative;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .timeline-content {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color var(--transition);
+    }
+
+    .timeline-content:hover { border-color: var(--border-hover); }
+
+    .timeline-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-role {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .timeline-period {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      background: rgba(56,189,248,0.08);
+      border: 1px solid rgba(56,189,248,0.18);
+      padding: 3px 10px;
+      border-radius: 99px;
+      height: fit-content;
+    }
+
+    .timeline-org {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .timeline-org strong { color: var(--accent2); }
+
+    .timeline-points { list-style: none; }
+
+    .timeline-points li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 4px 0 4px 18px;
+      position: relative;
+      line-height: 1.7;
+    }
+
+    .timeline-points li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 0.8rem;
+    }
+
+    .timeline-techs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── HACKATHONS ── */
+    #hackathons { padding: 0 0 96px; }
+
+    .hackathons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .hackathon-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      text-align: center;
+      transition: border-color var(--transition), transform var(--transition);
+    }
+
+    .hackathon-card:hover { border-color: var(--accent2); transform: translateY(-4px); }
+
+    .hackathon-trophy { font-size: 2.2rem; margin-bottom: 12px; }
+
+    .hackathon-name {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .hackathon-meta { font-size: 0.8rem; color: var(--muted); }
+
+    .hackathon-project {
+      font-size: 0.82rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    /* ── SKILLS ── */
+    #skills { background: rgba(30,41,59,0.3); }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      margin-top: 48px;
+    }
+
+    .skill-category {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: border-color var(--transition);
+    }
+
+    .skill-category:hover { border-color: var(--border-hover); }
+
+    .skill-cat-title {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text);
+      background: rgba(248,250,252,0.05);
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 4px;
+      transition: background var(--transition), border-color var(--transition), color var(--transition);
+    }
+
+    .skill-tag:hover { background: rgba(56,189,248,0.08); border-color: rgba(56,189,248,0.3); color: var(--accent); }
+
+    /* ── CONTACT ── */
+    #contact .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    #contact .section-sub { margin: 0 auto 48px; text-align: center; }
+
+    .contact-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--accent);
+      border: 1.5px solid rgba(56,189,248,0.3);
+      padding: 14px 32px;
+      border-radius: 99px;
+      margin-bottom: 32px;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .contact-email:hover { background: rgba(56,189,248,0.07); border-color: var(--accent); }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px 22px;
+      border-radius: 99px;
+      transition: color var(--transition), border-color var(--transition), transform var(--transition);
+    }
+
+    .contact-link:hover { color: var(--text); border-color: var(--accent); transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--accent); }
+    footer a:hover { text-decoration: underline; }
+
+    /* ── FADE-IN ANIMATION ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+    /* ── SCROLL TO TOP ── */
+    #scroll-top {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 44px;
+      height: 44px;
+      background: var(--accent);
+      color: var(--bg);
+      border: none;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition), transform var(--transition);
+      z-index: 90;
+    }
+
+    #scroll-top.visible { opacity: 1; pointer-events: auto; }
+    #scroll-top:hover { transform: translateY(-3px); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      section { padding: 64px 0; }
+
+      .nav-links, .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+
+      #hero { padding: 60px 0; min-height: auto; }
+      .hero-stats { gap: 20px; }
+
+      #about .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .about-photo-wrap { max-width: 240px; margin: 0 auto; }
+      .about-stats { grid-template-columns: repeat(3, 1fr); }
+
+      .projects-grid { grid-template-columns: 1fr; }
+
+      .hackathons-grid { grid-template-columns: 1fr; }
+
+      .skills-grid { grid-template-columns: 1fr; }
+
+      .timeline::before { left: 15px; }
+      .timeline-dot { width: 32px; height: 32px; font-size: 0.9rem; }
+
+      h1 { font-size: 2.2rem; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .btn { width: 100%; justify-content: center; }
+      .about-stats { grid-template-columns: 1fr; }
+    }
+
+    /* ── REDUCED MOTION ── */
+    @media (prefers-reduced-motion: reduce) {
+      #starfield { display: none; }
+      * { animation: none !important; transition: none !important; }
+      .fade-in { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       HEADER
+  ═══════════════════════════════════════════ -->
+  <header id="site-header" role="banner">
+    <div class="container">
+      <nav class="nav-inner" aria-label="Main navigation">
+        <a href="#hero" class="nav-logo" aria-label="Bharat Chandra — Home">
+          <span>B</span>C
+        </a>
+
+        <div class="nav-links" role="list">
+          <a href="#about"      role="listitem">About</a>
+          <a href="#projects"   role="listitem">Projects</a>
+          <a href="#experience" role="listitem">Experience</a>
+          <a href="#skills"     role="listitem">Skills</a>
+          <a href="#contact"    role="listitem">Contact</a>
+        </div>
+
+        <div class="nav-cta-wrap">
+          <a href="assets/resume.pdf" download class="nav-cta" aria-label="Download resume PDF">
+            Download CV
+          </a>
+        </div>
+
+        <button class="nav-hamburger" aria-label="Toggle mobile menu" aria-expanded="false" id="hamburger">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+
+      <div class="nav-mobile" id="nav-mobile" role="navigation" aria-label="Mobile navigation">
+        <a href="#about"      onclick="closeMobileNav()">About</a>
+        <a href="#projects"   onclick="closeMobileNav()">Projects</a>
+        <a href="#experience" onclick="closeMobileNav()">Experience</a>
+        <a href="#skills"     onclick="closeMobileNav()">Skills</a>
+        <a href="#contact"    onclick="closeMobileNav()">Contact</a>
+        <a href="assets/resume.pdf" download style="color:var(--accent);">⬇ Download CV</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section id="hero" aria-label="Introduction">
+    <canvas id="starfield" aria-hidden="true"></canvas>
+
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="hero-badge" aria-label="Current role">
+          🚀 AI/ML Intern @ BHEL &nbsp;·&nbsp; GARI Rocketry Lead
+        </div>
+
+        <h1 class="hero-h1">
+          Building AI systems<br>
+          <span class="line2">that actually ship.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Final-year CSE student at GITAM University Hyderabad.
+          I build production-grade ML pipelines, rocket telemetry backends,
+          and autonomous vehicle control stacks — not just notebooks.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary" aria-label="View my projects">
+            View Projects ↓
+          </a>
+          <a href="assets/resume.pdf" download class="btn btn-outline" aria-label="Download my CV">
+            ⬇ Download CV
+          </a>
+          <a href="https://github.com/BharatChandra-sys" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" aria-label="Visit GitHub profile">
+            GitHub ↗
+          </a>
+        </div>
+
+        <div class="hero-stats" role="list" aria-label="Key performance metrics">
+          <div role="listitem">
+            <div class="hero-stat-num">&lt;5ms</div>
+            <div class="hero-stat-label">Rocket Telemetry Latency</div>
+          </div>
+          <div role="listitem">
+            <div class="hero-stat-num">0.84ms</div>
+            <div class="hero-stat-label">AUV Agent Loop (p95)</div>
+          </div>
+          <div role="listitem">
+            <div class="hero-stat-num">90%</div>
+            <div class="hero-stat-label">Fake News Detection Accuracy</div>
+          </div>
+          <div role="listitem">
+            <div class="hero-stat-num">6</div>
+            <div class="hero-stat-label">Production Projects</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="container">
+
+      <div class="fade-in">
+        <span class="section-label">👤 About</span>
+        <h2 class="section-title" id="about-heading">About me</h2>
+      </div>
+
+      <div class="about-grid fade-in" style="margin-top:40px;">
+
+        <div class="about-photo-wrap">
+          <img
+            src="assets/bharat.jpg"
+            alt="Bharat Chandra — AI/ML Engineer and CSE student at GITAM University Hyderabad"
+            class="about-photo"
+            loading="lazy"
+            width="400"
+            height="400"
+          >
+        </div>
+
+        <div class="about-text">
+          <p>
+            I'm <strong>Bharat Chandra</strong>, a Computer Science &amp; Engineering student at
+            <strong>GITAM University Hyderabad</strong> (graduating 2027), currently interning at
+            <strong>BHEL</strong> building a production AI-powered tender and vendor compliance portal.
+            I work at the intersection of ML engineering, systems backend, and aerospace — where
+            real constraints force real engineering.
+          </p>
+          <p>
+            Outside academics I lead the backend and ML stack for
+            <strong>GARI (GITAM Aerospace Rocketry Initiative)</strong>, where I built the telemetry
+            pipeline for our <strong>CAN-7USAT rocket</strong> competing in the IN-SPACe national
+            competition. I build with FastAPI, PyTorch, MLflow, PostgreSQL, Docker, and whatever
+            else the problem demands.
+          </p>
+          <p style="color:var(--muted);font-size:0.88rem;font-style:italic;">
+            "The common thread across everything I build: connecting an intelligence layer to something
+            physical or operational. The code either works under real constraints, or it doesn't work."
+          </p>
+
+          <div class="about-stats" role="list" aria-label="Key statistics">
+            <div class="about-stat" role="listitem">
+              <div class="num">&lt;5ms</div>
+              <div class="lbl">Telemetry Latency<br>CAN-7USAT</div>
+            </div>
+            <div class="about-stat" role="listitem">
+              <div class="num">0.84ms</div>
+              <div class="lbl">AUV Agent Loop<br>p95 latency</div>
+            </div>
+            <div class="about-stat" role="listitem">
+              <div class="num">4+</div>
+              <div class="lbl">Production<br>Projects</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════════ -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="container">
+
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">🛠 Projects</span>
+        <h2 class="section-title" id="projects-heading">What I've built</h2>
+        <p class="section-sub" style="margin:0 auto;">
+          Real projects with real performance numbers. Every one of these runs — or ran — in
+          an actual environment under actual constraints.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- PROJECT 1 — FLAGSHIP -->
+        <article class="project-card flagship fade-in" aria-label="CAN-7USAT Ground Control Station project">
+          <div>
+            <span class="project-badge badge-orange">🏆 IN-SPACe Competition 2026</span>
+          </div>
+          <h3 class="project-title">CAN-7USAT Ground Control Station</h3>
+          <p class="project-desc">
+            Real-time ground control station for GITAM's rocket targeting 1000m AGL in the
+            IN-SPACe Model Rocketry Competition 2026. Decodes 46-byte binary telemetry from
+            a Teensy 4.1 flight computer over 900 MHz XBee, runs Kalman filter sensor fusion,
+            maintains a 6-state flight state machine, and broadcasts live data over WebSocket
+            to a React dashboard.
+          </p>
+          <blockquote class="project-quote">
+            "The challenge wasn't writing the code — it was writing code that works once,
+            correctly, on launch day, with a rocket already on the pad."
+          </blockquote>
+          <div class="project-metrics" aria-label="Performance metrics">
+            <span class="metric orange">&lt;5ms end-to-end latency</span>
+            <span class="metric orange">0.5ms packet decode</span>
+            <span class="metric orange">0% packet loss (23/23)</span>
+          </div>
+          <div class="project-tags" aria-label="Technologies used">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">WebSockets</span>
+            <span class="tag">Kalman Filter</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">React</span>
+            <span class="tag">TypeScript</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend"
+               target="_blank" rel="noopener noreferrer" class="project-link primary"
+               aria-label="View CAN-7USAT project on GitHub">
+              GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="project-card featured fade-in" aria-label="AUVBrain autonomous underwater vehicle project">
+          <div>
+            <span class="project-badge badge-blue">🤖 Autonomous Systems</span>
+          </div>
+          <h3 class="project-title">AUVBrain — Autonomous Underwater Vehicle</h3>
+          <p class="project-desc">
+            Full autonomous control stack for an underwater vehicle. No internet, no margin for
+            error. Runs a deterministic observe → decide → act agent loop with 4-DOF thruster
+            control and a safety monitor enforcing hard limits on depth, battery, temperature,
+            and obstacle proximity before any decision executes.
+          </p>
+          <blockquote class="project-quote">
+            "Designing the fallback logic was harder than building the main path.
+            What does the vehicle do when the LLM times out at 20m depth?"
+          </blockquote>
+          <div class="project-metrics">
+            <span class="metric">0.84ms agent loop p95</span>
+            <span class="metric">Offline LLM + rules fallback</span>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">ROS2</span>
+            <span class="tag">Docker</span>
+            <span class="tag">asyncio</span>
+            <span class="tag">llama.cpp</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/BharatChandra-sys/AUVBrain"
+               target="_blank" rel="noopener noreferrer" class="project-link primary"
+               aria-label="View AUVBrain project on GitHub">
+              GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="project-card fade-in" aria-label="MedVision AI explainable diabetic ulcer detection">
+          <div>
+            <span class="project-badge badge-green">🏆 AI Day Hackathon — GITAM × Kodryx AI</span>
+          </div>
+          <h3 class="project-title">MedVision AI — Diabetic Ulcer XAI</h3>
+          <p class="project-desc">
+            Medical image classification + structured clinical data to estimate ulcer risk —
+            with full explainability showing WHY. Grad-CAM heatmaps show which image regions
+            the model attends to; SHAP values show how each clinical feature influenced the
+            prediction. Full MLOps pipeline with MLflow, DVC, Prometheus, and Grafana.
+          </p>
+          <blockquote class="project-quote">
+            "Black-box predictions are a liability in clinical settings. The explainability
+            layer isn't a nice-to-have — it's the entire point."
+          </blockquote>
+          <div class="project-tags">
+            <span class="tag">PyTorch</span>
+            <span class="tag">Grad-CAM</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">MLflow</span>
+            <span class="tag">DVC</span>
+            <span class="tag">Prometheus</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">Docker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://diabetic-ulcer-ai-system.vercel.app"
+               target="_blank" rel="noopener noreferrer" class="project-link primary"
+               aria-label="View MedVision AI live demo">
+              Live Demo ↗
+            </a>
+            <a href="https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system"
+               target="_blank" rel="noopener noreferrer" class="project-link"
+               aria-label="View MedVision AI project on GitHub">
+              GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- PROJECT 4 -->
+        <article class="project-card fade-in" aria-label="Fake News Analyzer Chrome Extension project">
+          <div>
+            <span class="project-badge badge-red">🏆 HackXplore — IEEE-SSIT VJIT 2026</span>
+          </div>
+          <h3 class="project-title">Fake News Analyzer (Chrome Extension)</h3>
+          <p class="project-desc">
+            Browser extension that scores news content for credibility as you browse — one
+            click, instant result. Logistic Regression on 10,000+ labeled samples, sub-second
+            response, with an LLM reasoning layer generating contextual verdict explanations.
+          </p>
+          <blockquote class="project-quote">
+            "The interesting design problem wasn't the model — it was latency.
+            The pipeline had to feel instant."
+          </blockquote>
+          <div class="project-metrics">
+            <span class="metric">90% validation accuracy</span>
+            <span class="metric">Sub-second response</span>
+          </div>
+          <div class="project-tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">Chrome Extension API</span>
+            <span class="tag">TF-IDF</span>
+            <span class="tag">Logistic Regression</span>
+            <span class="tag">LLM</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/BharatChandra-sys/fake-news-analyzer"
+               target="_blank" rel="noopener noreferrer" class="project-link primary"
+               aria-label="View Fake News Analyzer on GitHub">
+              GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- PROJECT 5 -->
+        <article class="project-card fade-in" aria-label="Hospital Management Platform project">
+          <div>
+            <span class="project-badge badge-blue">Full-Stack</span>
+          </div>
+          <h3 class="project-title">Hospital Management Platform</h3>
+          <p class="project-desc">
+            Full-stack platform built around real hospital workflows. Strict RBAC enforced
+            at query level (not just route handlers), ACID-compliant transaction blocks for
+            multi-table operations, and a relational PostgreSQL schema designed around actual
+            domain relationships — not convenience.
+          </p>
+          <blockquote class="project-quote">
+            "The hard part was the domain model. If the schema is wrong,
+            no amount of application logic fixes it."
+          </blockquote>
+          <div class="project-tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">SQLAlchemy</span>
+            <span class="tag">React</span>
+            <span class="tag">JWT</span>
+            <span class="tag">RBAC</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/BharatChandra-sys/hospital-management-platform"
+               target="_blank" rel="noopener noreferrer" class="project-link primary"
+               aria-label="View Hospital Management Platform on GitHub">
+              GitHub ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- PROJECT 6 -->
+        <article class="project-card fade-in" aria-label="Vijetha Digital E-Commerce Backend project">
+          <div>
+            <span class="project-badge badge-orange">🟢 Production · Live</span>
+          </div>
+          <h3 class="project-title">Vijetha Digital — E-Commerce Backend</h3>
+          <p class="project-desc">
+            Backend for a real printing business. Not a demo. In use. 15+ REST endpoints,
+            JWT auth, bcrypt hashing, multi-role access (User / Admin / Business), Razorpay
+            payment integration, and a 6-state order lifecycle across 10 relational tables
+            with ACID transactions.
+          </p>
+          <div class="project-metrics">
+            <span class="metric orange">Live production system</span>
+            <span class="metric orange">Razorpay payments</span>
+          </div>
+          <div class="project-tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">JWT</span>
+            <span class="tag">Razorpay</span>
+            <span class="tag">bcrypt</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/BharatChandra-sys/vijetha-digital-backend"
+               target="_blank" rel="noopener noreferrer" class="project-link primary"
+               aria-label="View Vijetha Digital backend on GitHub">
+              GitHub ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       EXPERIENCE
+  ═══════════════════════════════════════════ -->
+  <section id="experience" aria-labelledby="experience-heading">
+    <div class="container">
+
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">💼 Experience</span>
+        <h2 class="section-title" id="experience-heading">Work &amp; Roles</h2>
+        <p class="section-sub" style="margin:0 auto;">
+          Building real systems, not course projects.
+        </p>
+      </div>
+
+      <div class="timeline fade-in" aria-label="Work experience timeline">
+
+        <!-- BHEL -->
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true">⚡</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-role">AI/ML Engineering Intern</span>
+              <span class="timeline-period">June 2025 – Present</span>
+            </div>
+            <p class="timeline-org"><strong>BHEL — Bharat Heavy Electricals Limited</strong> · Hyderabad, India</p>
+            <ul class="timeline-points">
+              <li>Built production-grade AI vendor compliance portal using FastAPI, Ollama, and PyMuPDF — runs fully on-premise</li>
+              <li>Designed LLM-powered document extraction pipeline for tender analysis with no external API dependency</li>
+              <li>Proposed turbine lifecycle optimisation system using LSTM autoencoders and physics-informed digital twin modelling for GM-level stakeholder review</li>
+            </ul>
+            <div class="timeline-techs" aria-label="Technologies">
+              <span class="tag">FastAPI</span>
+              <span class="tag">Ollama</span>
+              <span class="tag">PyMuPDF</span>
+              <span class="tag">Streamlit</span>
+              <span class="tag">SQLite</span>
+              <span class="tag">LSTM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SmartED -->
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true">🧠</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-role">AI Intern</span>
+              <span class="timeline-period">Feb 2026 – Present</span>
+            </div>
+            <p class="timeline-org"><strong>SmartED Innovations</strong> · Remote</p>
+            <ul class="timeline-points">
+              <li>Designing ML workflows in Python and Scikit-Learn for educational intelligence systems</li>
+              <li>Building FastAPI integrations for model inference pipelines</li>
+            </ul>
+            <div class="timeline-techs">
+              <span class="tag">Python</span>
+              <span class="tag">Scikit-learn</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Elevate Labs -->
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true">📈</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-role">AI/ML Intern</span>
+              <span class="timeline-period">Apr 2026 – May 2026</span>
+            </div>
+            <p class="timeline-org"><strong>Elevate Labs</strong> · Remote</p>
+            <ul class="timeline-points">
+              <li>Applied ML: preprocessing, model training, evaluation, and deployment-oriented backend integrations</li>
+            </ul>
+            <div class="timeline-techs">
+              <span class="tag">Python</span>
+              <span class="tag">ML</span>
+              <span class="tag">FastAPI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- GARI -->
+        <div class="timeline-item">
+          <div class="timeline-dot" aria-hidden="true">🚀</div>
+          <div class="timeline-content">
+            <div class="timeline-header">
+              <span class="timeline-role">Backend &amp; ML Lead</span>
+              <span class="timeline-period">2023 – Present</span>
+            </div>
+            <p class="timeline-org"><strong>GARI — GITAM Aerospace Rocketry Initiative</strong> · GITAM University Hyderabad</p>
+            <ul class="timeline-points">
+              <li>Built CAN-7USAT rocket telemetry backend achieving sub-5ms end-to-end latency for IN-SPACe national competition</li>
+              <li>Engineered real-time WebSocket streaming pipeline for live ground station dashboards</li>
+              <li>Developed the GARI team website with React, canvas starfield, and SVG animations</li>
+            </ul>
+            <div class="timeline-techs">
+              <span class="tag">FastAPI</span>
+              <span class="tag">WebSockets</span>
+              <span class="tag">React</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Kalman Filter</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       HACKATHONS
+  ═══════════════════════════════════════════ -->
+  <section id="hackathons" aria-labelledby="hackathons-heading">
+    <div class="container">
+
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">🏆 Competitions</span>
+        <h2 class="section-title" id="hackathons-heading">Hackathons &amp; Competitions</h2>
+      </div>
+
+      <div class="hackathons-grid">
+
+        <div class="hackathon-card fade-in">
+          <div class="hackathon-trophy" aria-hidden="true">🚀</div>
+          <div class="hackathon-name">IN-SPACe Model Rocketry Competition</div>
+          <div class="hackathon-meta">2026 · National · GITAM University</div>
+          <div class="hackathon-project">CAN-7USAT · 1000m AGL target</div>
+        </div>
+
+        <div class="hackathon-card fade-in">
+          <div class="hackathon-trophy" aria-hidden="true">🤖</div>
+          <div class="hackathon-name">AI Day Hackathon — GITAM × Kodryx AI</div>
+          <div class="hackathon-meta">March 2026 · GITAM University</div>
+          <div class="hackathon-project">MedVision XAI · Diabetic Ulcer Detection</div>
+        </div>
+
+        <div class="hackathon-card fade-in">
+          <div class="hackathon-trophy" aria-hidden="true">⚡</div>
+          <div class="hackathon-name">HackXplore — IEEE-SSIT VJIT</div>
+          <div class="hackathon-meta">April 2026 · IEEE · VJIT</div>
+          <div class="hackathon-project">Fake News Analyzer · 90% accuracy</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       SKILLS
+  ═══════════════════════════════════════════ -->
+  <section id="skills" aria-labelledby="skills-heading">
+    <div class="container">
+
+      <div class="fade-in" style="text-align:center;">
+        <span class="section-label">⚙ Skills</span>
+        <h2 class="section-title" id="skills-heading">Technical Stack</h2>
+        <p class="section-sub" style="margin:0 auto;">
+          Tools I've used in production systems, not just tutorials.
+        </p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-category fade-in">
+          <div class="skill-cat-title">
+            <span aria-hidden="true">🐍</span> Languages &amp; Frameworks
+          </div>
+          <div class="skill-tags" role="list">
+            <span class="skill-tag" role="listitem">Python</span>
+            <span class="skill-tag" role="listitem">FastAPI</span>
+            <span class="skill-tag" role="listitem">PyTorch</span>
+            <span class="skill-tag" role="listitem">SQLAlchemy</span>
+            <span class="skill-tag" role="listitem">React</span>
+            <span class="skill-tag" role="listitem">TypeScript</span>
+            <span class="skill-tag" role="listitem">JavaScript</span>
+            <span class="skill-tag" role="listitem">HTML / CSS</span>
+            <span class="skill-tag" role="listitem">SQL</span>
+            <span class="skill-tag" role="listitem">Java</span>
+            <span class="skill-tag" role="listitem">C</span>
+          </div>
+        </div>
+
+        <div class="skill-category fade-in">
+          <div class="skill-cat-title">
+            <span aria-hidden="true">🧠</span> ML &amp; AI
+          </div>
+          <div class="skill-tags" role="list">
+            <span class="skill-tag" role="listitem">MLflow</span>
+            <span class="skill-tag" role="listitem">SHAP</span>
+            <span class="skill-tag" role="listitem">Grad-CAM</span>
+            <span class="skill-tag" role="listitem">Scikit-learn</span>
+            <span class="skill-tag" role="listitem">TF-IDF</span>
+            <span class="skill-tag" role="listitem">Pandas</span>
+            <span class="skill-tag" role="listitem">NumPy</span>
+            <span class="skill-tag" role="listitem">DVC</span>
+            <span class="skill-tag" role="listitem">Jupyter</span>
+            <span class="skill-tag" role="listitem">Ollama / LM Studio</span>
+          </div>
+        </div>
+
+        <div class="skill-category fade-in">
+          <div class="skill-cat-title">
+            <span aria-hidden="true">🛠</span> Infrastructure &amp; DevOps
+          </div>
+          <div class="skill-tags" role="list">
+            <span class="skill-tag" role="listitem">Docker</span>
+            <span class="skill-tag" role="listitem">PostgreSQL</span>
+            <span class="skill-tag" role="listitem">MongoDB</span>
+            <span class="skill-tag" role="listitem">SQLite</span>
+            <span class="skill-tag" role="listitem">WebSockets</span>
+            <span class="skill-tag" role="listitem">Prometheus</span>
+            <span class="skill-tag" role="listitem">Grafana</span>
+            <span class="skill-tag" role="listitem">Cloudinary</span>
+            <span class="skill-tag" role="listitem">Git</span>
+            <span class="skill-tag" role="listitem">GitHub</span>
+            <span class="skill-tag" role="listitem">JWT Auth</span>
+          </div>
+        </div>
+
+        <div class="skill-category fade-in">
+          <div class="skill-cat-title">
+            <span aria-hidden="true">🛰</span> Autonomous Systems &amp; Domains
+          </div>
+          <div class="skill-tags" role="list">
+            <span class="skill-tag" role="listitem">Rocket Telemetry</span>
+            <span class="skill-tag" role="listitem">ROS2</span>
+            <span class="skill-tag" role="listitem">Kalman Filtering</span>
+            <span class="skill-tag" role="listitem">Sensor Fusion</span>
+            <span class="skill-tag" role="listitem">AUV Control</span>
+            <span class="skill-tag" role="listitem">Explainable AI</span>
+            <span class="skill-tag" role="listitem">Real-time Systems</span>
+            <span class="skill-tag" role="listitem">REST API Design</span>
+            <span class="skill-tag" role="listitem">RBAC</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════════ -->
+  <section id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact-inner fade-in">
+
+        <span class="section-label" style="margin:0 auto 20px;">✉ Contact</span>
+        <h2 class="section-title" id="contact-heading">Let's build something real.</h2>
+        <p class="section-sub">
+          I'm open to AI/ML internships, full-time roles starting 2027, and interesting
+          project collaborations. Reach out directly.
+        </p>
+
+        <a href="mailto:bc833498@gmail.com" class="contact-email" aria-label="Send email to Bharat Chandra">
+          ✉ bc833498@gmail.com
+        </a>
+
+        <div class="contact-links" role="list">
+          <a href="https://github.com/BharatChandra-sys"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-link" role="listitem"
+             aria-label="Visit Bharat Chandra's GitHub profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/bharat-chandra-6b29283b1/"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-link" role="listitem"
+             aria-label="Visit Bharat Chandra's LinkedIn profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://orcid.org/0009-0004-4734-1635"
+             target="_blank" rel="noopener noreferrer"
+             class="contact-link" role="listitem"
+             aria-label="View Bharat Chandra's ORCID research profile">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.016-5.325 5.016h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 3.872-2.484 3.872-3.722 0-2.016-1.284-3.722-3.816-3.722h-2.353z"/></svg>
+            ORCID
+          </a>
+          <a href="assets/resume.pdf" download
+             class="contact-link" role="listitem"
+             aria-label="Download Bharat Chandra's resume">
+            ⬇ Resume PDF
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer role="contentinfo">
+    <div class="container">
+      <p>
+        © <span id="year"></span> Bharat Chandra ·
+        <a href="mailto:bc833498@gmail.com" aria-label="Email Bharat Chandra">bc833498@gmail.com</a>
+        · <a href="https://bharatchandra.me" aria-label="Portfolio website">bharatchandra.me</a>
+        · Built with pure HTML, CSS &amp; Vanilla JS · No frameworks
+      </p>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP BUTTON -->
+  <button id="scroll-top" aria-label="Scroll back to top" title="Back to top">↑</button>
+
+  <!-- ═══════════════════════════════════════════
+       JAVASCRIPT
+  ═══════════════════════════════════════════ -->
+  <script>
+    'use strict';
+
+    // ── YEAR ──
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── STARFIELD ──
+    (function () {
+      const canvas = document.getElementById('starfield');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let stars = [];
+      let rocket = { x: 0, y: 0, vx: 0, vy: 0, trail: [] };
+      let animId;
+
+      function resize() {
+        canvas.width  = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+        initStars();
+        resetRocket();
+      }
+
+      function initStars() {
+        stars = Array.from({ length: 180 }, () => ({
+          x:     Math.random() * canvas.width,
+          y:     Math.random() * canvas.height,
+          r:     Math.random() * 1.5 + 0.2,
+          alpha: Math.random() * 0.7 + 0.15,
+          twinkleSpeed: (Math.random() - 0.5) * 0.015
+        }));
+      }
+
+      function resetRocket() {
+        rocket = {
+          x:    -20,
+          y:    canvas.height * 0.7,
+          vx:   1.2,
+          vy:  -0.55,
+          trail: []
+        };
+      }
+
+      function drawStars() {
+        stars.forEach(s => {
+          s.alpha += s.twinkleSpeed;
+          if (s.alpha > 0.9 || s.alpha < 0.1) s.twinkleSpeed *= -1;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(248,250,252,${Math.max(0.05, s.alpha)})`;
+          ctx.fill();
+        });
+      }
+
+      function drawRocket() {
+        rocket.x += rocket.vx;
+        rocket.y += rocket.vy;
+        rocket.trail.push({ x: rocket.x, y: rocket.y });
+        if (rocket.trail.length > 40) rocket.trail.shift();
+
+        // trail
+        rocket.trail.forEach((p, i) => {
+          const alpha = (i / rocket.trail.length) * 0.5;
+          const size  = (i / rocket.trail.length) * 3;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, size, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(249,115,22,${alpha})`;
+          ctx.fill();
+        });
+
+        // rocket dot
+        ctx.beginPath();
+        ctx.arc(rocket.x, rocket.y, 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = '#F97316';
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = '#F97316';
+        ctx.fill();
+        ctx.shadowBlur = 0;
+
+        if (rocket.x > canvas.width + 40 || rocket.y < -40) {
+          resetRocket();
+        }
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawStars();
+        drawRocket();
+        animId = requestAnimationFrame(draw);
+      }
+
+      resize();
+      draw();
+
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        cancelAnimationFrame(animId);
+        resizeTimer = setTimeout(resize, 150);
+      });
+    })();
+
+    // ── STICKY HEADER SHADOW ──
+    const header = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    // ── MOBILE NAV ──
+    const hamburger   = document.getElementById('hamburger');
+    const navMobile   = document.getElementById('nav-mobile');
+
+    hamburger.addEventListener('click', () => {
+      const open = navMobile.classList.toggle('open');
+      hamburger.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open.toString());
+    });
+
+    function closeMobileNav() {
+      navMobile.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    // ── ACTIVE NAV LINK ON SCROLL ──
+    const sections  = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAnchors.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { threshold: 0.35 });
+
+    sections.forEach(s => observer.observe(s));
+
+    // ── FADE-IN ON SCROLL ──
+    const fadeEls = document.querySelectorAll('.fade-in');
+
+    const fadeObserver = new IntersectionObserver(entries => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          // stagger cards in the same parent
+          const delay = entry.target.closest('.projects-grid, .skills-grid, .hackathons-grid')
+            ? Array.from(entry.target.parentElement.children).indexOf(entry.target) * 80
+            : 0;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeEls.forEach(el => fadeObserver.observe(el));
+
+    // ── SCROLL TO TOP BUTTON ──
+    const scrollTopBtn = document.getElementById('scroll-top');
+
+    window.addEventListener('scroll', () => {
+      scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ── SMOOTH SCROLL for browsers that don't support CSS scroll-behavior ──
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          closeMobileNav();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
