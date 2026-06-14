@@ -138,7 +138,7 @@ export const config = {
         {
             position: "AI/ML Engineering Intern",
             company: "BHEL — Bharat Heavy Electricals Limited",
-            period: "June 2025 – Present",
+            period: "May 2026 – Present",
             location: "Hyderabad, India",
             description: "Building production AI systems at one of India's largest public sector enterprises. Fully on-premise LLM deployment with zero external API dependency.",
             responsibilities: [
@@ -151,7 +151,7 @@ export const config = {
         {
             position: "Co-Founder",
             company: "Easify — Pooling Service Platform",
-            period: "2025 – Present",
+            period: "2023 – Present",
             location: "Hyderabad, India",
             description: "Co-founded Easify, a smart pooling service platform connecting commuters for shared rides. Building the full-stack platform from the ground up.",
             responsibilities: [
@@ -164,7 +164,7 @@ export const config = {
         {
             position: "Backend & ML Lead",
             company: "GARI — GITAM Aerospace Rocketry Initiative",
-            period: "2023 – Present",
+            period: "Feb 2026 – Present",
             location: "GITAM University Hyderabad",
             description: "Leading the backend and ML stack for GITAM's rocketry team competing in the IN-SPACe national competition. Built the entire telemetry pipeline from scratch.",
             responsibilities: [

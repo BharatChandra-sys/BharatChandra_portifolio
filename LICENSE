@@ -1,18 +1,17 @@
-Copyright (c) 2024-2025 Huzaif Ahmed
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
 
-This software, Developer Portfolio, is provided solely for personal and non-commercial use under the following terms:  
+   Copyright 2026 Bharat Chandra (github.com/BharatChandra-sys)
 
-1. Usage Rights
-   - Users are allowed to use this software as-is or modify it for their personal use.  
-   - This software must not be used for any commercial purposes.  
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
 
-2. Restrictions
-   - Redistribution, sharing, publishing, sublicensing, or any form of distribution is strictly prohibited.  
-   - The software cannot be sold, rented, or used in any commercial transactions.  
-   - Modifications are allowed only for personal use and **must not be shared** in any form.  
+       http://www.apache.org/licenses/LICENSE-2.0
 
-3. Disclaimer
-   - This software is provided "as is" without any warranty, express or implied.  
-   - The author is not responsible for any issues or damages arising from the use of this software.  
-
-By using this software, you agree to abide by these terms.
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
