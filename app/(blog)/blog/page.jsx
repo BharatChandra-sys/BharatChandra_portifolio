@@ -52,7 +52,7 @@ export default function BlogPage() {
               Writing
             </motion.h1>
             <motion.p variants={itemAnimation} className="text-muted-foreground">
-              Notes on things I've built — mostly systems that had to work under real constraints.
+              Notes on things I&apos;ve built — mostly systems that had to work under real constraints.
             </motion.p>
           </div>
 

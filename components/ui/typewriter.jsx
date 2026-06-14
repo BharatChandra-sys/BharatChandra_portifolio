@@ -30,7 +30,7 @@ export const TypewriterEffect = ({
                 ease: "easeInOut",
             });
         }
-    }, [isInView]);
+    }, [isInView, animate]); // eslint-disable-line react-hooks/exhaustive-deps
 
     const renderWords = () => {
         return (
