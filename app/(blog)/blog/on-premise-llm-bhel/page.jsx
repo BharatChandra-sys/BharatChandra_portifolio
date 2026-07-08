@@ -3,7 +3,7 @@ import { BlogPost } from '../components/BlogPost';
 export const metadata = {
   title: "Building a fully on-premise LLM pipeline at BHEL — Bharat Chandra",
   description: "Bharat Chandra describes building a production AI vendor compliance portal at BHEL that runs entirely locally — no external APIs, no data leaving the network. FastAPI + Ollama + PyMuPDF.",
-  keywords: "Bharat Chandra, BHEL AI, on-premise LLM, Ollama, FastAPI, vendor compliance, Bharat Chandra BHEL intern",
+  keywords: "Bharat Chandra, BHEL AI, on-premise LLM, Ollama, FastAPI, vendor compliance, Bodapati Bharat Chandra, Bharat Chandra BHEL intern",
   openGraph: {
     title: "On-premise LLM at BHEL — Bharat Chandra",
     description: "Building production AI that runs entirely on local infrastructure.",

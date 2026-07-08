@@ -86,7 +86,7 @@ const HeroSection = () => {
             Final-year CSE student at GITAM University Hyderabad. I build production-grade
             ML pipelines, rocket telemetry backends, and autonomous vehicle control stacks —
             not just notebooks.
-          </motion.p>
+            </motion.p>
 
           {/* CTAs — same button style, added CV + GitHub */}
           <motion.div
@@ -104,7 +104,7 @@ const HeroSection = () => {
               </Button>
             </Link>
 
-            <a href="/bharat-resume.pdf" download>
+            <a href="/bodapati-bharat-chandra-resume.pdf" download>
               <Button
                 variant="outline"
                 className="rounded-full px-6 py-6 text-base font-semibold flex items-center gap-2 transition-all duration-300 hover:scale-105"

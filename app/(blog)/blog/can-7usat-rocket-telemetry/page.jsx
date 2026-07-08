@@ -3,7 +3,7 @@ import { BlogPost } from '../components/BlogPost';
 export const metadata = {
   title: "How I built CAN-7USAT rocket telemetry with sub-5ms latency — Bharat Chandra",
   description: "Bharat Chandra explains the real-time ground control station built for GARI's IN-SPACe rocketry competition — 46-byte binary telemetry packets, Kalman filter sensor fusion, and WebSocket broadcasting under 5ms.",
-  keywords: "Bharat Chandra, CAN-7USAT, rocket telemetry, GARI GITAM, IN-SPACe rocketry, FastAPI WebSocket",
+  keywords: "Bharat Chandra, CAN-7USAT, rocket telemetry, GARI GITAM, IN-SPACe rocketry, FastAPI WebSocket, Bodapati Bharat Chandra",
   openGraph: {
     title: "CAN-7USAT Rocket Telemetry — Bharat Chandra",
     description: "How I built a sub-5ms rocket telemetry pipeline for IN-SPACe competition.",

@@ -1,49 +1,62 @@
-export default function sitemap() {
-  const baseUrl = 'https://bharatchandra.me';
-  const lastModified = new Date();
+const BASE_URL = 'https://bharatchandra.me';
 
-  return [
+// Blog posts — update dates when you publish new ones
+const blogPosts = [
+  {
+    slug: 'can-7usat-rocket-telemetry',
+    lastModified: '2026-06-01',
+    priority: 0.85,
+  },
+  {
+    slug: 'on-premise-llm-bhel',
+    lastModified: '2026-05-15',
+    priority: 0.85,
+  },
+  {
+    slug: 'co-founding-easify',
+    lastModified: '2026-04-20',
+    priority: 0.80,
+  },
+];
+
+export default function sitemap() {
+  const now = new Date().toISOString();
+
+  const staticRoutes = [
     {
-      url: baseUrl,
-      lastModified,
-      changeFrequency: 'monthly',
+      url: BASE_URL,
+      lastModified: now,
+      changeFrequency: 'weekly',
       priority: 1.0,
+      // Google Images — your headshot is on the homepage
+      images: [`${BASE_URL}/bodapati-bharat-chandra.jpg`],
     },
     {
-      url: `${baseUrl}/projects`,
-      lastModified,
+      url: `${BASE_URL}/projects`,
+      lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
-      url: `${baseUrl}/contact`,
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/blog`,
-      lastModified,
+      url: `${BASE_URL}/blog`,
+      lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/blog/can-7usat-rocket-telemetry`,
-      lastModified,
+      url: `${BASE_URL}/contact`,
+      lastModified: now,
       changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/on-premise-llm-bhel`,
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/blog/co-founding-easify`,
-      lastModified,
-      changeFrequency: 'yearly',
-      priority: 0.8,
+      priority: 0.5,
     },
   ];
+
+  const blogRoutes = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: post.lastModified,
+    changeFrequency: 'yearly',
+    priority: post.priority,
+  }));
+
+  return [...staticRoutes, ...blogRoutes];
 }

@@ -3,7 +3,7 @@ import { BlogPost } from '../components/BlogPost';
 export const metadata = {
   title: "Co-founding Easify: Smart pooling in Hyderabad — Bharat Chandra",
   description: "Bharat Chandra writes about co-founding Easify, a smart ride-pooling platform in Hyderabad — architecture decisions, real-time matching, and what actually makes people use a product.",
-  keywords: "Bharat Chandra, Easify, pooling startup Hyderabad, co-founder, FastAPI startup, ride pooling India",
+  keywords: "Bharat Chandra, Easify, pooling startup Hyderabad, co-founder, FastAPI startup, ride pooling India, Bodapati Bharat Chandra",
   openGraph: {
     title: "Co-founding Easify — Bharat Chandra",
     description: "Building a ride-pooling platform from scratch in Hyderabad.",

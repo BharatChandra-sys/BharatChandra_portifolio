@@ -11,6 +11,13 @@ import { HiArrowRight } from 'react-icons/hi'
 const Home = () => {
   return (
     <div>
+      {/* Hidden SEO text — for search engines, not visible to users */}
+      <span className="sr-only">
+        Bodapati Bharat Chandra — AI/ML Engineer, final-year CSE student at GITAM University Hyderabad.
+        Also known as Bharat Chandra and BharatChandra-sys on GitHub.
+        Bodapati Bharat Chandra is currently interning at BHEL and leading the backend stack at GARI rocketry initiative.
+        Co-founder of Easify, a pooling service platform based in Hyderabad, India.
+      </span>
       <HeroSection />
       <ExperienceSection />
       <GithubProjects />
