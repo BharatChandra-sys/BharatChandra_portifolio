@@ -17,33 +17,61 @@ export const metadata = {
   },
 };
 
+const BASE = 'https://bharatchandra.me';
+
+// ── Fix: Full name + @id reference so Google resolves to the same entity ──────
+// ── Fix: publisher must be Organization for Article Rich Results ──────────────
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "How I built CAN-7USAT rocket telemetry with sub-5ms latency",
-  "description": "Bharat Chandra explains the real-time ground control station built for GARI's IN-SPACe rocketry competition — 46-byte binary telemetry packets, Kalman filter sensor fusion, and WebSocket broadcasting under 5ms.",
-  "image": "https://bharatchandra.me/og-image.png",
+  "headline": "I Built a Sub-5ms Rocket Telemetry System for IN-SPACe 2026",
+  "description": "How Bodapati Bharat Chandra engineered the CAN-7USAT ground control station — 46-byte binary packets, Kalman filter sensor fusion, WebSocket broadcasting under 5ms.",
+  "image": {
+    "@type": "ImageObject",
+    "url": `${BASE}/bodapati-bharat-chandra.jpg`,
+    "width": 400,
+    "height": 400
+  },
   "datePublished": "2026-06-10T00:00:00Z",
   "dateModified": "2026-06-10T00:00:00Z",
   "author": {
     "@type": "Person",
-    "name": "Bharat Chandra",
-    "url": "https://bharatchandra.me"
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE}/#person`,
+    "url": BASE,
+    "image": `${BASE}/bodapati-bharat-chandra.jpg`,
+    "sameAs": [
+      "https://github.com/BharatChandra-sys",
+      "https://www.linkedin.com/in/bharat-chandra-bodapati/",
+      "https://orcid.org/0009-0004-4734-1635"
+    ]
   },
   "publisher": {
-    "@type": "Person",
-    "name": "Bharat Chandra",
-    "url": "https://bharatchandra.me"
+    "@type": "Organization",
+    "@id": `${BASE}/#website-publisher`,
+    "name": "Bodapati Bharat Chandra",
+    "url": BASE,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${BASE}/logo.png`,
+      "width": 60,
+      "height": 60
+    }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://bharatchandra.me/blog/can-7usat-rocket-telemetry"
+    "@id": `${BASE}/blog/can-7usat-rocket-telemetry`
   },
-  "keywords": ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python", "Telemetry", "CAN-7USAT"],
+  "keywords": ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python", "Telemetry", "CAN-7USAT", "Bodapati Bharat Chandra"],
   "articleSection": "Engineering",
   "wordCount": 800,
   "timeRequired": "PT4M",
-  "inLanguage": "en-IN"
+  "inLanguage": "en-IN",
+  "isAccessibleForFree": true,
+  "about": {
+    "@type": "Thing",
+    "name": "Rocket Telemetry Systems"
+  }
 };
 
 const breadcrumbSchema = {

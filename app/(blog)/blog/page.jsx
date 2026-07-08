@@ -2,6 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { blogIndexSchema, blogBreadcrumbSchema } from '@/app/blog-index-schema';
 
 const posts = [
   {
@@ -40,6 +41,9 @@ const itemAnimation = {
 export default function BlogPage() {
   return (
     <section className="py-24" id="blog">
+      {/* Gap 2 fixed: Blog/ItemList schemas now actually rendered */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogIndexSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogBreadcrumbSchema) }} />
       <div className="container mx-auto px-6 max-w-3xl">
         <motion.div
           variants={containerAnimation}

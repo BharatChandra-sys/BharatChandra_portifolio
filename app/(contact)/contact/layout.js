@@ -1,3 +1,46 @@
+const BASE = 'https://bharatchandra.me';
+
+// ── Structured Data ────────────────────────────────────────────────────────────
+// Gap 4 fixed: contact page had zero schema
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "@id": `${BASE}/contact`,
+  "url": `${BASE}/contact`,
+  "name": "Contact Bodapati Bharat Chandra",
+  "description": "Get in touch with Bodapati Bharat Chandra — open to AI/ML internships, full-time roles from 2027, and project collaborations.",
+  "inLanguage": "en-IN",
+  "about": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE}/#person`
+  },
+  "mainEntity": {
+    "@type": "ContactPoint",
+    "contactType": "Professional Inquiries",
+    "email": "bc833498@gmail.com",
+    "url": `${BASE}/contact`,
+    "availableLanguage": ["English", "Hindi", "Telugu"],
+    "areaServed": "Worldwide",
+    "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "23:00"
+    }
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": BASE },
+    { "@type": "ListItem", "position": 2, "name": "Contact", "item": `${BASE}/contact` }
+  ]
+};
+
 export const metadata = {
   title: "Contact — Bodapati Bharat Chandra",
   description:
@@ -47,5 +90,11 @@ export const metadata = {
 };
 
 export default function ContactLayout({ children }) {
-  return children;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      {children}
+    </>
+  );
 }

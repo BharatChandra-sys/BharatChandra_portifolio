@@ -43,9 +43,8 @@ Disallow: /
 User-agent: PetalBot
 Disallow: /
 
-# ── Sitemaps ─────────────────────────────────────────────────────────────────
+# ── Sitemaps (only valid XML sitemaps go here) ───────────────────────────────
 Sitemap: https://bharatchandra.me/sitemap.xml
-Sitemap: https://bharatchandra.me/rss.xml
 
 # ── LLMs.txt (AI identity file) ──────────────────────────────────────────────
 # Tells AI search engines who this person is and what this site contains.

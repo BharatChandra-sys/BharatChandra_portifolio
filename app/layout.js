@@ -114,7 +114,10 @@ export const metadata = {
     title: "Bodapati Bharat Chandra | AI/ML Engineer",
     description:
       "Bodapati Bharat Chandra — production AI systems, rocketry backends, AUV stacks. Final-year CSE @ GITAM Hyderabad.",
-    images: ["/bodapati-bharat-chandra.jpg"],
+    images: [
+      `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+      `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
+    ],
     creator: "@BharatChandra",
     site: "@BharatChandra",
   },
@@ -425,6 +428,33 @@ const contactPointSchema = {
   "name": "Bodapati Bharat Chandra"
 };
 
+// ── Publisher Organization (required for Article Rich Results) ─────────────────
+// Google requires publisher to be Organization, not Person, for article rich cards
+const publisherSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": `${BASE_URL}/#website-publisher`,
+  "name": "Bodapati Bharat Chandra",
+  "url": BASE_URL,
+  "logo": {
+    "@type": "ImageObject",
+    "url": `${BASE_URL}/logo.png`,
+    "width": 60,
+    "height": 60,
+    "caption": "Bodapati Bharat Chandra logo"
+  },
+  "image": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+  "founder": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE_URL}/#person`
+  },
+  "sameAs": [
+    "https://github.com/BharatChandra-sys",
+    "https://www.linkedin.com/in/bharat-chandra-bodapati/"
+  ]
+};
+
 import { WebVitals } from "@/components/WebVitals";
 
 export default function RootLayout({ children }) {
@@ -489,6 +519,11 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPointSchema) }}
+        />
+        {/* JSON-LD — Publisher Organization (required for Article Rich Results) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(publisherSchema) }}
         />
         {/* Geo tags */}
         <meta name="geo.region" content="IN-TG" />

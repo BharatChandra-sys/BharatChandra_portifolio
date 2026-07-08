@@ -17,33 +17,59 @@ export const metadata = {
   },
 };
 
+const BASE = 'https://bharatchandra.me';
+
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Co-founding Easify: Smart pooling in Hyderabad",
-  "description": "Bharat Chandra writes about co-founding Easify, a smart ride-pooling platform in Hyderabad — architecture decisions, real-time matching, and what actually makes people use a product.",
-  "image": "https://bharatchandra.me/og-image.png",
+  "headline": "What I Learned Co-founding Easify: My Honest Take After Building a Pooling Startup",
+  "description": "Bodapati Bharat Chandra's honest account of co-founding Easify in Hyderabad — real-time matching, FastAPI + PostgreSQL backend, and why trust matters more than code.",
+  "image": {
+    "@type": "ImageObject",
+    "url": `${BASE}/bodapati-bharat-chandra.jpg`,
+    "width": 400,
+    "height": 400
+  },
   "datePublished": "2026-04-20T00:00:00Z",
   "dateModified": "2026-04-20T00:00:00Z",
   "author": {
     "@type": "Person",
-    "name": "Bharat Chandra",
-    "url": "https://bharatchandra.me"
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE}/#person`,
+    "url": BASE,
+    "image": `${BASE}/bodapati-bharat-chandra.jpg`,
+    "sameAs": [
+      "https://github.com/BharatChandra-sys",
+      "https://www.linkedin.com/in/bharat-chandra-bodapati/",
+      "https://orcid.org/0009-0004-4734-1635"
+    ]
   },
   "publisher": {
-    "@type": "Person",
-    "name": "Bharat Chandra",
-    "url": "https://bharatchandra.me"
+    "@type": "Organization",
+    "@id": `${BASE}/#website-publisher`,
+    "name": "Bodapati Bharat Chandra",
+    "url": BASE,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${BASE}/logo.png`,
+      "width": 60,
+      "height": 60
+    }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://bharatchandra.me/blog/co-founding-easify"
+    "@id": `${BASE}/blog/co-founding-easify`
   },
-  "keywords": ["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad", "Easify", "Ride Pooling"],
+  "keywords": ["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad", "Easify", "Ride Pooling", "Bodapati Bharat Chandra"],
   "articleSection": "Startup",
   "wordCount": 650,
   "timeRequired": "PT3M",
-  "inLanguage": "en-IN"
+  "inLanguage": "en-IN",
+  "isAccessibleForFree": true,
+  "about": {
+    "@type": "Thing",
+    "name": "Startup Co-founding"
+  }
 };
 
 const breadcrumbSchema = {

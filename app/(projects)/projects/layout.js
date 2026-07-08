@@ -1,50 +1,46 @@
+const BASE = 'https://bharatchandra.me';
+
 export const metadata = {
-  title: "Projects — Bodapati Bharat Chandra",
+  title: "Projects — Bodapati Bharat Chandra | Production AI & Rocketry Systems",
   description:
-    "Production projects by Bodapati Bharat Chandra: CAN-7USAT rocket telemetry (sub-5ms latency), AUVBrain autonomous underwater vehicle, MedVision explainable AI, FactCheck AI fake news analyzer, and more.",
+    "Projects by Bodapati Bharat Chandra: CAN-7USAT rocket telemetry (sub-5ms), AUVBrain autonomous underwater vehicle, MedVision AI (hackathon winner), FactCheck AI. Real production systems, not demos.",
   keywords: [
     "Bodapati Bharat Chandra projects",
-    "Bharat Chandra projects",
-    "CAN-7USAT telemetry",
+    "Bharat Chandra AI projects",
+    "CAN-7USAT rocket telemetry",
     "AUVBrain autonomous vehicle",
-    "MedVision AI",
-    "FactCheck AI",
-    "Easify pooling platform",
-    "Bharat Chandra GitHub",
-    "BharatChandra-sys projects",
+    "MedVision AI diabetic ulcer",
+    "FactCheck AI fake news",
+    "Bharat Chandra GITAM projects",
+    "Bodapati Bharat Chandra GitHub",
   ],
-  alternates: { 
-    canonical: "https://bharatchandra.me/projects",
+  alternates: {
+    canonical: `${BASE}/projects`,
     languages: {
-      'en-IN': 'https://bharatchandra.me/projects',
-      'en': 'https://bharatchandra.me/projects',
+      'en-IN': `${BASE}/projects`,
+      'en': `${BASE}/projects`,
     },
   },
   openGraph: {
     title: "Projects — Bodapati Bharat Chandra",
-    description:
-      "Rocket telemetry systems, autonomous vehicles, explainable AI, and production backends built by Bodapati Bharat Chandra.",
-    url: "https://bharatchandra.me/projects",
+    description: "Production AI systems, rocket telemetry, and autonomous vehicle stacks by Bodapati Bharat Chandra.",
+    url: `${BASE}/projects`,
     type: "website",
     siteName: "Bodapati Bharat Chandra",
     images: [
       {
-        url: "/bodapati-bharat-chandra.jpg",
+        url: `${BASE}/bodapati-bharat-chandra.jpg`,
         width: 400,
         height: 400,
-        alt: "Bodapati Bharat Chandra Projects",
+        alt: "Bodapati Bharat Chandra — AI/ML Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Projects — Bodapati Bharat Chandra",
-    description: "Production software projects: rocket telemetry, autonomous vehicles, and explainable AI systems.",
-    images: ["/bodapati-bharat-chandra.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
+    description: "Production AI systems, rocket telemetry, and AUV stacks.",
+    images: [`${BASE}/bodapati-bharat-chandra.jpg`],
   },
 };
 

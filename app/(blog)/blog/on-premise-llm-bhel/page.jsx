@@ -17,33 +17,59 @@ export const metadata = {
   },
 };
 
+const BASE = 'https://bharatchandra.me';
+
 const articleSchema = {
   "@context": "https://schema.org",
   "@type": "Article",
-  "headline": "Building a fully on-premise LLM pipeline at BHEL",
-  "description": "Bharat Chandra describes building a production AI vendor compliance portal at BHEL that runs entirely locally — no external APIs, no data leaving the network. FastAPI + Ollama + PyMuPDF.",
-  "image": "https://bharatchandra.me/og-image.png",
+  "headline": "I Built an On-Premise LLM at BHEL — No Cloud, No External APIs",
+  "description": "Bodapati Bharat Chandra's account of building a production AI vendor compliance portal at BHEL — Ollama (Mistral 7B), FastAPI, PyMuPDF, zero external API dependency.",
+  "image": {
+    "@type": "ImageObject",
+    "url": `${BASE}/bodapati-bharat-chandra.jpg`,
+    "width": 400,
+    "height": 400
+  },
   "datePublished": "2026-05-15T00:00:00Z",
   "dateModified": "2026-05-15T00:00:00Z",
   "author": {
     "@type": "Person",
-    "name": "Bharat Chandra",
-    "url": "https://bharatchandra.me"
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE}/#person`,
+    "url": BASE,
+    "image": `${BASE}/bodapati-bharat-chandra.jpg`,
+    "sameAs": [
+      "https://github.com/BharatChandra-sys",
+      "https://www.linkedin.com/in/bharat-chandra-bodapati/",
+      "https://orcid.org/0009-0004-4734-1635"
+    ]
   },
   "publisher": {
-    "@type": "Person",
-    "name": "Bharat Chandra",
-    "url": "https://bharatchandra.me"
+    "@type": "Organization",
+    "@id": `${BASE}/#website-publisher`,
+    "name": "Bodapati Bharat Chandra",
+    "url": BASE,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${BASE}/logo.png`,
+      "width": 60,
+      "height": 60
+    }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://bharatchandra.me/blog/on-premise-llm-bhel"
+    "@id": `${BASE}/blog/on-premise-llm-bhel`
   },
-  "keywords": ["LLM", "Ollama", "FastAPI", "PyMuPDF", "Production AI", "BHEL", "on-premise AI"],
+  "keywords": ["LLM", "Ollama", "FastAPI", "PyMuPDF", "Production AI", "BHEL", "on-premise AI", "Bodapati Bharat Chandra"],
   "articleSection": "AI/ML",
   "wordCount": 750,
   "timeRequired": "PT4M",
-  "inLanguage": "en-IN"
+  "inLanguage": "en-IN",
+  "isAccessibleForFree": true,
+  "about": {
+    "@type": "Thing",
+    "name": "On-Premise Large Language Models"
+  }
 };
 
 const breadcrumbSchema = {

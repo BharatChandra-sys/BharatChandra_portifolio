@@ -1,22 +1,12 @@
 // Dynamic OpenGraph Image Generator
 // Each blog post / project gets a custom OG card with your real photo.
-// Photo presence = stronger Knowledge Panel association, better CTR.
+// Photo URL is passed directly — no Buffer.from (Node-only, breaks Edge Runtime).
 
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
 const BASE = 'https://bharatchandra.me';
-
-async function getPhotoBase64(filename = 'bodapati-bharat-chandra.jpg') {
-  try {
-    const res = await fetch(`${BASE}/${filename}`);
-    const buf = await res.arrayBuffer();
-    return `data:image/jpeg;base64,${Buffer.from(buf).toString('base64')}`;
-  } catch {
-    return null;
-  }
-}
 
 export async function GET(request) {
   try {
@@ -31,11 +21,12 @@ export async function GET(request) {
       ? 'bodapati-bharat-chandra-2.jpg'
       : 'bodapati-bharat-chandra.jpg';
 
-    const photoSrc = await getPhotoBase64(photoFile);
+    // Edge runtime: use URL directly, not base64 (Buffer is Node-only)
+    const photoUrl = `${BASE}/${photoFile}`;
 
-    const bgColor = type === 'blog' ? '#0d0d1a' : type === 'project' ? '#0d1a0d' : '#0a0a0a';
+    const bgColor     = type === 'blog' ? '#0d0d1a' : type === 'project' ? '#0d1a0d' : '#0a0a0a';
     const accentColor = type === 'blog' ? '#6366f1' : type === 'project' ? '#22c55e' : '#ffffff';
-    const badge = type === 'blog' ? '✍️ Blog post' : type === 'project' ? '🚀 Project' : null;
+    const badge       = type === 'blog' ? '✍️ Blog post' : type === 'project' ? '🚀 Project' : null;
 
     return new ImageResponse(
       (
@@ -52,21 +43,19 @@ export async function GET(request) {
           }}
         >
           {/* ── Author photo ── */}
-          {photoSrc && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={photoSrc}
-              alt="Bodapati Bharat Chandra"
-              width={200}
-              height={200}
-              style={{
-                borderRadius: '50%',
-                objectFit: 'cover',
-                flexShrink: 0,
-                border: `3px solid ${accentColor}40`,
-              }}
-            />
-          )}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={photoUrl}
+            alt="Bodapati Bharat Chandra"
+            width={200}
+            height={200}
+            style={{
+              borderRadius: '50%',
+              objectFit: 'cover',
+              flexShrink: 0,
+              border: `3px solid ${accentColor}40`,
+            }}
+          />
 
           {/* ── Content ── */}
           <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
@@ -95,7 +84,7 @@ export async function GET(request) {
             {/* Title */}
             <div
               style={{
-                fontSize: title.length > 50 ? 38 : 46,
+                fontSize: title.length > 50 ? 36 : 44,
                 fontWeight: 700,
                 color: '#ffffff',
                 lineHeight: 1.2,
@@ -122,8 +111,9 @@ export async function GET(request) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  fontSize: 14,
+                  fontSize: 13,
                   color: accentColor,
+                  fontWeight: 700,
                 }}
               >
                 BC
