@@ -51,8 +51,21 @@ export default function BlogPage() {
             <motion.h1 variants={itemAnimation} className="text-3xl md:text-4xl font-bold text-primary">
               Writing
             </motion.h1>
+            {/* Trend 1 & 7: EEAT — author attribution + human framing on the index page */}
             <motion.p variants={itemAnimation} className="text-muted-foreground">
               Notes on things I&apos;ve built — mostly systems that had to work under real constraints.
+              Written by{' '}
+              <a
+                href="https://bharatchandra.me"
+                className="text-white/70 hover:text-white underline underline-offset-2 transition-colors"
+              >
+                Bodapati Bharat Chandra
+              </a>
+              , from lived experience.
+            </motion.p>
+            {/* Trend 2: Branded search signal — makes "Bharat Chandra blog" a recognisable phrase */}
+            <motion.p variants={itemAnimation} className="text-xs text-white/30">
+              {posts.length} posts · AI systems · Rocketry · Startups · Hyderabad, India
             </motion.p>
           </div>
 

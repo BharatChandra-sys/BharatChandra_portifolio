@@ -25,8 +25,8 @@ const resume = {
       },
       {
         "network": "LinkedIn",
-        "username": "bharat-chandra-6b29283b1",
-        "url": "https://www.linkedin.com/in/bharat-chandra-6b29283b1/"
+        "username": "bharat-chandra-bodapati",
+        "url": "https://www.linkedin.com/in/bharat-chandra-bodapati/"
       },
       {
         "network": "ORCID",

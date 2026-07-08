@@ -28,8 +28,11 @@ export default function sitemap() {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 1.0,
-      // Google Images — your headshot is on the homepage
-      images: [`${BASE_URL}/bodapati-bharat-chandra.jpg`],
+      // Both photos submitted to Google Images — more signals = more Knowledge Panel strength
+      images: [
+        `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+        `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
+      ],
     },
     {
       url: `${BASE_URL}/projects`,

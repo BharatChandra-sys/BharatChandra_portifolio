@@ -5,7 +5,7 @@ Location: Hyderabad, Telangana, India
 Contact: bc833498@gmail.com
 Website: https://bharatchandra.me
 GitHub: https://github.com/BharatChandra-sys
-LinkedIn: https://www.linkedin.com/in/bharat-chandra-6b29283b1/
+LinkedIn: https://www.linkedin.com/in/bharat-chandra-bodapati/
 ORCID: https://orcid.org/0009-0004-4734-1635
 
 /* SITE */

@@ -8,7 +8,12 @@
     "start": "next start",
     "lint": "next lint",
     "validate:seo": "node validate-seo.js",
-    "validate:seo:local": "node validate-seo.js --local"
+    "validate:seo:local": "node validate-seo.js --local",
+    "test:seo": "node scripts/test-seo.js",
+    "test:schema": "node scripts/test-schema.js",
+    "test:lighthouse": "lhci autorun",
+    "test:all": "npm run lint && npm run test:seo && npm run test:schema",
+    "analyze": "ANALYZE=true npm run build"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",
@@ -31,9 +36,12 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@types/node": "20.17.6",
     "eslint": "^8",
     "eslint-config-next": "15.5.19",
     "postcss": "^8",
-    "tailwindcss": "^3.4.14"
+    "tailwindcss": "^3.4.14",
+    "@lhci/cli": "^0.14.0",
+    "wait-on": "^8.0.1"
   }
 }

@@ -196,8 +196,8 @@ export const config = {
         {
             icon: <FaLinkedin className="w-5 h-5" />,
             label: "LinkedIn",
-            value: "bharat-chandra-6b29283b1",
-            link: "https://www.linkedin.com/in/bharat-chandra-6b29283b1/"
+            value: "bharat-chandra-bodapati",
+            link: "https://www.linkedin.com/in/bharat-chandra-bodapati/"
         },
         {
             icon: <HiMail className="w-5 h-5" />,

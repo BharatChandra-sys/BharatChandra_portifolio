@@ -1,16 +1,22 @@
+// Trend 2: Branded search — page title includes personal name + niche phrase so
+// searches for "Bharat Chandra writing" or "Bharat Chandra blog" find this page.
+// Trend 3: "Notes on what I've built" is a personal hook that beats "Technical Blog".
 export const metadata = {
-  title: "Writing — Bodapati Bharat Chandra",
+  title: "Writing — Bharat Chandra | Notes on AI Systems, Rocketry & Startups I've Built",
   description:
-    "Technical writing by Bodapati Bharat Chandra on building production AI systems, rocket telemetry pipelines, on-premise LLMs, and co-founding a startup in Hyderabad.",
+    "Technical writing by Bodapati Bharat Chandra. I write about production AI systems, rocket telemetry backends, on-premise LLMs, and co-founding a startup in Hyderabad — from real experience, not theory.",
   keywords: [
     "Bodapati Bharat Chandra blog",
-    "Bharat Chandra blog",
     "Bharat Chandra writing",
-    "AI/ML engineering blog",
-    "rocket telemetry tutorial",
-    "on-premise LLM Ollama",
+    "Bharat Chandra AI blog",
+    "Bharat Chandra BHEL blog",
+    "Bharat Chandra rocketry blog",
+    "AI/ML engineering blog India",
+    "on-premise LLM Ollama tutorial",
+    "rocket telemetry FastAPI",
     "Easify startup Hyderabad",
-    "GITAM student blog",
+    "GITAM student engineering blog",
+    "Bodapati Bharat Chandra GITAM",
   ],
   alternates: { 
     canonical: "https://bharatchandra.me/blog",

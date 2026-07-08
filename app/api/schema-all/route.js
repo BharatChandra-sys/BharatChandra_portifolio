@@ -21,7 +21,7 @@ export async function GET() {
         "description": "AI/ML engineer and final-year CSE student at GITAM University Hyderabad",
         "sameAs": [
           "https://github.com/BharatChandra-sys",
-          "https://www.linkedin.com/in/bharat-chandra-6b29283b1/",
+          "https://www.linkedin.com/in/bharat-chandra-bodapati/",
           "https://orcid.org/0009-0004-4734-1635"
         ]
       },

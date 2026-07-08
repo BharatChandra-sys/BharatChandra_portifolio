@@ -1,8 +1,10 @@
 import { BlogPost } from '../components/BlogPost';
 
+// Trend 3: Honest, personal title — "What I learned" is a proven CTR pattern.
+// Trend 7: Human-written, lived-experience framing in the description.
 export const metadata = {
-  title: "Co-founding Easify: Smart pooling in Hyderabad — Bharat Chandra",
-  description: "Bharat Chandra writes about co-founding Easify, a smart ride-pooling platform in Hyderabad — architecture decisions, real-time matching, and what actually makes people use a product.",
+  title: "What I Learned Co-founding Easify: My Honest Take After Building a Pooling Startup — Bharat Chandra",
+  description: "I co-founded Easify, a ride-pooling platform in Hyderabad. Here's my honest breakdown: the architecture decisions, real-time matching trade-offs, and why the hardest part had nothing to do with code.",
   keywords: "Bharat Chandra, Easify, pooling startup Hyderabad, co-founder, FastAPI startup, ride pooling India, Bodapati Bharat Chandra",
   openGraph: {
     title: "Co-founding Easify — Bharat Chandra",

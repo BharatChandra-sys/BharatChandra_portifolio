@@ -183,7 +183,7 @@ function buildUserHtml(name, message) {
                 </a>
               </td>
               <td style="padding-right:10px;">
-                <a href="https://www.linkedin.com/in/bharat-chandra-6b29283b1/"
+                <a href="https://www.linkedin.com/in/bharat-chandra-bodapati/"
                    style="display:inline-block;background:#ffffff;color:#111111;text-decoration:none;font-size:13px;font-weight:600;padding:11px 22px;border-radius:4px;letter-spacing:0.2px;border:1px solid #dddddd;">
                   LinkedIn
                 </a>

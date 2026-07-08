@@ -1,8 +1,10 @@
 import { BlogPost } from '../components/BlogPost';
 
+// Trend 3: First-person title — "I built" signals human authorship and lived experience.
+// Trend 1: Specific context (no external APIs, BHEL) builds authority.
 export const metadata = {
-  title: "Building a fully on-premise LLM pipeline at BHEL — Bharat Chandra",
-  description: "Bharat Chandra describes building a production AI vendor compliance portal at BHEL that runs entirely locally — no external APIs, no data leaving the network. FastAPI + Ollama + PyMuPDF.",
+  title: "I Built an On-Premise LLM at BHEL — No Cloud, No External APIs — Bharat Chandra",
+  description: "My approach to building a production AI vendor compliance portal at BHEL that runs entirely on local hardware. FastAPI + Ollama + PyMuPDF, zero data leaving the network.",
   keywords: "Bharat Chandra, BHEL AI, on-premise LLM, Ollama, FastAPI, vendor compliance, Bodapati Bharat Chandra, Bharat Chandra BHEL intern",
   openGraph: {
     title: "On-premise LLM at BHEL — Bharat Chandra",

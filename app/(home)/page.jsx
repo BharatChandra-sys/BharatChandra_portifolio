@@ -63,6 +63,32 @@ const faqSchema = {
         "text": "Bodapati Bharat Chandra's GitHub username is BharatChandra-sys. His profile is at github.com/BharatChandra-sys and includes projects like CAN-7USAT, AUVBrain, MedVision AI, FactCheckAI, rocket-simulator, and Email-Automation-for-Form.",
       },
     },
+    // Trend 2: Branded search — these questions mirror real "Bharat Chandra + keyword"
+    // searches. FAQ schema gives them a chance to appear as rich results.
+    {
+      "@type": "Question",
+      "name": "Does Bharat Chandra have a blog?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Bodapati Bharat Chandra writes at bharatchandra.me/blog. He publishes technical posts from direct lived experience — not theory. Current articles cover building a sub-5ms rocket telemetry system for IN-SPACe 2026, deploying an on-premise LLM at BHEL with no external APIs, and co-founding Easify, a ride-pooling startup in Hyderabad.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What has Bharat Chandra won?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bodapati Bharat Chandra has won two hackathons in 2026: the AI Day Hackathon organised by GITAM University and Kodryx AI (March 2026) for MedVision AI, an explainable AI system for diabetic ulcer detection; and HackXplore organised by IEEE-SSIT VJIT (April 2026) for FactCheck AI, a fake news analyser with 90% accuracy.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What is Bharat Chandra's LinkedIn?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bodapati Bharat Chandra's LinkedIn profile is at linkedin.com/in/bharat-chandra-bodapati/. He is open to AI/ML internships, full-time engineering roles starting 2027, and project collaborations.",
+      },
+    },
   ],
 };
 
@@ -70,8 +96,12 @@ const faqSchema = {
 const profilePageSchema = {
   "@context": "https://schema.org",
   "@type": "ProfilePage",
-  "dateCreated": "2026-06-01T00:00:00+05:30",
-  "dateModified": "2026-07-08T00:00:00+05:30",
+  "@id": `${BASE}/#profilepage`,
+  "url": BASE,
+  "name": "Bodapati Bharat Chandra - Professional Profile",
+  "dateCreated": "2026-06-01T00:00:00Z",
+  "dateModified": "2026-07-08T00:00:00Z",
+  "inLanguage": "en-IN",
   "mainEntity": {
     "@type": "Person",
     "@id": `${BASE}/#person`,
@@ -79,13 +109,41 @@ const profilePageSchema = {
     "alternateName": "Bharat Chandra",
     "identifier": "BharatChandra-sys",
     "description": "AI/ML Engineer and final-year CSE student at GITAM University Hyderabad.",
-    "image": `${BASE}/bodapati-bharat-chandra.jpg`,
+    "disambiguatingDescription": "AI/ML Engineering Intern at BHEL, Backend & ML Lead at GARI rocketry initiative, co-founder of Easify. Not the cricketer or the JEE student sharing the name.",
+    // Two photos — both get crawled and associated with this entity
+    "image": [
+      {
+        "@type": "ImageObject",
+        "url": `${BASE}/bodapati-bharat-chandra.jpg`,
+        "caption": "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
+        "width": 400,
+        "height": 400,
+      },
+      {
+        "@type": "ImageObject",
+        "url": `${BASE}/bodapati-bharat-chandra-2.jpg`,
+        "caption": "Bodapati Bharat Chandra — Co-founder of Easify, Hyderabad",
+        "width": 400,
+        "height": 400,
+      },
+    ],
     "sameAs": [
       "https://github.com/BharatChandra-sys",
-      "https://www.linkedin.com/in/bharat-chandra-6b29283b1/",
+      "https://www.linkedin.com/in/bharat-chandra-bodapati/",
       "https://orcid.org/0009-0004-4734-1635",
     ],
   },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": BASE
+      }
+    ]
+  }
 };
 
 // ── Schema: ItemList of Projects ───────────────────────────────────────────────
@@ -100,11 +158,23 @@ const projectsListSchema = {
       "position": 1,
       "item": {
         "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend",
         "name": "CAN-7USAT Ground Control Station",
         "description": "Real-time rocket telemetry backend for IN-SPACe Model Rocketry Competition 2026. Sub-5ms end-to-end latency, Kalman filter sensor fusion, 6-state flight state machine.",
         "codeRepository": "https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend",
+        "url": "https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend",
         "programmingLanguage": ["Python", "TypeScript"],
-        "author": { "@id": `${BASE}/#person` },
+        "author": {
+          "@type": "Person",
+          "name": "Bodapati Bharat Chandra",
+          "@id": `${BASE}/#person`
+        },
+        "dateCreated": "2025-10-15",
+        "dateModified": "2026-05-20",
+        "datePublished": "2025-11-01",
+        "license": "https://opensource.org/licenses/MIT",
+        "runtimePlatform": "Python 3.11+",
+        "keywords": "rocketry, telemetry, FastAPI, websockets, Kalman filter"
       },
     },
     {
@@ -112,11 +182,23 @@ const projectsListSchema = {
       "position": 2,
       "item": {
         "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/BharatChandra-sys/AUVBrain",
         "name": "AUVBrain — Autonomous Underwater Vehicle Control Stack",
         "description": "Full autonomous control stack for an underwater vehicle. 0.84ms p95 agent loop latency. Offline LLM decision engine with rules-based fallback.",
         "codeRepository": "https://github.com/BharatChandra-sys/AUVBrain",
+        "url": "https://github.com/BharatChandra-sys/AUVBrain",
         "programmingLanguage": ["Python"],
-        "author": { "@id": `${BASE}/#person` },
+        "author": {
+          "@type": "Person",
+          "name": "Bodapati Bharat Chandra",
+          "@id": `${BASE}/#person`
+        },
+        "dateCreated": "2025-08-10",
+        "dateModified": "2026-04-15",
+        "datePublished": "2025-09-01",
+        "license": "https://opensource.org/licenses/MIT",
+        "runtimePlatform": "Python 3.10+, ROS2",
+        "keywords": "autonomous underwater vehicle, AUV, control systems, LLM, robotics"
       },
     },
     {
@@ -124,12 +206,23 @@ const projectsListSchema = {
       "position": 3,
       "item": {
         "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
         "name": "MedVision AI — Diabetic Ulcer Detection",
         "description": "Explainable AI system for diabetic ulcer risk detection. Grad-CAM heatmaps, SHAP values, MLflow tracking. Won AI Day Hackathon GITAM × Kodryx AI 2026.",
         "codeRepository": "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
-        "programmingLanguage": ["Python"],
-        "author": { "@id": `${BASE}/#person` },
         "url": "https://diabetic-ulcer-ai-system.vercel.app",
+        "programmingLanguage": ["Python"],
+        "author": {
+          "@type": "Person",
+          "name": "Bodapati Bharat Chandra",
+          "@id": `${BASE}/#person`
+        },
+        "dateCreated": "2026-02-10",
+        "dateModified": "2026-03-25",
+        "datePublished": "2026-03-15",
+        "license": "https://opensource.org/licenses/MIT",
+        "runtimePlatform": "Python 3.10+",
+        "keywords": "AI, machine learning, medical imaging, explainable AI, Grad-CAM, SHAP"
       },
     },
     {
@@ -137,11 +230,23 @@ const projectsListSchema = {
       "position": 4,
       "item": {
         "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/BharatChandra-sys/FactCheckAI",
         "name": "FactCheck AI — Fake News Analyzer",
         "description": "Browser extension that scores news credibility. 90% accuracy. Won HackXplore IEEE-SSIT VJIT April 2026.",
         "codeRepository": "https://github.com/BharatChandra-sys/FactCheckAI",
+        "url": "https://github.com/BharatChandra-sys/FactCheckAI",
         "programmingLanguage": ["Python"],
-        "author": { "@id": `${BASE}/#person` },
+        "author": {
+          "@type": "Person",
+          "name": "Bodapati Bharat Chandra",
+          "@id": `${BASE}/#person`
+        },
+        "dateCreated": "2026-03-20",
+        "dateModified": "2026-04-30",
+        "datePublished": "2026-04-15",
+        "license": "https://opensource.org/licenses/MIT",
+        "runtimePlatform": "Python 3.10+",
+        "keywords": "AI, NLP, fake news detection, fact checking, machine learning"
       },
     },
     {
@@ -149,11 +254,23 @@ const projectsListSchema = {
       "position": 5,
       "item": {
         "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/BharatChandra-sys/rocket-simulator",
         "name": "Rocket Simulator",
         "description": "Physics-based rocket flight simulator for GARI rocketry trajectory analysis.",
         "codeRepository": "https://github.com/BharatChandra-sys/rocket-simulator",
+        "url": "https://github.com/BharatChandra-sys/rocket-simulator",
         "programmingLanguage": ["Python"],
-        "author": { "@id": `${BASE}/#person` },
+        "author": {
+          "@type": "Person",
+          "name": "Bodapati Bharat Chandra",
+          "@id": `${BASE}/#person`
+        },
+        "dateCreated": "2025-06-01",
+        "dateModified": "2026-01-10",
+        "datePublished": "2025-07-15",
+        "license": "https://opensource.org/licenses/MIT",
+        "runtimePlatform": "Python 3.9+",
+        "keywords": "rocketry, simulation, physics, trajectory analysis, aerospace"
       },
     },
     {
@@ -161,11 +278,23 @@ const projectsListSchema = {
       "position": 6,
       "item": {
         "@type": "SoftwareSourceCode",
+        "@id": "https://github.com/BharatChandra-sys/Email-Automation-for-Form",
         "name": "Email Automation for Forms",
         "description": "Automated email pipeline triggered by form submissions. FastAPI, SMTP, Jinja2, queue-based delivery.",
         "codeRepository": "https://github.com/BharatChandra-sys/Email-Automation-for-Form",
+        "url": "https://github.com/BharatChandra-sys/Email-Automation-for-Form",
         "programmingLanguage": ["Python"],
-        "author": { "@id": `${BASE}/#person` },
+        "author": {
+          "@type": "Person",
+          "name": "Bodapati Bharat Chandra",
+          "@id": `${BASE}/#person`
+        },
+        "dateCreated": "2025-04-01",
+        "dateModified": "2025-12-15",
+        "datePublished": "2025-05-01",
+        "license": "https://opensource.org/licenses/MIT",
+        "runtimePlatform": "Python 3.9+",
+        "keywords": "email automation, FastAPI, SMTP, Jinja2, queue systems"
       },
     },
   ],
@@ -175,16 +304,30 @@ const projectsListSchema = {
 const educationSchema = {
   "@context": "https://schema.org",
   "@type": "EducationalOccupationalCredential",
+  "@id": `${BASE}/#education-credential`,
   "name": "B.Tech Computer Science & Engineering",
-  "credentialCategory": "degree",
+  "description": "Bachelor of Technology in Computer Science & Engineering from GITAM University Hyderabad",
+  "credentialCategory": "Bachelor's Degree",
+  "educationalLevel": "Undergraduate",
   "recognizedBy": {
     "@type": "CollegeOrUniversity",
     "name": "GITAM University Hyderabad",
     "url": "https://gitam.edu",
+    "sameAs": "https://en.wikipedia.org/wiki/GITAM_University"
   },
-  "about": { "@id": `${BASE}/#person` },
-  "validFrom": "2023",
-  "validUntil": "2027",
+  "about": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE}/#person`
+  },
+  "validFrom": "2023-08-01",
+  "validUntil": "2027-05-31",
+  "competencyRequired": "Computer Science, Machine Learning, Software Engineering",
+  "awardedBy": {
+    "@type": "CollegeOrUniversity",
+    "name": "GITAM University Hyderabad",
+    "url": "https://gitam.edu"
+  }
 };
 
 const Home = () => {

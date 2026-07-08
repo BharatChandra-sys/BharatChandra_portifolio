@@ -1,0 +1,269 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main, develop]
+
+jobs:
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 1: Lint and Type Check
+  # ────────────────────────────────────────────────────────────────────────────
+  lint-and-typecheck:
+    name: 🔍 Lint & Type Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 📥 Install dependencies
+        run: npm ci
+        
+      - name: 🔍 Run ESLint
+        run: npm run lint
+        
+      - name: 📊 Upload lint results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lint-results
+          path: .next/
+          retention-days: 7
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 2: Build Test
+  # ────────────────────────────────────────────────────────────────────────────
+  build:
+    name: 🏗️ Build & Test
+    runs-on: ubuntu-latest
+    needs: lint-and-typecheck
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 📥 Install dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build project
+        run: npm run build
+        env:
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+        
+      - name: 📊 Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: .next/
+          retention-days: 7
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 3: SEO Validation
+  # ────────────────────────────────────────────────────────────────────────────
+  seo-validation:
+    name: 🔎 SEO Validation
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 📥 Install dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build project
+        run: npm run build
+        
+      - name: 🚀 Start server
+        run: npm run start &
+        env:
+          PORT: 3000
+          
+      - name: ⏳ Wait for server
+        run: npx wait-on http://localhost:3000 --timeout 30000
+        
+      - name: 🔎 Validate SEO
+        run: npm run test:seo
+        
+      - name: 📊 Upload SEO report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seo-report
+          path: seo-report.json
+          retention-days: 30
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 4: Lighthouse Performance Test
+  # ────────────────────────────────────────────────────────────────────────────
+  lighthouse:
+    name: 💡 Lighthouse Audit
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 📥 Install dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build project
+        run: npm run build
+        
+      - name: 🚀 Start server
+        run: npm run start &
+        env:
+          PORT: 3000
+          
+      - name: ⏳ Wait for server
+        run: npx wait-on http://localhost:3000 --timeout 30000
+        
+      - name: 💡 Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            http://localhost:3000
+            http://localhost:3000/projects
+            http://localhost:3000/blog
+            http://localhost:3000/contact
+          budgetPath: ./.lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+          
+      - name: 📊 Comment PR with results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const results = JSON.parse(fs.readFileSync('.lighthouseci/manifest.json'));
+            const comment = `## 💡 Lighthouse Results\n\n${results}`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 5: Security Audit
+  # ────────────────────────────────────────────────────────────────────────────
+  security:
+    name: 🔒 Security Audit
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 🔒 Run npm audit
+        run: npm audit --audit-level=moderate
+        continue-on-error: true
+        
+      - name: 🔍 Dependency Review
+        if: github.event_name == 'pull_request'
+        uses: actions/dependency-review-action@v4
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 6: Schema Validation
+  # ────────────────────────────────────────────────────────────────────────────
+  schema-validation:
+    name: 📋 Schema.org Validation
+    runs-on: ubuntu-latest
+    needs: build
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 📦 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          
+      - name: 📥 Install dependencies
+        run: npm ci
+        
+      - name: 🏗️ Build project
+        run: npm run build
+        
+      - name: 🚀 Start server
+        run: npm run start &
+        env:
+          PORT: 3000
+          
+      - name: ⏳ Wait for server
+        run: npx wait-on http://localhost:3000 --timeout 30000
+        
+      - name: 📋 Validate schemas
+        run: npm run test:schema
+        
+      - name: 📊 Upload schema report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: schema-validation-report
+          path: schema-report.json
+          retention-days: 30
+
+  # ────────────────────────────────────────────────────────────────────────────
+  # Job 7: Deploy to Vercel (on main branch only)
+  # ────────────────────────────────────────────────────────────────────────────
+  deploy:
+    name: 🚀 Deploy to Vercel
+    runs-on: ubuntu-latest
+    needs: [lint-and-typecheck, build, seo-validation, lighthouse, security, schema-validation]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+        
+      - name: 🚀 Deploy to Vercel
+        uses: amondnet/vercel-action@v25
+        with:
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          vercel-args: '--prod'
+          
+      - name: 🔔 Notify deployment success
+        if: success()
+        run: |
+          echo "✅ Deployment successful!"
+          echo "🌐 Site URL: https://bharatchandra.me"

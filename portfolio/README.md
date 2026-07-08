@@ -36,7 +36,7 @@ Building production systems at the intersection of machine learning, backend eng
 ## 📌 Links
 
 - 🌐 Portfolio: [bharatchandra.me](https://bharatchandra.me)
-- 💼 LinkedIn: [linkedin.com/in/bharat-chandra-6b29283b1](https://linkedin.com/in/bharat-chandra-6b29283b1)
+- 💼 LinkedIn: [linkedin.com/in/bharat-chandra-bodapati](https://linkedin.com/in/bharat-chandra-bodapati)
 - 🔬 ORCID: [orcid.org/0009-0004-4734-1635](https://orcid.org/0009-0004-4734-1635)
 - 📄 Resume: [Download PDF](https://bharatchandra.me/assets/resume.pdf)
 - ✉ Email: [bc833498@gmail.com](mailto:bc833498@gmail.com)

@@ -53,4 +53,4 @@ The `portfolio/` folder contains a pure HTML + CSS + Vanilla JS version of the s
 
 - Email: [bc833498@gmail.com](mailto:bc833498@gmail.com)
 - GitHub: [github.com/BharatChandra-sys](https://github.com/BharatChandra-sys)
-- LinkedIn: [linkedin.com/in/bharat-chandra-6b29283b1](https://linkedin.com/in/bharat-chandra-6b29283b1)
+- LinkedIn: [linkedin.com/in/bharat-chandra-bodapati](https://linkedin.com/in/bharat-chandra-bodapati)

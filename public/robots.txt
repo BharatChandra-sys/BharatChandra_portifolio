@@ -1,14 +1,28 @@
 # bharatchandra.me — robots.txt
+# Trend 5: Google-first strategy — allow all legitimate search crawlers.
+# Trend 2: Branded search — llms.txt lets AI cite you accurately when users
+#          search "Bharat Chandra AI engineer" in ChatGPT / Perplexity.
 
-# Allow all search engine crawlers
+# ── Search Engines (full access) ─────────────────────────────────────────────
 User-agent: *
 Allow: /
 
-# Block AI training scrapers
-User-agent: GPTBot
-Disallow: /
+# ── AI Indexing Crawlers (allow citations, block training) ───────────────────
+# Trend 5: Don't chase LLM SEO hacks. Let legitimate AI search engines crawl.
+# ChatGPT Browse / SearchGPT
+User-agent: OAI-SearchBot
+Allow: /
 
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI (Gemini search)
 User-agent: Google-Extended
+Allow: /
+
+# ── AI Training Scrapers (block — don't contribute to bulk training sets) ────
+User-agent: GPTBot
 Disallow: /
 
 User-agent: CCBot
@@ -20,5 +34,19 @@ Disallow: /
 User-agent: Claude-Web
 Disallow: /
 
-# Sitemap
+User-agent: Omgilibot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+# ── Sitemaps ─────────────────────────────────────────────────────────────────
 Sitemap: https://bharatchandra.me/sitemap.xml
+Sitemap: https://bharatchandra.me/rss.xml
+
+# ── LLMs.txt (AI identity file) ──────────────────────────────────────────────
+# Tells AI search engines who this person is and what this site contains.
+# https://bharatchandra.me/llms.txt

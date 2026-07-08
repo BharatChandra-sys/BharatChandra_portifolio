@@ -1,8 +1,10 @@
 import { BlogPost } from '../components/BlogPost';
 
+// Trend 3: First-person, high-CTR title with a concrete promise (sub-5ms).
+// Trend 1: Description leads with lived experience ("I built").
 export const metadata = {
-  title: "How I built CAN-7USAT rocket telemetry with sub-5ms latency — Bharat Chandra",
-  description: "Bharat Chandra explains the real-time ground control station built for GARI's IN-SPACe rocketry competition — 46-byte binary telemetry packets, Kalman filter sensor fusion, and WebSocket broadcasting under 5ms.",
+  title: "I Built a Sub-5ms Rocket Telemetry System for IN-SPACe 2026 — Bharat Chandra",
+  description: "How I engineered the CAN-7USAT ground control station for GITAM's rocketry competition: 46-byte binary packets, Kalman filter sensor fusion, and WebSocket broadcasting that hit under 5ms end-to-end.",
   keywords: "Bharat Chandra, CAN-7USAT, rocket telemetry, GARI GITAM, IN-SPACe rocketry, FastAPI WebSocket, Bodapati Bharat Chandra",
   openGraph: {
     title: "CAN-7USAT Rocket Telemetry — Bharat Chandra",

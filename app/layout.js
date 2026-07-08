@@ -91,10 +91,19 @@ export const metadata = {
     locale: "en_IN",
     images: [
       {
+        // Primary headshot — submitted to Google for Knowledge Panel
         url: "/bodapati-bharat-chandra.jpg",
         width: 400,
         height: 400,
         alt: "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
+        type: "image/jpeg",
+      },
+      {
+        // Second photo — more image entity signals = stronger disambiguation
+        url: "/bodapati-bharat-chandra-2.jpg",
+        width: 400,
+        height: 400,
+        alt: "Bodapati Bharat Chandra — Co-founder of Easify, Hyderabad",
         type: "image/jpeg",
       },
     ],
@@ -112,9 +121,21 @@ export const metadata = {
 
   manifest: "/manifest.json",
 
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/logo.png', sizes: 'any', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/logo.png', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.svg',
+  },
+
   other: {
     "msapplication-TileColor": "#000000",
     "msapplication-config": "/browserconfig.xml",
+    "msapplication-TileImage": "/logo.png",
   },
 
   verification: {
@@ -134,18 +155,52 @@ const personSchema = {
   "givenName": "Bharat Chandra",
   "familyName": "Bodapati",
   "url": BASE_URL,
-  "image": {
-    "@type": "ImageObject",
-    "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-    "contentUrl": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-    "width": 400,
-    "height": 400,
-    "caption": "Bodapati Bharat Chandra — AI/ML Engineer",
-  },
+  // Multiple images = stronger visual entity signal for Google Knowledge Panel.
+  // Both photos are of the same person with matching name/caption.
+  "image": [
+    {
+      "@type": "ImageObject",
+      "@id": `${BASE_URL}/#photo-primary`,
+      "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+      "contentUrl": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+      "width": 400,
+      "height": 400,
+      "caption": "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
+      "name": "Bodapati Bharat Chandra headshot",
+      "description": "Professional photo of Bodapati Bharat Chandra, AI/ML Engineering Intern at BHEL and Backend & ML Lead at GARI rocketry team, GITAM University Hyderabad.",
+      "inLanguage": "en-IN",
+      "license": `${BASE_URL}`,
+      "acquireLicensePage": `${BASE_URL}`,
+      "creditText": "Bodapati Bharat Chandra",
+      "creator": { "@type": "Person", "name": "Bodapati Bharat Chandra", "@id": `${BASE_URL}/#person` },
+      "copyrightNotice": "© 2026 Bodapati Bharat Chandra",
+    },
+    {
+      "@type": "ImageObject",
+      "@id": `${BASE_URL}/#photo-secondary`,
+      "url": `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
+      "contentUrl": `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
+      "width": 400,
+      "height": 400,
+      "caption": "Bodapati Bharat Chandra — AI/ML Engineer and Co-founder of Easify, Hyderabad",
+      "name": "Bodapati Bharat Chandra photo",
+      "description": "Bodapati Bharat Chandra, final-year CSE student at GITAM University Hyderabad, AI/ML engineer and co-founder of Easify.",
+      "inLanguage": "en-IN",
+      "license": `${BASE_URL}`,
+      "acquireLicensePage": `${BASE_URL}`,
+      "creditText": "Bodapati Bharat Chandra",
+      "creator": { "@type": "Person", "name": "Bodapati Bharat Chandra", "@id": `${BASE_URL}/#person` },
+      "copyrightNotice": "© 2026 Bodapati Bharat Chandra",
+    },
+  ],
   "email": "bc833498@gmail.com",
   "jobTitle": "AI/ML Engineer",
+  // Disambiguation: these specifics separate this entity from other people
+  // named "Bharat Chandra" or "Bodapati Bharat Chandra"
   "description":
     "Bodapati Bharat Chandra is an AI/ML engineer and final-year CSE student at GITAM University Hyderabad building production AI systems, rocketry telemetry backends, and autonomous underwater vehicle control stacks.",
+  "disambiguatingDescription":
+    "Bodapati Bharat Chandra (born ~2005, Hyderabad, India) is a Computer Science & Engineering student at GITAM University Hyderabad (2023–2027), AI/ML Engineering Intern at BHEL (Bharat Heavy Electricals Limited), Backend & ML Lead at GARI (GITAM Aerospace Rocketry Initiative), and co-founder of Easify. Not to be confused with other individuals sharing similar names.",
   "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "GITAM University Hyderabad",
@@ -236,7 +291,7 @@ const personSchema = {
   ],
   "sameAs": [
     "https://github.com/BharatChandra-sys",
-    "https://www.linkedin.com/in/bharat-chandra-6b29283b1/",
+    "https://www.linkedin.com/in/bharat-chandra-bodapati/",
     "https://orcid.org/0009-0004-4734-1635",
   ],
   "address": {
@@ -259,14 +314,34 @@ const websiteSchema = {
   "url": BASE_URL,
   "name": "Bodapati Bharat Chandra",
   "description": "Personal portfolio of Bodapati Bharat Chandra — AI/ML Engineer",
-  "author": { "@id": `${BASE_URL}/#person` },
+  "inLanguage": "en-IN",
+  "author": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE_URL}/#person`
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE_URL}/#person`
+  },
+  "copyrightYear": 2026,
+  "copyrightHolder": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE_URL}/#person`
+  },
   "potentialAction": {
     "@type": "SearchAction",
     "target": {
       "@type": "EntryPoint",
       "urlTemplate": `${BASE_URL}/blog?q={search_term_string}`,
     },
-    "query-input": "required name=search_term_string",
+    "query-input": {
+      "@type": "PropertyValueSpecification",
+      "valueRequired": true,
+      "valueName": "search_term_string"
+    }
   },
 };
 
@@ -287,36 +362,56 @@ const breadcrumbSchema = {
 const easifyOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${BASE_URL}/#easify-organization`,
   "name": "Easify",
   "description": "Smart pooling service platform for shared rides in Hyderabad, India",
-  "foundingDate": "2023",
-  "founder": {
-    "@id": `${BASE_URL}/#person`
-  },
+  "foundingDate": "2023-09-01",
+  "founder": [
+    {
+      "@type": "Person",
+      "name": "Bodapati Bharat Chandra",
+      "@id": `${BASE_URL}/#person`
+    }
+  ],
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Hyderabad",
     "addressRegion": "Telangana",
     "addressCountry": "IN"
   },
-  "url": "https://bharatchandra.me",
-  "sameAs": []
+  "url": BASE_URL,
+  "email": "bc833498@gmail.com",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Founder",
+    "email": "bc833498@gmail.com",
+    "availableLanguage": ["English", "Hindi", "Telugu"]
+  }
 };
 
 const gariOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${BASE_URL}/#gari-organization`,
   "name": "GARI — GITAM Aerospace Rocketry Initiative",
   "description": "GITAM University's rocketry team competing in IN-SPACe national competitions",
   "parentOrganization": {
     "@type": "CollegeOrUniversity",
     "name": "GITAM University Hyderabad",
-    "url": "https://gitam.edu"
+    "url": "https://gitam.edu",
+    "sameAs": "https://en.wikipedia.org/wiki/GITAM_University"
   },
-  "member": {
-    "@id": `${BASE_URL}/#person`
-  },
-  "url": "https://bharatchandra.me"
+  "member": [
+    {
+      "@type": "Person",
+      "name": "Bodapati Bharat Chandra",
+      "@id": `${BASE_URL}/#person`
+    }
+  ],
+  "url": BASE_URL,
+  "foundingDate": "2024",
+  "areaServed": "India",
+  "knowsAbout": ["Rocketry", "Aerospace Engineering", "Telemetry Systems", "IN-SPACe Competitions"]
 };
 
 // ── ContactPoint Schema ────────────────────────────────────────────────────────
