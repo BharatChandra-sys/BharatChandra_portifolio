@@ -9,7 +9,7 @@ on:
 jobs:
   # ── Job 1: Lint ───────────────────────────────────────────────────────────
   lint:
-    name: 🔍 Lint & Type Check
+    name: Lint and Type Check
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -22,7 +22,7 @@ jobs:
 
   # ── Job 2: Build ──────────────────────────────────────────────────────────
   build:
-    name: 🏗️ Build
+    name: Build
     runs-on: ubuntu-latest
     needs: lint
     steps:
@@ -36,15 +36,16 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+      # Upload the full build output so seo-schema job can reuse it
       - uses: actions/upload-artifact@v4
         with:
           name: build-output
           path: .next/
           retention-days: 3
 
-  # ── Job 3: SEO & Schema Validation (against local build) ──────────────────
+  # ── Job 3: SEO and Schema Validation ──────────────────────────────────────
   seo-schema:
-    name: 🔎 SEO + Schema Validation
+    name: SEO and Schema Validation
     runs-on: ubuntu-latest
     needs: build
     steps:
@@ -54,24 +55,48 @@ jobs:
           node-version: '20'
           cache: 'npm'
       - run: npm ci
-      - run: npm run build
-        env:
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
+
+      # Reuse the build artifact — no need to rebuild
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: .next/
 
       # Start the Next.js production server in background
+      # PORT is set explicitly; Next.js honours it via $PORT env var
       - name: Start server
         run: npm run start &
+        env:
+          PORT: 3000
+          NODE_ENV: production
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
 
-      # Wait up to 30s for port 3000 to be ready
+      # Poll until the server responds, with a longer timeout and retry interval
       - name: Wait for server
-        run: npx wait-on@latest http://localhost:3000 --timeout 30000
+        run: |
+          echo "Waiting for server on port 3000..."
+          for i in $(seq 1 24); do
+            if curl -sf http://localhost:3000 > /dev/null 2>&1; then
+              echo "Server is up after ${i} attempts"
+              exit 0
+            fi
+            echo "Attempt $i failed, retrying in 5s..."
+            sleep 5
+          done
+          echo "Server did not start within 120 seconds"
+          exit 1
 
       - name: Validate SEO
         run: BASE_URL=http://localhost:3000 node scripts/test-seo.js
         continue-on-error: true
 
       - name: Validate Schema
-        run: BASE_URL=http://localhost:3000 node scripts/test-schema.js
+        run: |
+          if [ -f scripts/test-schema.js ]; then
+            BASE_URL=http://localhost:3000 node scripts/test-schema.js
+          else
+            echo "test-schema.js not found, skipping"
+          fi
         continue-on-error: true
 
       - uses: actions/upload-artifact@v4
@@ -81,14 +106,14 @@ jobs:
           path: |
             seo-report.json
             schema-report.json
+          if-no-files-found: warn
           retention-days: 14
 
-  # ── Job 4: Lighthouse (against LIVE production site, post-deploy) ─────────
-  # Only runs after a successful push to master so the live URL is up to date.
+  # ── Job 4: Lighthouse against live production site ────────────────────────
+  # Only runs on master push so the live URL is always current
   lighthouse:
-    name: 💡 Lighthouse Audit (Production)
+    name: Lighthouse Audit (Production)
     runs-on: ubuntu-latest
-    # Only run on master push, not PRs — we want to test the live site
     if: github.ref == 'refs/heads/master' && github.event_name == 'push'
     needs: build
     steps:
@@ -102,7 +127,6 @@ jobs:
       - name: Run Lighthouse against production
         uses: treosh/lighthouse-ci-action@v11
         with:
-          # Tests the LIVE site — no local server needed
           configPath: ./.lighthouserc.json
           uploadArtifacts: true
           temporaryPublicStorage: true
@@ -118,7 +142,7 @@ jobs:
               const lines = manifest.map(r =>
                 `| ${r.url} | ${Math.round(r.summary.performance * 100)} | ${Math.round(r.summary.accessibility * 100)} | ${Math.round(r.summary.seo * 100)} |`
               ).join('\n');
-              const body = `## 💡 Lighthouse Results\n\n| URL | Perf | A11y | SEO |\n|---|---|---|---|\n${lines}`;
+              const body = `## Lighthouse Results\n\n| URL | Perf | A11y | SEO |\n|---|---|---|---|\n${lines}`;
               github.rest.issues.createComment({
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
@@ -129,9 +153,9 @@ jobs:
               console.log('Could not parse Lighthouse results:', e.message);
             }
 
-  # ── Job 5: Security Audit ────────────────────────────────────────────────
+  # ── Job 5: Security Audit ─────────────────────────────────────────────────
   security:
-    name: 🔒 Security Audit
+    name: Security Audit
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

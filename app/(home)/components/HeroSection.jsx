@@ -6,7 +6,6 @@ import { HiArrowRight, HiDownload } from 'react-icons/hi';
 import { FaGithub } from 'react-icons/fa';
 import { config } from '@/config';
 import Link from 'next/link';
-import Image from 'next/image';
 import { BackgroundPresets } from '@/components/ui/background-effects';
 import { motion } from 'framer-motion';
 import SkillsShowcase from './SkillsShowcase';
@@ -58,39 +57,21 @@ const HeroSection = () => {
           animate="show"
           className="max-w-3xl mx-auto text-center space-y-8 relative"
         >
-          {/* ── Profile photo — visible in DOM so Google can index it ── */}
-          {/* itemScope/itemProp microdata reinforces the Person entity */}
-          <motion.div
-            variants={itemAnimation}
-            className="flex justify-center"
+          {/* Hidden microdata — no visible photo, entity signals preserved for SEO */}
+          <div
+            itemScope
+            itemType="https://schema.org/Person"
+            className="hidden"
           >
-            {/* itemScope on a wrapper that contains ALL itemProp descendants */}
-            <div
-              itemScope
-              itemType="https://schema.org/Person"
-              className="relative"
-            >
-              <Image
-                src="/bodapati-bharat-chandra.jpg"
-                alt="Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad"
-                width={120}
-                height={120}
-                priority
-                className="rounded-full object-cover border-2 border-white/20 shadow-[0_0_30px_rgba(255,255,255,0.08)]"
-                itemProp="image"
-              />
-              {/* green online indicator */}
-              <span className="absolute bottom-1 right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-black" aria-hidden="true" />
-              {/* itemProp meta tags are descendants of the itemScope div — correct per spec */}
-              <meta itemProp="name" content="Bodapati Bharat Chandra" />
-              <meta itemProp="url" content="https://bharatchandra.me" />
-              <meta itemProp="jobTitle" content="AI/ML Engineer" />
-              <meta itemProp="worksFor" content="BHEL — Bharat Heavy Electricals Limited" />
-              <meta itemProp="alumniOf" content="GITAM University Hyderabad" />
-              <meta itemProp="sameAs" content="https://github.com/BharatChandra-sys" />
-              <meta itemProp="sameAs" content="https://www.linkedin.com/in/bharat-chandra-bodapati/" />
-            </div>
-          </motion.div>
+            <meta itemProp="name" content="Bodapati Bharat Chandra" />
+            <meta itemProp="url" content="https://bharatchandra.me" />
+            <meta itemProp="jobTitle" content="AI/ML Engineer" />
+            <meta itemProp="image" content="https://bharatchandra.me/bodapati-bharat-chandra.jpg" />
+            <meta itemProp="worksFor" content="BHEL — Bharat Heavy Electricals Limited" />
+            <meta itemProp="alumniOf" content="GITAM University Hyderabad" />
+            <meta itemProp="sameAs" content="https://github.com/BharatChandra-sys" />
+            <meta itemProp="sameAs" content="https://www.linkedin.com/in/bharat-chandra-bodapati/" />
+          </div>
           {/* H1 */}
           <div className="space-y-4">
             <motion.h1
