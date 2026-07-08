@@ -99,10 +99,17 @@ const profilePageSchema = {
   "@type": "ProfilePage",
   "@id": `${BASE}/#profilepage`,
   "url": BASE,
-  "name": "Bodapati Bharat Chandra - Professional Profile",
+  "name": "Bodapati Bharat Chandra — Official Portfolio & Primary Web Presence",
   "dateCreated": "2026-06-01T00:00:00Z",
   "dateModified": "2026-07-08T00:00:00Z",
   "inLanguage": "en-IN",
+  // isPartOf connects this ProfilePage to the WebSite entity — reinforces domain ownership
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": `${BASE}/#website`,
+    "url": BASE,
+    "name": "Bodapati Bharat Chandra",
+  },
   "mainEntity": {
     "@type": "Person",
     "@id": `${BASE}/#person`,
@@ -111,23 +118,24 @@ const profilePageSchema = {
     "identifier": "BharatChandra-sys",
     "description": "AI/ML Engineer and final-year CSE student at GITAM University Hyderabad.",
     "disambiguatingDescription": "AI/ML Engineering Intern at BHEL, Backend & ML Lead at GARI rocketry initiative, co-founder of Easify. Not the cricketer or the JEE student sharing the name.",
-    // Two photos — both get crawled and associated with this entity
     "image": [
       {
         "@type": "ImageObject",
         "url": `${BASE}/bodapati-bharat-chandra.jpg`,
         "caption": "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
-        "width": 400,
-        "height": 400,
+        "width": 1200,
+        "height": 630,
       },
       {
         "@type": "ImageObject",
         "url": `${BASE}/bodapati-bharat-chandra-2.jpg`,
         "caption": "Bodapati Bharat Chandra — Co-founder of Easify, Hyderabad",
-        "width": 400,
-        "height": 400,
+        "width": 1200,
+        "height": 630,
       },
     ],
+    // sameAs lists LinkedIn/GitHub as affiliated profiles, but mainEntityOfPage
+    // on the Person schema (in layout.js) declares bharatchandra.me as PRIMARY
     "sameAs": [
       "https://github.com/BharatChandra-sys",
       "https://www.linkedin.com/in/bharat-chandra-bodapati/",

@@ -36,14 +36,9 @@ jobs:
         run: npm run build
         env:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
-      # Upload the full build output so seo-schema job can reuse it
-      - uses: actions/upload-artifact@v4
-        with:
-          name: build-output
-          path: .next/
-          retention-days: 3
 
   # ── Job 3: SEO and Schema Validation ──────────────────────────────────────
+  # Rebuilds independently — avoids cross-runner artifact transfer failures.
   seo-schema:
     name: SEO and Schema Validation
     runs-on: ubuntu-latest
@@ -56,22 +51,17 @@ jobs:
           cache: 'npm'
       - run: npm ci
 
-      # Reuse the build artifact — no need to rebuild
-      - uses: actions/download-artifact@v4
-        with:
-          name: build-output
-          path: .next/
+      - name: Build for validation
+        run: npm run build
+        env:
+          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
 
-      # Start the Next.js production server in background
-      # PORT is set explicitly; Next.js honours it via $PORT env var
       - name: Start server
         run: npm run start &
         env:
           PORT: 3000
           NODE_ENV: production
-          NEXT_PUBLIC_GA_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_GA_MEASUREMENT_ID }}
 
-      # Poll until the server responds, with a longer timeout and retry interval
       - name: Wait for server
         run: |
           echo "Waiting for server on port 3000..."
@@ -110,7 +100,6 @@ jobs:
           retention-days: 14
 
   # ── Job 4: Lighthouse against live production site ────────────────────────
-  # Only runs on master push so the live URL is always current
   lighthouse:
     name: Lighthouse Audit (Production)
     runs-on: ubuntu-latest

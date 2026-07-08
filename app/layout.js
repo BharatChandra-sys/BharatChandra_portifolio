@@ -297,6 +297,20 @@ const personSchema = {
     "https://www.linkedin.com/in/bharat-chandra-bodapati/",
     "https://orcid.org/0009-0004-4734-1635",
   ],
+  // mainEntityOfPage tells Google that bharatchandra.me is the PRIMARY web
+  // presence for this Person entity — outranking LinkedIn as the canonical source.
+  "mainEntityOfPage": {
+    "@type": "ProfilePage",
+    "@id": `${BASE_URL}/#profilepage`,
+    "url": BASE_URL,
+    "name": "Bodapati Bharat Chandra — Official Portfolio",
+    "isPartOf": {
+      "@type": "WebSite",
+      "@id": `${BASE_URL}/#website`,
+      "url": BASE_URL,
+      "name": "Bodapati Bharat Chandra",
+    },
+  },
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Hyderabad",
@@ -316,8 +330,15 @@ const websiteSchema = {
   "@id": `${BASE_URL}/#website`,
   "url": BASE_URL,
   "name": "Bodapati Bharat Chandra",
-  "description": "Personal portfolio of Bodapati Bharat Chandra — AI/ML Engineer",
+  "alternateName": "Bharat Chandra Portfolio",
+  "description": "Official portfolio and primary web presence of Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
   "inLanguage": "en-IN",
+  // mainEntity: this site IS about this Person — strongest possible ownership claim
+  "mainEntity": {
+    "@type": "Person",
+    "@id": `${BASE_URL}/#person`,
+    "name": "Bodapati Bharat Chandra",
+  },
   "author": {
     "@type": "Person",
     "name": "Bodapati Bharat Chandra",
@@ -334,18 +355,27 @@ const websiteSchema = {
     "name": "Bodapati Bharat Chandra",
     "@id": `${BASE_URL}/#person`
   },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": {
-      "@type": "EntryPoint",
-      "urlTemplate": `${BASE_URL}/blog?q={search_term_string}`,
+  // SiteLinksSearchBox — tells Google to show a search box in results for your site
+  // Also signals to Google that this domain is an authoritative entity destination
+  "potentialAction": [
+    {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": `${BASE_URL}/blog?q={search_term_string}`,
+      },
+      "query-input": {
+        "@type": "PropertyValueSpecification",
+        "valueRequired": true,
+        "valueName": "search_term_string"
+      }
     },
-    "query-input": {
-      "@type": "PropertyValueSpecification",
-      "valueRequired": true,
-      "valueName": "search_term_string"
+    {
+      // ReadAction signals this is a content-first destination — not a utility/tool
+      "@type": "ReadAction",
+      "target": BASE_URL,
     }
-  },
+  ],
 };
 
 const breadcrumbSchema = {
