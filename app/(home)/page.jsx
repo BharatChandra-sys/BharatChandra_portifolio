@@ -8,9 +8,54 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { HiArrowRight } from 'react-icons/hi'
 
+// FAQ schema — renders as rich result in Google
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Who is Bodapati Bharat Chandra?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bodapati Bharat Chandra (also known as Bharat Chandra) is an AI/ML engineer and final-year Computer Science & Engineering student at GITAM University Hyderabad. He is currently interning at BHEL building production AI systems, leads the backend and ML stack at GARI (GITAM Aerospace Rocketry Initiative), and is the co-founder of Easify, a smart pooling service platform.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "What projects has Bodapati Bharat Chandra built?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bodapati Bharat Chandra has built CAN-7USAT rocket telemetry backend (sub-5ms latency for IN-SPACe competition), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP explainability, FactCheck AI fake news analyzer (90% accuracy), and Vijetha Digital e-commerce backend currently in production.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "Where is Bharat Chandra from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Bodapati Bharat Chandra is from Hyderabad / Vijayawada, Telangana, India. He studies at GITAM University Hyderabad.",
+      },
+    },
+    {
+      "@type": "Question",
+      "name": "How to contact Bharat Chandra?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can contact Bodapati Bharat Chandra at bc833498@gmail.com or through the contact form at bharatchandra.me/contact. He is open to AI/ML internships and full-time roles starting 2027.",
+      },
+    },
+  ],
+};
+
 const Home = () => {
   return (
     <div>
+      {/* FAQ Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       {/* Hidden SEO text — for search engines, not visible to users */}
       <span className="sr-only">
         Bodapati Bharat Chandra — AI/ML Engineer, final-year CSE student at GITAM University Hyderabad.
