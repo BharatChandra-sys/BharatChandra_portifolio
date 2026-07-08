@@ -6,7 +6,9 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "validate:seo": "node validate-seo.js",
+    "validate:seo:local": "node validate-seo.js --local"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.1.0",

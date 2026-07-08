@@ -8,7 +8,65 @@ export const metadata = {
     title: "On-premise LLM at BHEL — Bharat Chandra",
     description: "Building production AI that runs entirely on local infrastructure.",
     url: "https://bharatchandra.me/blog/on-premise-llm-bhel",
+    type: "article",
+    publishedTime: "2026-05-15T00:00:00Z",
+    authors: ["Bharat Chandra"],
+    tags: ["LLM", "Ollama", "FastAPI", "PyMuPDF", "Production AI"],
   },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Building a fully on-premise LLM pipeline at BHEL",
+  "description": "Bharat Chandra describes building a production AI vendor compliance portal at BHEL that runs entirely locally — no external APIs, no data leaving the network. FastAPI + Ollama + PyMuPDF.",
+  "image": "https://bharatchandra.me/og-image.png",
+  "datePublished": "2026-05-15T00:00:00Z",
+  "dateModified": "2026-05-15T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Bharat Chandra",
+    "url": "https://bharatchandra.me"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Bharat Chandra",
+    "url": "https://bharatchandra.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bharatchandra.me/blog/on-premise-llm-bhel"
+  },
+  "keywords": ["LLM", "Ollama", "FastAPI", "PyMuPDF", "Production AI", "BHEL", "on-premise AI"],
+  "articleSection": "AI/ML",
+  "wordCount": 750,
+  "timeRequired": "PT4M",
+  "inLanguage": "en-IN"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bharatchandra.me"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://bharatchandra.me/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "On-premise LLM at BHEL",
+      "item": "https://bharatchandra.me/blog/on-premise-llm-bhel"
+    }
+  ]
 };
 
 const content = `
@@ -60,11 +118,21 @@ After the portal shipped, I proposed a turbine lifecycle optimisation system usi
 
 export default function Page() {
   return (
-    <BlogPost
-      title="Building a fully on-premise LLM pipeline at BHEL"
-      date="May 2026"
-      tags={["LLM", "Ollama", "FastAPI", "PyMuPDF", "Production AI"]}
-      content={content}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <BlogPost
+        title="Building a fully on-premise LLM pipeline at BHEL"
+        date="May 2026"
+        tags={["LLM", "Ollama", "FastAPI", "PyMuPDF", "Production AI"]}
+        content={content}
+      />
+    </>
   );
 }

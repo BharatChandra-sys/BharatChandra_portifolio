@@ -12,12 +12,38 @@ export const metadata = {
     "Easify startup Hyderabad",
     "GITAM student blog",
   ],
-  alternates: { canonical: "https://bharatchandra.me/blog" },
+  alternates: { 
+    canonical: "https://bharatchandra.me/blog",
+    languages: {
+      'en-IN': 'https://bharatchandra.me/blog',
+      'en': 'https://bharatchandra.me/blog',
+    },
+  },
   openGraph: {
     title: "Writing — Bodapati Bharat Chandra",
     description:
       "Technical posts on AI systems, rocketry, and startup building by Bodapati Bharat Chandra.",
     url: "https://bharatchandra.me/blog",
+    type: "website",
+    siteName: "Bodapati Bharat Chandra",
+    images: [
+      {
+        url: "/bodapati-bharat-chandra.jpg",
+        width: 400,
+        height: 400,
+        alt: "Bodapati Bharat Chandra Blog",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Writing — Bodapati Bharat Chandra",
+    description: "Technical writing on AI systems, rocketry, and startups.",
+    images: ["/bodapati-bharat-chandra.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

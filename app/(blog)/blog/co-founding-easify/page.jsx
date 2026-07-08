@@ -8,7 +8,65 @@ export const metadata = {
     title: "Co-founding Easify — Bharat Chandra",
     description: "Building a ride-pooling platform from scratch in Hyderabad.",
     url: "https://bharatchandra.me/blog/co-founding-easify",
+    type: "article",
+    publishedTime: "2026-04-20T00:00:00Z",
+    authors: ["Bharat Chandra"],
+    tags: ["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad"],
   },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Co-founding Easify: Smart pooling in Hyderabad",
+  "description": "Bharat Chandra writes about co-founding Easify, a smart ride-pooling platform in Hyderabad — architecture decisions, real-time matching, and what actually makes people use a product.",
+  "image": "https://bharatchandra.me/og-image.png",
+  "datePublished": "2026-04-20T00:00:00Z",
+  "dateModified": "2026-04-20T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Bharat Chandra",
+    "url": "https://bharatchandra.me"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Bharat Chandra",
+    "url": "https://bharatchandra.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bharatchandra.me/blog/co-founding-easify"
+  },
+  "keywords": ["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad", "Easify", "Ride Pooling"],
+  "articleSection": "Startup",
+  "wordCount": 650,
+  "timeRequired": "PT3M",
+  "inLanguage": "en-IN"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bharatchandra.me"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://bharatchandra.me/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Co-founding Easify",
+      "item": "https://bharatchandra.me/blog/co-founding-easify"
+    }
+  ]
 };
 
 const content = `
@@ -53,11 +111,21 @@ If you're in Hyderabad and interested, reach out.
 
 export default function Page() {
   return (
-    <BlogPost
-      title="Co-founding Easify: Smart pooling in Hyderabad"
-      date="April 2026"
-      tags={["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad"]}
-      content={content}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <BlogPost
+        title="Co-founding Easify: Smart pooling in Hyderabad"
+        date="April 2026"
+        tags={["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad"]}
+        content={content}
+      />
+    </>
   );
 }

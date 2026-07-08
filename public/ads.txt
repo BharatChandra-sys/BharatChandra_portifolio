@@ -1,0 +1,12 @@
+# Authorized Digital Sellers (ads.txt)
+# Prevents ad fraud by declaring authorized ad sellers
+# Learn more: https://iabtechlab.com/ads-txt/
+
+# Currently not monetizing with ads
+# This file prevents unauthorized ad injection
+
+# Format: domain, publisher account ID, relationship type, certification authority ID
+# Example: google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# No authorized sellers at this time
+# placeholder, placeholder, RESELLER

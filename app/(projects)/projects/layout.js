@@ -13,12 +13,38 @@ export const metadata = {
     "Bharat Chandra GitHub",
     "BharatChandra-sys projects",
   ],
-  alternates: { canonical: "https://bharatchandra.me/projects" },
+  alternates: { 
+    canonical: "https://bharatchandra.me/projects",
+    languages: {
+      'en-IN': 'https://bharatchandra.me/projects',
+      'en': 'https://bharatchandra.me/projects',
+    },
+  },
   openGraph: {
     title: "Projects — Bodapati Bharat Chandra",
     description:
       "Rocket telemetry systems, autonomous vehicles, explainable AI, and production backends built by Bodapati Bharat Chandra.",
     url: "https://bharatchandra.me/projects",
+    type: "website",
+    siteName: "Bodapati Bharat Chandra",
+    images: [
+      {
+        url: "/bodapati-bharat-chandra.jpg",
+        width: 400,
+        height: 400,
+        alt: "Bodapati Bharat Chandra Projects",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projects — Bodapati Bharat Chandra",
+    description: "Production software projects: rocket telemetry, autonomous vehicles, and explainable AI systems.",
+    images: ["/bodapati-bharat-chandra.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
 };
 

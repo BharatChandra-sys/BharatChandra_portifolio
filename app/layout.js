@@ -72,6 +72,11 @@ export const metadata = {
 
   alternates: {
     canonical: BASE_URL,
+    languages: {
+      'en-IN': BASE_URL,
+      'en': BASE_URL,
+      'x-default': BASE_URL,
+    },
   },
 
   openGraph: {
@@ -102,6 +107,14 @@ export const metadata = {
       "Bodapati Bharat Chandra — production AI systems, rocketry backends, AUV stacks. Final-year CSE @ GITAM Hyderabad.",
     images: ["/bodapati-bharat-chandra.jpg"],
     creator: "@BharatChandra",
+    site: "@BharatChandra",
+  },
+
+  manifest: "/manifest.json",
+
+  other: {
+    "msapplication-TileColor": "#000000",
+    "msapplication-config": "/browserconfig.xml",
   },
 
   verification: {
@@ -173,6 +186,54 @@ const personSchema = {
     "Sensor Fusion",
     "LLM Deployment",
   ],
+  "award": [
+    {
+      "@type": "Award",
+      "name": "Winner - AI Day Hackathon",
+      "description": "Won AI Day Hackathon organized by GITAM University and Kodryx AI for MedVision AI diabetic ulcer detection system",
+      "dateAwarded": "2026-03",
+    },
+    {
+      "@type": "Award",
+      "name": "Winner - HackXplore",
+      "description": "Won HackXplore organized by IEEE-SSIT VJIT for FactCheck AI fake news analyzer",
+      "dateAwarded": "2026-04",
+    },
+  ],
+  "workExample": [
+    {
+      "@type": "CreativeWork",
+      "name": "CAN-7USAT Ground Control Station",
+      "url": "https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend",
+      "description": "Real-time rocket telemetry system with sub-5ms latency",
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "AUVBrain Autonomous Control Stack",
+      "url": "https://github.com/BharatChandra-sys/AUVBrain",
+      "description": "Autonomous underwater vehicle control with 0.84ms agent loop latency",
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "MedVision AI",
+      "url": "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
+      "description": "Explainable AI system for diabetic ulcer detection with Grad-CAM and SHAP",
+    },
+  ],
+  "knowsLanguage": [
+    {
+      "@type": "Language",
+      "name": "English",
+    },
+    {
+      "@type": "Language",
+      "name": "Hindi",
+    },
+    {
+      "@type": "Language",
+      "name": "Telugu",
+    },
+  ],
   "sameAs": [
     "https://github.com/BharatChandra-sys",
     "https://www.linkedin.com/in/bharat-chandra-6b29283b1/",
@@ -222,10 +283,88 @@ const breadcrumbSchema = {
   ],
 };
 
+// ── Organization Schemas ─────────────────────────────────────────────────────
+const easifyOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Easify",
+  "description": "Smart pooling service platform for shared rides in Hyderabad, India",
+  "foundingDate": "2023",
+  "founder": {
+    "@id": `${BASE_URL}/#person`
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Hyderabad",
+    "addressRegion": "Telangana",
+    "addressCountry": "IN"
+  },
+  "url": "https://bharatchandra.me",
+  "sameAs": []
+};
+
+const gariOrganizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "GARI — GITAM Aerospace Rocketry Initiative",
+  "description": "GITAM University's rocketry team competing in IN-SPACe national competitions",
+  "parentOrganization": {
+    "@type": "CollegeOrUniversity",
+    "name": "GITAM University Hyderabad",
+    "url": "https://gitam.edu"
+  },
+  "member": {
+    "@id": `${BASE_URL}/#person`
+  },
+  "url": "https://bharatchandra.me"
+};
+
+// ── ContactPoint Schema ────────────────────────────────────────────────────────
+const contactPointSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPoint",
+  "contactType": "Professional Inquiries",
+  "email": "bc833498@gmail.com",
+  "availableLanguage": ["English", "Hindi", "Telugu"],
+  "areaServed": "IN",
+  "name": "Bodapati Bharat Chandra"
+};
+
+import { WebVitals } from "@/components/WebVitals";
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        {/* Preconnect hints for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://api.github.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        
+        {/* Hreflang for multilingual/regional SEO */}
+        <link rel="alternate" hrefLang="en-IN" href={BASE_URL} />
+        <link rel="alternate" hrefLang="en" href={BASE_URL} />
+        <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
+        
+        {/* RSS Feed */}
+        <link rel="alternate" type="application/rss+xml" title="Bodapati Bharat Chandra Blog" href={`${BASE_URL}/rss.xml`} />
+        
+        {/* Atom Feed */}
+        <link rel="alternate" type="application/atom+xml" title="Bodapati Bharat Chandra Blog (Atom)" href={`${BASE_URL}/atom.xml`} />
+        
+        {/* JSON Resume */}
+        <link rel="alternate" type="application/json" title="Bodapati Bharat Chandra Resume (JSON)" href={`${BASE_URL}/resume.json`} />
+        
+        {/* OpenSearch */}
+        <link rel="search" type="application/opensearchdescription+xml" title="Bharat Chandra Search" href={`${BASE_URL}/search.xml`} />
+        
+        {/* Manifest */}
+        <link rel="manifest" href="/manifest.json" />
+        
+        {/* Apple Touch Icons */}
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        
         {/* JSON-LD — Person */}
         <script
           type="application/ld+json"
@@ -241,6 +380,21 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
         />
+        {/* JSON-LD — Easify Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(easifyOrganizationSchema) }}
+        />
+        {/* JSON-LD — GARI Organization */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(gariOrganizationSchema) }}
+        />
+        {/* JSON-LD — ContactPoint */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPointSchema) }}
+        />
         {/* Geo tags */}
         <meta name="geo.region" content="IN-TG" />
         <meta name="geo.placename" content="Hyderabad, Telangana, India" />
@@ -248,6 +402,18 @@ export default function RootLayout({ children }) {
         <meta name="ICBM" content="17.3850, 78.4867" />
         {/* Language */}
         <meta httpEquiv="content-language" content="en-IN" />
+        {/* Mobile optimization */}
+        <meta name="theme-color" content="#000000" />
+        <meta name="color-scheme" content="dark light" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="Bharat Chandra" />
+        <meta name="application-name" content="Bodapati Bharat Chandra Portfolio" />
+        <meta name="format-detection" content="telephone=no" />
+        {/* Author */}
+        <link rel="author" href={`${BASE_URL}/humans.txt`} />
+        <meta name="author" content="Bodapati Bharat Chandra" />
+        <meta name="publisher" content="Bodapati Bharat Chandra" />
         {/* Google Search Console verification — set env var to activate */}
         {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
           <meta
@@ -257,15 +423,25 @@ export default function RootLayout({ children }) {
         )}
       </head>
       <body className={`${geistSans.className} antialiased`}>
+        <WebVitals />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          {/* Skip to main content for accessibility */}
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded">
+            Skip to main content
+          </a>
+          
           <NextTopLoader />
           <Header />
-          {children}
+          
+          <main id="main-content" role="main">
+            {children}
+          </main>
+          
           <Footer />
           <Toaster
             position="top-right"

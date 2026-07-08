@@ -1,0 +1,67 @@
+/* TEAM */
+Developer: Bodapati Bharat Chandra
+Role: AI/ML Engineer & Full-Stack Developer
+Location: Hyderabad, Telangana, India
+Contact: bc833498@gmail.com
+Website: https://bharatchandra.me
+GitHub: https://github.com/BharatChandra-sys
+LinkedIn: https://www.linkedin.com/in/bharat-chandra-6b29283b1/
+ORCID: https://orcid.org/0009-0004-4734-1635
+
+/* SITE */
+Last update: 2026/07/08
+Language: English
+Standards: HTML5, CSS3, JavaScript (ES6+)
+Framework: Next.js 15.5.19
+Components: React 19, Framer Motion, Tailwind CSS
+IDE: VS Code, Cursor
+Version Control: Git
+
+/* THANKS */
+Font: Geist Sans by Vercel
+Icons: React Icons (Heroicons, Simple Icons)
+Hosting: Vercel
+Analytics: Google Analytics 4
+Performance: Vercel Edge Network
+SEO: Schema.org, Open Graph Protocol
+
+/* PROJECTS */
+CAN-7USAT Ground Control Station - Rocket telemetry backend
+AUVBrain - Autonomous underwater vehicle control stack
+MedVision AI - Diabetic ulcer detection system
+FactCheck AI - Fake news analyzer
+Easify - Smart pooling service platform
+
+/* AWARDS */
+Winner - AI Day Hackathon (GITAM × Kodryx AI, March 2026)
+Winner - HackXplore (IEEE-SSIT VJIT, April 2026)
+IN-SPACe Model Rocketry Competition 2026 - Team GARI
+
+/* EDUCATION */
+B.Tech Computer Science & Engineering
+GITAM University Hyderabad
+2023 - 2027
+
+/* EXPERIENCE */
+AI/ML Engineering Intern - BHEL (Bharat Heavy Electricals Limited)
+Backend & ML Lead - GARI (GITAM Aerospace Rocketry Initiative)
+Co-Founder - Easify
+
+/* TECHNOLOGIES */
+Languages: Python, TypeScript, JavaScript, C++, SQL
+ML/AI: PyTorch, Scikit-learn, MLflow, SHAP, Grad-CAM
+Backend: FastAPI, Node.js, Express, WebSockets
+Frontend: React, Next.js, Framer Motion, Tailwind CSS
+Databases: PostgreSQL, MongoDB, Redis
+DevOps: Docker, Git, Linux, Nginx
+Embedded: ROS2, CAN Bus, Kalman Filtering
+
+/* META */
+This site is optimized for:
+- Search engines (Google, Bing)
+- Screen readers (ARIA labels, semantic HTML)
+- Performance (Core Web Vitals)
+- Security (HTTPS, CSP, security headers)
+- Mobile devices (responsive design)
+- Dark/light themes
+- Accessibility (WCAG 2.1 AA)

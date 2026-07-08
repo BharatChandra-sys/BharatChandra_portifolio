@@ -8,7 +8,65 @@ export const metadata = {
     title: "CAN-7USAT Rocket Telemetry — Bharat Chandra",
     description: "How I built a sub-5ms rocket telemetry pipeline for IN-SPACe competition.",
     url: "https://bharatchandra.me/blog/can-7usat-rocket-telemetry",
+    type: "article",
+    publishedTime: "2026-06-10T00:00:00Z",
+    authors: ["Bharat Chandra"],
+    tags: ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python"],
   },
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "How I built CAN-7USAT rocket telemetry with sub-5ms latency",
+  "description": "Bharat Chandra explains the real-time ground control station built for GARI's IN-SPACe rocketry competition — 46-byte binary telemetry packets, Kalman filter sensor fusion, and WebSocket broadcasting under 5ms.",
+  "image": "https://bharatchandra.me/og-image.png",
+  "datePublished": "2026-06-10T00:00:00Z",
+  "dateModified": "2026-06-10T00:00:00Z",
+  "author": {
+    "@type": "Person",
+    "name": "Bharat Chandra",
+    "url": "https://bharatchandra.me"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Bharat Chandra",
+    "url": "https://bharatchandra.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://bharatchandra.me/blog/can-7usat-rocket-telemetry"
+  },
+  "keywords": ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python", "Telemetry", "CAN-7USAT"],
+  "articleSection": "Engineering",
+  "wordCount": 800,
+  "timeRequired": "PT4M",
+  "inLanguage": "en-IN"
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://bharatchandra.me"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://bharatchandra.me/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CAN-7USAT Rocket Telemetry",
+      "item": "https://bharatchandra.me/blog/can-7usat-rocket-telemetry"
+    }
+  ]
 };
 
 const content = `
@@ -69,12 +127,22 @@ But for competition day, it worked exactly as needed.
 
 export default function Page() {
   return (
-    <BlogPost
-      title="How I built CAN-7USAT rocket telemetry with sub-5ms latency"
-      date="June 2026"
-      tags={["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python"]}
-      github="https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend"
-      content={content}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <BlogPost
+        title="How I built CAN-7USAT rocket telemetry with sub-5ms latency"
+        date="June 2026"
+        tags={["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python"]}
+        github="https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend"
+        content={content}
+      />
+    </>
   );
 }
