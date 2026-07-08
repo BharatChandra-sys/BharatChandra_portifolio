@@ -1,5 +1,6 @@
 "use client"
 import React from 'react'
+import Image from 'next/image'
 import HeroSection from './components/HeroSection'
 import GithubProjects from './components/GithubProjects'
 import SkillsSection from './components/Skills'
@@ -351,6 +352,35 @@ const Home = () => {
       <ExperienceSection />
       <GithubProjects />
       <SkillsSection />
+
+      {/* ── Second photo — visible in DOM for Google Image indexing ── */}
+      {/* Placed between sections so it's rendered in HTML source, not just JSON-LD */}
+      <section className="py-8" aria-label="About Bodapati Bharat Chandra">
+        <div className="container mx-auto px-6 flex justify-center">
+          <div
+            className="flex items-center gap-4 bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 max-w-sm"
+            itemScope
+            itemType="https://schema.org/Person"
+          >
+            <Image
+              src="/bodapati-bharat-chandra-2.jpg"
+              alt="Bodapati Bharat Chandra — Co-founder of Easify and AI/ML Engineer, Hyderabad"
+              width={48}
+              height={48}
+              className="rounded-full object-cover border border-white/15 flex-shrink-0"
+              itemProp="image"
+            />
+            <div>
+              <p className="text-sm font-semibold text-white/80" itemProp="name">
+                Bodapati Bharat Chandra
+              </p>
+              <p className="text-xs text-white/40" itemProp="jobTitle">
+                AI/ML Engineer · Hyderabad, India
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Contact CTA */}
       <section className="py-16 pb-24">

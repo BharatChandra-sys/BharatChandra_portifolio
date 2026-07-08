@@ -1,6 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { HiArrowLeft, HiExternalLink } from 'react-icons/hi';
 
@@ -14,7 +15,17 @@ function calcReadingStats(text) {
   return { words, minutes };
 }
 
-// ── Inline markdown renderer ───────────────────────────────────────────────────
+// ── ISO date map — dateTime attr must be machine-readable ISO 8601 ────────────
+// Human display string → ISO date for the dateTime attribute
+const DATE_ISO_MAP = {
+  'June 2026': '2026-06-10',
+  'May 2026':  '2026-05-15',
+  'April 2026': '2026-04-20',
+};
+
+function toISODate(humanDate) {
+  return DATE_ISO_MAP[humanDate] || humanDate;
+}
 function renderBlock(block, i) {
   if (block.startsWith('## ')) {
     const id = block.replace('## ', '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
@@ -124,10 +135,9 @@ function AuthorCard() {
       itemScope
       itemType="https://schema.org/Person"
     >
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src="/bodapati-bharat-chandra.jpg"
-        alt="Bodapati Bharat Chandra"
+        alt="Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad"
         className="w-12 h-12 rounded-full object-cover flex-shrink-0"
         itemProp="image"
         width={48}
@@ -308,7 +318,7 @@ export function BlogPost({ title, date, tags, github, content }) {
                   </a>
                 </span>
                 <span className="hidden sm:inline text-white/20">·</span>
-                <time dateTime={date}>{date}</time>
+                <time dateTime={toISODate(date)}>{date}</time>
                 <span className="text-white/20">·</span>
                 <span>{minutes} min read</span>
                 <span className="text-white/20">·</span>
@@ -337,10 +347,16 @@ export function BlogPost({ title, date, tags, github, content }) {
             <article
               className="space-y-5 text-white/75 leading-relaxed text-[15px]"
               itemScope
-              itemType="https://schema.org/Article"
+              itemType="https://schema.org/BlogPosting"
             >
+              {/* Required itemProps for BlogPosting rich result eligibility */}
+              <meta itemProp="headline" content={title} />
               <meta itemProp="author" content="Bodapati Bharat Chandra" />
-              <meta itemProp="datePublished" content={date} />
+              <meta itemProp="datePublished" content={toISODate(date)} />
+              <meta itemProp="dateModified" content={toISODate(date)} />
+              <meta itemProp="image" content="https://bharatchandra.me/bodapati-bharat-chandra.jpg" />
+              <meta itemProp="publisher" content="Bodapati Bharat Chandra" />
+              <meta itemProp="inLanguage" content="en-IN" />
               {paragraphs.map((block, i) => renderBlock(block, i))}
             </article>
 

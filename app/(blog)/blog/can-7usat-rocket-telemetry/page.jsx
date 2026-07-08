@@ -6,6 +6,9 @@ export const metadata = {
   title: "I Built a Sub-5ms Rocket Telemetry System for IN-SPACe 2026 — Bharat Chandra",
   description: "How I engineered the CAN-7USAT ground control station for GITAM's rocketry competition: 46-byte binary packets, Kalman filter sensor fusion, and WebSocket broadcasting that hit under 5ms end-to-end.",
   keywords: "Bharat Chandra, CAN-7USAT, rocket telemetry, GARI GITAM, IN-SPACe rocketry, FastAPI WebSocket, Bodapati Bharat Chandra",
+  alternates: {
+    canonical: "https://bharatchandra.me/blog/can-7usat-rocket-telemetry",
+  },
   openGraph: {
     title: "CAN-7USAT Rocket Telemetry — Bharat Chandra",
     description: "How I built a sub-5ms rocket telemetry pipeline for IN-SPACe competition.",
@@ -14,6 +17,21 @@ export const metadata = {
     publishedTime: "2026-06-10T00:00:00Z",
     authors: ["Bharat Chandra"],
     tags: ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python"],
+    images: [
+      {
+        url: "https://bharatchandra.me/bodapati-bharat-chandra.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bodapati Bharat Chandra — CAN-7USAT Rocket Telemetry",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "I Built a Sub-5ms Rocket Telemetry System — Bharat Chandra",
+    description: "How I engineered the CAN-7USAT ground control station for GITAM's IN-SPACe rocketry competition.",
+    images: ["https://bharatchandra.me/bodapati-bharat-chandra.jpg"],
+    creator: "@BharatChandra",
   },
 };
 
@@ -23,14 +41,14 @@ const BASE = 'https://bharatchandra.me';
 // ── Fix: publisher must be Organization for Article Rich Results ──────────────
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": "I Built a Sub-5ms Rocket Telemetry System for IN-SPACe 2026",
   "description": "How Bodapati Bharat Chandra engineered the CAN-7USAT ground control station — 46-byte binary packets, Kalman filter sensor fusion, WebSocket broadcasting under 5ms.",
   "image": {
     "@type": "ImageObject",
     "url": `${BASE}/bodapati-bharat-chandra.jpg`,
-    "width": 400,
-    "height": 400
+    "width": 1200,
+    "height": 630
   },
   "datePublished": "2026-06-10T00:00:00Z",
   "dateModified": "2026-06-10T00:00:00Z",

@@ -6,6 +6,9 @@ export const metadata = {
   title: "What I Learned Co-founding Easify: My Honest Take After Building a Pooling Startup — Bharat Chandra",
   description: "I co-founded Easify, a ride-pooling platform in Hyderabad. Here's my honest breakdown: the architecture decisions, real-time matching trade-offs, and why the hardest part had nothing to do with code.",
   keywords: "Bharat Chandra, Easify, pooling startup Hyderabad, co-founder, FastAPI startup, ride pooling India, Bodapati Bharat Chandra",
+  alternates: {
+    canonical: "https://bharatchandra.me/blog/co-founding-easify",
+  },
   openGraph: {
     title: "Co-founding Easify — Bharat Chandra",
     description: "Building a ride-pooling platform from scratch in Hyderabad.",
@@ -14,6 +17,21 @@ export const metadata = {
     publishedTime: "2026-04-20T00:00:00Z",
     authors: ["Bharat Chandra"],
     tags: ["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad"],
+    images: [
+      {
+        url: "https://bharatchandra.me/bodapati-bharat-chandra.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bodapati Bharat Chandra — Co-founding Easify",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "What I Learned Co-founding Easify — Bharat Chandra",
+    description: "My honest take after building a ride-pooling startup in Hyderabad. Architecture, matching, and why trust beats code.",
+    images: ["https://bharatchandra.me/bodapati-bharat-chandra.jpg"],
+    creator: "@BharatChandra",
   },
 };
 
@@ -21,14 +39,14 @@ const BASE = 'https://bharatchandra.me';
 
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": "What I Learned Co-founding Easify: My Honest Take After Building a Pooling Startup",
   "description": "Bodapati Bharat Chandra's honest account of co-founding Easify in Hyderabad — real-time matching, FastAPI + PostgreSQL backend, and why trust matters more than code.",
   "image": {
     "@type": "ImageObject",
     "url": `${BASE}/bodapati-bharat-chandra.jpg`,
-    "width": 400,
-    "height": 400
+    "width": 1200,
+    "height": 630
   },
   "datePublished": "2026-04-20T00:00:00Z",
   "dateModified": "2026-04-20T00:00:00Z",

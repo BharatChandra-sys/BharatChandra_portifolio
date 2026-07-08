@@ -1,29 +1,31 @@
-'use client';
-
+// Server component — no 'use client' so JSON-LD is in static HTML for crawlers.
+// The "Go Back" button is extracted into a separate client component.
 import Link from 'next/link';
 import { HiHome, HiArrowLeft } from 'react-icons/hi';
+import GoBackButton from '@/components/ui/GoBackButton';
+
+const notFoundSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "404 — Page Not Found",
+  "description": "The requested page could not be found on bharatchandra.me",
+  "url": "https://bharatchandra.me/404",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "Bodapati Bharat Chandra",
+    "url": "https://bharatchandra.me"
+  }
+};
 
 export default function NotFound() {
-  const notFoundSchema = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "404 - Page Not Found",
-    "description": "The requested page could not be found",
-    "url": "https://bharatchandra.me/404",
-    "isPartOf": {
-      "@type": "WebSite",
-      "name": "Bodapati Bharat Chandra",
-      "url": "https://bharatchandra.me"
-    }
-  };
-
   return (
     <>
+      {/* Server-rendered schema — in static HTML for Googlebot and Bing */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(notFoundSchema) }}
       />
-      
+
       <section className="min-h-screen flex items-center justify-center px-6">
         <div className="text-center space-y-8 max-w-2xl">
           {/* 404 Number */}
@@ -50,14 +52,9 @@ export default function NotFound() {
                 <span>Go Home</span>
               </button>
             </Link>
-            
-            <button 
-              onClick={() => window.history.back()}
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white font-medium transition-all duration-300"
-            >
-              <HiArrowLeft className="w-5 h-5 transition-transform duration-300 group-hover:-translate-x-1" />
-              <span>Go Back</span>
-            </button>
+
+            {/* Client component — needs window.history */}
+            <GoBackButton />
           </div>
 
           {/* Quick Links */}

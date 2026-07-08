@@ -52,8 +52,8 @@ export const blogIndexSchema = {
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-        "width": 400,
-        "height": 400
+        "width": 1200,
+        "height": 630
       },
       "url": `${BASE_URL}/blog/can-7usat-rocket-telemetry`,
       "keywords": ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python", "Bodapati Bharat Chandra"],
@@ -81,8 +81,8 @@ export const blogIndexSchema = {
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-        "width": 400,
-        "height": 400
+        "width": 1200,
+        "height": 630
       },
       "url": `${BASE_URL}/blog/on-premise-llm-bhel`,
       "keywords": ["LLM", "FastAPI", "Ollama", "Production AI", "BHEL", "Bodapati Bharat Chandra"],
@@ -110,8 +110,8 @@ export const blogIndexSchema = {
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-        "width": 400,
-        "height": 400
+        "width": 1200,
+        "height": 630
       },
       "url": `${BASE_URL}/blog/co-founding-easify`,
       "keywords": ["Startup", "FastAPI", "PostgreSQL", "Product", "Easify", "Bodapati Bharat Chandra"],

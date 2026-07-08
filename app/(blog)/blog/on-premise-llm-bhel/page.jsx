@@ -6,6 +6,9 @@ export const metadata = {
   title: "I Built an On-Premise LLM at BHEL — No Cloud, No External APIs — Bharat Chandra",
   description: "My approach to building a production AI vendor compliance portal at BHEL that runs entirely on local hardware. FastAPI + Ollama + PyMuPDF, zero data leaving the network.",
   keywords: "Bharat Chandra, BHEL AI, on-premise LLM, Ollama, FastAPI, vendor compliance, Bodapati Bharat Chandra, Bharat Chandra BHEL intern",
+  alternates: {
+    canonical: "https://bharatchandra.me/blog/on-premise-llm-bhel",
+  },
   openGraph: {
     title: "On-premise LLM at BHEL — Bharat Chandra",
     description: "Building production AI that runs entirely on local infrastructure.",
@@ -14,6 +17,21 @@ export const metadata = {
     publishedTime: "2026-05-15T00:00:00Z",
     authors: ["Bharat Chandra"],
     tags: ["LLM", "Ollama", "FastAPI", "PyMuPDF", "Production AI"],
+    images: [
+      {
+        url: "https://bharatchandra.me/bodapati-bharat-chandra.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Bodapati Bharat Chandra — On-Premise LLM at BHEL",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "I Built an On-Premise LLM at BHEL — No Cloud, No External APIs — Bharat Chandra",
+    description: "Production AI vendor compliance portal at BHEL. FastAPI + Ollama + PyMuPDF, zero data leaving the network.",
+    images: ["https://bharatchandra.me/bodapati-bharat-chandra.jpg"],
+    creator: "@BharatChandra",
   },
 };
 
@@ -21,14 +39,14 @@ const BASE = 'https://bharatchandra.me';
 
 const articleSchema = {
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",
   "headline": "I Built an On-Premise LLM at BHEL — No Cloud, No External APIs",
   "description": "Bodapati Bharat Chandra's account of building a production AI vendor compliance portal at BHEL — Ollama (Mistral 7B), FastAPI, PyMuPDF, zero external API dependency.",
   "image": {
     "@type": "ImageObject",
     "url": `${BASE}/bodapati-bharat-chandra.jpg`,
-    "width": 400,
-    "height": 400
+    "width": 1200,
+    "height": 630
   },
   "datePublished": "2026-05-15T00:00:00Z",
   "dateModified": "2026-05-15T00:00:00Z",

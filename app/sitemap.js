@@ -4,7 +4,7 @@ const BASE_URL = 'https://bharatchandra.me';
 const blogPosts = [
   {
     slug: 'can-7usat-rocket-telemetry',
-    lastModified: '2026-06-01',
+    lastModified: '2026-06-10',
     priority: 0.85,
   },
   {
@@ -20,15 +20,13 @@ const blogPosts = [
 ];
 
 export default function sitemap() {
-  const now = new Date().toISOString();
-
   const staticRoutes = [
     {
       url: BASE_URL,
-      lastModified: now,
+      lastModified: '2026-07-08',
       changeFrequency: 'weekly',
       priority: 1.0,
-      // Both photos submitted to Google Images — more signals = more Knowledge Panel strength
+      // Both photos on homepage — image sitemap entries help Google Images
       images: [
         `${BASE_URL}/bodapati-bharat-chandra.jpg`,
         `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
@@ -36,19 +34,25 @@ export default function sitemap() {
     },
     {
       url: `${BASE_URL}/projects`,
-      lastModified: now,
+      lastModified: '2026-07-01',
       changeFrequency: 'monthly',
       priority: 0.9,
+      images: [
+        `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+      ],
     },
     {
       url: `${BASE_URL}/blog`,
-      lastModified: now,
+      lastModified: '2026-06-10',
       changeFrequency: 'weekly',
       priority: 0.9,
+      images: [
+        `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+      ],
     },
     {
       url: `${BASE_URL}/contact`,
-      lastModified: now,
+      lastModified: '2026-06-01',
       changeFrequency: 'yearly',
       priority: 0.5,
     },
@@ -59,6 +63,9 @@ export default function sitemap() {
     lastModified: post.lastModified,
     changeFrequency: 'yearly',
     priority: post.priority,
+    images: [
+      `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+    ],
   }));
 
   return [...staticRoutes, ...blogRoutes];

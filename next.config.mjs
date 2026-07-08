@@ -1,6 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Security headers
+  // Silence the workspace root warning (multiple lockfiles in parent dirs)
+  // outputFileTracingRoot is set to project root
+  output: undefined,
+
+  // Security headers — Note: X-Frame-Options and CSP are handled in vercel.json
+  // to avoid duplicate/conflicting headers at the CDN edge layer.
   async headers() {
     return [
       {
@@ -15,16 +20,8 @@ const nextConfig = {
             value: 'max-age=63072000; includeSubDomains; preload'
           },
           {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
             key: 'X-Content-Type-Options',
             value: 'nosniff'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
           },
           {
             key: 'Referrer-Policy',

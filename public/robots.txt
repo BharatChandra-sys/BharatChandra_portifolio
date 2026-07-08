@@ -7,6 +7,15 @@
 User-agent: *
 Allow: /
 
+# Bing / Edge — explicit allow for stronger signal
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Yandex
+User-agent: Yandex
+Allow: /
+
 # ── AI Indexing Crawlers (allow citations, block training) ───────────────────
 # Trend 5: Don't chase LLM SEO hacks. Let legitimate AI search engines crawl.
 # ChatGPT Browse / SearchGPT
@@ -45,6 +54,9 @@ Disallow: /
 
 # ── Sitemaps (only valid XML sitemaps go here) ───────────────────────────────
 Sitemap: https://bharatchandra.me/sitemap.xml
+
+# ── IndexNow (Bing fast indexing key) ────────────────────────────────────────
+# https://bharatchandra.me/bharatchandra-indexnow.txt
 
 # ── LLMs.txt (AI identity file) ──────────────────────────────────────────────
 # Tells AI search engines who this person is and what this site contains.

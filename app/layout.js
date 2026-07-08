@@ -93,16 +93,16 @@ export const metadata = {
       {
         // Primary headshot — submitted to Google for Knowledge Panel
         url: "/bodapati-bharat-chandra.jpg",
-        width: 400,
-        height: 400,
+        width: 1200,
+        height: 630,
         alt: "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
         type: "image/jpeg",
       },
       {
         // Second photo — more image entity signals = stronger disambiguation
         url: "/bodapati-bharat-chandra-2.jpg",
-        width: 400,
-        height: 400,
+        width: 1200,
+        height: 630,
         alt: "Bodapati Bharat Chandra — Co-founder of Easify, Hyderabad",
         type: "image/jpeg",
       },
@@ -461,6 +461,19 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        {/* ── Bing / Edge entity signals ──────────────────────────────── */}
+        {/* msvalidate.01 handled via metadata.verification.other — no duplicate here */}
+        {/* IndexNow key for Bing/Yandex instant indexing */}
+        <link rel="indexnow-key" href={`${BASE_URL}/bharatchandra-indexnow.txt`} />
+        {/* Bing person entity meta — mirrors OG but Bing reads these directly */}
+        <meta name="person:first_name" content="Bharat Chandra" />
+        <meta name="person:last_name" content="Bodapati" />
+        <meta name="person:username" content="BharatChandra-sys" />
+        <meta name="profile:first_name" content="Bharat Chandra" />
+        <meta name="profile:last_name" content="Bodapati" />
+        <meta name="profile:username" content="BharatChandra-sys" />
+        {/* ────────────────────────────────────────────────────────────── */}
+
         {/* Preconnect hints for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -544,13 +557,8 @@ export default function RootLayout({ children }) {
         <link rel="author" href={`${BASE_URL}/humans.txt`} />
         <meta name="author" content="Bodapati Bharat Chandra" />
         <meta name="publisher" content="Bodapati Bharat Chandra" />
-        {/* Google Search Console verification — set env var to activate */}
-        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
-          <meta
-            name="google-site-verification"
-            content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
-          />
-        )}
+        {/* Google Search Console verification — handled by metadata.verification.google above */}
+        {/* No manual meta tag needed — Next.js renders it from metadata export */}
       </head>
       <body className={`${geistSans.className} antialiased`}>
         <WebVitals />
