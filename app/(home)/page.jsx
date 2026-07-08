@@ -339,6 +339,184 @@ const educationSchema = {
   }
 };
 
+// ── Schema: WorkExperience / ItemList ──────────────────────────────────────────
+// Gives Google structured signals about employment history for People cards
+const workExperienceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Work Experience of Bodapati Bharat Chandra",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "OrganizationRole",
+        "roleName": "AI/ML Engineering Intern",
+        "startDate": "2026-05-01",
+        "organization": {
+          "@type": "Organization",
+          "name": "BHEL — Bharat Heavy Electricals Limited",
+          "url": "https://bhel.com",
+          "sameAs": "https://en.wikipedia.org/wiki/Bharat_Heavy_Electricals"
+        },
+        "description": "Building on-premise AI vendor compliance portal using FastAPI, Ollama, and PyMuPDF. Fully local LLM deployment with zero external API dependency."
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "OrganizationRole",
+        "roleName": "Backend & ML Lead",
+        "startDate": "2026-02-01",
+        "organization": {
+          "@type": "Organization",
+          "name": "GARI — GITAM Aerospace Rocketry Initiative",
+          "memberOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "GITAM University Hyderabad",
+            "url": "https://gitam.edu"
+          }
+        },
+        "description": "Built CAN-7USAT rocket telemetry backend achieving sub-5ms end-to-end latency for IN-SPACe Model Rocketry Competition 2026."
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "OrganizationRole",
+        "roleName": "Co-Founder",
+        "startDate": "2023-09-01",
+        "organization": {
+          "@type": "Organization",
+          "name": "Easify",
+          "description": "Smart pooling service platform for commuters in Hyderabad, India"
+        },
+        "description": "Co-founded and built the full-stack ride-pooling platform with real-time matching, FastAPI backend, and Razorpay payment integration."
+      }
+    }
+  ]
+};
+
+// ── Schema: HowTo — voice search + featured snippet eligibility ───────────────
+// "How to build a rocket telemetry system" type queries
+const howToDeployLLMSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Deploy an On-Premise LLM Without External APIs",
+  "description": "Step-by-step guide to deploying a production LLM on local hardware using Ollama and FastAPI — no cloud, no data leaving your network.",
+  "author": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE}/#person`
+  },
+  "url": `${BASE}/blog/on-premise-llm-bhel`,
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+  "totalTime": "PT4H",
+  "tool": [
+    { "@type": "HowToTool", "name": "Ollama" },
+    { "@type": "HowToTool", "name": "FastAPI" },
+    { "@type": "HowToTool", "name": "PyMuPDF" },
+    { "@type": "HowToTool", "name": "Python 3.10+" }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Install Ollama on local hardware",
+      "text": "Download and install Ollama on your server. Pull a quantized model: ollama pull mistral:7b-instruct-q4_K_M"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Set up FastAPI backend",
+      "text": "Create a FastAPI application that connects to Ollama's OpenAI-compatible API endpoint at http://localhost:11434"
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Build a two-pass prompt strategy",
+      "text": "Use two LLM calls: first to summarize the document section, then to convert the summary to structured JSON. This improves output quality from ~60% to ~95% valid JSON."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Extract documents with PyMuPDF",
+      "text": "Use PyMuPDF (fitz) to extract text and tables from PDFs before passing to the LLM pipeline."
+    }
+  ]
+};
+
+const howToRocketTelemetrySchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Build a Real-Time Rocket Telemetry Backend Under 5ms Latency",
+  "description": "Technical guide to building a sub-5ms end-to-end telemetry backend for competition rocketry using FastAPI, WebSockets, and Kalman filtering.",
+  "author": {
+    "@type": "Person",
+    "name": "Bodapati Bharat Chandra",
+    "@id": `${BASE}/#person`
+  },
+  "url": `${BASE}/blog/can-7usat-rocket-telemetry`,
+  "totalTime": "PT6H",
+  "tool": [
+    { "@type": "HowToTool", "name": "Python" },
+    { "@type": "HowToTool", "name": "FastAPI" },
+    { "@type": "HowToTool", "name": "WebSockets" },
+    { "@type": "HowToTool", "name": "Teensy 4.1" },
+    { "@type": "HowToTool", "name": "XBee 900MHz" }
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Define binary packet structure",
+      "text": "Design a compact binary packet format. CAN-7USAT used 46 bytes: sync marker, timestamp, flight state, altitude, velocity, quaternion, GPS, XOR checksum."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Implement 6-state flight state machine",
+      "text": "Define states: PRE-FLIGHT, BOOST, COAST, APOGEE, DESCENT, LANDED. Each transition changes data visualization priority."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Apply Kalman filter for sensor fusion",
+      "text": "Fuse accelerometer and barometer altitude readings with a 1D Kalman filter. Execution: under 0.2ms per packet."
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Broadcast via FastAPI WebSocket",
+      "text": "Use asyncio + Uvicorn to read serial port and broadcast WebSocket updates concurrently. Target: under 1ms broadcast latency."
+    }
+  ]
+};
+
+// ── Schema: Speakable — voice search / Google Assistant eligibility ────────────
+const speakableSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${BASE}/#homepage`,
+  "url": BASE,
+  "name": "Bodapati Bharat Chandra — AI/ML Engineer Portfolio",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+      "h1",
+      ".speakable-summary",
+      "#main-content p:first-of-type"
+    ]
+  },
+  "about": {
+    "@type": "Person",
+    "@id": `${BASE}/#person`,
+    "name": "Bodapati Bharat Chandra"
+  }
+};
+
 const Home = () => {
   return (
     <div>
@@ -347,6 +525,10 @@ const Home = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsListSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(educationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(workExperienceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToDeployLLMSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToRocketTelemetrySchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
       {/* Hidden SEO text — crawlable, not visible */}
       <span className="sr-only">

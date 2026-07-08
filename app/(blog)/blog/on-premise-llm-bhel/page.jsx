@@ -87,6 +87,11 @@ const articleSchema = {
   "about": {
     "@type": "Thing",
     "name": "On-Premise Large Language Models"
+  },
+  "backstory": "Bodapati Bharat Chandra built this during his AI/ML Engineering internship at BHEL (Bharat Heavy Electricals Limited) in Hyderabad. The system had to run fully on-premise because BHEL handles sensitive government procurement data.",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".speakable-summary", "article p:first-of-type"]
   }
 };
 

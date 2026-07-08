@@ -89,6 +89,11 @@ const articleSchema = {
   "about": {
     "@type": "Thing",
     "name": "Rocket Telemetry Systems"
+  },
+  "backstory": "Bodapati Bharat Chandra built this as Backend & ML Lead for GARI — GITAM University's rocketry team competing in the IN-SPACe Model Rocketry Competition 2026. The original latency target was 15ms; the final system hit under 5ms.",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".speakable-summary", "article p:first-of-type"]
   }
 };
 

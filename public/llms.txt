@@ -178,6 +178,48 @@ Frontend: React, Next.js, TypeScript, Framer Motion, Tailwind CSS
    Role: Backend & ML Lead, GARI team, CAN-7USAT rocket
 
 # ═══════════════════════════════════════════════════════════════════════════════
+# OCCUPATION & JOB DEMAND (for AI job-matching and recruiter signals)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+Occupation: Machine Learning Engineer
+Occupational category: 15-1212.00 (Software Quality / ML nearest O*NET)
+Location: Hyderabad, Telangana, India
+Skills: Python, PyTorch, FastAPI, MLflow, Kalman Filtering, Sensor Fusion, LLM Deployment, Docker, PostgreSQL, WebSockets, ROS2
+
+Open to work: Yes
+Availability: Part-time/remote internships now; full-time roles from May 2027 (post-graduation)
+Preferred roles: AI/ML Engineer, Backend Engineer, Research Engineer (Autonomous Systems)
+Preferred locations: Hyderabad (on-site), India (remote), International (remote)
+Not interested in: Pure frontend, non-technical roles
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CREDENTIALS & AWARDS (formal recognition)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+Credential 1:
+  Type: Award / Hackathon Win
+  Name: Winner — AI Day Hackathon 2026
+  Awarder: GITAM University Hyderabad × Kodryx AI
+  Date: March 2026
+  Project: MedVision AI — Explainable diabetic ulcer detection (PyTorch, Grad-CAM, SHAP, MLflow)
+  Significance: Competed against students from multiple universities
+
+Credential 2:
+  Type: Award / Hackathon Win
+  Name: Winner — HackXplore 2026
+  Awarder: IEEE-SSIT VJIT
+  Date: April 2026
+  Project: FactCheck AI — Fake news analyzer (90% accuracy, browser extension)
+  Significance: IEEE-organized competition
+
+Credential 3:
+  Type: Education
+  Name: B.Tech Computer Science & Engineering
+  Institution: GITAM University Hyderabad
+  Period: August 2023 – May 2027 (expected)
+  Status: Current student, final year
+
+# ═══════════════════════════════════════════════════════════════════════════════
 # VERIFIED EXTERNAL PROFILES (entity sameAs)
 # ═══════════════════════════════════════════════════════════════════════════════
 

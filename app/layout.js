@@ -322,6 +322,65 @@ const personSchema = {
     "@type": "Country",
     "name": "India",
   },
+  // hasOccupation — Google uses this for "People also search for" occupation cards
+  "hasOccupation": {
+    "@type": "Occupation",
+    "name": "Machine Learning Engineer",
+    "occupationLocation": {
+      "@type": "City",
+      "name": "Hyderabad"
+    },
+    "occupationalCategory": "15-1212.00",  // O*NET: Software Quality Assurance Analysts / nearest ML
+    "skills": "Python, PyTorch, FastAPI, MLflow, Kalman Filtering, Sensor Fusion, LLM Deployment, Docker, PostgreSQL, WebSockets",
+    "responsibilities": "Building production AI systems, rocket telemetry backends, autonomous vehicle control stacks, and on-premise LLM pipelines",
+    "estimatedSalary": {
+      "@type": "MonetaryAmountDistribution",
+      "name": "AI/ML Engineer salary range India",
+      "currency": "INR",
+      "duration": "P1Y",
+      "percentile10": 600000,
+      "percentile25": 900000,
+      "median": 1200000,
+      "percentile75": 1800000,
+      "percentile90": 2500000
+    }
+  },
+  // seeks — signals to Google and recruiters that this person is open to work
+  "seeks": {
+    "@type": "Demand",
+    "name": "AI/ML Engineering roles and research collaborations",
+    "description": "Bodapati Bharat Chandra is open to AI/ML internships, full-time engineering roles starting 2027, research collaborations in autonomous systems and LLM deployment, and startup partnerships.",
+    "availabilityStarts": "2027-05-01",
+    "areaServed": {
+      "@type": "Place",
+      "name": "India"
+    }
+  },
+  // hasCredential — hackathon wins as formal credentials
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Winner — AI Day Hackathon 2026",
+      "description": "First place at AI Day Hackathon organized by GITAM University and Kodryx AI for MedVision AI — explainable diabetic ulcer detection system",
+      "credentialCategory": "Award",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "GITAM University Hyderabad"
+      },
+      "dateCreated": "2026-03-01"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "name": "Winner — HackXplore 2026",
+      "description": "First place at HackXplore organized by IEEE-SSIT VJIT for FactCheck AI — browser-based fake news analyzer with 90% accuracy",
+      "credentialCategory": "Award",
+      "recognizedBy": {
+        "@type": "Organization",
+        "name": "IEEE-SSIT VJIT"
+      },
+      "dateCreated": "2026-04-01"
+    }
+  ],
 };
 
 const websiteSchema = {
@@ -485,12 +544,67 @@ const publisherSchema = {
   ]
 };
 
+// ── SiteNavigationElement — enables Google Sitelinks in search results ────────
+const siteNavigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "SiteLinksSearchBox",
+  "url": BASE_URL,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${BASE_URL}/blog?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+const navigationSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Site Navigation",
+  "itemListElement": [
+    {
+      "@type": "SiteNavigationElement",
+      "position": 1,
+      "name": "Home",
+      "description": "Bodapati Bharat Chandra — AI/ML Engineer portfolio homepage",
+      "url": BASE_URL
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 2,
+      "name": "Projects",
+      "description": "Production AI systems, rocket telemetry, and autonomous vehicle projects",
+      "url": `${BASE_URL}/projects`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 3,
+      "name": "Blog",
+      "description": "Technical writing on AI systems, rocketry, and startup building",
+      "url": `${BASE_URL}/blog`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "position": 4,
+      "name": "Contact",
+      "description": "Get in touch with Bodapati Bharat Chandra",
+      "url": `${BASE_URL}/contact`
+    }
+  ]
+};
+
 import { WebVitals } from "@/components/WebVitals";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        {/* rel=me — identity verification links for Google entity confirmation */}
+        {/* These tell Google that this person owns/controls these external profiles */}
+        <link rel="me" href="https://github.com/BharatChandra-sys" />
+        <link rel="me" href="https://www.linkedin.com/in/bharat-chandra-bodapati/" />
+        <link rel="me" href="https://orcid.org/0009-0004-4734-1635" />
+        <link rel="me" href="mailto:bc833498@gmail.com" />
+
         {/* ── Bing / Edge entity signals ──────────────────────────────── */}
         {/* msvalidate.01 handled via metadata.verification.other — no duplicate here */}
         {/* IndexNow key for Bing/Yandex instant indexing */}
@@ -567,6 +681,11 @@ export default function RootLayout({ children }) {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(publisherSchema) }}
+        />
+        {/* JSON-LD — SiteNavigationElement (Sitelinks signal) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
         />
         {/* Geo tags */}
         <meta name="geo.region" content="IN-TG" />

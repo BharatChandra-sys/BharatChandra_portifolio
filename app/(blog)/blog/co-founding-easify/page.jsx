@@ -87,6 +87,11 @@ const articleSchema = {
   "about": {
     "@type": "Thing",
     "name": "Startup Co-founding"
+  },
+  "backstory": "Bodapati Bharat Chandra co-founded Easify while simultaneously completing his B.Tech at GITAM University and interning at BHEL. The startup addresses the commuter coordination problem in Hyderabad, India.",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".speakable-summary", "article p:first-of-type"]
   }
 };
 

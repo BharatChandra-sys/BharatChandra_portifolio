@@ -96,7 +96,7 @@ const HeroSection = () => {
           {/* Sub-text — exact same style */}
           <motion.p
             variants={itemAnimation}
-            className="text-base sm:text-md text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+            className="speakable-summary text-base sm:text-md text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
             Final-year CSE student at GITAM University Hyderabad. I build production-grade
             ML pipelines, rocket telemetry backends, and autonomous vehicle control stacks —
