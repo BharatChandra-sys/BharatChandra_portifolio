@@ -316,7 +316,10 @@ const educationSchema = {
   "@id": `${BASE}/#education-credential`,
   "name": "B.Tech Computer Science & Engineering",
   "description": "Bachelor of Technology in Computer Science & Engineering from GITAM University Hyderabad",
-  "credentialCategory": "Bachelor's Degree",
+  "credentialCategory": {
+    "@type": "DefinedTerm",
+    "name": "Bachelor's Degree"
+  },
   "educationalLevel": "Undergraduate",
   "recognizedBy": {
     "@type": "CollegeOrUniversity",
@@ -324,23 +327,12 @@ const educationSchema = {
     "url": "https://gitam.edu",
     "sameAs": "https://en.wikipedia.org/wiki/GITAM_University"
   },
-  "about": {
-    "@type": "Person",
-    "name": "Bodapati Bharat Chandra",
-    "@id": `${BASE}/#person`
-  },
   "validFrom": "2023-08-01",
   "validUntil": "2027-05-31",
-  "competencyRequired": "Computer Science, Machine Learning, Software Engineering",
-  "awardedBy": {
-    "@type": "CollegeOrUniversity",
-    "name": "GITAM University Hyderabad",
-    "url": "https://gitam.edu"
-  }
+  "competencyRequired": "Computer Science, Machine Learning, Software Engineering"
 };
 
-// ── Schema: WorkExperience / ItemList ──────────────────────────────────────────
-// Gives Google structured signals about employment history for People cards
+// ── Schema: WorkExperience — structured employment history ────────────────────
 const workExperienceSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
@@ -350,10 +342,14 @@ const workExperienceSchema = {
       "@type": "ListItem",
       "position": 1,
       "item": {
-        "@type": "OrganizationRole",
+        "@type": "EmployeeRole",
         "roleName": "AI/ML Engineering Intern",
         "startDate": "2026-05-01",
-        "organization": {
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "AI/ML Engineering Intern"
+        },
+        "worksFor": {
           "@type": "Organization",
           "name": "BHEL — Bharat Heavy Electricals Limited",
           "url": "https://bhel.com",
@@ -366,10 +362,14 @@ const workExperienceSchema = {
       "@type": "ListItem",
       "position": 2,
       "item": {
-        "@type": "OrganizationRole",
+        "@type": "EmployeeRole",
         "roleName": "Backend & ML Lead",
         "startDate": "2026-02-01",
-        "organization": {
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Backend & ML Lead"
+        },
+        "worksFor": {
           "@type": "Organization",
           "name": "GARI — GITAM Aerospace Rocketry Initiative",
           "memberOf": {
@@ -385,10 +385,14 @@ const workExperienceSchema = {
       "@type": "ListItem",
       "position": 3,
       "item": {
-        "@type": "OrganizationRole",
+        "@type": "EmployeeRole",
         "roleName": "Co-Founder",
         "startDate": "2023-09-01",
-        "organization": {
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Co-Founder"
+        },
+        "worksFor": {
           "@type": "Organization",
           "name": "Easify",
           "description": "Smart pooling service platform for commuters in Hyderabad, India"
@@ -412,7 +416,7 @@ const howToDeployLLMSchema = {
     "@id": `${BASE}/#person`
   },
   "url": `${BASE}/blog/on-premise-llm-bhel`,
-  "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": "0" },
+  "estimatedCost": { "@type": "MonetaryAmount", "currency": "USD", "value": 0 },
   "totalTime": "PT4H",
   "tool": [
     { "@type": "HowToTool", "name": "Ollama" },
@@ -425,24 +429,28 @@ const howToDeployLLMSchema = {
       "@type": "HowToStep",
       "position": 1,
       "name": "Install Ollama on local hardware",
+      "url": `${BASE}/blog/on-premise-llm-bhel#the-stack`,
       "text": "Download and install Ollama on your server. Pull a quantized model: ollama pull mistral:7b-instruct-q4_K_M"
     },
     {
       "@type": "HowToStep",
       "position": 2,
       "name": "Set up FastAPI backend",
+      "url": `${BASE}/blog/on-premise-llm-bhel#the-stack`,
       "text": "Create a FastAPI application that connects to Ollama's OpenAI-compatible API endpoint at http://localhost:11434"
     },
     {
       "@type": "HowToStep",
       "position": 3,
       "name": "Build a two-pass prompt strategy",
+      "url": `${BASE}/blog/on-premise-llm-bhel#the-hardest-part-prompt-engineering-for-structured-output`,
       "text": "Use two LLM calls: first to summarize the document section, then to convert the summary to structured JSON. This improves output quality from ~60% to ~95% valid JSON."
     },
     {
       "@type": "HowToStep",
       "position": 4,
       "name": "Extract documents with PyMuPDF",
+      "url": `${BASE}/blog/on-premise-llm-bhel#the-document-pipeline`,
       "text": "Use PyMuPDF (fitz) to extract text and tables from PDFs before passing to the LLM pipeline."
     }
   ]
@@ -472,24 +480,28 @@ const howToRocketTelemetrySchema = {
       "@type": "HowToStep",
       "position": 1,
       "name": "Define binary packet structure",
+      "url": `${BASE}/blog/can-7usat-rocket-telemetry#the-packet-structure`,
       "text": "Design a compact binary packet format. CAN-7USAT used 46 bytes: sync marker, timestamp, flight state, altitude, velocity, quaternion, GPS, XOR checksum."
     },
     {
       "@type": "HowToStep",
       "position": 2,
       "name": "Implement 6-state flight state machine",
+      "url": `${BASE}/blog/can-7usat-rocket-telemetry#the-state-machine`,
       "text": "Define states: PRE-FLIGHT, BOOST, COAST, APOGEE, DESCENT, LANDED. Each transition changes data visualization priority."
     },
     {
       "@type": "HowToStep",
       "position": 3,
       "name": "Apply Kalman filter for sensor fusion",
+      "url": `${BASE}/blog/can-7usat-rocket-telemetry#kalman-filter-for-sensor-fusion`,
       "text": "Fuse accelerometer and barometer altitude readings with a 1D Kalman filter. Execution: under 0.2ms per packet."
     },
     {
       "@type": "HowToStep",
       "position": 4,
       "name": "Broadcast via FastAPI WebSocket",
+      "url": `${BASE}/blog/can-7usat-rocket-telemetry#websocket-broadcasting`,
       "text": "Use asyncio + Uvicorn to read serial port and broadcast WebSocket updates concurrently. Target: under 1ms broadcast latency."
     }
   ]
@@ -499,16 +511,12 @@ const howToRocketTelemetrySchema = {
 const speakableSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": `${BASE}/#homepage`,
+  "@id": `${BASE}/#webpage-home`,
   "url": BASE,
   "name": "Bodapati Bharat Chandra — AI/ML Engineer Portfolio",
   "speakable": {
     "@type": "SpeakableSpecification",
-    "cssSelector": [
-      "h1",
-      ".speakable-summary",
-      "#main-content p:first-of-type"
-    ]
+    "cssSelector": "h1, .speakable-summary"
   },
   "about": {
     "@type": "Person",

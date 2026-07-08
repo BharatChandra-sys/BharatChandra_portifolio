@@ -330,27 +330,20 @@ const personSchema = {
       "@type": "City",
       "name": "Hyderabad"
     },
-    "occupationalCategory": "15-1212.00",  // O*NET: Software Quality Assurance Analysts / nearest ML
+    "occupationalCategory": "15-1212.00",
     "skills": "Python, PyTorch, FastAPI, MLflow, Kalman Filtering, Sensor Fusion, LLM Deployment, Docker, PostgreSQL, WebSockets",
-    "responsibilities": "Building production AI systems, rocket telemetry backends, autonomous vehicle control stacks, and on-premise LLM pipelines",
-    "estimatedSalary": {
-      "@type": "MonetaryAmountDistribution",
-      "name": "AI/ML Engineer salary range India",
-      "currency": "INR",
-      "duration": "P1Y",
-      "percentile10": 600000,
-      "percentile25": 900000,
-      "median": 1200000,
-      "percentile75": 1800000,
-      "percentile90": 2500000
-    }
+    "responsibilities": "Building production AI systems, rocket telemetry backends, autonomous vehicle control stacks, and on-premise LLM pipelines"
   },
   // seeks — signals to Google and recruiters that this person is open to work
   "seeks": {
     "@type": "Demand",
     "name": "AI/ML Engineering roles and research collaborations",
-    "description": "Bodapati Bharat Chandra is open to AI/ML internships, full-time engineering roles starting 2027, research collaborations in autonomous systems and LLM deployment, and startup partnerships.",
-    "availabilityStarts": "2027-05-01",
+    "description": "Open to AI/ML internships, full-time engineering roles from 2027, research collaborations in autonomous systems and LLM deployment.",
+    "itemOffered": {
+      "@type": "Service",
+      "name": "AI/ML Engineering Services",
+      "description": "Production ML systems, FastAPI backends, telemetry systems, LLM deployment"
+    },
     "areaServed": {
       "@type": "Place",
       "name": "India"
@@ -362,7 +355,10 @@ const personSchema = {
       "@type": "EducationalOccupationalCredential",
       "name": "Winner — AI Day Hackathon 2026",
       "description": "First place at AI Day Hackathon organized by GITAM University and Kodryx AI for MedVision AI — explainable diabetic ulcer detection system",
-      "credentialCategory": "Award",
+      "credentialCategory": {
+        "@type": "DefinedTerm",
+        "name": "Award"
+      },
       "recognizedBy": {
         "@type": "Organization",
         "name": "GITAM University Hyderabad"
@@ -373,7 +369,10 @@ const personSchema = {
       "@type": "EducationalOccupationalCredential",
       "name": "Winner — HackXplore 2026",
       "description": "First place at HackXplore organized by IEEE-SSIT VJIT for FactCheck AI — browser-based fake news analyzer with 90% accuracy",
-      "credentialCategory": "Award",
+      "credentialCategory": {
+        "@type": "DefinedTerm",
+        "name": "Award"
+      },
       "recognizedBy": {
         "@type": "Organization",
         "name": "IEEE-SSIT VJIT"
@@ -471,11 +470,10 @@ const easifyOrganizationSchema = {
     "addressRegion": "Telangana",
     "addressCountry": "IN"
   },
-  "url": BASE_URL,
   "email": "bc833498@gmail.com",
   "contactPoint": {
     "@type": "ContactPoint",
-    "contactType": "Founder",
+    "contactType": "customer support",
     "email": "bc833498@gmail.com",
     "availableLanguage": ["English", "Hindi", "Telugu"]
   }
@@ -500,10 +498,7 @@ const gariOrganizationSchema = {
       "@id": `${BASE_URL}/#person`
     }
   ],
-  "url": BASE_URL,
-  "foundingDate": "2024",
-  "areaServed": "India",
-  "knowsAbout": ["Rocketry", "Aerospace Engineering", "Telemetry Systems", "IN-SPACe Competitions"]
+  "foundingDate": "2024-01-01"
 };
 
 // ── ContactPoint Schema ────────────────────────────────────────────────────────
@@ -545,17 +540,6 @@ const publisherSchema = {
 };
 
 // ── SiteNavigationElement — enables Google Sitelinks in search results ────────
-const siteNavigationSchema = {
-  "@context": "https://schema.org",
-  "@type": "SiteLinksSearchBox",
-  "url": BASE_URL,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": `${BASE_URL}/blog?q={search_term_string}`,
-    "query-input": "required name=search_term_string"
-  }
-};
-
 const navigationSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
