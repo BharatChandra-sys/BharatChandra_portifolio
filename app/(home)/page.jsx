@@ -101,7 +101,6 @@ const profilePageSchema = {
   "url": BASE,
   "name": "Bodapati Bharat Chandra — Official Portfolio & Primary Web Presence",
   "dateCreated": "2026-06-01T00:00:00Z",
-  "dateModified": "2026-07-08T00:00:00Z",
   "inLanguage": "en-IN",
   // isPartOf connects this ProfilePage to the WebSite entity — reinforces domain ownership
   "isPartOf": {
