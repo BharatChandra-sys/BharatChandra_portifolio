@@ -98,10 +98,8 @@ const HeroSection = () => {
             variants={itemAnimation}
             className="speakable-summary text-base sm:text-md text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
-            Bodapati Bharat Chandra (Bharat Chandra) is a final-year CSE student at GITAM University Hyderabad building production-grade
-            ML pipelines, rocket telemetry backends, and autonomous vehicle control stacks —
-            not just notebooks.
-            </motion.p>
+            Bodapati Bharat Chandra (Bharat Chandra) is a final-year CSE student at GITAM University Hyderabad building production-grade ML pipelines, rocket telemetry backends, and autonomous vehicle control stacks — not just notebooks.
+          </motion.p>
 
           {/* CTAs — same button style, added CV + GitHub */}
           <motion.div
