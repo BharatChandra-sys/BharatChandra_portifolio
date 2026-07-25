@@ -219,6 +219,18 @@ export async function GET() {
       },
       {
         "@type": "BlogPosting",
+        "@id": `${BASE_URL}/blog/building-gari-website`,
+        "headline": "I Built the GARI Website From Zero to gari.live",
+        "url": `${BASE_URL}/blog/building-gari-website`,
+        "datePublished": "2026-07-15T00:00:00Z",
+        "dateModified": "2026-07-15T00:00:00Z",
+        "author": { "@type": "Person", "@id": `${BASE_URL}/#person` },
+        "publisher": { "@type": "Organization", "@id": `${BASE_URL}/#website-publisher` },
+        "inLanguage": "en-IN",
+        "isAccessibleForFree": true
+      },
+      {
+        "@type": "BlogPosting",
         "@id": `${BASE_URL}/blog/co-founding-easify`,
         "headline": "What I Learned Co-founding Easify: My Honest Take After Building a Pooling Startup",
         "url": `${BASE_URL}/blog/co-founding-easify`,

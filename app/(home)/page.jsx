@@ -29,7 +29,7 @@ const faqSchema = {
       "name": "What projects has Bodapati Bharat Chandra built?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe competition 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, FactCheck AI fake news analyzer (90% accuracy, HackXplore winner), Hospital Management Platform, and Vijetha Digital e-commerce backend in production.",
+        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe competition 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, FactCheck AI fake news analyzer (90% accuracy, HackXplore winner), a live hospital management platform for Deepthi Hospitals, and a production-grade website for GARI at gari.live.",
       },
     },
     {
@@ -45,7 +45,7 @@ const faqSchema = {
       "name": "Where does Bharat Chandra work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra is currently an AI/ML Engineering Intern at BHEL (Bharat Heavy Electricals Limited) in Hyderabad, building an on-premise AI vendor compliance portal. He is also the Backend and ML Lead at GARI (GITAM Aerospace Rocketry Initiative) and co-founder of Easify.",
+        "text": "Bodapati Bharat Chandra is currently an AI/ML Engineering Intern at BHEL (Bharat Heavy Electricals Limited) in Hyderabad, building an on-premise AI vendor compliance portal. He is also the Ground Station & Software Lead for GARI's CanSat team and co-founder of Easify.",
       },
     },
     {
@@ -214,6 +214,30 @@ const projectsListSchema = {
       "position": 3,
       "item": {
         "@type": "SoftwareSourceCode",
+        "@id": "https://deepthihospitals.vercel.app",
+        "name": "Deepthi Hospitals — Hospital Management System",
+        "description": "Full-stack hospital management platform live in production. Appointment booking, doctor management, department routing, patient records, emergency triage, and staff portal.",
+        "codeRepository": "https://github.com/BharatChandra-sys",
+        "url": "https://deepthihospitals.vercel.app",
+        "programmingLanguage": ["TypeScript", "JavaScript"],
+        "author": {
+          "@type": "Person",
+          "name": "Bodapati Bharat Chandra",
+          "@id": `${BASE}/#person`
+        },
+        "dateCreated": "2026-06-01",
+        "dateModified": "2026-07-01",
+        "datePublished": "2026-07-01",
+        "license": "https://opensource.org/licenses/MIT",
+        "runtimePlatform": "Next.js, Vercel",
+        "keywords": "hospital management system, Next.js, React, healthcare, appointment booking"
+      },
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "SoftwareSourceCode",
         "@id": "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
         "name": "MedVision AI — Diabetic Ulcer Detection",
         "description": "Explainable AI system for diabetic ulcer risk detection. Grad-CAM heatmaps, SHAP values, MLflow tracking. Won AI Day Hackathon GITAM × Kodryx AI 2026.",
@@ -235,7 +259,7 @@ const projectsListSchema = {
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "item": {
         "@type": "SoftwareSourceCode",
         "@id": "https://github.com/BharatChandra-sys/FactCheckAI",
@@ -259,7 +283,7 @@ const projectsListSchema = {
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "item": {
         "@type": "SoftwareSourceCode",
         "@id": "https://github.com/BharatChandra-sys/rocket-simulator",
@@ -279,30 +303,6 @@ const projectsListSchema = {
         "license": "https://opensource.org/licenses/MIT",
         "runtimePlatform": "Python 3.9+",
         "keywords": "rocketry, simulation, physics, trajectory analysis, aerospace"
-      },
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "SoftwareSourceCode",
-        "@id": "https://github.com/BharatChandra-sys/Email-Automation-for-Form",
-        "name": "Email Automation for Forms",
-        "description": "Automated email pipeline triggered by form submissions. FastAPI, SMTP, Jinja2, queue-based delivery.",
-        "codeRepository": "https://github.com/BharatChandra-sys/Email-Automation-for-Form",
-        "url": "https://github.com/BharatChandra-sys/Email-Automation-for-Form",
-        "programmingLanguage": ["Python"],
-        "author": {
-          "@type": "Person",
-          "name": "Bodapati Bharat Chandra",
-          "@id": `${BASE}/#person`
-        },
-        "dateCreated": "2025-04-01",
-        "dateModified": "2025-12-15",
-        "datePublished": "2025-05-01",
-        "license": "https://opensource.org/licenses/MIT",
-        "runtimePlatform": "Python 3.9+",
-        "keywords": "email automation, FastAPI, SMTP, Jinja2, queue systems"
       },
     },
   ],
@@ -362,22 +362,23 @@ const workExperienceSchema = {
       "position": 2,
       "item": {
         "@type": "EmployeeRole",
-        "roleName": "Backend & ML Lead",
+        "roleName": "Ground Station & Software Lead, GARI CanSat Team",
         "startDate": "2026-02-01",
         "hasOccupation": {
           "@type": "Occupation",
-          "name": "Backend & ML Lead"
+          "name": "Ground Station & Software Lead"
         },
         "worksFor": {
           "@type": "Organization",
           "name": "GARI — GITAM Aerospace Rocketry Initiative",
+          "url": "https://gari.live",
           "memberOf": {
             "@type": "CollegeOrUniversity",
             "name": "GITAM University Hyderabad",
             "url": "https://gitam.edu"
           }
         },
-        "description": "Built CAN-7USAT rocket telemetry backend achieving sub-5ms end-to-end latency for IN-SPACe Model Rocketry Competition 2026."
+        "description": "Built CAN-7USAT rocket telemetry pipelines with sub-5ms latency, custom GCS software with NavIC integration, and the GARI website (gari.live) for IN-SPACe competition 2026."
       }
     },
     {
@@ -540,9 +541,11 @@ const Home = () => {
       {/* Hidden SEO text — crawlable, not visible */}
       <span className="sr-only">
         Bodapati Bharat Chandra is an AI/ML engineer and final-year CSE student at GITAM University Hyderabad.
-        Also known as Bharat Chandra and BharatChandra-sys on GitHub.
-        Bodapati Bharat Chandra is interning at BHEL Hyderabad, leading the backend stack at GARI rocketry initiative, and co-founding Easify, a pooling platform in Hyderabad, India.
+        He is also known as Bharat Chandra, Bharat Chandra Telugu, Bharat Chandra Hindi, Bharat Chandra India, and BharatChandra-sys on GitHub.
+        Bodapati Bharat Chandra is interning at BHEL Hyderabad, leading the backend and ML stack at GARI rocketry initiative, and co-founding Easify, a pooling platform in Hyderabad, India.
+        He builds production AI systems, on-premise LLM platforms, rocket telemetry backends, autonomous vehicle software, and hospital management systems.
         Contact: bc833498@gmail.com — bharatchandra.me
+        Relevant searches include Bharat Chandra AI engineer, Bharat Chandra portfolio, Bharat Chandra GITAM, Bharat Chandra Hyderabad, Bharat Chandra BHEL, Bharat Chandra developer, Bharat Chandra machine learning engineer, Bharat Chandra software engineer, Bharat Chandra robotics, Bharat Chandra aerospace, Bharat Chandra Telugu, Bharat Chandra Hindi, and Bharat Chandra India.
       </span>
 
       <HeroSection />
@@ -572,7 +575,7 @@ const Home = () => {
                 Bodapati Bharat Chandra
               </p>
               <p className="text-xs text-white/40" itemProp="jobTitle">
-                AI/ML Engineer · Hyderabad, India
+                AI/ML Engineer · Hyderabad, India · Bharat Chandra
               </p>
             </div>
           </div>

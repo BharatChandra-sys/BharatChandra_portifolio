@@ -42,9 +42,9 @@ const blogLayoutBreadcrumb = {
 };
 
 export const metadata = {
-  title: "Writing — Bharat Chandra | Notes on AI Systems, Rocketry & Startups I've Built",
+  title: "Writing — Bodapati Bharat Chandra | Bharat Chandra | Notes on AI Systems, Rocketry & Startups I've Built",
   description:
-    "Technical writing by Bodapati Bharat Chandra. I write about production AI systems, rocket telemetry backends, on-premise LLMs, and co-founding a startup in Hyderabad — from real experience, not theory.",
+    "Technical writing by Bodapati Bharat Chandra (Bharat Chandra). I write about production AI systems, rocket telemetry backends, on-premise LLMs, and co-founding a startup in Hyderabad — from real experience, not theory.",
   keywords: [
     "Bodapati Bharat Chandra blog",
     "Bharat Chandra writing",

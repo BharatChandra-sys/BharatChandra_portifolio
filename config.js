@@ -24,7 +24,7 @@ export const config = {
             image: "/projects/project-1.webp",
             technologies: ["Python", "FastAPI", "WebSockets", "Kalman Filter", "PostgreSQL", "React", "TypeScript"],
             github: "https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend",
-            demo: "https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend"
+            demo: "https://gari.live/cansat"
         },
         {
             id: 2,
@@ -37,39 +37,39 @@ export const config = {
         },
         {
             id: 3,
+            title: "Deepthi Hospitals — Hospital Management System",
+            description: "Full-stack hospital management platform now live in production. Appointment booking, doctor management, department routing, patient records, emergency triage, and staff portal. Built with Next.js, deployed on Vercel.",
+            image: "/projects/project-3.webp",
+            technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+            github: "https://github.com/BharatChandra-sys",
+            demo: "https://deepthihospitals.vercel.app"
+        },
+        {
+            id: 4,
             title: "MedVision AI — Diabetic Ulcer XAI",
             description: "Medical image classification + clinical data to estimate ulcer risk with full explainability. Grad-CAM heatmaps + SHAP values + MLflow experiment tracking + DVC versioning. Won AI Day Hackathon — GITAM × Kodryx AI, March 2026.",
-            image: "/projects/project-3.webp",
+            image: "/projects/project-4.webp",
             technologies: ["PyTorch", "Grad-CAM", "SHAP", "MLflow", "DVC", "FastAPI", "Docker"],
             github: "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
             demo: "https://diabetic-ulcer-ai-system.vercel.app"
         },
         {
-            id: 4,
+            id: 5,
             title: "FactCheck AI — Fake News Analyzer",
             description: "Browser-based fake news analyzer. Scores news credibility in one click — Logistic Regression on 10,000+ labeled samples, sub-second response, LLM reasoning layer for verdict explanations. 90% validation accuracy. Won HackXplore — IEEE-SSIT VJIT, April 2026.",
-            image: "/projects/project-4.webp",
+            image: "/projects/project-5.webp",
             technologies: ["FastAPI", "Chrome Extension API", "TF-IDF", "Logistic Regression", "LLM"],
             github: "https://github.com/BharatChandra-sys/FactCheckAI",
             demo: "https://github.com/BharatChandra-sys/FactCheckAI"
         },
         {
-            id: 5,
+            id: 6,
             title: "Rocket Simulator",
             description: "Physics-based rocket flight simulator modelling thrust, drag, gravity and multi-stage separation. Outputs altitude, velocity and acceleration curves. Built for GARI rocketry trajectory analysis and pre-launch verification.",
             image: "/projects/project-5.webp",
             technologies: ["Python", "NumPy", "SciPy", "Matplotlib", "Physics Simulation"],
             github: "https://github.com/BharatChandra-sys/rocket-simulator",
             demo: "https://github.com/BharatChandra-sys/rocket-simulator"
-        },
-        {
-            id: 6,
-            title: "Email Automation for Forms",
-            description: "Automated email pipeline triggered by form submissions. FastAPI backend, SMTP integration, Jinja2 template engine, and queue-based delivery with retry logic. Handles bulk personalised emails reliably.",
-            image: "/projects/project-5.webp",
-            technologies: ["FastAPI", "SMTP", "Jinja2", "Queue", "Python"],
-            github: "https://github.com/BharatChandra-sys/Email-Automation-for-Form",
-            demo: "https://github.com/BharatChandra-sys/Email-Automation-for-Form"
         }
     ],
     skills: [
@@ -162,17 +162,18 @@ export const config = {
             technologies: ["FastAPI", "PostgreSQL", "React", "WebSockets", "JWT", "Razorpay"]
         },
         {
-            position: "Backend & ML Lead",
+            position: "Ground Station & Software Lead, GARI CanSat Team",
             company: "GARI — GITAM Aerospace Rocketry Initiative",
             period: "Feb 2026 – Present",
             location: "GITAM University Hyderabad",
-            description: "Leading the backend and ML stack for GITAM's rocketry team competing in the IN-SPACe national competition. Built the entire telemetry pipeline from scratch.",
+            description: "Leading all software and ground station systems for GARI's CanSat and rocketry programs, including telemetry pipelines, GCS tooling, and the live team website at gari.live.",
             responsibilities: [
                 "Built CAN-7USAT rocket telemetry backend achieving sub-5ms end-to-end latency (target was 15ms)",
-                "Engineered real-time WebSocket streaming pipeline for live ground station dashboards",
-                "Developed the GARI team website with React, canvas starfield, and SVG animations"
+                "Engineered real-time WebSocket streaming pipeline for live ground station dashboards with NavIC GNSS integration",
+                "Developed and deployed the GARI team website (gari.live) — React, canvas starfield, SVG animations, full SEO",
+                "Designed custom GCS software for live telemetry visualisation, packet parsing, mission logging, and data export"
             ],
-            technologies: ["FastAPI", "WebSockets", "React", "PostgreSQL", "Kalman Filter", "TypeScript"]
+            technologies: ["FastAPI", "WebSockets", "React", "PostgreSQL", "Kalman Filter", "TypeScript", "NavIC"]
         },
         {
             position: "AI/ML Intern",

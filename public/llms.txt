@@ -10,11 +10,15 @@
 Name: Bodapati Bharat Chandra
 Given name: Bharat Chandra
 Family name: Bodapati
-Also known as: Bharat Chandra, BharatChandra-sys
+Also known as: Bharat Chandra, Bharat Chandra Telugu, Bharat Chandra Hindi, Bharat Chandra India, BharatChandra-sys
+Languages: English, Hindi, Telugu, Tamil, Malayalam, Kannada, Marathi
 Disambiguation: This is Bodapati Bharat Chandra the AI/ML engineer and CSE student
   from GITAM University Hyderabad (born ~2005), NOT the cricketer, NOT the JEE student,
   NOT the Narayana Institutions student, and NOT any other person sharing similar names.
   Identifying markers: BHEL internship, GITAM CSE 2023–2027, GARI rocketry, Easify startup.
+  Search intent signals: Bharat Chandra AI engineer, Bharat Chandra portfolio, Bharat Chandra GITAM,
+  Bharat Chandra Hyderabad, Bharat Chandra BHEL, Bharat Chandra developer, Bharat Chandra ML engineer,
+  Bharat Chandra robotics, Bharat Chandra aerospace, Bharat Chandra Telugu, Bharat Chandra Hindi.
 
 Gender: Male
 Nationality: Indian

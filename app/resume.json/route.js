@@ -64,14 +64,15 @@ const resume = {
     },
     {
       "name": "GARI — GITAM Aerospace Rocketry Initiative",
-      "position": "Backend & ML Lead",
-      "url": BASE_URL,
+      "position": "Ground Station & Software Lead, GARI CanSat Team",
+      "url": "https://gari.live",
       "startDate": "2026-02",
-      "summary": "Leading the backend and ML stack for GITAM's rocketry team competing in the IN-SPACe national competition.",
+      "summary": "Leading software and ground station systems for GARI's CanSat and rocketry programs, including telemetry pipelines, mission dashboards, and the live team website at gari.live.",
       "highlights": [
         "Built CAN-7USAT rocket telemetry backend achieving sub-5ms end-to-end latency (target was 15ms)",
-        "Engineered real-time WebSocket streaming pipeline for live ground station dashboards",
-        "Developed GARI team website with React, canvas starfield, and SVG animations"
+        "Engineered real-time WebSocket streaming pipeline with NavIC GNSS integration for live GCS dashboards",
+        "Developed and deployed the GARI team website (gari.live) — full SEO, React, canvas animations",
+        "Designed custom GCS software for live telemetry visualisation, packet parsing, and mission logging"
       ],
       "location": "GITAM University Hyderabad"
     },
@@ -165,6 +166,20 @@ const resume = {
     }
   ],
   "projects": [
+    {
+      "name": "Deepthi Hospitals — Hospital Management System",
+      "description": "Full-stack hospital management platform live in production. Appointment booking, doctor management, department routing, patient records, emergency triage, and staff portal.",
+      "highlights": [
+        "Live at deepthihospitals.vercel.app",
+        "Full appointment booking, department routing, and doctor management",
+        "Emergency triage, ICU monitoring, and staff portal"
+      ],
+      "keywords": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
+      "startDate": "2026-06",
+      "url": "https://deepthihospitals.vercel.app",
+      "roles": ["Full-stack Developer"],
+      "type": "application"
+    },
     {
       "name": "CAN-7USAT Ground Control Station",
       "description": "Real-time ground control station for IN-SPACe Model Rocketry Competition 2026. Sub-5ms end-to-end latency, Kalman filter sensor fusion, 6-state flight state machine.",

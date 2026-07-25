@@ -42,9 +42,9 @@ const breadcrumbSchema = {
 };
 
 export const metadata = {
-  title: "Contact — Bodapati Bharat Chandra",
+  title: "Contact — Bodapati Bharat Chandra | Bharat Chandra",
   description:
-    "Get in touch with Bodapati Bharat Chandra — open to AI/ML internships, full-time roles starting 2027, and project collaborations. Based in Hyderabad, India.",
+    "Get in touch with Bodapati Bharat Chandra (Bharat Chandra) — open to AI/ML internships, full-time roles starting 2027, and project collaborations. Based in Hyderabad, India.",
   keywords: [
     "contact Bodapati Bharat Chandra",
     "contact Bharat Chandra",

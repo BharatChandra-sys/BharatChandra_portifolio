@@ -21,7 +21,7 @@ export const metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: "Bodapati Bharat Chandra | AI/ML Engineer & Aerospace Systems Builder",
+    default: "Bodapati Bharat Chandra | Bharat Chandra | AI/ML Engineer & Aerospace Systems Builder",
     template: "%s | Bodapati Bharat Chandra",
   },
 
@@ -35,10 +35,13 @@ export const metadata = {
     "Bodapati Bharat Chandra GITAM",
     "Bharat Chandra AI engineer",
     "Bodapati Bharat Chandra AI engineer",
-    "BharatChandra-sys",
+    "AI/ML engineer Hyderabad",
+    "AI/ML engineer India",
+    "Machine learning engineer Hyderabad",
     "Bharat Chandra Hyderabad",
     "Bodapati Bharat Chandra Hyderabad",
     "Bharat Chandra BHEL",
+    "BharatChandra-sys",
     "Bodapati Bharat Chandra BHEL",
     "Bharat Chandra GARI rocketry",
     "Bodapati Bharat Chandra Easify",
@@ -47,8 +50,26 @@ export const metadata = {
     "AUVBrain autonomous underwater vehicle",
     "MedVision AI diabetic ulcer",
     "FactCheck AI fake news",
+    "Deepthi Hospitals",
+    "GARI website",
+    "gari.live",
     "Bharat Chandra portfolio",
     "Bodapati Bharat Chandra portfolio",
+    "भरत चंद्र",
+    "భరత్ చందర్",
+    "Bharat Chandra Telugu",
+    "Bharat Chandra Hindi",
+    "Bharat Chandra English",
+    "Bodapati Bharat Chandra India",
+    "Bharat Chandra AI/ML",
+    "Bharat Chandra software engineer",
+    "Bharat Chandra backend engineer",
+    "Bharat Chandra ML engineer",
+    "Bharat Chandra robotics",
+    "Bharat Chandra aerospace",
+    "Bharat Chandra developer",
+    "Bharat Chandra GitHub",
+    "Bharat Chandra LinkedIn",
   ],
 
   authors: [{ name: "Bodapati Bharat Chandra", url: BASE_URL }],
@@ -75,6 +96,10 @@ export const metadata = {
     languages: {
       'en-IN': BASE_URL,
       'en': BASE_URL,
+      'hi': BASE_URL,
+      'te': BASE_URL,
+      'ta': BASE_URL,
+      'ml': BASE_URL,
       'x-default': BASE_URL,
     },
   },
@@ -84,7 +109,7 @@ export const metadata = {
     firstName: "Bharat Chandra",
     lastName: "Bodapati",
     url: BASE_URL,
-    title: "Bodapati Bharat Chandra | AI/ML Engineer",
+    title: "Bodapati Bharat Chandra | Bharat Chandra | AI/ML Engineer",
     description:
       "Bodapati Bharat Chandra — production AI systems, rocketry telemetry, AUV stacks, and co-founder of Easify. Final-year CSE @ GITAM Hyderabad.",
     siteName: "Bodapati Bharat Chandra",
@@ -111,7 +136,7 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Bodapati Bharat Chandra | AI/ML Engineer",
+    title: "Bodapati Bharat Chandra | Bharat Chandra | AI/ML Engineer",
     description:
       "Bodapati Bharat Chandra — production AI systems, rocketry backends, AUV stacks. Final-year CSE @ GITAM Hyderabad.",
     images: [
@@ -187,7 +212,7 @@ const personSchema = {
       "height": 400,
       "caption": "Bodapati Bharat Chandra — AI/ML Engineer and Co-founder of Easify, Hyderabad",
       "name": "Bodapati Bharat Chandra photo",
-      "description": "Bodapati Bharat Chandra, final-year CSE student at GITAM University Hyderabad, AI/ML engineer and co-founder of Easify.",
+      "description": "Bodapati Bharat Chandra, final-year CSE student at GITAM University Hyderabad, AI/ML engineer, GARI ground station lead, and co-founder of Easify.",
       "inLanguage": "en-IN",
       "license": `${BASE_URL}`,
       "acquireLicensePage": `${BASE_URL}`,
@@ -219,7 +244,9 @@ const personSchema = {
   "memberOf": [
     {
       "@type": "Organization",
+      "@id": "https://gari.live/#organization",
       "name": "GARI — GITAM Aerospace Rocketry Initiative",
+      "url": "https://gari.live"
     },
   ],
   "founder": {
@@ -282,14 +309,37 @@ const personSchema = {
     {
       "@type": "Language",
       "name": "English",
+      "alternateName": ["en", "en-IN"]
     },
     {
       "@type": "Language",
       "name": "Hindi",
+      "alternateName": ["hi", "हिन्दी"]
     },
     {
       "@type": "Language",
       "name": "Telugu",
+      "alternateName": ["te", "తెలుగు"]
+    },
+    {
+      "@type": "Language",
+      "name": "Tamil",
+      "alternateName": ["ta", "தமிழ்"]
+    },
+    {
+      "@type": "Language",
+      "name": "Malayalam",
+      "alternateName": ["ml", "മലയാളം"]
+    },
+    {
+      "@type": "Language",
+      "name": "Kannada",
+      "alternateName": ["kn", "ಕನ್ನಡ"]
+    },
+    {
+      "@type": "Language",
+      "name": "Marathi",
+      "alternateName": ["mr", "मराठी"]
     },
   ],
   "sameAs": [
@@ -317,6 +367,7 @@ const personSchema = {
     "addressRegion": "Telangana",
     "addressCountry": "IN",
     "postalCode": "500019",
+    "addressCountryCode": "IN"
   },
   "nationality": {
     "@type": "Country",
@@ -482,9 +533,11 @@ const easifyOrganizationSchema = {
 const gariOrganizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "@id": `${BASE_URL}/#gari-organization`,
+  "@id": "https://gari.live/#organization",
   "name": "GARI — GITAM Aerospace Rocketry Initiative",
-  "description": "GITAM University's rocketry team competing in IN-SPACe national competitions",
+  "url": "https://gari.live",
+  "description": "Student-driven aerospace and rocketry initiative at GITAM University Hyderabad competing in IN-SPACe national competitions. Developing CanSat and rocket systems.",
+  "sameAs": "https://gari.live",
   "parentOrganization": {
     "@type": "CollegeOrUniversity",
     "name": "GITAM University Hyderabad",
@@ -493,12 +546,33 @@ const gariOrganizationSchema = {
   },
   "member": [
     {
-      "@type": "Person",
-      "name": "Bodapati Bharat Chandra",
-      "@id": `${BASE_URL}/#person`
-    }
+      "@type": "OrganizationMember",
+      "member": {
+        "@type": "Person",
+        "@id": `${BASE_URL}/#person`,
+        "name": "Bodapati Bharat Chandra",
+        "url": BASE_URL,
+        "image": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+        "sameAs": [
+          BASE_URL,
+          "https://github.com/BharatChandra-sys",
+          "https://www.linkedin.com/in/bharat-chandra-bodapati/"
+        ]
+      },
+      "roleName": "Ground Station & Software Lead, GARI CanSat Team",
+      "startDate": "2026-02"    }
   ],
-  "foundingDate": "2024-01-01"
+  "foundingDate": "2024-01-01",
+  "location": {
+    "@type": "Place",
+    "name": "GITAM University Hyderabad",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Hyderabad",
+      "addressRegion": "Telangana",
+      "addressCountry": "IN"
+    }
+  }
 };
 
 // ── ContactPoint Schema ────────────────────────────────────────────────────────

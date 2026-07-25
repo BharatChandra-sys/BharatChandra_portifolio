@@ -1,9 +1,9 @@
 const BASE = 'https://bharatchandra.me';
 
 export const metadata = {
-  title: "Projects — Bodapati Bharat Chandra | Production AI & Rocketry Systems",
+  title: "Projects — Bodapati Bharat Chandra | Bharat Chandra | Production AI & Rocketry Systems",
   description:
-    "Projects by Bodapati Bharat Chandra: CAN-7USAT rocket telemetry (sub-5ms), AUVBrain autonomous underwater vehicle, MedVision AI (hackathon winner), FactCheck AI. Real production systems, not demos.",
+    "Projects by Bodapati Bharat Chandra (Bharat Chandra): CAN-7USAT rocket telemetry (sub-5ms), AUVBrain autonomous underwater vehicle, MedVision AI (hackathon winner), FactCheck AI. Real production systems, not demos.",
   keywords: [
     "Bodapati Bharat Chandra projects",
     "Bharat Chandra AI projects",

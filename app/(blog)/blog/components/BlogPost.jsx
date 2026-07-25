@@ -21,6 +21,7 @@ const DATE_ISO_MAP = {
   'June 2026': '2026-06-10',
   'May 2026':  '2026-05-15',
   'April 2026': '2026-04-20',
+  'July 2026': '2026-07-15',
 };
 
 function toISODate(humanDate) {
@@ -189,6 +190,12 @@ function AuthorCard() {
 // Trend 2: Branded search — internal links keep readers on your domain longer,
 // which improves branded engagement signals.
 const ALL_POSTS = [
+  {
+    slug: 'building-gari-website',
+    title: 'Building the GARI Website: From Zero to gari.live',
+    date: 'July 2026',
+    tags: ['React', 'Next.js', 'Aerospace', 'GARI', 'Web Dev'],
+  },
   {
     slug: 'can-7usat-rocket-telemetry',
     title: 'How I built CAN-7USAT rocket telemetry with sub-5ms latency',

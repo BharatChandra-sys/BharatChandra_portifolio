@@ -6,6 +6,13 @@ import { blogIndexSchema, blogBreadcrumbSchema } from '@/app/blog-index-schema';
 
 const posts = [
   {
+    slug: 'building-gari-website',
+    title: 'Building the GARI Website: From Zero to gari.live',
+    date: 'July 2026',
+    description: 'How I designed and shipped the full website for GITAM\'s nationally-selected aerospace team — React, canvas starfield animations, full SEO, and a ground station software section for IN-SPACe CAN-7USAT 2026.',
+    tags: ['React', 'Next.js', 'Aerospace', 'GARI', 'Web Dev'],
+  },
+  {
     slug: 'can-7usat-rocket-telemetry',
     title: 'How I built CAN-7USAT rocket telemetry with sub-5ms latency',
     date: 'June 2026',
