@@ -82,13 +82,13 @@ const HeroSection = () => {
                 variants={textAnimation}
                 className="block text-primary mb-2"
               >
-                Bodapati Bharat Chandra
+                Hi, I'm {config.developer.name}
               </motion.span>
               <motion.span
                 variants={textAnimation}
                 className="block text-white/60 text-2xl md:text-4xl"
               >
-                Also known as Bharat Chandra • AI/ML Engineer • Hyderabad, India
+                Building AI systems that actually ship.
               </motion.span>
             </motion.h1>
           </div>
@@ -98,7 +98,7 @@ const HeroSection = () => {
             variants={itemAnimation}
             className="speakable-summary text-base sm:text-md text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
-            Bodapati Bharat Chandra (Bharat Chandra) is a final-year CSE student at GITAM University Hyderabad building production-grade ML pipelines, rocket telemetry backends, and autonomous vehicle control stacks — not just notebooks.
+            Final-year CSE student at GITAM University Hyderabad. I build production-grade ML pipelines, rocket telemetry backends, and autonomous vehicle control stacks - not just notebooks
           </motion.p>
 
           {/* CTAs — same button style, added CV + GitHub */}
