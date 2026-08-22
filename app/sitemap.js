@@ -3,6 +3,11 @@ const BASE_URL = 'https://bharatchandra.me';
 // Blog posts — update dates when you publish new ones
 const blogPosts = [
   {
+    slug: 'building-gari-website',
+    lastModified: '2026-07-10',
+    priority: 0.85,
+  },
+  {
     slug: 'can-7usat-rocket-telemetry',
     lastModified: '2026-06-10',
     priority: 0.85,
@@ -43,7 +48,7 @@ export default function sitemap() {
     },
     {
       url: `${BASE_URL}/blog`,
-      lastModified: '2026-06-10',
+      lastModified: '2026-07-10',
       changeFrequency: 'weekly',
       priority: 0.9,
       images: [

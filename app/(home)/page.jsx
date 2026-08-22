@@ -21,7 +21,7 @@ const faqSchema = {
       "name": "Who is Bodapati Bharat Chandra?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra (also known as Bharat Chandra) is an AI/ML engineer and final-year Computer Science & Engineering student at GITAM University Hyderabad. He is currently interning at BHEL building production AI systems, leads the backend and ML stack at GARI (GITAM Aerospace Rocketry Initiative), and is the co-founder of Easify, a smart pooling service platform in Hyderabad.",
+        "text": "Bodapati Bharat Chandra (also known as Bharat Chandra) is an AI/ML engineer, full-stack developer, and final-year Computer Science & Engineering student at GITAM University Hyderabad. He is currently an AI/ML Engineering Intern at BHEL, Ground Station & Software Lead at GARI (gari.live) — GITAM's nationally-selected aerospace team competing in IN-SPACe CAN-7USAT 2026, and co-founder of Easify. He has shipped production systems for clients including Vijetha Digital (vijethadigital.com) and Deepthi Hospitals (deepthihospitals.vercel.app).",
       },
     },
     {
@@ -29,7 +29,7 @@ const faqSchema = {
       "name": "What projects has Bodapati Bharat Chandra built?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe competition 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, FactCheck AI fake news analyzer (90% accuracy, HackXplore winner), a live hospital management platform for Deepthi Hospitals, and a production-grade website for GARI at gari.live.",
+        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), Vijetha Digital full-stack e-commerce platform live at vijethadigital.com (clients: Samsung, Microsoft, Jio, Airtel), Deepthi Hospitals management system (live, three-portal RBAC at deepthihospitals.vercel.app), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, FactCheck AI fake news analyzer (90% accuracy, HackXplore winner), and the GARI website at gari.live.",
       },
     },
     {
@@ -61,7 +61,7 @@ const faqSchema = {
       "name": "What is Bharat Chandra's GitHub?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra's GitHub username is BharatChandra-sys. His profile is at github.com/BharatChandra-sys and includes projects like CAN-7USAT, AUVBrain, MedVision AI, FactCheckAI, rocket-simulator, and Email-Automation-for-Form.",
+        "text": "Bodapati Bharat Chandra's GitHub username is BharatChandra-sys. Profile: github.com/BharatChandra-sys — includes CAN-7USAT, AUVBrain, Vijetha Digital, hospital-management-platform, MedVision AI, FactCheckAI, and more. Also on Medium: medium.com/@bodapatibharatchandra and Wellfound: wellfound.com/u/bodapati-bharat-chandra.",
       },
     },
     // Trend 2: Branded search — these questions mirror real "Bharat Chandra + keyword"

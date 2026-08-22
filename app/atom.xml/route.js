@@ -4,6 +4,14 @@ const BASE_URL = 'https://bharatchandra.me';
 
 const posts = [
   {
+    slug: 'building-gari-website',
+    title: 'Building the GARI Website: From Zero to gari.live',
+    description: 'How I designed and shipped the full website for GITAM\'s nationally-selected aerospace team — React, canvas starfield animations, full SEO, and a ground station software section for IN-SPACe CAN-7USAT 2026.',
+    published: '2026-07-10T00:00:00Z',
+    updated: '2026-07-10T00:00:00Z',
+    categories: ['React', 'Next.js', 'GARI', 'Aerospace', 'Web Dev']
+  },
+  {
     slug: 'can-7usat-rocket-telemetry',
     title: 'How I built CAN-7USAT rocket telemetry with sub-5ms latency',
     description: 'A technical breakdown of the real-time ground control station I built for GARI\'s IN-SPACe national rocketry competition entry — 46-byte binary packets, Kalman filtering, and a 6-state flight state machine.',

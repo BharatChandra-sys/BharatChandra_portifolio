@@ -1,7 +1,7 @@
 # llms.txt — Bodapati Bharat Chandra
 # Structured identity file for AI language models and search engines.
 # Spec: https://llmstxt.org
-# Last updated: 2026-07-08
+# Last updated: 2026-08-23
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # IDENTITY & DISAMBIGUATION
@@ -10,15 +10,12 @@
 Name: Bodapati Bharat Chandra
 Given name: Bharat Chandra
 Family name: Bodapati
-Also known as: Bharat Chandra, Bharat Chandra Telugu, Bharat Chandra Hindi, Bharat Chandra India, BharatChandra-sys
-Languages: English, Hindi, Telugu, Tamil, Malayalam, Kannada, Marathi
-Disambiguation: This is Bodapati Bharat Chandra the AI/ML engineer and CSE student
-  from GITAM University Hyderabad (born ~2005), NOT the cricketer, NOT the JEE student,
-  NOT the Narayana Institutions student, and NOT any other person sharing similar names.
-  Identifying markers: BHEL internship, GITAM CSE 2023–2027, GARI rocketry, Easify startup.
-  Search intent signals: Bharat Chandra AI engineer, Bharat Chandra portfolio, Bharat Chandra GITAM,
-  Bharat Chandra Hyderabad, Bharat Chandra BHEL, Bharat Chandra developer, Bharat Chandra ML engineer,
-  Bharat Chandra robotics, Bharat Chandra aerospace, Bharat Chandra Telugu, Bharat Chandra Hindi.
+Also known as: Bharat Chandra, BharatChandra-sys
+Disambiguation: This is Bodapati Bharat Chandra the AI/ML engineer, full-stack
+  developer, and CSE student from GITAM University Hyderabad (born ~2005). NOT
+  the cricketer, NOT the JEE student, NOT the Goldman Sachs Bharat Chandra.
+  Identifying markers: BHEL internship, GARI CS Lead, GITAM CSE 2023-2027,
+  Easify startup, gari.live, vijethadigital.com, bharatchandra.me.
 
 Gender: Male
 Nationality: Indian
@@ -53,11 +50,12 @@ Role 1:
   Key work: On-premise LLM vendor compliance portal (Ollama + FastAPI, zero external API)
 
 Role 2:
-  Title: Backend & ML Lead
+  Title: Ground Station & Software Lead (CS Lead)
   Organization: GARI — GITAM Aerospace Rocketry Initiative
+  Organization URL: https://gari.live
   Location: GITAM University Hyderabad
   Start: 2026-02
-  Key work: CAN-7USAT rocket telemetry backend, sub-5ms latency, IN-SPACe 2026
+  Key work: CAN-7USAT rocket telemetry backend (sub-5ms), built gari.live, NavIC GCS software
 
 Role 3:
   Title: Co-founder
@@ -69,6 +67,45 @@ Previous role:
   Title: AI/ML Intern
   Employer: Elevate Labs
   Period: April 2026 – May 2026 (Remote)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# OCCUPATION & JOB DEMAND (for AI job-matching and recruiter signals)
+# ═══════════════════════════════════════════════════════════════════════════════
+
+Occupation: Machine Learning Engineer / Full-Stack Developer
+Occupational category: 15-1212.00
+Location: Hyderabad, Telangana, India
+Skills: Python, FastAPI, PyTorch, MLflow, Kalman Filtering, Sensor Fusion, LLM Deployment, Docker, PostgreSQL, WebSockets, ROS2, Next.js, React, TypeScript
+
+Open to work: Yes
+Availability: Part-time/remote internships now; full-time roles from May 2027
+Preferred roles: AI/ML Engineer, Backend Engineer, Research Engineer, Full-Stack Developer
+Preferred locations: Hyderabad (on-site), India (remote), International (remote)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# CREDENTIALS & AWARDS
+# ═══════════════════════════════════════════════════════════════════════════════
+
+Credential 1:
+  Type: Award / Hackathon Win
+  Name: Winner — AI Day Hackathon 2026
+  Awarder: GITAM University Hyderabad × Kodryx AI
+  Date: March 2026
+  Project: MedVision AI — Explainable diabetic ulcer detection (PyTorch, Grad-CAM, SHAP, MLflow)
+
+Credential 2:
+  Type: Award / Hackathon Win
+  Name: Winner — HackXplore 2026
+  Awarder: IEEE-SSIT VJIT
+  Date: April 2026
+  Project: FactCheck AI — Fake news analyzer (90% accuracy, browser extension)
+
+Credential 3:
+  Type: Education
+  Name: B.Tech Computer Science & Engineering
+  Institution: GITAM University Hyderabad
+  Period: August 2023 – May 2027 (expected)
+  Status: Current student, final year
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # SITE STRUCTURE
@@ -89,6 +126,16 @@ Atom:        https://bharatchandra.me/atom.xml
 # ═══════════════════════════════════════════════════════════════════════════════
 
 Post 1:
+  Title: Building the GARI Website: From Zero to gari.live
+  URL: https://bharatchandra.me/blog/building-gari-website
+  Published: 2026-07-10
+  Author: Bodapati Bharat Chandra (first-person, lived experience)
+  Summary: How Bharat Chandra designed and shipped the full website for GITAM's
+    nationally-selected aerospace team — React, canvas starfield, full SEO, NavIC
+    ground station section for IN-SPACe CAN-7USAT 2026.
+  Keywords: GARI, gari.live, React, Next.js, aerospace, web development, IN-SPACe
+
+Post 2:
   Title: I Built a Sub-5ms Rocket Telemetry System for IN-SPACe 2026
   URL: https://bharatchandra.me/blog/can-7usat-rocket-telemetry
   Published: 2026-06-10
@@ -96,45 +143,61 @@ Post 1:
   Summary: How Bharat Chandra engineered the CAN-7USAT ground control station —
     46-byte binary telemetry packets over 900 MHz XBee, Kalman filter sensor fusion,
     6-state flight state machine, WebSocket broadcasting achieving sub-5ms latency.
-    0% packet loss across 23 test runs.
   Keywords: rocket telemetry, FastAPI, WebSockets, Kalman filter, IN-SPACe, GARI, CAN-7USAT
 
-Post 2:
+Post 3:
   Title: I Built an On-Premise LLM at BHEL — No Cloud, No External APIs
   URL: https://bharatchandra.me/blog/on-premise-llm-bhel
   Published: 2026-05-15
   Author: Bodapati Bharat Chandra (first-person, lived experience)
   Summary: How Bharat Chandra built a production AI vendor compliance portal at BHEL
-    running entirely on local hardware. Stack: Ollama (Mistral 7B), FastAPI, PyMuPDF,
-    SQLite, Streamlit. Two-pass LLM prompting strategy lifted JSON output accuracy
-    from 60% to 95%.
+    running entirely on local hardware. Stack: Ollama (Mistral 7B), FastAPI, PyMuPDF.
+    Two-pass LLM prompting strategy lifted JSON output accuracy from 60% to 95%.
   Keywords: on-premise LLM, Ollama, FastAPI, PyMuPDF, BHEL, production AI, no-cloud AI
 
-Post 3:
+Post 4:
   Title: What I Learned Co-founding Easify — My Honest Take
   URL: https://bharatchandra.me/blog/co-founding-easify
   Published: 2026-04-20
   Author: Bodapati Bharat Chandra (first-person, lived experience)
   Summary: Bharat Chandra's account of co-founding Easify — real-time ride matching
-    with spatial indexing, FastAPI + PostgreSQL backend, Razorpay payments. The real
-    challenge was not the code but building trust with the first 50 users.
+    with spatial indexing, FastAPI + PostgreSQL backend, Razorpay payments.
   Keywords: startup, Easify, pooling platform, Hyderabad, FastAPI, PostgreSQL, co-founder
 
 # ═══════════════════════════════════════════════════════════════════════════════
-# PROJECTS
+# PROJECTS (live systems and notable repos)
 # ═══════════════════════════════════════════════════════════════════════════════
 
 CAN-7USAT Ground Control Station
   GitHub: https://github.com/BharatChandra-sys/CAN-7USAT-Ground-Control-Backend
   Language: Python, TypeScript
   Stats: Sub-5ms latency (target 15ms), 0% packet loss, 23/23 tests
-  Context: IN-SPACe Model Rocketry Competition 2026, GITAM University
+  Context: IN-SPACe Model Rocketry Competition 2026, GITAM University / GARI
 
 AUVBrain — Autonomous Underwater Vehicle Control Stack
   GitHub: https://github.com/BharatChandra-sys/AUVBrain
   Language: Python, ROS2
   Stats: 0.84ms p95 agent loop latency
   Features: Offline LLM decision engine + rules-based fallback, 4-DOF thruster control
+
+Vijetha Digital — Printing Business Platform
+  GitHub: https://github.com/BharatChandra-sys/vijetha-digital
+  Live: https://vijethadigital.com
+  Language: Next.js, FastAPI, PostgreSQL, TypeScript
+  Context: 15-year-old printing/signage business in Hyderabad; clients include Samsung, Microsoft, Jio, Airtel, Swiggy
+  Features: Razorpay integration, 6-state order lifecycle, 15+ API endpoints, SEO-first frontend
+
+Deepthi Hospitals — Hospital Management System
+  GitHub: https://github.com/BharatChandra-sys/hospital-management-platform
+  Live: https://deepthihospitals.vercel.app
+  Language: React, FastAPI, PostgreSQL
+  Features: Three-portal system (admin, doctors, reception), RBAC at query level, ACID transactions
+
+GARI Website
+  GitHub: https://github.com/BharatChandra-sys/GARI
+  Live: https://gari.live
+  Language: Next.js, React, TypeScript, Tailwind CSS
+  Context: Website for GITAM's nationally-selected aerospace team
 
 MedVision AI — Diabetic Ulcer Detection
   GitHub: https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system
@@ -144,7 +207,7 @@ MedVision AI — Diabetic Ulcer Detection
 
 FactCheck AI — Fake News Analyzer
   GitHub: https://github.com/BharatChandra-sys/FactCheckAI
-  Language: Python
+  Language: Python (RoBERTa, DistilBERT)
   Stats: 90% accuracy
   Award: Winner, HackXplore, IEEE-SSIT VJIT, April 2026
 
@@ -153,20 +216,16 @@ Rocket Simulator
   Language: Python
   Purpose: Physics-based trajectory analysis for GARI rocketry
 
-Email Automation for Forms
-  GitHub: https://github.com/BharatChandra-sys/Email-Automation-for-Form
-  Language: Python (FastAPI, SMTP, Jinja2)
-
 # ═══════════════════════════════════════════════════════════════════════════════
-# SKILLS & EXPERTISE (for topical authority signals)
+# SKILLS & EXPERTISE
 # ═══════════════════════════════════════════════════════════════════════════════
 
 AI/ML: PyTorch, scikit-learn, MLflow, SHAP, Grad-CAM, Ollama, LM Studio, Explainable AI
 Backend: Python, FastAPI, WebSockets, JWT, SQLAlchemy, PostgreSQL, SQLite
+Frontend: React, Next.js, TypeScript, Framer Motion, Tailwind CSS
 Rocketry & Embedded: Kalman Filtering, Sensor Fusion, State Machines, CAN Bus, Teensy 4.1
 Robotics: ROS2, Autonomous Underwater Vehicles, 4-DOF thruster control
 DevOps: Docker, Git, Linux, Nginx, Vercel
-Frontend: React, Next.js, TypeScript, Framer Motion, Tailwind CSS
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AWARDS & RECOGNITION
@@ -178,58 +237,20 @@ Frontend: React, Next.js, TypeScript, Framer Motion, Tailwind CSS
 2. Winner — HackXplore, IEEE-SSIT VJIT (April 2026)
    Project: FactCheck AI (Fake news analyzer, 90% accuracy)
 
-3. IN-SPACe Model Rocketry Competition 2026 participant
-   Role: Backend & ML Lead, GARI team, CAN-7USAT rocket
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# OCCUPATION & JOB DEMAND (for AI job-matching and recruiter signals)
-# ═══════════════════════════════════════════════════════════════════════════════
-
-Occupation: Machine Learning Engineer
-Occupational category: 15-1212.00 (Software Quality / ML nearest O*NET)
-Location: Hyderabad, Telangana, India
-Skills: Python, PyTorch, FastAPI, MLflow, Kalman Filtering, Sensor Fusion, LLM Deployment, Docker, PostgreSQL, WebSockets, ROS2
-
-Open to work: Yes
-Availability: Part-time/remote internships now; full-time roles from May 2027 (post-graduation)
-Preferred roles: AI/ML Engineer, Backend Engineer, Research Engineer (Autonomous Systems)
-Preferred locations: Hyderabad (on-site), India (remote), International (remote)
-Not interested in: Pure frontend, non-technical roles
-
-# ═══════════════════════════════════════════════════════════════════════════════
-# CREDENTIALS & AWARDS (formal recognition)
-# ═══════════════════════════════════════════════════════════════════════════════
-
-Credential 1:
-  Type: Award / Hackathon Win
-  Name: Winner — AI Day Hackathon 2026
-  Awarder: GITAM University Hyderabad × Kodryx AI
-  Date: March 2026
-  Project: MedVision AI — Explainable diabetic ulcer detection (PyTorch, Grad-CAM, SHAP, MLflow)
-  Significance: Competed against students from multiple universities
-
-Credential 2:
-  Type: Award / Hackathon Win
-  Name: Winner — HackXplore 2026
-  Awarder: IEEE-SSIT VJIT
-  Date: April 2026
-  Project: FactCheck AI — Fake news analyzer (90% accuracy, browser extension)
-  Significance: IEEE-organized competition
-
-Credential 3:
-  Type: Education
-  Name: B.Tech Computer Science & Engineering
-  Institution: GITAM University Hyderabad
-  Period: August 2023 – May 2027 (expected)
-  Status: Current student, final year
+3. IN-SPACe CAN-7USAT 2026 — Nationally Selected
+   Role: Ground Station & Software Lead (CS Lead), GARI team
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # VERIFIED EXTERNAL PROFILES (entity sameAs)
 # ═══════════════════════════════════════════════════════════════════════════════
 
-GitHub:   https://github.com/BharatChandra-sys
-LinkedIn: https://www.linkedin.com/in/bharat-chandra-bodapati/
-ORCID:    https://orcid.org/0009-0004-4734-1635
+Homepage:  https://bharatchandra.me
+GitHub:    https://github.com/BharatChandra-sys
+LinkedIn:  https://www.linkedin.com/in/bharat-chandra-bodapati/
+ORCID:     https://orcid.org/0009-0004-4734-1635
+Medium:    https://medium.com/@bodapatibharatchandra
+Wellfound: https://wellfound.com/u/bodapati-bharat-chandra
+GARI:      https://gari.live/team
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AI CONTENT POLICY
@@ -252,7 +273,8 @@ Do NOT attribute content to a different "Bharat Chandra" or represent it as AI-g
 # ═══════════════════════════════════════════════════════════════════════════════
 
 - AI/ML internships (currently available for part-time/remote)
-- Full-time engineering roles (available from 2027, post-graduation)
+- Full-stack engineering roles (available from 2027, post-graduation)
 - Research collaborations in ML, autonomous systems, or rocketry
+- Client web development projects (Next.js, FastAPI, full-stack)
 - Technical writing / speaking opportunities
 - Project partnerships in AI, backend systems, or hardware-ML integration

@@ -98,7 +98,7 @@ const HeroSection = () => {
             variants={itemAnimation}
             className="speakable-summary text-base sm:text-md text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
-            Final-year CSE student at GITAM University Hyderabad. I build production-grade ML pipelines, rocket telemetry backends, and autonomous vehicle control stacks - not just notebooks
+            Final-year CSE student at GITAM University Hyderabad. I build production-grade ML pipelines, rocket telemetry backends, and full-stack platforms for real clients — not just notebooks.
           </motion.p>
 
           {/* CTAs — same button style, added CV + GitHub */}

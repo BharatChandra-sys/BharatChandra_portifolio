@@ -167,6 +167,20 @@ const resume = {
   ],
   "projects": [
     {
+      "name": "Vijetha Digital — Printing Business Platform",
+      "description": "Full-stack e-commerce and order management platform for a 15-year-old printing and signage business in Hyderabad. 1000+ clients including Samsung, Microsoft, Jio, Airtel. SEO-first Next.js frontend live at vijethadigital.com. Razorpay integration, 6-state order lifecycle.",
+      "highlights": [
+        "Live at vijethadigital.com — clients include Samsung, Microsoft, Jio, Airtel, Swiggy",
+        "Razorpay payment integration and 6-state order lifecycle",
+        "SEO-first Next.js frontend + FastAPI backend with 15+ endpoints"
+      ],
+      "keywords": ["Next.js", "FastAPI", "React", "PostgreSQL", "Razorpay", "TypeScript"],
+      "startDate": "2026-07",
+      "url": "https://vijethadigital.com",
+      "roles": ["Full-stack Developer"],
+      "type": "application"
+    },
+    {
       "name": "Deepthi Hospitals — Hospital Management System",
       "description": "Full-stack hospital management platform live in production. Appointment booking, doctor management, department routing, patient records, emergency triage, and staff portal.",
       "highlights": [

@@ -38,38 +38,47 @@ export const config = {
         {
             id: 3,
             title: "Deepthi Hospitals — Hospital Management System",
-            description: "Full-stack hospital management platform now live in production. Appointment booking, doctor management, department routing, patient records, emergency triage, and staff portal. Built with Next.js, deployed on Vercel.",
+            description: "Full-stack hospital management platform live in production. Three-portal system: admin, doctors, and reception. Appointment booking, RBAC enforced at query level, ACID-compliant transactions, billing, prescriptions. Live at Deepthi Hospitals.",
             image: "/projects/project-3.webp",
-            technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Vercel"],
-            github: "https://github.com/BharatChandra-sys",
+            technologies: ["React", "FastAPI", "PostgreSQL", "RBAC", "JWT", "Tailwind CSS"],
+            github: "https://github.com/BharatChandra-sys/hospital-management-platform",
             demo: "https://deepthihospitals.vercel.app"
         },
         {
             id: 4,
+            title: "Vijetha Digital — Printing Business Platform",
+            description: "Full-stack e-commerce and order management platform for a 15-year-old printing and signage business in Hyderabad. 1000+ clients across Telangana including Samsung, Microsoft, Jio, Airtel. Razorpay integration, 6-state order lifecycle, 15+ API endpoints. SEO-first Next.js frontend live at vijethadigital.com.",
+            image: "/projects/project-4.webp",
+            technologies: ["Next.js", "FastAPI", "React", "PostgreSQL", "Razorpay", "TypeScript"],
+            github: "https://github.com/BharatChandra-sys/vijetha-digital",
+            demo: "https://vijethadigital.com"
+        },
+        {
+            id: 5,
             title: "MedVision AI — Diabetic Ulcer XAI",
             description: "Medical image classification + clinical data to estimate ulcer risk with full explainability. Grad-CAM heatmaps + SHAP values + MLflow experiment tracking + DVC versioning. Won AI Day Hackathon — GITAM × Kodryx AI, March 2026.",
-            image: "/projects/project-4.webp",
+            image: "/projects/project-5.webp",
             technologies: ["PyTorch", "Grad-CAM", "SHAP", "MLflow", "DVC", "FastAPI", "Docker"],
             github: "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
             demo: "https://diabetic-ulcer-ai-system.vercel.app"
         },
         {
-            id: 5,
+            id: 6,
             title: "FactCheck AI — Fake News Analyzer",
-            description: "Browser-based fake news analyzer. Scores news credibility in one click — Logistic Regression on 10,000+ labeled samples, sub-second response, LLM reasoning layer for verdict explanations. 90% validation accuracy. Won HackXplore — IEEE-SSIT VJIT, April 2026.",
+            description: "RoBERTa/DistilBERT ensemble for automated fact-checking. Classifies news claims with confidence scoring, LLM reasoning layer for verdict explanations. 90% validation accuracy. Won HackXplore — IEEE-SSIT VJIT, April 2026.",
             image: "/projects/project-5.webp",
-            technologies: ["FastAPI", "Chrome Extension API", "TF-IDF", "Logistic Regression", "LLM"],
+            technologies: ["FastAPI", "Chrome Extension API", "RoBERTa", "DistilBERT", "LLM"],
             github: "https://github.com/BharatChandra-sys/FactCheckAI",
             demo: "https://github.com/BharatChandra-sys/FactCheckAI"
         },
         {
             id: 6,
-            title: "Rocket Simulator",
-            description: "Physics-based rocket flight simulator modelling thrust, drag, gravity and multi-stage separation. Outputs altitude, velocity and acceleration curves. Built for GARI rocketry trajectory analysis and pre-launch verification.",
+            title: "Vijetha Digital — Client Website",
+            description: "First client website: Vijetha Digital, a 15-year-old printing and signage business in Hyderabad with 1000+ clients across Telangana. Static site live with structured data, meta tags, sitemap — built for Google to parse. WhatsApp-first quote flow. Dynamic backend with order management and admin panel coming next.",
             image: "/projects/project-5.webp",
-            technologies: ["Python", "NumPy", "SciPy", "Matplotlib", "Physics Simulation"],
-            github: "https://github.com/BharatChandra-sys/rocket-simulator",
-            demo: "https://github.com/BharatChandra-sys/rocket-simulator"
+            technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS", "SEO", "Vercel"],
+            github: "https://github.com/BharatChandra-sys/vijetha-digital",
+            demo: "https://vijethadigital.com"
         }
     ],
     skills: [

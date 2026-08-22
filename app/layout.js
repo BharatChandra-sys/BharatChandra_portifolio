@@ -346,6 +346,10 @@ const personSchema = {
     "https://github.com/BharatChandra-sys",
     "https://www.linkedin.com/in/bharat-chandra-bodapati/",
     "https://orcid.org/0009-0004-4734-1635",
+    "https://medium.com/@bodapatibharatchandra",
+    "https://wellfound.com/u/bodapati-bharat-chandra",
+    "https://gari.live",
+    "https://gari.live/team"
   ],
   // mainEntityOfPage tells Google that bharatchandra.me is the PRIMARY web
   // presence for this Person entity — outranking LinkedIn as the canonical source.
@@ -662,6 +666,9 @@ export default function RootLayout({ children }) {
         <link rel="me" href="https://www.linkedin.com/in/bharat-chandra-bodapati/" />
         <link rel="me" href="https://orcid.org/0009-0004-4734-1635" />
         <link rel="me" href="mailto:bc833498@gmail.com" />
+        <link rel="me" href="https://medium.com/@bodapatibharatchandra" />
+        <link rel="me" href="https://wellfound.com/u/bodapati-bharat-chandra" />
+        <link rel="me" href="https://gari.live/team" />
 
         {/* ── Bing / Edge entity signals ──────────────────────────────── */}
         {/* msvalidate.01 handled via metadata.verification.other — no duplicate here */}
