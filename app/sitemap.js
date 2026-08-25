@@ -28,7 +28,7 @@ export default function sitemap() {
   const staticRoutes = [
     {
       url: BASE_URL,
-      lastModified: '2026-07-08',
+      lastModified: '2026-08-25',
       changeFrequency: 'weekly',
       priority: 1.0,
       // Both photos on homepage — image sitemap entries help Google Images

@@ -116,18 +116,18 @@ export const metadata = {
     locale: "en_IN",
     images: [
       {
-        // Primary headshot — submitted to Google for Knowledge Panel
+        // Primary headshot — raw photo, no banner overlay
         url: "/bodapati-bharat-chandra.jpg",
-        width: 1200,
-        height: 630,
+        width: 562,
+        height: 1000,
         alt: "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
         type: "image/jpeg",
       },
       {
-        // Second photo — more image entity signals = stronger disambiguation
+        // Second photo — raw photo, no banner overlay
         url: "/bodapati-bharat-chandra-2.jpg",
-        width: 1200,
-        height: 630,
+        width: 562,
+        height: 1000,
         alt: "Bodapati Bharat Chandra — Co-founder of Easify, Hyderabad",
         type: "image/jpeg",
       },
@@ -191,8 +191,8 @@ const personSchema = {
       "@id": `${BASE_URL}/#photo-primary`,
       "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
       "contentUrl": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-      "width": 400,
-      "height": 400,
+      "width": 562,
+      "height": 1000,
       "caption": "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
       "name": "Bodapati Bharat Chandra headshot",
       "description": "Professional photo of Bodapati Bharat Chandra, AI/ML Engineering Intern at BHEL and Backend & ML Lead at GARI rocketry team, GITAM University Hyderabad.",
@@ -208,8 +208,8 @@ const personSchema = {
       "@id": `${BASE_URL}/#photo-secondary`,
       "url": `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
       "contentUrl": `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
-      "width": 400,
-      "height": 400,
+      "width": 562,
+      "height": 1000,
       "caption": "Bodapati Bharat Chandra — AI/ML Engineer and Co-founder of Easify, Hyderabad",
       "name": "Bodapati Bharat Chandra photo",
       "description": "Bodapati Bharat Chandra, final-year CSE student at GITAM University Hyderabad, AI/ML engineer, GARI ground station lead, and co-founder of Easify.",
