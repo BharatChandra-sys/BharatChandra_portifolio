@@ -37,6 +37,21 @@ const resume = {
   },
   "work": [
     {
+      "name": "CardioPulmo AI Private Limited",
+      "position": "Full-Stack Engineering Intern",
+      "url": "",
+      "startDate": "2026-10",
+      "endDate": "2026-12",
+      "summary": "Developing clinical screening and case-management platform covering patient records, ECG review, vitals, investigations, risk scoring and clinician triage. Building role-based authorization, backend API integration and append-only audit logging.",
+      "highlights": [
+        "Implemented end-to-end clinical workflow connecting patient data, ECG review, investigations, risk scoring and clinician triage",
+        "Built role-based JWT authorization system for Staff and Clinician access control with protected clinical decision rules",
+        "Designed and integrated backend API for patient management, vitals recording, troponin precedence and screening review",
+        "Created responsive clinical interface with automated tests, audit logging and complete workflow validation"
+      ],
+      "location": "Remote"
+    },
+    {
       "name": "BHEL — Bharat Heavy Electricals Limited",
       "position": "AI/ML Engineering Intern",
       "url": "https://bhel.com",
@@ -112,7 +127,7 @@ const resume = {
       "title": "Winner - HackXplore",
       "date": "2026-04",
       "awarder": "IEEE-SSIT VJIT",
-      "summary": "Won for FactCheck AI — Browser-based fake news analyzer with 90% accuracy"
+      "summary": "Won for Truvanta AI — Browser-based misinformation detection system with 90% accuracy"
     }
   ],
   "skills": [
@@ -166,6 +181,21 @@ const resume = {
     }
   ],
   "projects": [
+    {
+      "name": "Likhitex — Private Collaborative LaTeX Editor",
+      "description": "Invite-only real-time collaborative LaTeX editor for trusted research groups. Sandboxed compilation in Docker containers with gVisor, WebSocket synchronization via Yjs CRDT, role-based access control, version history with diffs. Zero vendor lock-in, fully self-hosted on free-tier infrastructure.",
+      "highlights": [
+        "Real-time collaboration with Yjs CRDT and live cursor tracking",
+        "Sandboxed LaTeX compilation with Docker + gVisor runtime isolation",
+        "Sub-60s compile times with automatic TeX engine detection",
+        "Comprehensive security: shell-escape disabled, network isolation, rate limiting"
+      ],
+      "keywords": ["Next.js", "FastAPI", "PostgreSQL", "Docker", "Yjs", "WebSockets", "Clerk", "TypeScript"],
+      "startDate": "2026-07",
+      "url": "https://github.com/BharatChandra-sys/Likhitex",
+      "roles": ["Full-stack Developer", "Security Engineer"],
+      "type": "application"
+    },
     {
       "name": "Vijetha Digital — Printing Business Platform",
       "description": "Full-stack e-commerce and order management platform for a 15-year-old printing and signage business in Hyderabad. 1000+ clients including Samsung, Microsoft, Jio, Airtel. SEO-first Next.js frontend live at vijethadigital.com. Razorpay integration, 6-state order lifecycle.",

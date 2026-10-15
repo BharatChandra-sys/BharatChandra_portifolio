@@ -6,6 +6,13 @@ import { blogIndexSchema, blogBreadcrumbSchema } from '@/app/blog-index-schema';
 
 const posts = [
   {
+    slug: 'building-likhitex-latex-editor',
+    title: 'Building Likhitex: A Private LaTeX Editor That Treats Compilation as Code Execution',
+    date: 'July 2026',
+    description: 'How I built a real-time collaborative LaTeX editor with sandboxed Docker + gVisor compilation, Yjs CRDT synchronization, and zero vendor lock-in. Deployed entirely on free-tier infrastructure.',
+    tags: ['LaTeX', 'Docker', 'Security', 'FastAPI', 'CRDT'],
+  },
+  {
     slug: 'building-gari-website',
     title: 'Building the GARI Website: From Zero to gari.live',
     date: 'July 2026',

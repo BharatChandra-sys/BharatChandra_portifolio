@@ -76,8 +76,8 @@ const projectsPageSchema = {
         "item": {
           "@type": "SoftwareSourceCode",
           "@id": "https://github.com/BharatChandra-sys/FactCheckAI",
-          "name": "FactCheck AI — Fake News Analyzer",
-          "description": "Browser extension, 90% accuracy. Won HackXplore IEEE-SSIT VJIT April 2026.",
+          "name": "Truvanta AI — Real-Time Misinformation Detection",
+          "description": "Browser extension with 90% accuracy. Won HackXplore IEEE-SSIT VJIT April 2026.",
           "codeRepository": "https://github.com/BharatChandra-sys/FactCheckAI",
           "programmingLanguage": ["Python"],
           "author": { "@type": "Person", "name": "Bodapati Bharat Chandra", "@id": `${BASE}/#person` },

@@ -49,7 +49,7 @@ export const metadata = {
     "CAN-7USAT rocket telemetry",
     "AUVBrain autonomous underwater vehicle",
     "MedVision AI diabetic ulcer",
-    "FactCheck AI fake news",
+    "Truvanta AI misinformation detection",
     "Deepthi Hospitals",
     "GARI website",
     "gari.live",
@@ -281,7 +281,7 @@ const personSchema = {
     {
       "@type": "Award",
       "name": "Winner - HackXplore",
-      "description": "Won HackXplore organized by IEEE-SSIT VJIT for FactCheck AI fake news analyzer",
+      "description": "Won HackXplore organized by IEEE-SSIT VJIT for Truvanta AI misinformation detection system",
       "dateAwarded": "2026-04",
     },
   ],
@@ -423,7 +423,7 @@ const personSchema = {
     {
       "@type": "EducationalOccupationalCredential",
       "name": "Winner — HackXplore 2026",
-      "description": "First place at HackXplore organized by IEEE-SSIT VJIT for FactCheck AI — browser-based fake news analyzer with 90% accuracy",
+      "description": "First place at HackXplore organized by IEEE-SSIT VJIT for Truvanta AI — browser-based misinformation detection system with 90% accuracy",
       "credentialCategory": {
         "@type": "DefinedTerm",
         "name": "Award"

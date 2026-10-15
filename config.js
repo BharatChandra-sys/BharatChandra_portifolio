@@ -64,7 +64,7 @@ export const config = {
         },
         {
             id: 6,
-            title: "FactCheck AI — Fake News Analyzer",
+            title: "Truvanta AI — Real-Time Misinformation Detection",
             description: "RoBERTa/DistilBERT ensemble for automated fact-checking. Classifies news claims with confidence scoring, LLM reasoning layer for verdict explanations. 90% validation accuracy. Won HackXplore — IEEE-SSIT VJIT, April 2026.",
             image: "/projects/project-5.webp",
             technologies: ["FastAPI", "Chrome Extension API", "RoBERTa", "DistilBERT", "LLM"],
@@ -72,7 +72,16 @@ export const config = {
             demo: "https://github.com/BharatChandra-sys/FactCheckAI"
         },
         {
-            id: 6,
+            id: 7,
+            title: "Likhitex — Private Collaborative LaTeX Editor",
+            description: "Invite-only real-time collaborative LaTeX editor for trusted research groups. Sandboxed compilation in Docker containers with gVisor, WebSocket synchronization via Yjs CRDT, role-based access control, version history with diffs. Sub-60s compile times, zero vendor lock-in, fully self-hosted on free-tier infrastructure (Vercel + Render + Neon).",
+            image: "/projects/likhitex-logo.png",
+            technologies: ["Next.js", "FastAPI", "PostgreSQL", "Docker", "Yjs", "WebSockets", "Clerk", "TypeScript"],
+            github: "https://github.com/BharatChandra-sys/Likhitex",
+            demo: "https://github.com/BharatChandra-sys/Likhitex"
+        },
+        {
+            id: 8,
             title: "Vijetha Digital — Client Website",
             description: "First client website: Vijetha Digital, a 15-year-old printing and signage business in Hyderabad with 1000+ clients across Telangana. Static site live with structured data, meta tags, sitemap — built for Google to parse. WhatsApp-first quote flow. Dynamic backend with order management and admin panel coming next.",
             image: "/projects/project-5.webp",
@@ -144,6 +153,20 @@ export const config = {
         }
     ],
     experiences: [
+        {
+            position: "Full-Stack Engineering Intern",
+            company: "CardioPulmo AI Private Limited",
+            period: "Oct 2026 – Dec 2026",
+            location: "Remote",
+            description: "Developing clinical screening and case-management platform covering patient records, ECG review, vitals, investigations, risk scoring and clinician triage. Building role-based authorization, backend API integration and append-only audit logging.",
+            responsibilities: [
+                "Implemented end-to-end clinical workflow connecting patient data, ECG review, investigations, risk scoring and clinician triage",
+                "Built role-based JWT authorization system for Staff and Clinician access control with protected clinical decision rules",
+                "Designed and integrated backend API for patient management, vitals recording, troponin precedence and screening review",
+                "Created responsive clinical interface with automated tests, audit logging and complete workflow validation"
+            ],
+            technologies: ["React", "Next.js", "FastAPI", "PostgreSQL", "JWT", "TypeScript", "Tailwind CSS"]
+        },
         {
             position: "AI/ML Engineering Intern",
             company: "BHEL — Bharat Heavy Electricals Limited",

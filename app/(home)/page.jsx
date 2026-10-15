@@ -29,7 +29,7 @@ const faqSchema = {
       "name": "What projects has Bodapati Bharat Chandra built?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), Vijetha Digital full-stack e-commerce platform live at vijethadigital.com (clients: Samsung, Microsoft, Jio, Airtel), Deepthi Hospitals management system (live, three-portal RBAC at deepthihospitals.vercel.app), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, FactCheck AI fake news analyzer (90% accuracy, HackXplore winner), and the GARI website at gari.live.",
+        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), Vijetha Digital full-stack e-commerce platform live at vijethadigital.com (clients: Samsung, Microsoft, Jio, Airtel), Deepthi Hospitals management system (live, three-portal RBAC at deepthihospitals.vercel.app), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, Truvanta AI misinformation detection system (90% accuracy, HackXplore winner), and the GARI website at gari.live.",
       },
     },
     {
@@ -79,7 +79,7 @@ const faqSchema = {
       "name": "What has Bharat Chandra won?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra has won two hackathons in 2026: the AI Day Hackathon organised by GITAM University and Kodryx AI (March 2026) for MedVision AI, an explainable AI system for diabetic ulcer detection; and HackXplore organised by IEEE-SSIT VJIT (April 2026) for FactCheck AI, a fake news analyser with 90% accuracy.",
+        "text": "Bodapati Bharat Chandra has won two hackathons in 2026: the AI Day Hackathon organised by GITAM University and Kodryx AI (March 2026) for MedVision AI, an explainable AI system for diabetic ulcer detection; and HackXplore organised by IEEE-SSIT VJIT (April 2026) for Truvanta AI, a misinformation detection system with 90% accuracy.",
       },
     },
     {
@@ -263,8 +263,8 @@ const projectsListSchema = {
       "item": {
         "@type": "SoftwareSourceCode",
         "@id": "https://github.com/BharatChandra-sys/FactCheckAI",
-        "name": "FactCheck AI — Fake News Analyzer",
-        "description": "Browser extension that scores news credibility. 90% accuracy. Won HackXplore IEEE-SSIT VJIT April 2026.",
+        "name": "Truvanta AI — Real-Time Misinformation Detection",
+        "description": "Browser extension for real-time news credibility scoring. 90% accuracy. Won HackXplore IEEE-SSIT VJIT April 2026.",
         "codeRepository": "https://github.com/BharatChandra-sys/FactCheckAI",
         "url": "https://github.com/BharatChandra-sys/FactCheckAI",
         "programmingLanguage": ["Python"],

@@ -3,6 +3,11 @@ const BASE_URL = 'https://bharatchandra.me';
 // Blog posts — update dates when you publish new ones
 const blogPosts = [
   {
+    slug: 'building-likhitex-latex-editor',
+    lastModified: '2026-07-25',
+    priority: 0.85,
+  },
+  {
     slug: 'building-gari-website',
     lastModified: '2026-07-10',
     priority: 0.85,
