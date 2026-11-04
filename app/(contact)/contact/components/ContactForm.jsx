@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { LIMITS } from "@/lib/contact-validation.mjs";
 
 const ContactForm = () => {
     const {
@@ -37,6 +38,11 @@ const ContactForm = () => {
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            {/* Honeypot: invisible to people, tempting to bots. Filled in = silently dropped. */}
+            <div className="absolute left-[-9999px] h-px w-px overflow-hidden" aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input {...register("website")} id="website" type="text" tabIndex={-1} autoComplete="off" />
+            </div>
             <div className="space-y-4">
                 {/* Name + Email row */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -45,7 +51,12 @@ const ContactForm = () => {
                             Your Name
                         </label>
                         <Input
-                            {...register("name", { required: "Name is required" })}
+                            {...register("name", {
+                                required: "Name is required",
+                                maxLength: { value: LIMITS.name, message: `Name must be under ${LIMITS.name} characters` },
+                            })}
+                            autoComplete="name"
+                            aria-invalid={errors.name ? "true" : "false"}
                             id="name"
                             type="text"
                             name="name"
@@ -53,7 +64,7 @@ const ContactForm = () => {
                             className="rounded-lg border-primary/20 w-full"
                         />
                         {errors.name && (
-                            <span className="text-xs text-red-500 block mt-1">{errors.name.message}</span>
+                            <span role="alert" className="text-xs text-red-500 block mt-1">{errors.name.message}</span>
                         )}
                     </div>
 
@@ -64,19 +75,22 @@ const ContactForm = () => {
                         <Input
                             {...register("email", {
                                 required: "Email is required",
+                                maxLength: { value: LIMITS.email, message: "Invalid email address" },
                                 pattern: {
                                     value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                                     message: "Invalid email address",
                                 },
                             })}
                             id="email"
+                            autoComplete="email"
+                            aria-invalid={errors.email ? "true" : "false"}
                             type="email"
                             name="email"
                             placeholder="you@example.com"
                             className="rounded-lg border-primary/20 w-full"
                         />
                         {errors.email && (
-                            <span className="text-xs text-red-500 block mt-1">{errors.email.message}</span>
+                            <span role="alert" className="text-xs text-red-500 block mt-1">{errors.email.message}</span>
                         )}
                     </div>
                 </div>
@@ -87,14 +101,18 @@ const ContactForm = () => {
                         Message
                     </label>
                     <Textarea
-                        {...register("message", { required: "Message is required" })}
+                        {...register("message", {
+                            required: "Message is required",
+                            maxLength: { value: LIMITS.message, message: `Message must be under ${LIMITS.message} characters` },
+                        })}
+                        aria-invalid={errors.message ? "true" : "false"}
                         id="message"
                         name="message"
                         placeholder="Tell me about your project, role, or collaboration idea..."
                         className="rounded-lg border-primary/20 min-h-[150px] w-full resize-y"
                     />
                     {errors.message && (
-                        <span className="text-xs text-red-500 block mt-1">{errors.message.message}</span>
+                        <span role="alert" className="text-xs text-red-500 block mt-1">{errors.message.message}</span>
                     )}
                 </div>
             </div>

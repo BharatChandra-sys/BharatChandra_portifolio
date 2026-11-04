@@ -6,12 +6,12 @@
  * indexing via Google Search Console.
  *
  * Usage: POST https://bharatchandra.me/api/indexnow
- * (Protect with a secret header or call from a deploy hook)
+ * with header "x-indexnow-secret: <INDEXNOW_SECRET env var>"
  *
  * Docs: https://www.indexnow.org/documentation
  */
 
-const BASE_URL = 'https://bharatchandra.me';
+import { BASE_URL, posts, postUrl } from '@/lib/posts.mjs';
 
 // Must match the filename in /public/
 // The file at /public/bharatchandra-indexnow.txt contains this key.
@@ -21,15 +21,19 @@ const URLS_TO_SUBMIT = [
   BASE_URL,
   `${BASE_URL}/projects`,
   `${BASE_URL}/blog`,
-  `${BASE_URL}/blog/can-7usat-rocket-telemetry`,
-  `${BASE_URL}/blog/on-premise-llm-bhel`,
-  `${BASE_URL}/blog/co-founding-easify`,
+  ...posts.map((post) => postUrl(post.slug)),
   `${BASE_URL}/contact`,
   `${BASE_URL}/bodapati-bharat-chandra.jpg`,
   `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
 ];
 
-export async function POST() {
+export async function POST(request) {
+  // Without this, anyone could spend the site's IndexNow quota. Fails closed if unset.
+  const secret = process.env.INDEXNOW_SECRET;
+  if (!secret || request.headers.get('x-indexnow-secret') !== secret) {
+    return Response.json({ success: false, message: 'Unauthorized' }, { status: 401 });
+  }
+
   try {
     const payload = {
       host: 'bharatchandra.me',

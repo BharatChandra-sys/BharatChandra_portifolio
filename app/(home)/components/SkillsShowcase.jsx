@@ -52,7 +52,7 @@ const SkillsShowcase = () => {
             variants={containerAnimation}
             initial="hidden"
             animate="show"
-            className="w-full mt-20"
+            className="w-full"
         >
             <div className="container mx-auto px-4 sm:px-6 md:px-8">
                 <motion.div 
@@ -123,7 +123,7 @@ const SkillsShowcase = () => {
                                 
                                 {/* Skill name */}
                                 <div className="flex flex-col items-center gap-0.5 sm:gap-1 w-full px-0.5 sm:px-1">
-                                    <span className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm font-bold text-white text-center tracking-tight transition-all duration-300 group-hover:text-white/90 break-words leading-tight">
+                                    <span className="text-xs lg:text-sm font-bold text-white text-center tracking-tight transition-all duration-300 group-hover:text-white/90 break-words leading-tight">
                                         {skill.name}
                                     </span>
                                     <div className="w-5 sm:w-6 md:w-8 h-0.5 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent rounded-full transition-all duration-300 group-hover:via-white/60" />

@@ -132,24 +132,32 @@ const resume = {
   ],
   "skills": [
     {
-      "name": "Languages & Frameworks",
-      "level": "Expert",
-      "keywords": ["Python", "FastAPI", "PyTorch", "SQLAlchemy", "React", "TypeScript", "JavaScript"]
+      "name": "Languages",
+      "keywords": ["Python","SQL","JavaScript","TypeScript","C","Java","HTML / CSS"]
     },
     {
-      "name": "ML & AI",
-      "level": "Advanced",
-      "keywords": ["MLflow", "SHAP", "Grad-CAM", "Scikit-learn", "DVC", "Ollama", "LM Studio"]
+      "name": "Backend & Databases",
+      "keywords": ["FastAPI","REST APIs","WebSockets","SQLAlchemy","PostgreSQL","pgvector","SQLite","Redis","MongoDB","JWT / RBAC","Razorpay"]
     },
     {
-      "name": "Infrastructure & DevOps",
-      "level": "Advanced",
-      "keywords": ["Docker", "PostgreSQL", "WebSockets", "Prometheus", "Grafana", "Git"]
+      "name": "Frontend",
+      "keywords": ["React","Next.js","Tailwind CSS","Yjs"]
+    },
+    {
+      "name": "AI & Machine Learning",
+      "keywords": ["PyTorch","Transformers","scikit-learn","RAG","LangGraph","Prompt Engineering","Gemini API","Ollama","SHAP","Grad-CAM","MLflow","DVC"]
     },
     {
       "name": "Autonomous Systems",
-      "level": "Advanced",
-      "keywords": ["ROS2", "Kalman Filtering", "Sensor Fusion", "Real-time Telemetry", "RBAC", "JWT Auth"]
+      "keywords": ["ROS2","Kalman Filtering","Sensor Fusion","Real-time Telemetry"]
+    },
+    {
+      "name": "Tools & Testing",
+      "keywords": ["Git / GitHub","Docker","GitHub Actions","pytest","API Testing","Vercel","Render"]
+    },
+    {
+      "name": "Core CS",
+      "keywords": ["OOP","Data Structures & Algorithms","DBMS","Operating Systems","Computer Networks","Software Engineering"]
     }
   ],
   "languages": [

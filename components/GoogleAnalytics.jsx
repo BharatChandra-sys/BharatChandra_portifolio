@@ -17,22 +17,14 @@ export function GoogleAnalytics({ gaId }) {
       <Script id="google-analytics" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          window.gtag = function(){dataLayer.push(arguments);};
           gtag('js', new Date());
           
-          gtag('config', '${gaId}', {
-            page_path: window.location.pathname,
-            send_page_view: true
-          });
-          
-          // Track Web Vitals
-          gtag('event', 'web_vitals_ready');
+          gtag('config', '${gaId}', { send_page_view: true });
         `}
       </Script>
     </>
   );
 }
 
-// Usage in layout.js:
-// import { GoogleAnalytics } from '@/components/GoogleAnalytics';
-// Add before </body>: <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+// Mounted in app/layout.js. Set NEXT_PUBLIC_GA_MEASUREMENT_ID to turn it on.

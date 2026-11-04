@@ -1,5 +1,5 @@
 import { FaDiscord, FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
-import { HiCode, HiCube, HiDatabase, HiMail, HiBriefcase, HiChip } from "react-icons/hi";
+import { HiCode, HiCube, HiDatabase, HiMail, HiBriefcase, HiChip, HiTemplate, HiCog, HiAcademicCap } from "react-icons/hi";
 import { SiPytorch, SiFastapi, SiDocker, SiPostgresql } from "react-icons/si";
 
 export const config = {
@@ -8,6 +8,8 @@ export const config = {
     },
     social: {
         github: "BharatChandra-sys",
+        linkedin: "https://www.linkedin.com/in/bharat-chandra-bodapati/",
+        email: "bc833498@gmail.com",
         discord: "#"
     },
     NAV_ITEMS: [
@@ -60,25 +62,27 @@ export const config = {
             image: "/projects/project-5.webp",
             technologies: ["PyTorch", "Grad-CAM", "SHAP", "MLflow", "DVC", "FastAPI", "Docker"],
             github: "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
-            demo: "https://diabetic-ulcer-ai-system.vercel.app"
+            demo: "https://dfuai.vercel.app"
         },
         {
             id: 6,
             title: "Truvanta AI — Real-Time Misinformation Detection",
+            logoBackground: "dark",
             description: "RoBERTa/DistilBERT ensemble for automated fact-checking. Classifies news claims with confidence scoring, LLM reasoning layer for verdict explanations. 90% validation accuracy. Won HackXplore — IEEE-SSIT VJIT, April 2026.",
-            image: "/projects/project-5.webp",
+            image: "/projects/truvanta-logo.svg",
             technologies: ["FastAPI", "Chrome Extension API", "RoBERTa", "DistilBERT", "LLM"],
-            github: "https://github.com/BharatChandra-sys/FactCheckAI",
-            demo: "https://github.com/BharatChandra-sys/FactCheckAI"
+            github: "https://github.com/BharatChandra-sys/TruvantaAI",
+            demo: "https://truvantaai.tech"
         },
         {
             id: 7,
             title: "Likhitex — Private Collaborative LaTeX Editor",
+            logoBackground: "light",
             description: "Invite-only real-time collaborative LaTeX editor for trusted research groups. Sandboxed compilation in Docker containers with gVisor, WebSocket synchronization via Yjs CRDT, role-based access control, version history with diffs. Sub-60s compile times, zero vendor lock-in, fully self-hosted on free-tier infrastructure (Vercel + Render + Neon).",
             image: "/projects/likhitex-logo.png",
             technologies: ["Next.js", "FastAPI", "PostgreSQL", "Docker", "Yjs", "WebSockets", "Clerk", "TypeScript"],
             github: "https://github.com/BharatChandra-sys/Likhitex",
-            demo: "https://github.com/BharatChandra-sys/Likhitex"
+            demo: "https://likhitex.vercel.app"
         },
         {
             id: 8,
@@ -92,64 +96,60 @@ export const config = {
     ],
     skills: [
         {
-            title: "Languages & Frameworks",
+            title: "Languages",
             icon: <HiCode />,
-            description: "Core programming & backend",
+            description: "Programming languages",
             bgClass: "bg-blue-500/10",
             iconClass: "text-blue-500",
-            skills: [
-                { name: "Python", level: "Expert", hot: true },
-                { name: "FastAPI", level: "Expert", hot: true },
-                { name: "PyTorch", level: "Advanced", hot: true },
-                { name: "SQLAlchemy", level: "Advanced" },
-                { name: "React", level: "Advanced" },
-                { name: "TypeScript", level: "Intermediate" },
-                { name: "JavaScript", level: "Advanced" },
-            ]
+            skills: ["Python", "SQL", "JavaScript", "TypeScript", "C", "Java", "HTML / CSS"]
         },
         {
-            title: "ML & AI",
-            icon: <HiChip />,
-            description: "Machine learning & explainability",
-            bgClass: "bg-purple-500/10",
-            iconClass: "text-purple-500",
-            skills: [
-                { name: "MLflow", level: "Advanced", hot: true },
-                { name: "SHAP", level: "Advanced" },
-                { name: "Grad-CAM", level: "Advanced" },
-                { name: "Scikit-learn", level: "Advanced" },
-                { name: "DVC", level: "Intermediate" },
-                { name: "Ollama / LM Studio", level: "Advanced", hot: true },
-            ]
-        },
-        {
-            title: "Infrastructure & DevOps",
+            title: "Backend & Databases",
             icon: <HiDatabase />,
-            description: "Databases, containers & monitoring",
+            description: "APIs, data and auth",
             bgClass: "bg-emerald-500/10",
             iconClass: "text-emerald-500",
-            skills: [
-                { name: "Docker", level: "Advanced", hot: true },
-                { name: "PostgreSQL", level: "Advanced" },
-                { name: "WebSockets", level: "Expert" },
-                { name: "Prometheus", level: "Intermediate" },
-                { name: "Grafana", level: "Intermediate" },
-                { name: "Git / GitHub", level: "Expert" },
-            ]
+            skills: ["FastAPI", "REST APIs", "WebSockets", "SQLAlchemy", "PostgreSQL", "pgvector", "SQLite", "Redis", "MongoDB", "JWT / RBAC", "Razorpay"]
+        },
+        {
+            title: "Frontend",
+            icon: <HiTemplate />,
+            description: "Interfaces and web apps",
+            bgClass: "bg-sky-500/10",
+            iconClass: "text-sky-500",
+            skills: ["React", "Next.js", "Tailwind CSS", "Yjs"]
+        },
+        {
+            title: "AI & Machine Learning",
+            icon: <HiChip />,
+            description: "Models, LLMs and explainability",
+            bgClass: "bg-purple-500/10",
+            iconClass: "text-purple-500",
+            skills: ["PyTorch", "Transformers", "scikit-learn", "RAG", "LangGraph", "Prompt Engineering", "Gemini API", "Ollama", "SHAP", "Grad-CAM", "MLflow", "DVC"]
         },
         {
             title: "Autonomous Systems",
             icon: <HiCube />,
-            description: "Rocketry, AUV & real-time control",
+            description: "Rocketry, AUV and real-time control",
             bgClass: "bg-orange-500/10",
             iconClass: "text-orange-500",
-            skills: [
-                { name: "ROS2", level: "Intermediate", hot: true },
-                { name: "Kalman Filtering", level: "Advanced" },
-                { name: "Sensor Fusion", level: "Advanced" },
-                { name: "Real-time Telemetry", level: "Expert", hot: true },
-                { name: "RBAC / JWT Auth", level: "Advanced" },
-            ]
+            skills: ["ROS2", "Kalman Filtering", "Sensor Fusion", "Real-time Telemetry"]
+        },
+        {
+            title: "Tools & Testing",
+            icon: <HiCog />,
+            description: "Shipping and quality",
+            bgClass: "bg-rose-500/10",
+            iconClass: "text-rose-500",
+            skills: ["Git / GitHub", "Docker", "GitHub Actions", "pytest", "API Testing", "Vercel", "Render"]
+        },
+        {
+            title: "Core CS",
+            icon: <HiAcademicCap />,
+            description: "Foundations",
+            bgClass: "bg-amber-500/10",
+            iconClass: "text-amber-500",
+            skills: ["OOP", "Data Structures & Algorithms", "DBMS", "Operating Systems", "Computer Networks", "Software Engineering"]
         }
     ],
     experiences: [

@@ -19,7 +19,7 @@ export const metadata = {
     tags: ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python"],
     images: [
       {
-        url: "https://bharatchandra.me/bodapati-bharat-chandra.jpg",
+        url: "https://bharatchandra.me/api/og-dynamic?title=How%20I%20built%20CAN-7USAT%20rocket%20telemetry%20with%20sub-5ms%20latency&type=blog",
         width: 1200,
         height: 630,
         alt: "Bodapati Bharat Chandra — CAN-7USAT Rocket Telemetry",
@@ -30,7 +30,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "I Built a Sub-5ms Rocket Telemetry System — Bharat Chandra",
     description: "How I engineered the CAN-7USAT ground control station for GITAM's IN-SPACe rocketry competition.",
-    images: ["https://bharatchandra.me/bodapati-bharat-chandra.jpg"],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=How%20I%20built%20CAN-7USAT%20rocket%20telemetry%20with%20sub-5ms%20latency&type=blog"],
     creator: "@BharatChandra",
   },
 };
@@ -47,8 +47,8 @@ const articleSchema = {
   "image": {
     "@type": "ImageObject",
     "url": `${BASE}/bodapati-bharat-chandra.jpg`,
-    "width": 1200,
-    "height": 630
+    "width": 896,
+    "height": 1195
   },
   "datePublished": "2026-06-10T00:00:00Z",
   "dateModified": "2026-06-10T00:00:00Z",
@@ -82,8 +82,8 @@ const articleSchema = {
   },
   "keywords": ["Rocketry", "FastAPI", "WebSockets", "Kalman Filter", "Python", "Telemetry", "CAN-7USAT", "Bodapati Bharat Chandra"],
   "articleSection": "Engineering",
-  "wordCount": 800,
-  "timeRequired": "PT4M",
+  "wordCount": 398,
+  "timeRequired": "PT2M",
   "inLanguage": "en-IN",
   "isAccessibleForFree": true,
   "about": {

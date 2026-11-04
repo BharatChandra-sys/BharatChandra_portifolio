@@ -1,13 +1,17 @@
-"use client"
 import React from 'react'
 import Image from 'next/image'
 import HeroSection from './components/HeroSection'
 import GithubProjects from './components/GithubProjects'
 import SkillsSection from './components/Skills'
 import ExperienceSection from './components/Experience'
+import FeaturedProjects from './components/FeaturedProjects'
+import Results from './components/Results'
+import Certifications from './components/Certifications'
+import LatestWriting from './components/LatestWriting'
+import { getPinnedRepos } from '@/lib/github'
 import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { HiArrowRight } from 'react-icons/hi'
+import { HiArrowRight, HiDownload, HiMail } from 'react-icons/hi'
+import { FaLinkedin } from 'react-icons/fa'
 
 const BASE = 'https://bharatchandra.me';
 
@@ -21,7 +25,7 @@ const faqSchema = {
       "name": "Who is Bodapati Bharat Chandra?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra (also known as Bharat Chandra) is an AI/ML engineer, full-stack developer, and final-year Computer Science & Engineering student at GITAM University Hyderabad. He is currently an AI/ML Engineering Intern at BHEL, Ground Station & Software Lead at GARI (gari.live) — GITAM's nationally-selected aerospace team competing in IN-SPACe CAN-7USAT 2026, and co-founder of Easify. He has shipped production systems for clients including Vijetha Digital (vijethadigital.com) and Deepthi Hospitals (deepthihospitals.vercel.app).",
+        "text": "Bodapati Bharat Chandra (also known as Bharat Chandra) is an AI/ML engineer, full-stack developer, and final-year Computer Science & Engineering student at GITAM University Hyderabad. He is currently a Full-Stack Engineering Intern at CardioPulmo AI, an AI/ML Engineering Intern at BHEL, Ground Station & Software Lead at GARI (gari.live) — GITAM's nationally-selected aerospace team competing in IN-SPACe CAN-7USAT 2026, and co-founder of Easify. He has shipped production systems for clients including Vijetha Digital (vijethadigital.com) and Deepthi Hospitals (deepthihospitals.vercel.app).",
       },
     },
     {
@@ -29,7 +33,7 @@ const faqSchema = {
       "name": "What projects has Bodapati Bharat Chandra built?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), Vijetha Digital full-stack e-commerce platform live at vijethadigital.com (clients: Samsung, Microsoft, Jio, Airtel), Deepthi Hospitals management system (live, three-portal RBAC at deepthihospitals.vercel.app), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, Truvanta AI misinformation detection system (90% accuracy, HackXplore winner), and the GARI website at gari.live.",
+        "text": "Bodapati Bharat Chandra has built: CAN-7USAT rocket telemetry backend (sub-5ms latency, IN-SPACe 2026), AUVBrain autonomous underwater vehicle control stack (0.84ms agent loop), Vijetha Digital full-stack e-commerce platform live at vijethadigital.com (for a printing business whose customers include Samsung, Microsoft, Jio and Airtel), Deepthi Hospitals management system (live, three-portal RBAC at deepthihospitals.vercel.app), MedVision AI for diabetic ulcer detection with Grad-CAM and SHAP, Truvanta AI misinformation detection system (90% accuracy, HackXplore winner), Likhitex, a private collaborative LaTeX editor, and the GARI website at gari.live.",
       },
     },
     {
@@ -45,7 +49,7 @@ const faqSchema = {
       "name": "Where does Bharat Chandra work?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra is currently an AI/ML Engineering Intern at BHEL (Bharat Heavy Electricals Limited) in Hyderabad, building an on-premise AI vendor compliance portal. He is also the Ground Station & Software Lead for GARI's CanSat team and co-founder of Easify.",
+        "text": "Bodapati Bharat Chandra is a Full-Stack Engineering Intern at CardioPulmo AI (remote) and an AI/ML Engineering Intern at BHEL (Bharat Heavy Electricals Limited) in Hyderabad, building an on-premise AI vendor compliance portal. He is also the Ground Station & Software Lead for GARI's CanSat team and co-founder of Easify.",
       },
     },
     {
@@ -61,7 +65,7 @@ const faqSchema = {
       "name": "What is Bharat Chandra's GitHub?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Bodapati Bharat Chandra's GitHub username is BharatChandra-sys. Profile: github.com/BharatChandra-sys — includes CAN-7USAT, AUVBrain, Vijetha Digital, hospital-management-platform, MedVision AI, FactCheckAI, and more. Also on Medium: medium.com/@bodapatibharatchandra and Wellfound: wellfound.com/u/bodapati-bharat-chandra.",
+        "text": "Bodapati Bharat Chandra's GitHub username is BharatChandra-sys. Profile: github.com/BharatChandra-sys — includes CAN-7USAT, AUVBrain, Vijetha Digital, hospital-management-platform, MedVision AI, TruvantaAI, and more. Also on Medium: medium.com/@bodapatibharatchandra and Wellfound: wellfound.com/u/bodapati-bharat-chandra.",
       },
     },
     // Trend 2: Branded search — these questions mirror real "Bharat Chandra + keyword"
@@ -71,7 +75,7 @@ const faqSchema = {
       "name": "Does Bharat Chandra have a blog?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Bodapati Bharat Chandra writes at bharatchandra.me/blog. He publishes technical posts from direct lived experience — not theory. Current articles cover building a sub-5ms rocket telemetry system for IN-SPACe 2026, deploying an on-premise LLM at BHEL with no external APIs, and co-founding Easify, a ride-pooling startup in Hyderabad.",
+        "text": "Yes. Bodapati Bharat Chandra writes at bharatchandra.me/blog. He publishes technical posts from direct lived experience — not theory. Current articles cover building a sub-5ms rocket telemetry system for IN-SPACe 2026, deploying an on-premise LLM at BHEL with no external APIs, building the Likhitex LaTeX editor and the GARI website, and co-founding Easify, a ride-pooling startup in Hyderabad.",
       },
     },
     {
@@ -122,15 +126,15 @@ const profilePageSchema = {
         "@type": "ImageObject",
         "url": `${BASE}/bodapati-bharat-chandra.jpg`,
         "caption": "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
-        "width": 1200,
-        "height": 630,
+        "width": 896,
+        "height": 1195,
       },
       {
         "@type": "ImageObject",
         "url": `${BASE}/bodapati-bharat-chandra-2.jpg`,
         "caption": "Bodapati Bharat Chandra — Co-founder of Easify, Hyderabad",
-        "width": 1200,
-        "height": 630,
+        "width": 562,
+        "height": 1000,
       },
     ],
     // sameAs lists LinkedIn/GitHub as affiliated profiles, but mainEntityOfPage
@@ -242,7 +246,7 @@ const projectsListSchema = {
         "name": "MedVision AI — Diabetic Ulcer Detection",
         "description": "Explainable AI system for diabetic ulcer risk detection. Grad-CAM heatmaps, SHAP values, MLflow tracking. Won AI Day Hackathon GITAM × Kodryx AI 2026.",
         "codeRepository": "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
-        "url": "https://diabetic-ulcer-ai-system.vercel.app",
+        "url": "https://dfuai.vercel.app",
         "programmingLanguage": ["Python"],
         "author": {
           "@type": "Person",
@@ -262,11 +266,11 @@ const projectsListSchema = {
       "position": 5,
       "item": {
         "@type": "SoftwareSourceCode",
-        "@id": "https://github.com/BharatChandra-sys/FactCheckAI",
+        "@id": "https://github.com/BharatChandra-sys/TruvantaAI",
         "name": "Truvanta AI — Real-Time Misinformation Detection",
         "description": "Browser extension for real-time news credibility scoring. 90% accuracy. Won HackXplore IEEE-SSIT VJIT April 2026.",
-        "codeRepository": "https://github.com/BharatChandra-sys/FactCheckAI",
-        "url": "https://github.com/BharatChandra-sys/FactCheckAI",
+        "codeRepository": "https://github.com/BharatChandra-sys/TruvantaAI",
+        "url": "https://github.com/BharatChandra-sys/TruvantaAI",
         "programmingLanguage": ["Python"],
         "author": {
           "@type": "Person",
@@ -342,6 +346,25 @@ const workExperienceSchema = {
       "position": 1,
       "item": {
         "@type": "EmployeeRole",
+        "roleName": "Full-Stack Engineering Intern",
+        "startDate": "2026-10-01",
+        "endDate": "2026-12-31",
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Full-Stack Engineering Intern"
+        },
+        "worksFor": {
+          "@type": "Organization",
+          "name": "CardioPulmo AI Private Limited"
+        },
+        "description": "Developing a clinical screening and case-management platform covering patient records, ECG review, vitals, investigations, risk scoring and clinician triage."
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "EmployeeRole",
         "roleName": "AI/ML Engineering Intern",
         "startDate": "2026-05-01",
         "hasOccupation": {
@@ -359,7 +382,7 @@ const workExperienceSchema = {
     },
     {
       "@type": "ListItem",
-      "position": 2,
+      "position": 3,
       "item": {
         "@type": "EmployeeRole",
         "roleName": "Ground Station & Software Lead, GARI CanSat Team",
@@ -383,7 +406,7 @@ const workExperienceSchema = {
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "item": {
         "@type": "EmployeeRole",
         "roleName": "Co-Founder",
@@ -525,7 +548,16 @@ const speakableSchema = {
   }
 };
 
-const Home = () => {
+const ABOUT_FACTS = [
+  { label: 'Education', value: 'B.Tech CSE, GITAM University Hyderabad (2023–2027)' },
+  { label: 'Currently', value: 'Interning at CardioPulmo AI and BHEL' },
+  { label: 'Leading', value: 'Ground station and software, GARI rocketry' },
+  { label: 'Co-founder', value: 'Easify, a pooling platform in Hyderabad' },
+];
+
+const Home = async () => {
+  const repos = await getPinnedRepos();
+
   return (
     <div>
       {/* Structured Data */}
@@ -538,71 +570,125 @@ const Home = () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToRocketTelemetrySchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
-      {/* Hidden SEO text — crawlable, not visible */}
-      <span className="sr-only">
-        Bodapati Bharat Chandra is an AI/ML engineer and final-year CSE student at GITAM University Hyderabad.
-        He is also known as Bharat Chandra, Bharat Chandra Telugu, Bharat Chandra Hindi, Bharat Chandra India, and BharatChandra-sys on GitHub.
-        Bodapati Bharat Chandra is interning at BHEL Hyderabad, leading the backend and ML stack at GARI rocketry initiative, and co-founding Easify, a pooling platform in Hyderabad, India.
-        He builds production AI systems, on-premise LLM platforms, rocket telemetry backends, autonomous vehicle software, and hospital management systems.
-        Contact: bc833498@gmail.com — bharatchandra.me
-        Relevant searches include Bharat Chandra AI engineer, Bharat Chandra portfolio, Bharat Chandra GITAM, Bharat Chandra Hyderabad, Bharat Chandra BHEL, Bharat Chandra developer, Bharat Chandra machine learning engineer, Bharat Chandra software engineer, Bharat Chandra robotics, Bharat Chandra aerospace, Bharat Chandra Telugu, Bharat Chandra Hindi, and Bharat Chandra India.
-      </span>
-
       <HeroSection />
+      <Results />
+      <FeaturedProjects />
       <ExperienceSection />
-      <GithubProjects />
+      <GithubProjects repos={repos} />
       <SkillsSection />
+      <Certifications />
+      <LatestWriting />
 
-      {/* ── Second photo — visible in DOM for Google Image indexing ── */}
-      {/* Placed between sections so it's rendered in HTML source, not just JSON-LD */}
-      <section className="py-8" aria-label="About Bodapati Bharat Chandra">
-        <div className="container mx-auto px-6 flex justify-center">
+      {/* About — visible, so the identity details are for readers as well as crawlers */}
+      <section className="py-4 md:py-16" id="about" aria-labelledby="about-heading">
+        <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
           <div
-            className="flex items-center gap-4 bg-white/[0.03] border border-white/10 rounded-2xl px-6 py-4 max-w-sm"
+            className="grid grid-cols-[88px_minmax(0,1fr)] gap-x-3 gap-y-3 md:gap-12 md:grid-cols-[minmax(0,320px)_1fr] items-start md:items-center rounded-2xl md:rounded-3xl border border-white/10 bg-white/[0.02] p-3 md:p-10"
             itemScope
             itemType="https://schema.org/Person"
           >
-            <Image
-              src="/bodapati-bharat-chandra-2.jpg"
-              alt="Bodapati Bharat Chandra — Co-founder of Easify and AI/ML Engineer, Hyderabad"
-              width={48}
-              height={48}
-              className="rounded-full object-cover border border-white/15 flex-shrink-0"
-              itemProp="image"
-            />
-            <div>
-              <p className="text-sm font-semibold text-white/80" itemProp="name">
-                Bodapati Bharat Chandra
-              </p>
-              <p className="text-xs text-white/40" itemProp="jobTitle">
-                AI/ML Engineer · Hyderabad, India · Bharat Chandra
-              </p>
+            <div className="relative aspect-[4/5] w-full md:max-w-[320px] mx-auto overflow-hidden rounded-lg md:rounded-2xl border border-white/15">
+              <Image
+                src="/bodapati-bharat-chandra-2.jpg"
+                alt="Bodapati Bharat Chandra — Co-founder of Easify and AI/ML Engineer, Hyderabad"
+                fill
+                sizes="(max-width: 768px) 90vw, 420px"
+                className="object-cover object-[50%_10%] scale-[1.35] origin-[50%_20%]"
+                itemProp="image"
+              />
+            </div>
+
+            <div className="contents md:block md:space-y-6">
+              <div className="md:space-y-2">
+                <h2 id="about-heading" className="text-xs md:text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                  About
+                </h2>
+                <p className="text-base md:text-4xl font-bold text-primary leading-snug" itemProp="name">
+                  Bodapati Bharat Chandra
+                </p>
+                <p className="text-xs md:text-base text-muted-foreground">
+                  <span itemProp="jobTitle">AI/ML Engineer</span> · Hyderabad, India<span className="hidden md:inline"> · BharatChandra-sys on GitHub</span>
+                </p>
+              </div>
+
+              <div className="col-span-2 space-y-2 md:space-y-4 text-xs md:text-base text-muted-foreground leading-relaxed">
+                <p>
+                  I&apos;m a final-year CSE student at GITAM University Hyderabad who likes the part after the notebook:
+                  getting software running for real users, under real constraints.
+                </p>
+                <p>
+                  I build production AI systems, on-premise LLM platforms, rocket telemetry backends, autonomous vehicle
+                  software, and hospital management systems.
+                </p>
+              </div>
+
+              <dl className="col-span-2 grid grid-cols-2 gap-2 md:gap-4 border-t border-white/10 pt-3 md:pt-6">
+                {ABOUT_FACTS.map((fact) => (
+                  <div key={fact.label}>
+                    <dt className="text-xs font-semibold md:uppercase md:tracking-wider text-muted-foreground">{fact.label}</dt>
+                    <dd className="md:mt-1 text-xs md:text-sm text-primary leading-snug">{fact.value}</dd>
+                  </div>
+                ))}
+              </dl>
+
+              <div className="col-span-2 flex flex-wrap gap-2 md:gap-3">
+                <a
+                  href="mailto:bc833498@gmail.com"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold text-black hover:bg-white/90 transition-colors"
+                >
+                  <HiMail className="w-4 h-4" aria-hidden="true" />
+                  Email me
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/bharat-chandra-bodapati/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                >
+                  <FaLinkedin className="w-4 h-4" aria-hidden="true" />
+                  LinkedIn
+                </a>
+                <a
+                  href="/bodapati-bharat-chandra-resume.pdf"
+                  download
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                >
+                  <HiDownload className="w-4 h-4" aria-hidden="true" />
+                  Download CV
+                </a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* FAQ — rendered from the same data as the FAQPage schema, so the markup matches what readers see */}
+      <section className="py-4 md:py-16" id="faq" aria-labelledby="faq-heading">
+        <div className="mx-auto w-full max-w-3xl px-4 md:px-6 space-y-3 md:space-y-6">
+          <h2 id="faq-heading" className="text-xl md:text-4xl font-bold text-primary">
+            Frequently asked questions
+          </h2>
+          <div className="space-y-2 md:space-y-3">
+            {faqSchema.mainEntity.map((item) => (
+              <details key={item.name} className="group rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 md:px-5 md:py-4">
+                <summary className="cursor-pointer text-xs md:text-base font-medium text-primary">{item.name}</summary>
+                <p className="mt-2 md:mt-3 text-xs md:text-sm text-muted-foreground leading-relaxed">{item.acceptedAnswer.text}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Contact CTA */}
-      <section className="py-16 pb-24">
-        <div className="container mx-auto px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center"
+      <section className="py-4 pb-8 md:py-16 md:pb-24">
+        <div className="container mx-auto px-6 flex justify-center">
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white text-xs md:text-sm font-medium transition-all duration-300 backdrop-blur-sm hover:scale-105 active:scale-95"
           >
-            <Link href="/contact">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white text-sm font-medium transition-all duration-300 backdrop-blur-sm"
-              >
-                <span>Get In Touch</span>
-                <HiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </motion.button>
-            </Link>
-          </motion.div>
+            <span>Get In Touch</span>
+            <HiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
+          </Link>
         </div>
       </section>
     </div>

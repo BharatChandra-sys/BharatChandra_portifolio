@@ -41,6 +41,47 @@ export const blogIndexSchema = {
   "blogPost": [
     {
       "@type": "BlogPosting",
+      "@id": `${BASE_URL}/blog/building-likhitex-latex-editor`,
+      "headline": "Building Likhitex: A Private LaTeX Editor That Treats Compilation as Code Execution",
+      "description": "How Bodapati Bharat Chandra built a real-time collaborative LaTeX editor with sandboxed Docker + gVisor compilation, Yjs CRDT synchronization, and zero vendor lock-in.",
+      "datePublished": "2026-07-25T00:00:00Z",
+      "dateModified": "2026-07-25T00:00:00Z",
+
+      "author": author,
+      "publisher": publisher,
+
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
+        "width": 896,
+        "height": 1195
+      },
+
+      "url": `${BASE_URL}/blog/building-likhitex-latex-editor`,
+
+      "keywords": [
+        "LaTeX",
+        "Docker",
+        "Security",
+        "FastAPI",
+        "CRDT",
+        "Bodapati Bharat Chandra"
+      ],
+
+      "articleSection": "Engineering",
+      "wordCount": 1053,
+      "timeRequired": "PT6M",
+      "inLanguage": "en-IN",
+      "isAccessibleForFree": true,
+
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": `${BASE_URL}/blog/building-likhitex-latex-editor`
+      }
+    },
+
+    {
+      "@type": "BlogPosting",
       "@id": `${BASE_URL}/blog/building-gari-website`,
       "headline": "Building the GARI Website: From Zero to gari.live",
       "description": "How Bodapati Bharat Chandra designed and shipped the full website for GITAM's nationally-selected aerospace team — React, canvas starfield, full SEO, ground station section for IN-SPACe CAN-7USAT 2026.",
@@ -53,8 +94,8 @@ export const blogIndexSchema = {
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-        "width": 1200,
-        "height": 630
+        "width": 896,
+        "height": 1195
       },
 
       "url": `${BASE_URL}/blog/building-gari-website`,
@@ -70,8 +111,8 @@ export const blogIndexSchema = {
       ],
 
       "articleSection": "Engineering",
-      "wordCount": 700,
-      "timeRequired": "PT4M",
+      "wordCount": 543,
+      "timeRequired": "PT3M",
       "inLanguage": "en-IN",
       "isAccessibleForFree": true,
 
@@ -103,8 +144,8 @@ export const blogIndexSchema = {
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-        "width": 1200,
-        "height": 630
+        "width": 896,
+        "height": 1195
       },
 
       "url": `${BASE_URL}/blog/can-7usat-rocket-telemetry`,
@@ -119,8 +160,8 @@ export const blogIndexSchema = {
       ],
 
       "articleSection": "Engineering",
-      "wordCount": 800,
-      "timeRequired": "PT4M",
+      "wordCount": 398,
+      "timeRequired": "PT2M",
       "inLanguage": "en-IN",
       "isAccessibleForFree": true,
 
@@ -145,8 +186,8 @@ export const blogIndexSchema = {
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-        "width": 1200,
-        "height": 630
+        "width": 896,
+        "height": 1195
       },
 
       "url": `${BASE_URL}/blog/on-premise-llm-bhel`,
@@ -161,8 +202,8 @@ export const blogIndexSchema = {
       ],
 
       "articleSection": "AI/ML",
-      "wordCount": 750,
-      "timeRequired": "PT4M",
+      "wordCount": 373,
+      "timeRequired": "PT2M",
       "inLanguage": "en-IN",
       "isAccessibleForFree": true,
 
@@ -187,8 +228,8 @@ export const blogIndexSchema = {
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-        "width": 1200,
-        "height": 630
+        "width": 896,
+        "height": 1195
       },
 
       "url": `${BASE_URL}/blog/co-founding-easify`,
@@ -203,8 +244,8 @@ export const blogIndexSchema = {
       ],
 
       "articleSection": "Startup",
-      "wordCount": 650,
-      "timeRequired": "PT3M",
+      "wordCount": 314,
+      "timeRequired": "PT2M",
       "inLanguage": "en-IN",
       "isAccessibleForFree": true,
 

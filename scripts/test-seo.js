@@ -14,6 +14,8 @@ const PAGES = [
   '/projects',
   '/blog',
   '/contact',
+  '/blog/building-likhitex-latex-editor',
+  '/blog/building-gari-website',
   '/blog/can-7usat-rocket-telemetry',
   '/blog/on-premise-llm-bhel',
   '/blog/co-founding-easify'

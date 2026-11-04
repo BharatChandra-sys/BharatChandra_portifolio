@@ -46,11 +46,9 @@ export default function NotFound() {
 
           {/* Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
-            <Link href="/">
-              <button className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black hover:bg-white/90 font-medium transition-all duration-300">
-                <HiHome className="w-5 h-5" />
-                <span>Go Home</span>
-              </button>
+            <Link href="/" className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-black hover:bg-white/90 font-medium transition-all duration-300">
+              <HiHome className="w-5 h-5" />
+              <span>Go Home</span>
             </Link>
 
             {/* Client component — needs window.history */}
