@@ -1,8 +1,13 @@
 import { NextResponse } from 'next/server';
+import { createRateLimiter, escapeHtml, validateContact } from '@/lib/contact-validation.mjs';
 
 const BREVO_ENDPOINT = 'https://api.brevo.com/v3/smtp/email';
 const SENDER_EMAIL   = 'bharat.833498@gmail.com';
 const SENDER_NAME    = 'Bharat Chandra';
+const MAX_BODY_BYTES = 20_000;
+
+// Five messages per IP per 10 minutes, per server instance.
+const isAllowed = createRateLimiter({ limit: 5, windowMs: 10 * 60 * 1000 });
 
 async function sendEmail(payload) {
     const res = await fetch(BREVO_ENDPOINT, {
@@ -22,8 +27,11 @@ async function sendEmail(payload) {
 }
 
 // ─── Email to Bharat (owner notification) ────────────────────────────────────
-function buildOwnerHtml(name, email, message) {
-    const escaped = message.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function buildOwnerHtml(rawName, rawEmail, rawMessage) {
+    const name = escapeHtml(rawName);
+    const email = escapeHtml(rawEmail);
+    const escaped = escapeHtml(rawMessage);
+    const replyHref = `mailto:${encodeURIComponent(rawEmail)}?subject=${encodeURIComponent('Re: Your message on bharatchandra.me')}&body=${encodeURIComponent(`Hi ${rawName},\n\n`)}`;
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,7 +97,7 @@ function buildOwnerHtml(name, email, message) {
       <!-- CTA -->
       <tr>
         <td style="padding:28px 0;">
-          <a href="mailto:${email}?subject=Re: Your message on bharatchandra.me&body=Hi ${name},%0A%0A"
+          <a href="${replyHref}"
              style="display:inline-block;background:#111111;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:13px 28px;border-radius:4px;letter-spacing:0.2px;">
             Reply to ${name} &rarr;
           </a>
@@ -122,8 +130,10 @@ function buildOwnerHtml(name, email, message) {
 }
 
 // ─── Email to the user (thank-you / confirmation) ────────────────────────────
-function buildUserHtml(name, message) {
-    const escaped = message.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+// Deliberately doesn't repeat the message: this goes to whatever address was
+// typed into the form, so echoing the text would let anyone use it to send spam.
+function buildUserHtml(rawName) {
+    const name = escapeHtml(rawName);
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -163,14 +173,6 @@ function buildUserHtml(name, message) {
         </td>
       </tr>
 
-      <!-- Message recap -->
-      <tr><td style="padding:0 0 10px;"><p style="margin:0;font-size:12px;font-weight:700;color:#555555;text-transform:uppercase;letter-spacing:0.8px;">Your message</p></td></tr>
-      <tr>
-        <td style="background:#f7f7f7;border-radius:4px;padding:18px 20px;border-left:3px solid #111111;margin-bottom:28px;">
-          <p style="margin:0;font-size:14px;color:#444444;line-height:1.8;white-space:pre-wrap;">${escaped}</p>
-        </td>
-      </tr>
-
       <!-- Quick links -->
       <tr>
         <td style="padding:28px 0 0;">
@@ -189,7 +191,7 @@ function buildUserHtml(name, message) {
                 </a>
               </td>
               <td>
-                <a href="https://bharatchandra.me/assets/resume.pdf"
+                <a href="https://bharatchandra.me/bodapati-bharat-chandra-resume.pdf"
                    style="display:inline-block;background:#ffffff;color:#111111;text-decoration:none;font-size:13px;font-weight:600;padding:11px 22px;border-radius:4px;letter-spacing:0.2px;border:1px solid #dddddd;">
                   Download CV
                 </a>
@@ -230,21 +232,48 @@ function buildOwnerText(name, email, message) {
     return `New message from ${name} (${email}) via bharatchandra.me\n\n${message}\n\n---\nReply directly to: ${email}`;
 }
 
-function buildUserText(name, message) {
-    return `Hi ${name},\n\nGot your message — I'll get back to you within 24 hours.\n\nYour message:\n${message}\n\n---\nBharat Chandra\nbharatchandra.me`;
+function buildUserText(name) {
+    return `Hi ${name},\n\nGot your message — I'll get back to you within 24 hours.\n\n---\nBharat Chandra\nbharatchandra.me`;
 }
 
 // ─── Route handler ────────────────────────────────────────────────────────────
 export async function POST(request) {
     try {
-        const { name, email, message } = await request.json();
+        const origin = request.headers.get('origin');
+        if (origin && new URL(origin).host !== request.headers.get('host')) {
+            return NextResponse.json({ error: 'Invalid request.' }, { status: 403 });
+        }
 
-        if (!name?.trim() || !email?.trim() || !message?.trim()) {
-            return NextResponse.json({ error: 'All fields are required.' }, { status: 400 });
+        const ip = (request.headers.get('x-forwarded-for') || 'unknown').split(',')[0].trim();
+        if (!isAllowed(ip)) {
+            return NextResponse.json(
+                { error: 'Too many messages. Please try again in a few minutes.' },
+                { status: 429, headers: { 'Retry-After': '600' } }
+            );
         }
-        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            return NextResponse.json({ error: 'Invalid email address.' }, { status: 400 });
+
+        const raw = await request.text();
+        if (raw.length > MAX_BODY_BYTES) {
+            return NextResponse.json({ error: 'Message is too long.' }, { status: 413 });
         }
+
+        let body;
+        try {
+            body = JSON.parse(raw);
+        } catch {
+            return NextResponse.json({ error: 'Invalid request.' }, { status: 400 });
+        }
+
+        const result = validateContact(body);
+        if (!result.ok) {
+            return NextResponse.json({ error: result.error }, { status: 400 });
+        }
+        // Bots that fill the honeypot get a normal-looking response and send nothing.
+        if (result.spam) {
+            return NextResponse.json({ success: true });
+        }
+        const { name, email, message } = result.data;
+
         if (!process.env.BREVO_API_KEY) {
             console.error('[Contact] BREVO_API_KEY missing');
             return NextResponse.json({ error: 'Email service not configured.' }, { status: 500 });
@@ -252,25 +281,29 @@ export async function POST(request) {
 
         const OWNER_EMAIL = process.env.OWNER_EMAIL || 'bc833498@gmail.com';
 
-        await Promise.all([
-            // 1. Notification to Bharat
-            sendEmail({
-                sender:      { name: 'Portfolio Contact', email: SENDER_EMAIL },
-                to:          [{ email: OWNER_EMAIL, name: SENDER_NAME }],
-                replyTo:     { email, name },
-                subject:     `${name} reached out via bharatchandra.me`,
-                htmlContent: buildOwnerHtml(name, email, message),
-                textContent: buildOwnerText(name, email, message),
-            }),
-            // 2. Thank-you to the user
-            sendEmail({
+        // 1. Notification to Bharat. If this fails, the visitor sees an error and can retry.
+        await sendEmail({
+            sender:      { name: 'Portfolio Contact', email: SENDER_EMAIL },
+            to:          [{ email: OWNER_EMAIL, name: SENDER_NAME }],
+            replyTo:     { email, name },
+            subject:     `${name} reached out via bharatchandra.me`,
+            htmlContent: buildOwnerHtml(name, email, message),
+            textContent: buildOwnerText(name, email, message),
+        });
+
+        // 2. Thank-you to the user. The message already arrived, so a failure here
+        // is logged rather than shown as an error (which would prompt a duplicate).
+        try {
+            await sendEmail({
                 sender:      { name: SENDER_NAME, email: SENDER_EMAIL },
                 to:          [{ email, name }],
                 subject:     `Got your message — Bharat Chandra`,
-                htmlContent: buildUserHtml(name, message),
-                textContent: buildUserText(name, message),
-            }),
-        ]);
+                htmlContent: buildUserHtml(name),
+                textContent: buildUserText(name),
+            });
+        } catch (err) {
+            console.error('[Contact API] confirmation failed:', err.message);
+        }
 
         return NextResponse.json({ success: true });
 

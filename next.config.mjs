@@ -1,7 +1,13 @@
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import bundleAnalyzer from '@next/bundle-analyzer';
+
+const withBundleAnalyzer = bundleAnalyzer({ enabled: process.env.ANALYZE === 'true' });
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Silence the workspace root warning (multiple lockfiles in parent dirs)
-  // outputFileTracingRoot is set to project root
+  // Pin the workspace root so stray lockfiles in parent folders can't change it
+  outputFileTracingRoot: path.dirname(fileURLToPath(import.meta.url)),
   output: undefined,
 
   // Security headers — Note: X-Frame-Options and CSP are handled in vercel.json
@@ -56,4 +62,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

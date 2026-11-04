@@ -74,7 +74,7 @@ export const metadata = {
     siteName: "Bodapati Bharat Chandra",
     images: [
       {
-        url: "/bodapati-bharat-chandra.jpg",
+        url: "https://bharatchandra.me/api/og-dynamic?title=Writing%20%E2%80%94%20Notes%20on%20systems%20I%20have%20built&type=blog",
         width: 1200,
         height: 630,
         alt: "Bodapati Bharat Chandra Blog",
@@ -85,7 +85,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Writing — Bodapati Bharat Chandra",
     description: "Technical writing on AI systems, rocketry, and startups.",
-    images: ["/bodapati-bharat-chandra.jpg"],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=Writing%20%E2%80%94%20Notes%20on%20systems%20I%20have%20built&type=blog"],
   },
   robots: {
     index: true,

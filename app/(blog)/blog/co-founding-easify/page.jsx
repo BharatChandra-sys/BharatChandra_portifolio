@@ -19,7 +19,7 @@ export const metadata = {
     tags: ["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad"],
     images: [
       {
-        url: "https://bharatchandra.me/bodapati-bharat-chandra.jpg",
+        url: "https://bharatchandra.me/api/og-dynamic?title=Co-founding%20Easify%3A%20Smart%20pooling%20in%20Hyderabad&type=blog",
         width: 1200,
         height: 630,
         alt: "Bodapati Bharat Chandra — Co-founding Easify",
@@ -30,7 +30,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "What I Learned Co-founding Easify — Bharat Chandra",
     description: "My honest take after building a ride-pooling startup in Hyderabad. Architecture, matching, and why trust beats code.",
-    images: ["https://bharatchandra.me/bodapati-bharat-chandra.jpg"],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=Co-founding%20Easify%3A%20Smart%20pooling%20in%20Hyderabad&type=blog"],
     creator: "@BharatChandra",
   },
 };
@@ -45,8 +45,8 @@ const articleSchema = {
   "image": {
     "@type": "ImageObject",
     "url": `${BASE}/bodapati-bharat-chandra.jpg`,
-    "width": 1200,
-    "height": 630
+    "width": 896,
+    "height": 1195
   },
   "datePublished": "2026-04-20T00:00:00Z",
   "dateModified": "2026-04-20T00:00:00Z",
@@ -80,8 +80,8 @@ const articleSchema = {
   },
   "keywords": ["Startup", "FastAPI", "PostgreSQL", "Product", "Hyderabad", "Easify", "Ride Pooling", "Bodapati Bharat Chandra"],
   "articleSection": "Startup",
-  "wordCount": 650,
-  "timeRequired": "PT3M",
+  "wordCount": 314,
+  "timeRequired": "PT2M",
   "inLanguage": "en-IN",
   "isAccessibleForFree": true,
   "about": {

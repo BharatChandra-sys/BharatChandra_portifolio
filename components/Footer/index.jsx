@@ -1,7 +1,17 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiMail } from 'react-icons/hi';
 import { config } from '@/config';
+import { OPEN_COOKIE_SETTINGS } from '@/components/GoogleAnalytics';
+
+const SOCIAL_LINKS = [
+    { label: 'GitHub', href: `https://github.com/${config.social.github}`, Icon: FaGithub },
+    { label: 'LinkedIn', href: config.social.linkedin, Icon: FaLinkedin },
+    { label: 'Email', href: `mailto:${config.social.email}`, Icon: HiMail },
+];
 
 const Footer = () => {
     return (
@@ -11,10 +21,40 @@ const Footer = () => {
             viewport={{ once: true }}
             className="py-4 sm:py-6 border-t border-secondary/20 flex items-center justify-center"
         >
-        <div className="text-center px-4 w-full max-w-4xl mx-auto">
+        <div className="text-center px-4 w-full max-w-4xl mx-auto space-y-3">
+                <div className="flex items-center justify-center gap-2">
+                    {SOCIAL_LINKS.map(({ label, href, Icon }) => (
+                        <a
+                            key={label}
+                            href={href}
+                            aria-label={label}
+                            {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                            className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                        >
+                            <Icon className="w-5 h-5" aria-hidden="true" />
+                        </a>
+                    ))}
+                </div>
+                <nav aria-label="Legal" className="flex items-center justify-center gap-3 text-xs md:text-sm text-muted-foreground">
+                    <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                    <span aria-hidden="true">•</span>
+                    <Link href="/terms" className="hover:text-primary transition-colors">Terms</Link>
+                    {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+                        <>
+                            <span aria-hidden="true">•</span>
+                            <button
+                                type="button"
+                                onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS))}
+                                className="hover:text-primary transition-colors"
+                            >
+                                Cookie settings
+                            </button>
+                        </>
+                    )}
+                </nav>
                 {/* Microdata on the footer copyright line reinforces entity name on every page */}
                 <div
-                  className="text-[10px] sm:text-xs md:text-sm text-muted-foreground flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 md:gap-2 leading-tight"
+                  className="text-xs md:text-sm text-muted-foreground flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 md:gap-2 leading-tight"
                   itemScope
                   itemType="https://schema.org/WPFooter"
                 >

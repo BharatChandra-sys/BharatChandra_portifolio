@@ -26,15 +26,15 @@ export async function GET() {
           {
             "@type": "ImageObject",
             "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-            "width": 1200,
-            "height": 630,
+            "width": 896,
+            "height": 1195,
             "caption": "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad"
           },
           {
             "@type": "ImageObject",
             "url": `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
-            "width": 1200,
-            "height": 630,
+            "width": 562,
+            "height": 1000,
             "caption": "Bodapati Bharat Chandra — Co-founder of Easify, Hyderabad"
           }
         ],

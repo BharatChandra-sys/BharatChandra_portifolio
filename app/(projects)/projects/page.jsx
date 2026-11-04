@@ -64,7 +64,7 @@ const projectsPageSchema = {
           "name": "MedVision AI — Diabetic Ulcer Detection",
           "description": "Explainable AI: Grad-CAM, SHAP, MLflow. Won AI Day Hackathon GITAM × Kodryx AI 2026.",
           "codeRepository": "https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system",
-          "url": "https://diabetic-ulcer-ai-system.vercel.app",
+          "url": "https://dfuai.vercel.app",
           "programmingLanguage": ["Python"],
           "author": { "@type": "Person", "name": "Bodapati Bharat Chandra", "@id": `${BASE}/#person` },
           "dateCreated": "2026-02-10",
@@ -75,10 +75,10 @@ const projectsPageSchema = {
         "position": 4,
         "item": {
           "@type": "SoftwareSourceCode",
-          "@id": "https://github.com/BharatChandra-sys/FactCheckAI",
+          "@id": "https://github.com/BharatChandra-sys/TruvantaAI",
           "name": "Truvanta AI — Real-Time Misinformation Detection",
           "description": "Browser extension with 90% accuracy. Won HackXplore IEEE-SSIT VJIT April 2026.",
-          "codeRepository": "https://github.com/BharatChandra-sys/FactCheckAI",
+          "codeRepository": "https://github.com/BharatChandra-sys/TruvantaAI",
           "programmingLanguage": ["Python"],
           "author": { "@type": "Person", "name": "Bodapati Bharat Chandra", "@id": `${BASE}/#person` },
           "dateCreated": "2026-03-20",
@@ -97,12 +97,19 @@ const breadcrumbSchema = {
   ]
 };
 
+// Shown first, in this order. Everything else keeps its order from config.js.
+const TOP_PROJECT_IDS = [6, 7];
+const orderedProjects = [
+    ...TOP_PROJECT_IDS.map((id) => config.projects.find((project) => project.id === id)).filter(Boolean),
+    ...config.projects.filter((project) => !TOP_PROJECT_IDS.includes(project.id)),
+];
+
 const ProjectsPage = () => {
     return (
-        <section className="py-16" id="projects">
+        <section className="py-4 md:py-16" id="projects">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsPageSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
-            <div className="container mx-auto px-6 md:px-64">
+            <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
                 <BackgroundEffects
                     variant="diagonal"
                     colors={{ first: "secondary", second: "secondary" }}
@@ -112,7 +119,7 @@ const ProjectsPage = () => {
 
                 <div className="relative">
                     <SectionTitle />
-                    <ProjectsList projects={config.projects} />
+                    <ProjectsList projects={orderedProjects} />
                 </div>
             </div>
         </section>

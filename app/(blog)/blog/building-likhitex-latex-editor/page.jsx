@@ -17,7 +17,7 @@ export const metadata = {
     tags: ["LaTeX", "Docker", "Security", "FastAPI", "Next.js", "CRDT"],
     images: [
       {
-        url: "https://bharatchandra.me/bodapati-bharat-chandra.jpg",
+        url: "https://bharatchandra.me/api/og-dynamic?title=Building%20Likhitex%3A%20A%20Private%20LaTeX%20Editor&type=blog",
         width: 1200,
         height: 630,
         alt: "Bodapati Bharat Chandra — Building Likhitex LaTeX Editor",
@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Building Likhitex: A Private LaTeX Editor That Treats Compilation as Code Execution",
     description: "Real-time collaborative LaTeX with sandboxed Docker compilation and zero vendor lock-in.",
-    images: ["https://bharatchandra.me/bodapati-bharat-chandra.jpg"],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=Building%20Likhitex%3A%20A%20Private%20LaTeX%20Editor&type=blog"],
     creator: "@BharatChandra",
   },
 };
@@ -43,8 +43,8 @@ const articleSchema = {
   "image": {
     "@type": "ImageObject",
     "url": `${BASE}/bodapati-bharat-chandra.jpg`,
-    "width": 1200,
-    "height": 630
+    "width": 896,
+    "height": 1195
   },
   "datePublished": "2026-07-25T00:00:00Z",
   "dateModified": "2026-07-25T00:00:00Z",
@@ -78,8 +78,8 @@ const articleSchema = {
   },
   "keywords": ["LaTeX", "Docker", "Security", "FastAPI", "Next.js", "CRDT", "Yjs", "gVisor", "Bodapati Bharat Chandra"],
   "articleSection": "Engineering",
-  "wordCount": 900,
-  "timeRequired": "PT5M",
+  "wordCount": 1053,
+  "timeRequired": "PT6M",
   "inLanguage": "en-IN",
   "isAccessibleForFree": true,
   "about": {

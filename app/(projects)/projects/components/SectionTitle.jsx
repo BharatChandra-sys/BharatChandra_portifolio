@@ -10,14 +10,14 @@ const SectionTitle = () => (
         initial="hidden"
         animate="show"
         variants={titleAnimation}
-        className="mb-16 space-y-6"
+        className="mb-4 md:mb-16 space-y-3 md:space-y-6"
     >
-        <div className="flex flex-col md:flex-row md:items-start justify-between gap-6">
-            <div className="space-y-4 max-w-2xl">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary tracking-tight">
+        <div className="flex flex-col md:flex-row md:items-start justify-between gap-3 md:gap-6">
+            <div className="space-y-2 md:space-y-4 max-w-2xl">
+                <h1 className="text-2xl md:text-5xl font-bold text-primary tracking-tight">
                     Featured Work & Projects
-                </h2>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                </h1>
+                <p className="text-xs md:text-base text-muted-foreground leading-relaxed">
                     Production systems with real constraints — not demos, not notebooks.
                     Every project here ran (or runs) in an actual environment under
                     actual pressure.{' '}

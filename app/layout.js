@@ -96,10 +96,6 @@ export const metadata = {
     languages: {
       'en-IN': BASE_URL,
       'en': BASE_URL,
-      'hi': BASE_URL,
-      'te': BASE_URL,
-      'ta': BASE_URL,
-      'ml': BASE_URL,
       'x-default': BASE_URL,
     },
   },
@@ -118,8 +114,8 @@ export const metadata = {
       {
         // Primary headshot — raw photo, no banner overlay
         url: "/bodapati-bharat-chandra.jpg",
-        width: 562,
-        height: 1000,
+        width: 896,
+        height: 1195,
         alt: "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
         type: "image/jpeg",
       },
@@ -139,10 +135,7 @@ export const metadata = {
     title: "Bodapati Bharat Chandra | Bharat Chandra | AI/ML Engineer",
     description:
       "Bodapati Bharat Chandra — production AI systems, rocketry backends, AUV stacks. Final-year CSE @ GITAM Hyderabad.",
-    images: [
-      `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-      `${BASE_URL}/bodapati-bharat-chandra-2.jpg`,
-    ],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=AI%2FML%20Engineer%20%C2%B7%20Building%20AI%20systems%20that%20actually%20ship&type=default"],
     creator: "@BharatChandra",
     site: "@BharatChandra",
   },
@@ -191,8 +184,8 @@ const personSchema = {
       "@id": `${BASE_URL}/#photo-primary`,
       "url": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
       "contentUrl": `${BASE_URL}/bodapati-bharat-chandra.jpg`,
-      "width": 562,
-      "height": 1000,
+      "width": 896,
+      "height": 1195,
       "caption": "Bodapati Bharat Chandra — AI/ML Engineer, GITAM University Hyderabad",
       "name": "Bodapati Bharat Chandra headshot",
       "description": "Professional photo of Bodapati Bharat Chandra, AI/ML Engineering Intern at BHEL and Backend & ML Lead at GARI rocketry team, GITAM University Hyderabad.",
@@ -235,12 +228,18 @@ const personSchema = {
     "url": "https://gitam.edu",
     "sameAs": "https://en.wikipedia.org/wiki/GITAM_University",
   },
-  "worksFor": {
-    "@type": "Organization",
-    "name": "BHEL — Bharat Heavy Electricals Limited",
-    "url": "https://bhel.com",
-    "sameAs": "https://en.wikipedia.org/wiki/Bharat_Heavy_Electricals",
-  },
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "CardioPulmo AI Private Limited",
+    },
+    {
+      "@type": "Organization",
+      "name": "BHEL — Bharat Heavy Electricals Limited",
+      "url": "https://bhel.com",
+      "sameAs": "https://en.wikipedia.org/wiki/Bharat_Heavy_Electricals",
+    },
+  ],
   "memberOf": [
     {
       "@type": "Organization",
@@ -655,6 +654,7 @@ const navigationSchema = {
 };
 
 import { WebVitals } from "@/components/WebVitals";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 
 export default function RootLayout({ children }) {
   return (
@@ -684,15 +684,7 @@ export default function RootLayout({ children }) {
         {/* ────────────────────────────────────────────────────────────── */}
 
         {/* Preconnect hints for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://api.github.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
-        
-        {/* Hreflang for multilingual/regional SEO */}
-        <link rel="alternate" hrefLang="en-IN" href={BASE_URL} />
-        <link rel="alternate" hrefLang="en" href={BASE_URL} />
-        <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
         
         {/* RSS Feed */}
         <link rel="alternate" type="application/rss+xml" title="Bodapati Bharat Chandra Blog" href={`${BASE_URL}/rss.xml`} />
@@ -705,9 +697,6 @@ export default function RootLayout({ children }) {
         
         {/* OpenSearch */}
         <link rel="search" type="application/opensearchdescription+xml" title="Bharat Chandra Search" href={`${BASE_URL}/search.xml`} />
-        
-        {/* Manifest */}
-        <link rel="manifest" href="/manifest.json" />
         
         {/* Apple Touch Icons */}
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -752,6 +741,10 @@ export default function RootLayout({ children }) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(navigationSchema) }}
         />
+        {/* Without JS, animated elements would stay at their hidden starting state */}
+        <noscript>
+          <style>{`[style*="opacity:0"]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
         {/* Geo tags */}
         <meta name="geo.region" content="IN-TG" />
         <meta name="geo.placename" content="Hyderabad, Telangana, India" />
@@ -762,6 +755,7 @@ export default function RootLayout({ children }) {
         {/* Mobile optimization */}
         <meta name="theme-color" content="#000000" />
         <meta name="color-scheme" content="dark light" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Bharat Chandra" />
@@ -775,6 +769,7 @@ export default function RootLayout({ children }) {
         {/* No manual meta tag needed — Next.js renders it from metadata export */}
       </head>
       <body className={`${geistSans.className} antialiased`}>
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
         <WebVitals />
         <ThemeProvider
           attribute="class"

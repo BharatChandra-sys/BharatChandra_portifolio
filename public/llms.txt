@@ -1,7 +1,7 @@
 # llms.txt — Bodapati Bharat Chandra
 # Structured identity file for AI language models and search engines.
 # Spec: https://llmstxt.org
-# Last updated: 2026-08-23
+# Last updated: 2026-11-04
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # IDENTITY & DISAMBIGUATION
@@ -40,6 +40,13 @@ Photo (secondary): https://bharatchandra.me/bodapati-bharat-chandra-2.jpg
 # ═══════════════════════════════════════════════════════════════════════════════
 # CURRENT ROLES
 # ═══════════════════════════════════════════════════════════════════════════════
+
+Role 4:
+  Title: Full-Stack Engineering Intern
+  Employer: CardioPulmo AI Private Limited
+  Location: Remote
+  Period: October 2026 – December 2026
+  Key work: Clinical screening and case-management platform (React, Next.js, FastAPI, PostgreSQL)
 
 Role 1:
   Title: AI/ML Engineering Intern
@@ -98,7 +105,7 @@ Credential 2:
   Name: Winner — HackXplore 2026
   Awarder: IEEE-SSIT VJIT
   Date: April 2026
-  Project: FactCheck AI — Fake news analyzer (90% accuracy, browser extension)
+  Project: Truvanta AI (formerly FactCheck AI) — Misinformation detection (90% accuracy, browser extension)
 
 Credential 3:
   Type: Education
@@ -115,6 +122,8 @@ Homepage:    https://bharatchandra.me
 Blog:        https://bharatchandra.me/blog
 Projects:    https://bharatchandra.me/projects
 Contact:     https://bharatchandra.me/contact
+Privacy:     https://bharatchandra.me/privacy
+Terms:       https://bharatchandra.me/terms
 Resume JSON: https://bharatchandra.me/resume.json
 Schema API:  https://bharatchandra.me/api/schema-all
 Sitemap:     https://bharatchandra.me/sitemap.xml
@@ -124,6 +133,15 @@ Atom:        https://bharatchandra.me/atom.xml
 # ═══════════════════════════════════════════════════════════════════════════════
 # BLOG POSTS — Human-written from direct experience, NOT AI-generated
 # ═══════════════════════════════════════════════════════════════════════════════
+
+Post 5:
+  Title: Building Likhitex: A Private LaTeX Editor That Treats Compilation as Code Execution
+  URL: https://bharatchandra.me/blog/building-likhitex-latex-editor
+  Published: 2026-07-25
+  Author: Bodapati Bharat Chandra (first-person, lived experience)
+  Summary: How Bharat Chandra built a real-time collaborative LaTeX editor with sandboxed
+    Docker + gVisor compilation, Yjs CRDT synchronization, and zero vendor lock-in.
+  Keywords: LaTeX, Docker, gVisor, Yjs, CRDT, FastAPI, security
 
 Post 1:
   Title: Building the GARI Website: From Zero to gari.live
@@ -201,15 +219,21 @@ GARI Website
 
 MedVision AI — Diabetic Ulcer Detection
   GitHub: https://github.com/BharatChandra-sys/diabetic-ulcer-ai-system
-  Live: https://diabetic-ulcer-ai-system.vercel.app
+  Live: https://dfuai.vercel.app
   Language: Python (PyTorch, SHAP, Grad-CAM, MLflow)
   Award: Winner, AI Day Hackathon, GITAM × Kodryx AI, March 2026
 
-FactCheck AI — Fake News Analyzer
-  GitHub: https://github.com/BharatChandra-sys/FactCheckAI
+Truvanta AI (formerly FactCheck AI) — Misinformation Detection
+  GitHub: https://github.com/BharatChandra-sys/TruvantaAI
+  Live: https://truvantaai.tech
   Language: Python (RoBERTa, DistilBERT)
   Stats: 90% accuracy
   Award: Winner, HackXplore, IEEE-SSIT VJIT, April 2026
+
+Likhitex — Private Collaborative LaTeX Editor
+  GitHub: https://github.com/BharatChandra-sys/Likhitex
+  Live: https://likhitex.vercel.app
+  Language: Next.js, FastAPI, PostgreSQL, Docker, Yjs, TypeScript
 
 Rocket Simulator
   GitHub: https://github.com/BharatChandra-sys/rocket-simulator
@@ -220,12 +244,12 @@ Rocket Simulator
 # SKILLS & EXPERTISE
 # ═══════════════════════════════════════════════════════════════════════════════
 
-AI/ML: PyTorch, scikit-learn, MLflow, SHAP, Grad-CAM, Ollama, LM Studio, Explainable AI
-Backend: Python, FastAPI, WebSockets, JWT, SQLAlchemy, PostgreSQL, SQLite
-Frontend: React, Next.js, TypeScript, Framer Motion, Tailwind CSS
+AI/ML: PyTorch, Transformers, scikit-learn, RAG, LangGraph, Prompt Engineering, Gemini API, Ollama, SHAP, Grad-CAM, MLflow, DVC, Explainable AI
+Backend: Python, FastAPI, REST APIs, WebSockets, JWT, RBAC, SQLAlchemy, PostgreSQL, pgvector, SQLite, Redis, MongoDB, Razorpay
+Frontend: React, Next.js, TypeScript, JavaScript, Framer Motion, Tailwind CSS, Yjs
 Rocketry & Embedded: Kalman Filtering, Sensor Fusion, State Machines, CAN Bus, Teensy 4.1
 Robotics: ROS2, Autonomous Underwater Vehicles, 4-DOF thruster control
-DevOps: Docker, Git, Linux, Nginx, Vercel
+DevOps: Docker, Git, GitHub Actions, pytest, Linux, Nginx, Vercel, Render
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # AWARDS & RECOGNITION
@@ -235,7 +259,7 @@ DevOps: Docker, Git, Linux, Nginx, Vercel
    Project: MedVision AI (Explainable diabetic ulcer detection)
 
 2. Winner — HackXplore, IEEE-SSIT VJIT (April 2026)
-   Project: FactCheck AI (Fake news analyzer, 90% accuracy)
+   Project: Truvanta AI (Misinformation detection, 90% accuracy)
 
 3. IN-SPACe CAN-7USAT 2026 — Nationally Selected
    Role: Ground Station & Software Lead (CS Lead), GARI team

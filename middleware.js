@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 
 export function middleware(request) {
   const response = NextResponse.next();
-  const { pathname, searchParams } = request.nextUrl;
+  const { pathname } = request.nextUrl;
   const url = request.nextUrl.clone();
 
   // ============================================================================
@@ -42,47 +42,26 @@ export function middleware(request) {
   // Force HTTPS in production - 301 redirect
   if (
     process.env.NODE_ENV === 'production' &&
-    request.headers.get('x-forwarded-proto') !== 'https'
+    request.headers.get('x-forwarded-proto') !== 'https' &&
+    !['localhost', '127.0.0.1'].includes(request.nextUrl.hostname)
   ) {
     url.protocol = 'https:';
     return NextResponse.redirect(url, 301);
   }
 
-  // Remove common tracking parameters for clean URLs
-  const trackingParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'fbclid', 'gclid', 'ref'];
-  let hasTrackingParams = false;
-  
-  trackingParams.forEach(param => {
-    if (searchParams.has(param)) {
-      searchParams.delete(param);
-      hasTrackingParams = true;
-    }
-  });
-
-  // Redirect to clean URL if tracking params were present (308 temporary)
-  if (hasTrackingParams && pathname !== '/api/contact') {
-    url.search = searchParams.toString();
-    return NextResponse.redirect(url, 308);
-  }
+  // Tracking parameters (utm_*, fbclid, ...) are deliberately left in place so
+  // analytics can attribute visits. The canonical tag keeps search engines on the
+  // clean URL.
 
   // ============================================================================
   // 3. PRELOAD & PERFORMANCE HINTS
   // ============================================================================
   
-  // Critical resources preload for homepage
-  if (pathname === '/') {
-    response.headers.append('Link', '</fonts/GeistVF.woff>; rel=preload; as=font; type="font/woff"; crossorigin');
-    response.headers.append('Link', '</bodapati-bharat-chandra.jpg>; rel=preload; as=image; fetchpriority=high');
-  }
+  // The homepage font is preloaded automatically by next/font (hashed URL).
 
   // Blog posts - preload likely navigation
   if (pathname.startsWith('/blog/')) {
     response.headers.append('Link', '</blog>; rel=prefetch');
-  }
-
-  // Projects page - preload GitHub API
-  if (pathname === '/projects') {
-    response.headers.append('Link', '<https://api.github.com>; rel=preconnect; crossorigin');
   }
 
   // ============================================================================
@@ -109,7 +88,12 @@ export function middleware(request) {
 
   // API routes - moderate cache with revalidation
   if (pathname.startsWith('/api/')) {
-    response.headers.set('Cache-Control', 'public, max-age=60, s-maxage=60, stale-while-revalidate=300');
+    response.headers.set(
+      'Cache-Control',
+      request.method === 'GET'
+        ? 'public, max-age=60, s-maxage=60, stale-while-revalidate=300'
+        : 'no-store'
+    );
   }
 
   // Feed files - hourly revalidation

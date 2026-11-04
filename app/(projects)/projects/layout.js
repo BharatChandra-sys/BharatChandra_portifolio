@@ -29,7 +29,7 @@ export const metadata = {
     siteName: "Bodapati Bharat Chandra",
     images: [
       {
-        url: `${BASE}/bodapati-bharat-chandra.jpg`,
+        url: "https://bharatchandra.me/api/og-dynamic?title=Featured%20Work%20%26%20Projects&type=project",
         width: 1200,
         height: 630,
         alt: "Bodapati Bharat Chandra — AI/ML Engineer",
@@ -40,7 +40,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Projects — Bodapati Bharat Chandra",
     description: "Production AI systems, rocket telemetry, and AUV stacks.",
-    images: [`${BASE}/bodapati-bharat-chandra.jpg`],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=Featured%20Work%20%26%20Projects&type=project"],
   },
 };
 

@@ -4,13 +4,15 @@ import { useReportWebVitals } from 'next/web-vitals';
 
 export function WebVitals() {
   useReportWebVitals((metric) => {
-    // Send metrics to API endpoint
-    if (typeof window !== 'undefined') {
-      fetch('/api/web-vitals', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(metric)
-      }).catch(console.error);
+    // Real-user Core Web Vitals go to Google Analytics when it's configured.
+    if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+      window.gtag('event', metric.name, {
+        // GA event values must be integers, so CLS is scaled up.
+        value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
+        event_label: metric.id,
+        metric_rating: metric.rating,
+        non_interaction: true,
+      });
     }
 
     // Also log in development

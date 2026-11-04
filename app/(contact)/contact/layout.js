@@ -70,7 +70,7 @@ export const metadata = {
     siteName: "Bodapati Bharat Chandra",
     images: [
       {
-        url: "/bodapati-bharat-chandra.jpg",
+        url: "https://bharatchandra.me/api/og-dynamic?title=Let's%20build%20something%20real&type=default",
         width: 1200,
         height: 630,
         alt: "Contact Bodapati Bharat Chandra",
@@ -81,7 +81,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Contact — Bodapati Bharat Chandra",
     description: "Open to AI/ML roles and collaborations.",
-    images: ["/bodapati-bharat-chandra.jpg"],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=Let's%20build%20something%20real&type=default"],
   },
   robots: {
     index: true,

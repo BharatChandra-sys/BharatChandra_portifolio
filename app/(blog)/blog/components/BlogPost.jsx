@@ -1,5 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { getPost, getRelatedPosts } from '@/lib/posts.mjs';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
@@ -15,70 +17,60 @@ function calcReadingStats(text) {
   return { words, minutes };
 }
 
-// ── ISO date map — dateTime attr must be machine-readable ISO 8601 ────────────
-// Human display string → ISO date for the dateTime attribute
-const DATE_ISO_MAP = {
-  'June 2026': '2026-06-10',
-  'May 2026':  '2026-05-15',
-  'April 2026': '2026-04-20',
-  'July 2026': '2026-07-15',
-};
+// ── Inline Markdown ───────────────────────────────────────────────────────────
+// Builds React elements rather than an HTML string, so nothing needs
+// dangerouslySetInnerHTML. Supports **bold**, `code` and [text](url).
+const INLINE_TOKEN = /(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)\s]+\))/g;
 
-function toISODate(humanDate) {
-  return DATE_ISO_MAP[humanDate] || humanDate;
+function renderInline(text) {
+  return text.split(INLINE_TOKEN).map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**') && part.length > 4) {
+      return <strong key={i} className="text-white/90">{part.slice(2, -2)}</strong>;
+    }
+    if (part.startsWith('`') && part.endsWith('`') && part.length > 2) {
+      return <code key={i} className="bg-white/10 px-1 rounded text-white/80 text-sm font-mono">{part.slice(1, -1)}</code>;
+    }
+    const link = part.match(/^\[([^\]]+)\]\(([^)\s]+)\)$/);
+    if (link) {
+      const [, label, href] = link;
+      if (href.startsWith('/') || href.startsWith('#')) {
+        return <Link key={i} href={href} className="text-white underline underline-offset-2 hover:text-white/70">{label}</Link>;
+      }
+      if (/^(https?:|mailto:)/.test(href)) {
+        return <a key={i} href={href} target="_blank" rel="noopener noreferrer" className="text-white underline underline-offset-2 hover:text-white/70">{label}</a>;
+      }
+      return label;
+    }
+    return part;
+  });
 }
+
+const headingId = (text) => text.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
+
+// Splits on blank lines, but keeps fenced code blocks whole.
+function splitBlocks(content) {
+  const blocks = [];
+  let current = [];
+  let inFence = false;
+  const flush = () => {
+    if (current.length) blocks.push(current.join('\n'));
+    current = [];
+  };
+  for (const line of content.trim().split('\n')) {
+    if (line.trim().startsWith('```')) inFence = !inFence;
+    if (!inFence && line.trim() === '') flush();
+    else current.push(line);
+  }
+  flush();
+  return blocks;
+}
+
+const isTableRow = (line) => /^\s*\|.*\|\s*$/.test(line);
+const isTableDivider = (line) => /^\s*\|[\s:|-]+\|\s*$/.test(line);
+const tableCells = (line) => line.trim().slice(1, -1).split('|').map((cell) => cell.trim());
+
 function renderBlock(block, i) {
-  if (block.startsWith('## ')) {
-    const id = block.replace('## ', '').toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '');
-    return (
-      <h2 key={i} id={id} className="text-xl font-bold text-white mt-10 mb-3 scroll-mt-20">
-        {block.replace('## ', '')}
-      </h2>
-    );
-  }
-  if (block.startsWith('### ')) {
-    return (
-      <h3 key={i} className="text-base font-semibold text-white/90 mt-6 mb-2">
-        {block.replace('### ', '')}
-      </h3>
-    );
-  }
-  if (block.includes('\n- ')) {
-    const lines = block.split('\n');
-    return (
-      <ul key={i} className="space-y-2 list-none">
-        {lines.map((line, j) =>
-          line.startsWith('- ') ? (
-            <li key={j} className="flex items-start gap-2">
-              <span className="text-white/30 mt-1">▸</span>
-              <span dangerouslySetInnerHTML={{ __html: line.slice(2).replace(/\*\*(.*?)\*\*/g, '<strong class="text-white/90">$1</strong>').replace(/`(.*?)`/g, '<code class="bg-white/10 px-1 rounded text-white/80 text-sm font-mono">$1</code>') }} />
-            </li>
-          ) : line.trim() ? (
-            <p key={j} dangerouslySetInnerHTML={{ __html: line.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white/90">$1</strong>') }} />
-          ) : null
-        )}
-      </ul>
-    );
-  }
-  // numbered lists
-  if (/^\d+\.\s/.test(block.split('\n')[0])) {
-    const lines = block.split('\n').filter(Boolean);
-    return (
-      <ol key={i} className="space-y-2 list-none counter-reset-item">
-        {lines.map((line, j) => {
-          const match = line.match(/^(\d+)\.\s(.+)/);
-          if (!match) return null;
-          return (
-            <li key={j} className="flex items-start gap-3">
-              <span className="text-white/30 font-mono text-sm mt-0.5 min-w-[1.2rem]">{match[1]}.</span>
-              <span dangerouslySetInnerHTML={{ __html: match[2].replace(/\*\*(.*?)\*\*/g, '<strong class="text-white/90">$1</strong>') }} />
-            </li>
-          );
-        })}
-      </ol>
-    );
-  }
-  // code block
+  // Code first, so its contents are never mistaken for lists or headings
   if (block.startsWith('```')) {
     const lines = block.split('\n');
     const lang = lines[0].replace('```', '').trim();
@@ -92,9 +84,83 @@ function renderBlock(block, i) {
       </div>
     );
   }
-  return (
-    <p key={i} className="leading-relaxed" dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, '<strong class="text-white/90">$1</strong>').replace(/`(.*?)`/g, '<code class="bg-white/10 px-1 rounded text-white/80 text-sm font-mono">$1</code>') }} />
-  );
+  if (block.startsWith('## ')) {
+    const text = block.replace('## ', '');
+    return (
+      <h2 key={i} id={headingId(text)} className="text-xl font-bold text-white mt-10 mb-3 scroll-mt-20">
+        {text}
+      </h2>
+    );
+  }
+  if (block.startsWith('### ')) {
+    return (
+      <h3 key={i} className="text-base font-semibold text-white/90 mt-6 mb-2">
+        {block.replace('### ', '')}
+      </h3>
+    );
+  }
+  // Tables
+  const rows = block.split('\n');
+  if (rows.length >= 2 && isTableRow(rows[0]) && isTableDivider(rows[1])) {
+    return (
+      <div key={i} className="overflow-x-auto my-4">
+        <table className="w-full text-sm border-collapse">
+          <thead>
+            <tr>
+              {tableCells(rows[0]).map((cell, j) => (
+                <th key={j} scope="col" className="text-left font-semibold text-white/90 border-b border-white/20 px-3 py-2">{renderInline(cell)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.slice(2).filter(isTableRow).map((row, r) => (
+              <tr key={r}>
+                {tableCells(row).map((cell, j) => (
+                  <td key={j} className="align-top border-b border-white/10 px-3 py-2">{renderInline(cell)}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    );
+  }
+  if (block.startsWith('- ') || block.includes('\n- ')) {
+    const lines = block.split('\n');
+    const intro = lines.filter((line) => !line.startsWith('- ') && line.trim());
+    return (
+      <React.Fragment key={i}>
+        {intro.map((line, j) => <p key={j} className="leading-relaxed">{renderInline(line)}</p>)}
+        <ul className="space-y-2 list-none">
+          {lines.filter((line) => line.startsWith('- ')).map((line, j) => (
+            <li key={j} className="flex items-start gap-2">
+              <span className="text-white/30 mt-1" aria-hidden="true">▸</span>
+              <span>{renderInline(line.slice(2))}</span>
+            </li>
+          ))}
+        </ul>
+      </React.Fragment>
+    );
+  }
+  // numbered lists
+  if (/^\d+\.\s/.test(block.split('\n')[0])) {
+    const lines = block.split('\n').filter(Boolean);
+    return (
+      <ol key={i} className="space-y-2 list-none">
+        {lines.map((line, j) => {
+          const match = line.match(/^(\d+)\.\s(.+)/);
+          if (!match) return null;
+          return (
+            <li key={j} className="flex items-start gap-3">
+              <span className="text-white/30 font-mono text-sm mt-0.5 min-w-[1.2rem]">{match[1]}.</span>
+              <span>{renderInline(match[2])}</span>
+            </li>
+          );
+        })}
+      </ol>
+    );
+  }
+  return <p key={i} className="leading-relaxed">{renderInline(block)}</p>;
 }
 
 // ── Table of Contents ──────────────────────────────────────────────────────────
@@ -102,7 +168,7 @@ function renderBlock(block, i) {
 function TableOfContents({ content }) {
   const headings = [...content.matchAll(/^## (.+)$/gm)].map(m => ({
     text: m[1],
-    id: m[1].toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '')
+    id: headingId(m[1])
   }));
 
   if (headings.length < 3) return null;
@@ -189,42 +255,8 @@ function AuthorCard() {
 // ── Related Posts ──────────────────────────────────────────────────────────────
 // Trend 2: Branded search — internal links keep readers on your domain longer,
 // which improves branded engagement signals.
-const ALL_POSTS = [
-  {
-    slug: 'building-gari-website',
-    title: 'Building the GARI Website: From Zero to gari.live',
-    date: 'July 2026',
-    tags: ['React', 'Next.js', 'Aerospace', 'GARI', 'Web Dev'],
-  },
-  {
-    slug: 'can-7usat-rocket-telemetry',
-    title: 'How I built CAN-7USAT rocket telemetry with sub-5ms latency',
-    date: 'June 2026',
-    tags: ['Rocketry', 'FastAPI', 'WebSockets', 'Kalman Filter'],
-  },
-  {
-    slug: 'on-premise-llm-bhel',
-    title: 'Building a fully on-premise LLM pipeline at BHEL',
-    date: 'May 2026',
-    tags: ['LLM', 'FastAPI', 'Ollama', 'Production AI'],
-  },
-  {
-    slug: 'co-founding-easify',
-    title: 'Co-founding Easify: Smart pooling in Hyderabad',
-    date: 'April 2026',
-    tags: ['Startup', 'FastAPI', 'PostgreSQL', 'Product'],
-  },
-];
-
-function RelatedPosts({ currentSlug, currentTags }) {
-  const related = ALL_POSTS
-    .filter(p => p.slug !== currentSlug)
-    .map(p => ({
-      ...p,
-      score: p.tags.filter(t => currentTags.includes(t)).length
-    }))
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 2);
+function RelatedPosts({ currentSlug }) {
+  const related = getRelatedPosts(currentSlug);
 
   if (!related.length) return null;
 
@@ -249,7 +281,7 @@ function RelatedPosts({ currentSlug, currentTags }) {
 
 // ── Main BlogPost Component ────────────────────────────────────────────────────
 export function BlogPost({ title, date, tags, github, content }) {
-  const paragraphs = content.trim().split(/\n\n+/);
+  const paragraphs = splitBlocks(content);
   const { words, minutes } = calcReadingStats(content);
 
   // Scroll progress bar — engagement signal
@@ -264,12 +296,9 @@ export function BlogPost({ title, date, tags, github, content }) {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Derive slug from current path (client only)
-  const [currentSlug, setCurrentSlug] = useState('');
-  useEffect(() => {
-    const parts = window.location.pathname.split('/');
-    setCurrentSlug(parts[parts.length - 1]);
-  }, []);
+  // Known during server rendering too, so related posts are in the initial HTML
+  const currentSlug = usePathname().split('/').pop();
+  const isoDate = getPost(currentSlug)?.published.slice(0, 10) || date;
 
   return (
     <>
@@ -286,8 +315,8 @@ export function BlogPost({ title, date, tags, github, content }) {
         />
       </div>
 
-      <section className="py-24" aria-label="Blog post">
-        <div className="container mx-auto px-6 max-w-2xl">
+      <section className="py-4 md:py-24" aria-label="Blog post">
+        <div className="container mx-auto px-4 md:px-6 max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -325,7 +354,7 @@ export function BlogPost({ title, date, tags, github, content }) {
                   </a>
                 </span>
                 <span className="hidden sm:inline text-white/20">·</span>
-                <time dateTime={toISODate(date)}>{date}</time>
+                <time dateTime={isoDate}>{date}</time>
                 <span className="text-white/20">·</span>
                 <span>{minutes} min read</span>
                 <span className="text-white/20">·</span>
@@ -352,15 +381,15 @@ export function BlogPost({ title, date, tags, github, content }) {
 
             {/* ── Content ── */}
             <article
-              className="space-y-5 text-white/75 leading-relaxed text-[15px]"
+              className="space-y-5 text-white/75 leading-relaxed text-sm md:text-[15px]"
               itemScope
               itemType="https://schema.org/BlogPosting"
             >
               {/* Required itemProps for BlogPosting rich result eligibility */}
               <meta itemProp="headline" content={title} />
               <meta itemProp="author" content="Bodapati Bharat Chandra" />
-              <meta itemProp="datePublished" content={toISODate(date)} />
-              <meta itemProp="dateModified" content={toISODate(date)} />
+              <meta itemProp="datePublished" content={isoDate} />
+              <meta itemProp="dateModified" content={isoDate} />
               <meta itemProp="image" content="https://bharatchandra.me/bodapati-bharat-chandra.jpg" />
               <meta itemProp="publisher" content="Bodapati Bharat Chandra" />
               <meta itemProp="inLanguage" content="en-IN" />
@@ -384,7 +413,7 @@ export function BlogPost({ title, date, tags, github, content }) {
             <AuthorCard />
 
             {/* ── Trend 2: Related posts (branded internal linking) ── */}
-            <RelatedPosts currentSlug={currentSlug} currentTags={tags} />
+            <RelatedPosts currentSlug={currentSlug} />
 
             <div className="h-px bg-white/10" />
             <Link

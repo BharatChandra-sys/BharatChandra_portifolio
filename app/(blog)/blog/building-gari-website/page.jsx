@@ -17,7 +17,7 @@ export const metadata = {
     tags: ["React", "Next.js", "GARI", "Aerospace", "Web Dev"],
     images: [
       {
-        url: "https://bharatchandra.me/bodapati-bharat-chandra.jpg",
+        url: "https://bharatchandra.me/api/og-dynamic?title=Building%20the%20GARI%20Website%3A%20From%20Zero%20to%20gari.live&type=blog",
         width: 1200,
         height: 630,
         alt: "Bodapati Bharat Chandra — Building the GARI Website",
@@ -28,7 +28,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Building the GARI Website: From Zero to gari.live — Bharat Chandra",
     description: "How I built and shipped the website for GITAM's nationally-selected aerospace rocketry team.",
-    images: ["https://bharatchandra.me/bodapati-bharat-chandra.jpg"],
+    images: ["https://bharatchandra.me/api/og-dynamic?title=Building%20the%20GARI%20Website%3A%20From%20Zero%20to%20gari.live&type=blog"],
     creator: "@BharatChandra",
   },
 };
@@ -43,8 +43,8 @@ const articleSchema = {
   "image": {
     "@type": "ImageObject",
     "url": `${BASE}/bodapati-bharat-chandra.jpg`,
-    "width": 1200,
-    "height": 630
+    "width": 896,
+    "height": 1195
   },
   "datePublished": "2026-07-10T00:00:00Z",
   "dateModified": "2026-07-10T00:00:00Z",
@@ -84,8 +84,8 @@ const articleSchema = {
   },
   "keywords": ["GARI", "gari.live", "React", "Next.js", "Aerospace", "Web Development", "IN-SPACe", "Bodapati Bharat Chandra"],
   "articleSection": "Engineering",
-  "wordCount": 700,
-  "timeRequired": "PT4M",
+  "wordCount": 543,
+  "timeRequired": "PT3M",
   "inLanguage": "en-IN",
   "isAccessibleForFree": true,
   "backstory": "Bodapati Bharat Chandra built the GARI website as Ground Station & Software Lead for GITAM's rocketry team, which was nationally selected to compete in IN-SPACe CAN-7USAT 2026.",

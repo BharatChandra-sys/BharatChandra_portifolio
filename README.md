@@ -13,24 +13,24 @@ A world-class personal portfolio for **Bharat Chandra**, AI/ML Engineer and fina
 - Dark mode by default
 - Smooth scroll animations (Framer Motion)
 - Fully responsive (mobile + tablet + desktop)
-- GitHub API — dynamically fetches repos
+- GitHub API — repo cards fetched on the server and refreshed hourly
 - Full SEO: meta tags, JSON-LD structured data, sitemap, robots.txt
-- Contact form via EmailJS
-- Sections: Hero → Experience → Projects → Skills → Contact
+- Contact form via Brevo, with rate limiting and spam protection
+- Sections: Hero → Featured Projects → Experience → Open Source → Skills → About → FAQ → Contact
 
 ## Tech Stack
 
 - **Framework:** Next.js 15
 - **Styling:** Tailwind CSS
 - **Animations:** Framer Motion
-- **Forms:** EmailJS
+- **Email:** Brevo
 - **Icons:** React Icons
 
 ## Getting Started
 
 1. Clone the repo:
    ```bash
-   git clone https://github.com/BharatChandra-sys/bharatchandra.me.git
+   git clone https://github.com/BharatChandra-sys/BharatChandra_portifolio.git
    ```
 
 2. Install dependencies:
@@ -38,12 +38,20 @@ A world-class personal portfolio for **Bharat Chandra**, AI/ML Engineer and fina
    npm install
    ```
 
-3. Copy `.env.local` and fill in your EmailJS credentials.
+3. Copy `.env.example` to `.env.local` and fill in your values.
 
 4. Run dev server:
    ```bash
    npm run dev
    ```
+
+## Scripts
+
+- `npm test` — unit tests
+- `npm run lint` — ESLint
+- `npm run analyze` — bundle size report
+
+Blog post metadata lives in `lib/posts.mjs`. Add new posts there and the blog index, RSS, Atom, sitemap and IndexNow all pick them up. Also add new posts to `app/blog-index-schema.js` (`npm test` checks this).
 
 ## Portfolio (static HTML version)
 

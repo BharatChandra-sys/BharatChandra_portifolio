@@ -10,7 +10,7 @@ const ContactPage = () => {
     const contactInfo = config.contactInfo;
 
     return (
-        <section className="relative flex items-center justify-center py-6" id="contact">
+        <section className="relative flex items-center justify-center md:py-6" id="contact">
             <BackgroundEffects
                 variant="corners"
                 colors={{ first: "secondary", second: "secondary" }}
@@ -18,17 +18,17 @@ const ContactPage = () => {
                 blurAmount="3xl"
             />
 
-            <div className="container mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 flex flex-col items-center">
+            <div className="container mx-auto px-4 sm:px-6 py-4 md:py-20 flex flex-col items-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="text-center space-y-4 mb-12 sm:mb-16 w-full"
+                    className="text-center space-y-4 mb-4 md:mb-16 w-full"
                 >
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary">
+                    <h1 className="text-2xl md:text-5xl font-bold text-primary">
                         Let's build something real.
-                    </h2>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-sm sm:text-base px-4">
+                    </h1>
+                    <p className="text-muted-foreground max-w-xl mx-auto text-xs md:text-base px-2 md:px-4">
                         I'm open to AI/ML internships, full-time roles starting 2027,
                         and interesting project collaborations. Reach out directly —
                         I respond to every message.
@@ -51,7 +51,7 @@ const ContactPage = () => {
                         transition={{ duration: 0.5, delay: 0.3 }}
                         className="w-full lg:w-1/3 backdrop-blur-sm bg-secondary/5 p-4 sm:p-6 rounded-2xl border border-secondary/10"
                     >
-                        <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-primary">Contact Information</h3>
+                        <h2 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6 text-primary">Contact Information</h2>
                         <div className="space-y-4 sm:space-y-6">
                             {contactInfo.map((info, index) => (
                                 <div key={index} className="flex items-start space-x-3 sm:space-x-4">

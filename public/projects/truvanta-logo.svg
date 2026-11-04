@@ -1,0 +1,130 @@
+<svg viewBox="290 110 1040 780" class="tvl" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Truvanta">
+      <style>
+.tvl { overflow: visible; }
+.tvl .tvl-draw { stroke-dasharray: 1 3; stroke-dashoffset: 1.3; animation: tvl-draw cubic-bezier(.65,0,.35,1) forwards; }
+.tvl .tvl-d-bar   { animation-duration: .32s; animation-delay: var(--tvl-start, 0s); }
+.tvl .tvl-d-check { animation-duration: .40s; animation-delay: calc(var(--tvl-start, 0s) + .08s); }
+.tvl .tvl-d-stem  { animation-duration: .30s; animation-delay: calc(var(--tvl-start, 0s) + .15s); }
+.tvl .tvl-d-tail  { animation-duration: .25s; animation-delay: calc(var(--tvl-start, 0s) + .30s); }
+@keyframes tvl-draw { to { stroke-dashoffset: 0; } }
+
+/* Pixels rise in from the lower left, then twinkle in turn while loading continues. */
+.tvl .tvl-px { transform-box: fill-box; transform-origin: center; opacity: 0;
+  animation: tvl-px-in .32s cubic-bezier(.34,1.56,.64,1) forwards,
+             tvl-twinkle 1.8s ease-in-out infinite; }
+.tvl .tvl-px4 { animation-delay: calc(var(--tvl-start, 0s) + .40s), calc(var(--tvl-start, 0s) + 1.00s); }
+.tvl .tvl-px3 { animation-delay: calc(var(--tvl-start, 0s) + .46s), calc(var(--tvl-start, 0s) + 1.15s); }
+.tvl .tvl-px2 { animation-delay: calc(var(--tvl-start, 0s) + .52s), calc(var(--tvl-start, 0s) + 1.30s); }
+.tvl .tvl-px1 { animation-delay: calc(var(--tvl-start, 0s) + .58s), calc(var(--tvl-start, 0s) + 1.45s); }
+@keyframes tvl-px-in { from { opacity: 0; transform: translate(-18px, 26px) scale(.2); } to { opacity: 1; transform: none; } }
+@keyframes tvl-twinkle { 0%, 70%, 100% { opacity: 1; } 82% { opacity: .4; } }
+
+/* The glow fades in once, then breathes back and forth with no jump between cycles. */
+.tvl .tvl-glow { opacity: 0; animation: tvl-glow-in .4s ease-out calc(var(--tvl-start, 0s) + .45s) forwards, tvl-glow 1.8s ease-in-out calc(var(--tvl-start, 0s) + .85s) infinite alternate; }
+@keyframes tvl-glow-in { to { opacity: .55; } }
+@keyframes tvl-glow { from { opacity: .55; } to { opacity: .9; } }
+
+.tvl .tvl-shine { transform-box: fill-box; transform: translateX(0);
+  animation: tvl-shine 1.8s cubic-bezier(.65,0,.35,1) calc(var(--tvl-start, 0s) + .7s) infinite; }
+@keyframes tvl-shine { 0% { transform: translateX(0); } 45%, 100% { transform: translateX(440%); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .tvl .tvl-draw { animation: none; stroke-dashoffset: 0; }
+  .tvl .tvl-px { animation: none; opacity: 1; }
+  .tvl .tvl-glow { animation: none; opacity: .55; }
+  .tvl .tvl-shine { display: none; }
+}
+</style>
+      <defs>
+        <linearGradient id="tvl-blade" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#ffffff" />
+          <stop offset=".55" stop-color="#e4e4e8" />
+          <stop offset="1" stop-color="#a9a9b0" />
+        </linearGradient>
+        <linearGradient id="tvl-under" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#5d5d63" />
+          <stop offset="1" stop-color="#9c9ca3" />
+        </linearGradient>
+        <linearGradient id="tvl-stem" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ffffff" />
+          <stop offset=".7" stop-color="#ececef" />
+          <stop offset="1" stop-color="#c4c4ca" />
+        </linearGradient>
+        <linearGradient id="tvl-curl" x1="0" y1="1" x2=".6" y2="0">
+          <stop offset="0" stop-color="#ffb300" />
+          <stop offset="1" stop-color="#ffe14a" />
+        </linearGradient>
+        
+        <linearGradient id="tvl-check" gradientUnits="userSpaceOnUse" x1="505" y1="340" x2="1160" y2="330">
+          <stop offset="0" stop-color="#f29d00" />
+          <stop offset=".38" stop-color="#ffbb0a" />
+          <stop offset="1" stop-color="#ffdd2e" />
+        </linearGradient>
+        <linearGradient id="tvl-tail" gradientUnits="userSpaceOnUse" x1="0" y1="560" x2="0" y2="848">
+          <stop offset="0" stop-color="#c97c00" />
+          <stop offset=".45" stop-color="#f2a900" />
+          <stop offset="1" stop-color="#ffc71c" />
+        </linearGradient>
+        <linearGradient id="tvl-shine" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#fff" stop-opacity="0" />
+          <stop offset=".5" stop-color="#fff" stop-opacity=".85" />
+          <stop offset="1" stop-color="#fff" stop-opacity="0" />
+        </linearGradient>
+        <filter id="tvl-blur" x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur stdDeviation="26" />
+          <feColorMatrix type="matrix" values="1 0 0 0 0.05  0 0.92 0 0 0.02  0 0 0.55 0 0  0 0 0 1.25 0" />
+        </filter>
+
+        
+        <mask id="tvl-m-bar" maskUnits="userSpaceOnUse" x="0" y="0" width="1584" height="993">
+          <path class="tvl-draw tvl-d-bar" pathLength="1" d="M300 425 C370 300 470 270 640 270 L1160 270"
+            stroke="#fff" stroke-width="240" stroke-linecap="round" fill="none" />
+        </mask>
+        <mask id="tvl-m-check" maskUnits="userSpaceOnUse" x="0" y="0" width="1584" height="993">
+          <path class="tvl-draw tvl-d-check" pathLength="1" d="M575 300 L775 640 L1135 290"
+            stroke="#fff" stroke-width="170" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+        </mask>
+        <mask id="tvl-m-stem" maskUnits="userSpaceOnUse" x="0" y="0" width="1584" height="993">
+          <path class="tvl-draw tvl-d-stem" pathLength="1" d="M598 340 L598 745 C598 820 650 852 780 852"
+            stroke="#fff" stroke-width="150" stroke-linecap="round" fill="none" />
+        </mask>
+        <mask id="tvl-m-tail" maskUnits="userSpaceOnUse" x="0" y="0" width="1584" height="993">
+          <path class="tvl-draw tvl-d-tail" pathLength="1" d="M630 540 L815 870"
+            stroke="#fff" stroke-width="170" stroke-linecap="round" fill="none" />
+        </mask>
+
+        <g id="tvl-art">
+          <path mask="url(#tvl-m-tail)" fill="url(#tvl-tail)"
+            d="M640 560 C688 596 712 636 728 664 L842 848 L736 848 L640 722 Z" />
+          <path mask="url(#tvl-m-stem)" fill="url(#tvl-stem)"
+            d="M555 414 L641 522 L641 735 C641 790 668 822 726 848 L668 848 C600 848 555 806 555 736 Z" />
+          <path mask="url(#tvl-m-check)" fill="url(#tvl-check)"
+            d="M500 345 L650 345 L784 584 L1052 320 L1162 320 L835 652 Q795 694 752 662 Z" />
+          <g mask="url(#tvl-m-bar)">
+            <path fill="url(#tvl-curl)"
+              d="M330 412 C352 312 400 222 470 197 C510 189 570 189 625 190 C540 212 470 262 419 337 Z" />
+            <path fill="url(#tvl-under)"
+              d="M330 412 L419 337 C450 345 500 352 560 354 C450 356 380 372 330 412 Z" />
+            <path fill="url(#tvl-blade)"
+              d="M419 337 C470 262 540 205 625 190 L1100 190 L955 330 Q935 352 900 352 L560 354 C500 352 450 345 419 337 Z" />
+          </g>
+        </g>
+        <clipPath id="tvl-c-blade">
+          <path d="M419 337 C470 262 540 205 625 190 L1100 190 L955 330 Q935 352 900 352 L560 354 C500 352 450 345 419 337 Z" />
+        </clipPath>
+      </defs>
+
+      <g class="tvl-glow" filter="url(#tvl-blur)">
+        <use href="#tvl-art" />
+      </g>
+      <use href="#tvl-art" />
+      <g clip-path="url(#tvl-c-blade)">
+        <rect class="tvl-shine" x="150" y="170" width="240" height="200" fill="url(#tvl-shine)" />
+      </g>
+      <g fill="#ffc21a">
+        <g class="tvl-px tvl-px4"><rect x="1160" y="383" width="52" height="52" rx="7" fill-opacity=".55" /></g>
+        <g class="tvl-px tvl-px3"><rect x="1200" y="278" width="51" height="51" rx="7" /></g>
+        <g class="tvl-px tvl-px2"><rect x="1148" y="208" width="50" height="50" rx="7" /></g>
+        <g class="tvl-px tvl-px1"><rect x="1225" y="138" width="66" height="66" rx="8" /></g>
+      </g>
+    </svg>

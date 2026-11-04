@@ -1,33 +1,4 @@
-const BASE_URL = 'https://bharatchandra.me';
-
-// Blog posts — update dates when you publish new ones
-const blogPosts = [
-  {
-    slug: 'building-likhitex-latex-editor',
-    lastModified: '2026-07-25',
-    priority: 0.85,
-  },
-  {
-    slug: 'building-gari-website',
-    lastModified: '2026-07-10',
-    priority: 0.85,
-  },
-  {
-    slug: 'can-7usat-rocket-telemetry',
-    lastModified: '2026-06-10',
-    priority: 0.85,
-  },
-  {
-    slug: 'on-premise-llm-bhel',
-    lastModified: '2026-05-15',
-    priority: 0.85,
-  },
-  {
-    slug: 'co-founding-easify',
-    lastModified: '2026-04-20',
-    priority: 0.80,
-  },
-];
+import { BASE_URL, posts, postUrl } from '@/lib/posts.mjs';
 
 export default function sitemap() {
   const staticRoutes = [
@@ -68,9 +39,16 @@ export default function sitemap() {
     },
   ];
 
-  const blogRoutes = blogPosts.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
-    lastModified: post.lastModified,
+  const legalRoutes = ['privacy', 'terms'].map((page) => ({
+    url: `${BASE_URL}/${page}`,
+    lastModified: '2026-11-04',
+    changeFrequency: 'yearly',
+    priority: 0.3,
+  }));
+
+  const blogRoutes = posts.map((post) => ({
+    url: postUrl(post.slug),
+    lastModified: post.published.slice(0, 10),
     changeFrequency: 'yearly',
     priority: post.priority,
     images: [
@@ -78,5 +56,5 @@ export default function sitemap() {
     ],
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...legalRoutes, ...blogRoutes];
 }

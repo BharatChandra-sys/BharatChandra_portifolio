@@ -1,20 +1,10 @@
 "use client"
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HiChip, HiSparkles, HiCode, HiDatabase, HiCube } from 'react-icons/hi';
-import { Badge } from "@/components/ui/badge";
+import { HiChip } from 'react-icons/hi';
 import { cn } from '@/lib/utils';
 import { config } from '@/config';
-
-const getLevelPercentage = (level) => {
-    switch (level) {
-        case 'Expert': return 95;
-        case 'Advanced': return 85;
-        case 'Intermediate': return 70;
-        case 'Beginner': return 50;
-        default: return 75;
-    }
-};
+import SkillsShowcase from './SkillsShowcase';
 
 const containerAnimation = {
     hidden: { opacity: 0 },
@@ -38,91 +28,59 @@ const itemAnimation = {
     }
 };
 
-const SkillCard = ({ skill, bgClass }) => {
-    const levelPercentage = getLevelPercentage(skill.level);
-    const gradientClass = {
-        'bg-blue-500/10': 'from-blue-500/80 to-blue-500',
-        'bg-emerald-500/10': 'from-emerald-500/80 to-emerald-500',
-        'bg-orange-500/10': 'from-orange-500/80 to-orange-500'
-    }[bgClass] || 'from-primary/80 to-primary';
+const categoryAnimation = itemAnimation;
 
-    return (
-        <motion.div
-            variants={itemAnimation}
-            className="relative flex flex-col h-full"
-        >
-            <div className="relative h-full p-4 rounded-xl border border-zinc-800/50
-                          hover:border-zinc-700/50 transition-all duration-300">
-                <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-base font-medium text-primary/90">
-                        {skill.name}
-                    </h3>
-                    {skill.hot && (
-                        <Badge variant="secondary" className="bg-amber-500/10 text-amber-500 border-none px-2 py-0 text-xs">
-                            <HiSparkles className="w-3 h-3 mr-1" />
-                            Hot
-                        </Badge>
-                    )}
-                </div>
-
-                <div className="h-1.5 bg-zinc-800/50 rounded-full overflow-hidden">
-                    <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${levelPercentage}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className={cn("h-full bg-gradient-to-r rounded-full", gradientClass)}
-                    />
-                </div>
-
-                <div className="mt-2 flex justify-between items-center text-xs">
-                    <span className="text-muted-foreground">Proficiency</span>
-                    <span className="font-medium text-primary">{skill.level}</span>
-                </div>
-            </div>
-        </motion.div>
-    );
-};
+const SkillCard = ({ name }) => (
+    <div className="md:h-full px-2 py-1 md:p-3 rounded-md md:rounded-xl border border-zinc-800/50 hover:border-zinc-700/50 transition-colors duration-300">
+        <h4 className="text-xs md:text-sm font-medium text-primary/90">{name}</h4>
+    </div>
+);
 
 const CategorySection = ({ category }) => (
-    <div className="space-y-6">
-        <div className="flex items-center gap-3">
-            <div className={cn("p-2.5 rounded-xl", category.bgClass)}>
+    <motion.div
+        variants={categoryAnimation}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '0px 0px -8% 0px' }}
+        className="space-y-1.5 md:space-y-4"
+    >
+        <div className="flex items-center md:gap-3">
+            <div className={cn("hidden md:block p-2.5 rounded-xl", category.bgClass)}>
                 <div className={cn("w-5 h-5", category.iconClass)}>
                     {category.icon}
                 </div>
             </div>
             <div>
-                <h3 className="text-xl font-semibold text-primary">{category.title}</h3>
-                <p className="text-sm text-muted-foreground">{category.description}</p>
+                <h3 className="text-sm md:text-xl font-semibold text-primary">{category.title}</h3>
+                <p className="hidden md:block text-sm text-muted-foreground">{category.description}</p>
             </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {category.skills.map((skill, idx) => (
-                <SkillCard key={idx} skill={skill} bgClass={category.bgClass} />
+        <div className="flex flex-wrap gap-1.5 md:grid md:grid-cols-3 lg:grid-cols-4 md:gap-3">
+            {category.skills.map((name) => (
+                <SkillCard key={name} name={name} />
             ))}
         </div>
-    </div>
+    </motion.div>
 );
 
 const SkillsSection = () => {
     const skills = config.skills;
 
     return (
-        <section className="py-24" id="skills">
-            <div className="container mx-auto px-6">
-                <motion.div
-                    variants={containerAnimation}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="space-y-16"
-                >
-                    <div className="max-w-2xl mx-auto text-center space-y-6">
+        <section className="py-4 md:py-24" id="skills">
+            <div className="container mx-auto px-4 md:px-6">
+                <div className="space-y-3 md:space-y-16">
+                    <motion.div
+                        variants={containerAnimation}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: '0px 0px -8% 0px' }}
+                        className="max-w-2xl mx-auto md:text-center space-y-6"
+                    >
                         <motion.div
                             variants={itemAnimation}
-                            className="inline-flex items-center space-x-2 bg-secondary/10 border-[1.8px] border-zinc-900/70 px-4 py-2 rounded-full text-primary backdrop-blur-sm"
+                            className="hidden md:inline-flex items-center space-x-2 bg-secondary/10 border-[1.8px] border-zinc-900/70 px-4 py-2 rounded-full text-primary backdrop-blur-sm"
                         >
                             <HiChip className="w-5 h-5 text-primary" />
                             <span className="text-sm font-medium text-primary">
@@ -131,25 +89,26 @@ const SkillsSection = () => {
                         </motion.div>
 
                         <motion.div variants={itemAnimation} className="space-y-2">
-                            <h2 className="text-3xl md:text-4xl font-bold text-primary">
+                            <h2 className="text-xl md:text-4xl font-bold text-primary">
                                 Technical Proficiency
                             </h2>
-                            <p className="text-lg text-muted-foreground">
-                                A comprehensive overview of my technical expertise across various
-                                development domains and tools.
+                            <p className="hidden md:block text-lg text-muted-foreground">
+                                The languages, frameworks and tools I work with.
                             </p>
                         </motion.div>
+                    </motion.div>
+
+                    {/* Hidden on phones: the list below already covers these */}
+                    <div className="hidden md:block">
+                        <SkillsShowcase />
                     </div>
 
-                    <motion.div
-                        variants={containerAnimation}
-                        className="space-y-16"
-                    >
-                        {skills.map((category, index) => (
-                            <CategorySection key={index} category={category} />
+                    <div className="space-y-3 md:space-y-10">
+                        {skills.map((category) => (
+                            <CategorySection key={category.title} category={category} />
                         ))}
-                    </motion.div>
-                </motion.div>
+                    </div>
+                </div>
             </div>
         </section>
     );
