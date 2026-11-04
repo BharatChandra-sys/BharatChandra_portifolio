@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { HiArrowRight } from 'react-icons/hi';
 import { config } from '@/config';
+import { Reveal } from '@/components/ui/reveal';
 import { ProjectCard } from '@/app/(projects)/projects/components/ProjectCard';
 
 // Flagship work, shown straight after the hero so visitors see it first.
@@ -16,7 +17,7 @@ const FeaturedProjects = () => {
     return (
         <section className="py-4 md:py-16" id="featured-projects" aria-labelledby="featured-projects-heading">
             <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
-                <div className="flex items-end justify-between gap-4 mb-3 md:mb-8">
+                <Reveal className="flex items-end justify-between gap-4 mb-3 md:mb-8">
                     <h2 id="featured-projects-heading" className="text-xl md:text-4xl font-bold text-primary">
                         Featured Projects
                     </h2>
@@ -27,7 +28,7 @@ const FeaturedProjects = () => {
                         All projects
                         <HiArrowRight className="w-4 h-4" aria-hidden="true" />
                     </Link>
-                </div>
+                </Reveal>
                 <div className="space-y-2 md:space-y-4">
                     {featured.map((project, index) => (
                         <ProjectCard key={project.id} project={project} index={index} compact />

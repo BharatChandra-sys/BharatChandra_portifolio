@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa';
-import { itemAnimation } from './Animations';
+import { revealItem, revealViewport } from '@/components/ui/reveal';
 
 // A GitHub URL is source code, so it must never be labelled as a live demo.
 const isLiveUrl = (url) => Boolean(url) && !url.includes('github.com');
@@ -21,7 +21,10 @@ const LOGO_BACKGROUNDS = {
 // the /projects page always shows them in full.
 export const ProjectCard = ({ project, index, compact = false }) => (
     <motion.div
-        variants={itemAnimation}
+        variants={revealItem}
+        initial="hidden"
+        whileInView="show"
+        viewport={revealViewport}
         className="group grid grid-cols-[56px_minmax(0,1fr)] gap-x-3 gap-y-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:grid-rows-[auto_1fr] sm:gap-x-6 sm:gap-y-3 bg-secondary/5 hover:bg-secondary/10 p-3 sm:p-4 rounded-xl transition-colors duration-300"
     >
         <div className="sm:row-span-2">

@@ -9,6 +9,8 @@ import Results from './components/Results'
 import Certifications from './components/Certifications'
 import LatestWriting from './components/LatestWriting'
 import { getPinnedRepos } from '@/lib/github'
+import { Reveal, RevealGroup, RevealItem } from '@/components/ui/reveal'
+import ScrollProgress from '@/components/ui/scroll-progress'
 import Link from 'next/link'
 import { HiArrowRight, HiDownload, HiMail } from 'react-icons/hi'
 import { FaLinkedin } from 'react-icons/fa'
@@ -570,6 +572,7 @@ const Home = async () => {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToRocketTelemetrySchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
 
+      <ScrollProgress />
       <HeroSection />
       <Results />
       <FeaturedProjects />
@@ -582,12 +585,12 @@ const Home = async () => {
       {/* About — visible, so the identity details are for readers as well as crawlers */}
       <section className="py-4 md:py-16" id="about" aria-labelledby="about-heading">
         <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
-          <div
+          <Reveal
             className="grid grid-cols-[88px_minmax(0,1fr)] gap-x-3 gap-y-3 md:gap-12 md:grid-cols-[minmax(0,320px)_1fr] items-start md:items-center rounded-2xl md:rounded-3xl border border-white/10 bg-white/[0.02] p-3 md:p-10"
             itemScope
             itemType="https://schema.org/Person"
           >
-            <div className="relative aspect-[4/5] w-full md:max-w-[320px] mx-auto overflow-hidden rounded-lg md:rounded-2xl border border-white/15">
+            <Reveal x={-24} y={0} delay={0.1} className="relative aspect-[4/5] w-full md:max-w-[320px] mx-auto overflow-hidden rounded-lg md:rounded-2xl border border-white/15">
               <Image
                 src="/bodapati-bharat-chandra-2.jpg"
                 alt="Bodapati Bharat Chandra — Co-founder of Easify and AI/ML Engineer, Hyderabad"
@@ -596,7 +599,7 @@ const Home = async () => {
                 className="object-cover object-[50%_10%] scale-[1.35] origin-[50%_20%]"
                 itemProp="image"
               />
-            </div>
+            </Reveal>
 
             <div className="contents md:block md:space-y-6">
               <div className="md:space-y-2">
@@ -658,30 +661,30 @@ const Home = async () => {
                 </a>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       {/* FAQ — rendered from the same data as the FAQPage schema, so the markup matches what readers see */}
       <section className="py-4 md:py-16" id="faq" aria-labelledby="faq-heading">
         <div className="mx-auto w-full max-w-3xl px-4 md:px-6 space-y-3 md:space-y-6">
-          <h2 id="faq-heading" className="text-xl md:text-4xl font-bold text-primary">
+          <Reveal as="h2" id="faq-heading" className="text-xl md:text-4xl font-bold text-primary">
             Frequently asked questions
-          </h2>
-          <div className="space-y-2 md:space-y-3">
+          </Reveal>
+          <RevealGroup stagger={0.05} className="space-y-2 md:space-y-3">
             {faqSchema.mainEntity.map((item) => (
-              <details key={item.name} className="group rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 md:px-5 md:py-4">
+              <RevealItem as="details" key={item.name} className="group rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 md:px-5 md:py-4">
                 <summary className="cursor-pointer text-xs md:text-base font-medium text-primary">{item.name}</summary>
                 <p className="mt-2 md:mt-3 text-xs md:text-sm text-muted-foreground leading-relaxed">{item.acceptedAnswer.text}</p>
-              </details>
+              </RevealItem>
             ))}
-          </div>
+          </RevealGroup>
         </div>
       </section>
 
       {/* Contact CTA */}
       <section className="py-4 pb-8 md:py-16 md:pb-24">
-        <div className="container mx-auto px-6 flex justify-center">
+        <Reveal className="container mx-auto px-6 flex justify-center">
           <Link
             href="/contact"
             className="group inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white text-xs md:text-sm font-medium transition-all duration-300 backdrop-blur-sm hover:scale-105 active:scale-95"
@@ -689,7 +692,7 @@ const Home = async () => {
             <span>Get In Touch</span>
             <HiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />
           </Link>
-        </div>
+        </Reveal>
       </section>
     </div>
   );

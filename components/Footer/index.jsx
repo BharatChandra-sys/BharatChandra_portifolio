@@ -1,9 +1,11 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { HiMail } from 'react-icons/hi';
 import { config } from '@/config';
+import { OPEN_COOKIE_SETTINGS } from '@/components/GoogleAnalytics';
 
 const SOCIAL_LINKS = [
     { label: 'GitHub', href: `https://github.com/${config.social.github}`, Icon: FaGithub },
@@ -33,6 +35,23 @@ const Footer = () => {
                         </a>
                     ))}
                 </div>
+                <nav aria-label="Legal" className="flex items-center justify-center gap-3 text-xs md:text-sm text-muted-foreground">
+                    <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                    <span aria-hidden="true">•</span>
+                    <Link href="/terms" className="hover:text-primary transition-colors">Terms</Link>
+                    {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+                        <>
+                            <span aria-hidden="true">•</span>
+                            <button
+                                type="button"
+                                onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS))}
+                                className="hover:text-primary transition-colors"
+                            >
+                                Cookie settings
+                            </button>
+                        </>
+                    )}
+                </nav>
                 {/* Microdata on the footer copyright line reinforces entity name on every page */}
                 <div
                   className="text-xs md:text-sm text-muted-foreground flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 md:gap-2 leading-tight"

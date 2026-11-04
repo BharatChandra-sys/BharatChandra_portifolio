@@ -28,6 +28,8 @@ const itemAnimation = {
     }
 };
 
+const categoryAnimation = itemAnimation;
+
 const SkillCard = ({ name }) => (
     <div className="md:h-full px-2 py-1 md:p-3 rounded-md md:rounded-xl border border-zinc-800/50 hover:border-zinc-700/50 transition-colors duration-300">
         <h4 className="text-xs md:text-sm font-medium text-primary/90">{name}</h4>
@@ -35,7 +37,13 @@ const SkillCard = ({ name }) => (
 );
 
 const CategorySection = ({ category }) => (
-    <div className="space-y-1.5 md:space-y-4">
+    <motion.div
+        variants={categoryAnimation}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: '0px 0px -8% 0px' }}
+        className="space-y-1.5 md:space-y-4"
+    >
         <div className="flex items-center md:gap-3">
             <div className={cn("hidden md:block p-2.5 rounded-xl", category.bgClass)}>
                 <div className={cn("w-5 h-5", category.iconClass)}>
@@ -53,7 +61,7 @@ const CategorySection = ({ category }) => (
                 <SkillCard key={name} name={name} />
             ))}
         </div>
-    </div>
+    </motion.div>
 );
 
 const SkillsSection = () => {
@@ -62,14 +70,14 @@ const SkillsSection = () => {
     return (
         <section className="py-4 md:py-24" id="skills">
             <div className="container mx-auto px-4 md:px-6">
-                <motion.div
-                    variants={containerAnimation}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="space-y-3 md:space-y-16"
-                >
-                    <div className="max-w-2xl mx-auto md:text-center space-y-6">
+                <div className="space-y-3 md:space-y-16">
+                    <motion.div
+                        variants={containerAnimation}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: '0px 0px -8% 0px' }}
+                        className="max-w-2xl mx-auto md:text-center space-y-6"
+                    >
                         <motion.div
                             variants={itemAnimation}
                             className="hidden md:inline-flex items-center space-x-2 bg-secondary/10 border-[1.8px] border-zinc-900/70 px-4 py-2 rounded-full text-primary backdrop-blur-sm"
@@ -88,7 +96,7 @@ const SkillsSection = () => {
                                 The languages, frameworks and tools I work with.
                             </p>
                         </motion.div>
-                    </div>
+                    </motion.div>
 
                     {/* Hidden on phones: the list below already covers these */}
                     <div className="hidden md:block">
@@ -100,7 +108,7 @@ const SkillsSection = () => {
                             <CategorySection key={category.title} category={category} />
                         ))}
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

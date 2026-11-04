@@ -1,13 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client"
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { HiArrowRight, HiDownload } from 'react-icons/hi';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { config } from '@/config';
 import Link from 'next/link';
 import { BackgroundPresets } from '@/components/ui/background-effects';
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 // The container only sequences its children. It must not fade itself, because
 // that would hide the headline (the page's LCP element) until JS has loaded.
@@ -34,8 +34,14 @@ const itemAnimation = {
 };
 
 const HeroSection = () => {
+  const sectionRef = useRef(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] });
+  const y = useTransform(scrollYProgress, [0, 1], [0, reduceMotion ? 0 : -60]);
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 0.2]);
+
   return (
-    <section className="relative pt-2 md:pt-12 pb-2 md:pb-8">
+    <section ref={sectionRef} className="relative pt-2 md:pt-12 pb-2 md:pb-8">
       <BackgroundPresets.Minimal />
 
       <div className="container mx-auto px-6">
@@ -43,6 +49,7 @@ const HeroSection = () => {
           variants={containerAnimation}
           initial="hidden"
           animate="show"
+          style={{ y, opacity }}
           className="max-w-3xl mx-auto text-center space-y-4 md:space-y-8 relative"
         >
           {/* Hidden microdata — no visible photo, entity signals preserved for SEO */}

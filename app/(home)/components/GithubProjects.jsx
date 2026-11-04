@@ -9,7 +9,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/comp
 
 const containerAnimation = {
     hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { staggerChildren: 0.2 } }
+    show: { opacity: 1, transition: { staggerChildren: 0.08 } }
 };
 
 const itemAnimation = {
@@ -144,7 +144,8 @@ const GithubProjects = ({ repos = [] }) => {
                         <div className="md:space-y-4 md:text-center">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '0px 0px -8% 0px' }}
                                 className="hidden md:inline-flex items-center space-x-2 bg-secondary/10 border-[1.8px] border-zinc-900/70 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-primary backdrop-blur-sm shadow-lg"
                             >
                                 <FaGithub className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -153,7 +154,8 @@ const GithubProjects = ({ repos = [] }) => {
 
                             <motion.h2
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '0px 0px -8% 0px' }}
                                 transition={{ delay: 0.1 }}
                                 className="text-xl md:text-4xl font-bold text-primary md:px-4"
                             >
@@ -161,7 +163,8 @@ const GithubProjects = ({ repos = [] }) => {
                             </motion.h2>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: '0px 0px -8% 0px' }}
                                 transition={{ delay: 0.2 }}
                                 className="hidden md:block text-lg text-muted-foreground px-4"
                             >
@@ -172,7 +175,8 @@ const GithubProjects = ({ repos = [] }) => {
                         <motion.div
                             variants={containerAnimation}
                             initial="hidden"
-                            animate="show"
+                            whileInView="show"
+                            viewport={{ once: true, margin: '0px 0px -8% 0px' }}
                             className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 sm:auto-rows-fr gap-2 sm:gap-4 w-full max-w-6xl mx-auto"
                         >
                             {repos.map((project, index) => (

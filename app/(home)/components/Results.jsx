@@ -1,3 +1,5 @@
+import { Reveal, RevealGroup, RevealItem } from '@/components/ui/reveal';
+
 // Measured outcomes, straight after the hero so they're seen first.
 const RESULTS = [
   {
@@ -29,18 +31,18 @@ const CARD = 'rounded-xl md:rounded-2xl border border-white/10 bg-white/[0.02] p
 const Results = () => (
   <section className="py-4 md:py-12" id="results" aria-labelledby="results-heading">
     <div className="mx-auto w-full max-w-5xl px-4 md:px-6 space-y-3 md:space-y-6">
-      <h2 id="results-heading" className="text-xs md:text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+      <Reveal as="h2" id="results-heading" className="text-xs md:text-sm font-semibold uppercase tracking-widest text-muted-foreground">
         Results
-      </h2>
-      <ul className="grid grid-cols-2 gap-2 md:gap-4 lg:grid-cols-4">
+      </Reveal>
+      <RevealGroup as="ul" className="grid grid-cols-2 gap-2 md:gap-4 lg:grid-cols-4">
         {RESULTS.map((result) => (
-          <li key={result.label} className={CARD}>
+          <RevealItem as="li" key={result.label} className={CARD}>
             <p className="text-xl md:text-3xl font-bold text-primary">{result.value}</p>
             <p className="md:mt-1 text-xs md:text-sm font-medium text-primary/90">{result.label}</p>
             <p className="mt-1 md:mt-2 text-xs md:text-sm text-muted-foreground leading-snug md:leading-relaxed">{result.detail}</p>
-          </li>
+          </RevealItem>
         ))}
-        <li className={CARD}>
+        <RevealItem as="li" className={CARD}>
           <p className="text-xl md:text-3xl font-bold text-primary">#1</p>
           <p className="md:mt-1 text-xs md:text-sm font-medium text-primary/90">On Google for branded searches</p>
           <ul className="mt-1 md:mt-2 md:space-y-1 text-xs md:text-sm text-muted-foreground leading-snug">
@@ -57,8 +59,8 @@ const Results = () => (
               </li>
             ))}
           </ul>
-        </li>
-      </ul>
+        </RevealItem>
+      </RevealGroup>
     </div>
   </section>
 );

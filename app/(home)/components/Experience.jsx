@@ -9,7 +9,7 @@ const containerAnimation = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.04
+            staggerChildren: 0.1
         }
     }
 };
@@ -26,6 +26,11 @@ const itemAnimation = {
     }
 };
 
+const timelineItem = {
+    hidden: { opacity: 0, x: -24 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.23, 1, 0.32, 1] } }
+};
+
 const ExperienceSection = () => {
     // Phones show the role, company and dates; details open on request.
     const [openIndex, setOpenIndex] = React.useState(null);
@@ -38,14 +43,14 @@ const ExperienceSection = () => {
     return (
         <section className="py-4 md:py-24" id="experience">
             <div className="container mx-auto px-4 md:px-6">
-                <motion.div
-                    variants={containerAnimation}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true }}
-                    className="space-y-3 md:space-y-16"
-                >
-                    <div className="max-w-2xl mx-auto md:text-center space-y-6">
+                <div className="space-y-3 md:space-y-16">
+                    <motion.div
+                        variants={containerAnimation}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, margin: '0px 0px -8% 0px' }}
+                        className="max-w-2xl mx-auto md:text-center space-y-6"
+                    >
                         <motion.div
                             variants={itemAnimation}
                             className="hidden md:inline-flex items-center space-x-2 bg-secondary/10 border-[1.8px] border-zinc-900/70 px-4 py-2 rounded-full text-primary backdrop-blur-sm"
@@ -64,17 +69,17 @@ const ExperienceSection = () => {
                                 A journey through my professional career and key achievements
                             </p>
                         </motion.div>
-                    </div>
+                    </motion.div>
 
                     <div className="max-w-4xl mx-auto">
-                        <motion.div
-                            variants={containerAnimation}
-                            className="space-y-2 md:space-y-8"
-                        >
+                        <div className="space-y-2 md:space-y-8">
                             {experiences.map((exp, index) => (
                                 <motion.div
                                     key={index}
-                                    variants={itemAnimation}
+                                    variants={timelineItem}
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={{ once: true, margin: '0px 0px -8% 0px' }}
                                     className="relative"
                                 >
                                     <div className="flex md:gap-6">
@@ -169,9 +174,9 @@ const ExperienceSection = () => {
                                     </div>
                                 </motion.div>
                             ))}
-                        </motion.div>
+                        </div>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </section>
     );

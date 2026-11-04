@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -117,9 +118,14 @@ const ContactForm = () => {
                 </div>
             </div>
 
+            <p className="text-xs text-muted-foreground leading-relaxed">
+                I use your name, email and message only to reply to you and send one confirmation. See the{" "}
+                <Link href="/privacy" className="underline underline-offset-2 text-primary">Privacy Policy</Link>.
+            </p>
+
             <Button
                 type="submit"
-                className="w-full rounded-xl py-6 text-base font-semibold mt-6"
+                className="w-full rounded-xl py-6 text-base font-semibold"
                 disabled={isSubmitting}
             >
                 {isSubmitting ? "Sending..." : "Send Message"}

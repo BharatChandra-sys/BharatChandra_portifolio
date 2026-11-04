@@ -39,6 +39,13 @@ export default function sitemap() {
     },
   ];
 
+  const legalRoutes = ['privacy', 'terms'].map((page) => ({
+    url: `${BASE_URL}/${page}`,
+    lastModified: '2026-11-04',
+    changeFrequency: 'yearly',
+    priority: 0.3,
+  }));
+
   const blogRoutes = posts.map((post) => ({
     url: postUrl(post.slug),
     lastModified: post.published.slice(0, 10),
@@ -49,5 +56,5 @@ export default function sitemap() {
     ],
   }));
 
-  return [...staticRoutes, ...blogRoutes];
+  return [...staticRoutes, ...legalRoutes, ...blogRoutes];
 }

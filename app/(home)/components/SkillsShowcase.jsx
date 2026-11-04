@@ -27,8 +27,7 @@ const containerAnimation = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.08,
-            delayChildren: 0.2
+            staggerChildren: 0.05
         }
     }
 };
@@ -51,7 +50,8 @@ const SkillsShowcase = () => {
         <motion.div
             variants={containerAnimation}
             initial="hidden"
-            animate="show"
+            whileInView="show"
+            viewport={{ once: true, margin: '0px 0px -8% 0px' }}
             className="w-full"
         >
             <div className="container mx-auto px-4 sm:px-6 md:px-8">

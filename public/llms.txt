@@ -122,6 +122,8 @@ Homepage:    https://bharatchandra.me
 Blog:        https://bharatchandra.me/blog
 Projects:    https://bharatchandra.me/projects
 Contact:     https://bharatchandra.me/contact
+Privacy:     https://bharatchandra.me/privacy
+Terms:       https://bharatchandra.me/terms
 Resume JSON: https://bharatchandra.me/resume.json
 Schema API:  https://bharatchandra.me/api/schema-all
 Sitemap:     https://bharatchandra.me/sitemap.xml
