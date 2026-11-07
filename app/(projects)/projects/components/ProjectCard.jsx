@@ -25,7 +25,7 @@ export const ProjectCard = ({ project, index, compact = false }) => (
         initial="hidden"
         whileInView="show"
         viewport={revealViewport}
-        className="group grid grid-cols-[56px_minmax(0,1fr)] gap-x-3 gap-y-2 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:grid-rows-[auto_1fr] sm:gap-x-6 sm:gap-y-3 bg-secondary/5 hover:bg-secondary/10 p-3 sm:p-4 rounded-xl transition-colors duration-300"
+        className="group grid grid-cols-[72px_minmax(0,1fr)] gap-x-4 gap-y-3 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] sm:grid-rows-[auto_1fr] sm:gap-x-6 sm:gap-y-3 bg-secondary/5 hover:bg-secondary/10 p-4 rounded-xl transition-colors duration-300"
     >
         <div className="sm:row-span-2">
             <div className={`relative aspect-square sm:aspect-[4/3] rounded-lg overflow-hidden ${LOGO_BACKGROUNDS[project.logoBackground] || ""}`}>
@@ -43,7 +43,7 @@ export const ProjectCard = ({ project, index, compact = false }) => (
         </div>
 
         <div className="flex items-start justify-between gap-3 self-center sm:self-start sm:pt-2">
-            <h3 className="text-sm sm:text-lg font-semibold text-primary leading-snug">
+            <h3 className="text-base sm:text-lg font-semibold text-primary leading-snug">
                 {project.title}
             </h3>
             <span className="hidden sm:inline text-xs text-muted-foreground pt-1.5">
@@ -53,7 +53,7 @@ export const ProjectCard = ({ project, index, compact = false }) => (
 
         <div className="col-span-2 sm:col-span-1 sm:col-start-2 flex flex-col justify-between sm:pb-2">
             <div className="space-y-2 sm:space-y-3">
-                <p className={`text-xs sm:text-sm text-muted-foreground leading-relaxed ${compact ? "line-clamp-2 sm:line-clamp-none" : ""}`}>
+                <p className={`text-sm text-muted-foreground leading-relaxed ${compact ? "line-clamp-3 sm:line-clamp-none" : ""}`}>
                     {project.description}
                 </p>
 
@@ -69,9 +69,9 @@ export const ProjectCard = ({ project, index, compact = false }) => (
                 </div>
             </div>
 
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2 sm:pt-4">
+            <div className="flex flex-wrap items-center gap-3 pt-3 sm:pt-4">
                 {isLiveUrl(project.demo) && (
-                    <Button size="sm" className="rounded-full h-7 sm:h-8 px-3 sm:px-4 text-xs" asChild>
+                    <Button size="sm" className="rounded-full h-10 sm:h-8 px-4 text-sm sm:text-xs" asChild>
                         <a
                             href={project.demo}
                             target="_blank"
@@ -85,7 +85,7 @@ export const ProjectCard = ({ project, index, compact = false }) => (
                     </Button>
                 )}
                 {project.github && (
-                    <Button variant="outline" size="sm" className="rounded-full h-7 sm:h-8 px-3 sm:px-4 text-xs" asChild>
+                    <Button variant="outline" size="sm" className="rounded-full h-10 sm:h-8 px-4 text-sm sm:text-xs" asChild>
                         <a
                             href={project.github}
                             target="_blank"

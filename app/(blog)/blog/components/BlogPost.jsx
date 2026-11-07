@@ -315,7 +315,7 @@ export function BlogPost({ title, date, tags, github, content }) {
         />
       </div>
 
-      <section className="py-4 md:py-24" aria-label="Blog post">
+      <section className="py-6 md:py-24" aria-label="Blog post">
         <div className="container mx-auto px-4 md:px-6 max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -381,7 +381,7 @@ export function BlogPost({ title, date, tags, github, content }) {
 
             {/* ── Content ── */}
             <article
-              className="space-y-5 text-white/75 leading-relaxed text-sm md:text-[15px]"
+              className="space-y-5 text-white/75 leading-relaxed text-[15px]"
               itemScope
               itemType="https://schema.org/BlogPosting"
             >

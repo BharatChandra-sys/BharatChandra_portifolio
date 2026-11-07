@@ -35,7 +35,7 @@ export const List = ({ children }) => (
 );
 
 export const LegalPage = ({ title, intro, children }) => (
-  <article className="mx-auto w-full max-w-3xl px-4 md:px-6 py-4 md:py-16">
+  <article className="mx-auto w-full max-w-3xl px-4 md:px-6 py-6 md:py-16">
     <header className="space-y-2 mb-6 md:mb-10">
       <h1 className="text-2xl md:text-4xl font-bold text-primary">{title}</h1>
       <p className="text-xs md:text-sm text-muted-foreground">

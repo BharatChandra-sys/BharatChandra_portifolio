@@ -31,7 +31,7 @@ const languageColors = {
 
 const getProjectSize = (index) => {
     const sizes = [
-        "col-span-2 sm:col-span-1 md:col-span-2 row-span-1",
+        "sm:col-span-1 md:col-span-2 row-span-1",
         "col-span-1 sm:row-span-2 row-span-1",
         "col-span-1 row-span-1",
         "col-span-1 row-span-1",
@@ -70,7 +70,7 @@ const ProjectCard = ({ project, size }) => {
                                 <TooltipProvider>
                                     <Tooltip>
                                         <TooltipTrigger asChild>
-                                            <h3 className="font-bold text-white text-xs md:text-sm truncate">
+                                            <h3 className="font-bold text-white text-sm truncate">
                                                 {project.name}
                                             </h3>
                                         </TooltipTrigger>
@@ -81,7 +81,7 @@ const ProjectCard = ({ project, size }) => {
                             <HiExternalLink className="w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 text-white/60 group-hover:text-white transition-colors flex-shrink-0" />
                         </div>
 
-                        <p className="text-xs text-white/70 line-clamp-2 sm:line-clamp-3 leading-snug sm:leading-relaxed">
+                        <p className="text-sm sm:text-xs text-white/70 line-clamp-2 sm:line-clamp-3 leading-snug sm:leading-relaxed">
                             {project.description || "No description provided"}
                         </p>
                     </div>
@@ -137,7 +137,7 @@ const ProjectCard = ({ project, size }) => {
 // initial HTML and visitors never call the GitHub API themselves.
 const GithubProjects = ({ repos = [] }) => {
     return (
-        <section className="py-4 md:py-20 relative">
+        <section className="py-6 md:py-20 relative">
             <div className="w-full">
                 <div className="container mx-auto px-4 md:px-8">
                     <div className="space-y-3 md:space-y-12">
@@ -157,7 +157,7 @@ const GithubProjects = ({ repos = [] }) => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: '0px 0px -8% 0px' }}
                                 transition={{ delay: 0.1 }}
-                                className="text-xl md:text-4xl font-bold text-primary md:px-4"
+                                className="text-2xl md:text-4xl font-bold text-primary md:px-4"
                             >
                                 Open Source Projects
                             </motion.h2>
@@ -177,7 +177,7 @@ const GithubProjects = ({ repos = [] }) => {
                             initial="hidden"
                             whileInView="show"
                             viewport={{ once: true, margin: '0px 0px -8% 0px' }}
-                            className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 sm:auto-rows-fr gap-2 sm:gap-4 w-full max-w-6xl mx-auto"
+                            className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 sm:auto-rows-fr gap-3 sm:gap-4 w-full max-w-6xl mx-auto"
                         >
                             {repos.map((project, index) => (
                                 <ProjectCard key={project.id} project={project} size={getProjectSize(index)} />
@@ -189,7 +189,7 @@ const GithubProjects = ({ repos = [] }) => {
                                 variant="expandIcon"
                                 Icon={FaGithub}
                                 iconPlacement="right"
-                                className="rounded-full h-9 px-4 text-xs sm:h-11 sm:px-6 sm:text-base w-full sm:w-auto"
+                                className="rounded-full h-11 px-4 text-sm sm:px-6 sm:text-base w-full sm:w-auto"
                                 asChild
                             >
                                 <a href={`https://github.com/${config.social.github}`} target="_blank" rel="noopener noreferrer">

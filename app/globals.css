@@ -103,9 +103,3 @@ body {
   overflow-x: clip;
 }
 
-/* Phones: scale the whole rem-based layout down about 5%. A percentage respects the visitor's font-size setting. */
-@media (max-width: 767px) {
-  html {
-    font-size: 95%;
-  }
-}

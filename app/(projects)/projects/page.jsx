@@ -106,7 +106,7 @@ const orderedProjects = [
 
 const ProjectsPage = () => {
     return (
-        <section className="py-4 md:py-16" id="projects">
+        <section className="py-6 md:py-16" id="projects">
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(projectsPageSchema) }} />
             <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
             <div className="mx-auto w-full max-w-5xl px-4 md:px-6">

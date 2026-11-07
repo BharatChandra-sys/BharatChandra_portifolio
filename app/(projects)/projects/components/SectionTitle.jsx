@@ -17,7 +17,7 @@ const SectionTitle = () => (
                 <h1 className="text-2xl md:text-5xl font-bold text-primary tracking-tight">
                     Featured Work & Projects
                 </h1>
-                <p className="text-xs md:text-base text-muted-foreground leading-relaxed">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                     Production systems with real constraints — not demos, not notebooks.
                     Every project here ran (or runs) in an actual environment under
                     actual pressure.{' '}

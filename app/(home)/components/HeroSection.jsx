@@ -41,7 +41,7 @@ const HeroSection = () => {
   const opacity = useTransform(scrollYProgress, [0, 1], [1, reduceMotion ? 1 : 0.2]);
 
   return (
-    <section ref={sectionRef} className="relative pt-2 md:pt-12 pb-2 md:pb-8">
+    <section ref={sectionRef} className="relative pt-6 md:pt-12 pb-4 md:pb-8">
       <BackgroundPresets.Minimal />
 
       <div className="container mx-auto px-6">
@@ -50,7 +50,7 @@ const HeroSection = () => {
           initial="hidden"
           animate="show"
           style={{ y, opacity }}
-          className="max-w-3xl mx-auto text-center space-y-4 md:space-y-8 relative"
+          className="max-w-3xl mx-auto text-center space-y-5 md:space-y-8 relative"
         >
           {/* Hidden microdata — no visible photo, entity signals preserved for SEO */}
           <div
@@ -70,11 +70,11 @@ const HeroSection = () => {
 
           {/* H1 — not animated, so it paints with the first HTML */}
           <div className="space-y-4">
-            <h1 className="text-3xl md:text-7xl font-bold tracking-tight">
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
               <span className="block text-primary mb-2">
                 Hi, I'm {config.developer.name}
               </span>
-              <span className="block text-white/60 text-lg md:text-4xl">
+              <span className="block text-white/60 text-xl md:text-4xl">
                 Building AI systems that actually ship.
               </span>
             </h1>
@@ -83,7 +83,7 @@ const HeroSection = () => {
           {/* Sub-text — exact same style */}
           <motion.p
             variants={itemAnimation}
-            className="speakable-summary text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto"
+            className="speakable-summary text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
             Final-year CSE student at GITAM University Hyderabad. I build production-grade ML pipelines, rocket telemetry backends, and full-stack platforms for real clients — not just notebooks.
           </motion.p>
@@ -97,7 +97,7 @@ const HeroSection = () => {
               variant="expandIcon"
               Icon={HiArrowRight}
               iconPlacement="right"
-              className="rounded-full h-9 px-4 text-xs md:h-11 md:px-6 md:text-base transition-all duration-300 hover:scale-105 font-semibold"
+              className="rounded-full h-11 px-5 text-sm md:px-6 md:text-base transition-all duration-300 hover:scale-105 font-semibold"
               asChild
             >
               <Link href="/projects">View Projects</Link>
@@ -105,7 +105,7 @@ const HeroSection = () => {
 
             <Button
               variant="outline"
-              className="rounded-full h-9 px-4 text-xs md:h-11 md:px-6 md:text-base font-semibold transition-all duration-300 hover:scale-105"
+              className="rounded-full h-11 px-5 text-sm md:px-6 md:text-base font-semibold transition-all duration-300 hover:scale-105"
               asChild
             >
               <a href="/bodapati-bharat-chandra-resume.pdf" download className="flex items-center gap-2">
@@ -116,7 +116,7 @@ const HeroSection = () => {
 
             <Button
               variant="ghost"
-              className="rounded-full h-9 px-4 text-xs md:h-11 md:px-6 md:text-base font-semibold transition-all duration-300 hover:scale-105"
+              className="rounded-full h-11 px-5 text-sm md:px-6 md:text-base font-semibold transition-all duration-300 hover:scale-105"
               asChild
             >
               <a
@@ -132,7 +132,7 @@ const HeroSection = () => {
 
             <Button
               variant="ghost"
-              className="rounded-full h-9 px-4 text-xs md:h-11 md:px-6 md:text-base font-semibold transition-all duration-300 hover:scale-105"
+              className="rounded-full h-11 px-5 text-sm md:px-6 md:text-base font-semibold transition-all duration-300 hover:scale-105"
               asChild
             >
               <a
