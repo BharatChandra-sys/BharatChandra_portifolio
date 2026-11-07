@@ -28,7 +28,7 @@ const ContactPage = () => {
                     <h1 className="text-2xl md:text-5xl font-bold text-primary">
                         Let's build something real.
                     </h1>
-                    <p className="text-muted-foreground max-w-xl mx-auto text-xs md:text-base px-2 md:px-4">
+                    <p className="text-muted-foreground max-w-xl mx-auto text-sm md:text-base px-2 md:px-4">
                         I'm open to AI/ML internships, full-time roles starting 2027,
                         and interesting project collaborations. Reach out directly —
                         I respond to every message.
@@ -59,7 +59,7 @@ const ContactPage = () => {
                                         {info.icon}
                                     </div>
                                     <div className="min-w-0 flex-1">
-                                        <p className="text-xs sm:text-sm text-muted-foreground mb-1">
+                                        <p className="text-sm text-muted-foreground mb-1">
                                             {info.label}
                                         </p>
                                         {info.link ? (

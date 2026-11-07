@@ -17,7 +17,7 @@ const itemAnimation = {
 
 export default function BlogPage() {
   return (
-    <section className="py-4 md:py-24" id="blog">
+    <section className="py-6 md:py-24" id="blog">
       {/* Gap 2 fixed: Blog/ItemList schemas now actually rendered */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogIndexSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogBreadcrumbSchema) }} />
@@ -50,11 +50,11 @@ export default function BlogPage() {
             </motion.p>
           </div>
 
-          <motion.div variants={containerAnimation} className="space-y-2 md:space-y-6">
+          <motion.div variants={containerAnimation} className="space-y-3 md:space-y-6">
             {posts.map((post) => (
               <motion.div key={post.slug} variants={itemAnimation}>
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="group bg-black border border-white/30 rounded-xl md:rounded-2xl p-3 md:p-6
+                  <div className="group bg-black border border-white/30 rounded-xl md:rounded-2xl p-4 md:p-6
                     hover:border-white/60 transition-all duration-300 cursor-pointer
                     shadow-[0_4px_6px_rgba(0,0,0,0.5),0_0_10px_rgba(255,255,255,0.05)]
                     hover:shadow-[0_4px_6px_rgba(0,0,0,0.5),0_0_20px_rgba(255,255,255,0.1)]
@@ -65,10 +65,10 @@ export default function BlogPage() {
                     </div>
                     <div className="relative z-10 space-y-1.5 md:space-y-3">
                       <p className="text-xs text-white/40">{post.date}</p>
-                      <h2 className="text-sm md:text-lg font-semibold text-white leading-snug group-hover:text-white/90">
+                      <h2 className="text-base md:text-lg font-semibold text-white leading-snug group-hover:text-white/90">
                         {post.title}
                       </h2>
-                      <p className="text-xs md:text-sm text-white/60 leading-relaxed">{post.description}</p>
+                      <p className="text-sm text-white/60 leading-relaxed">{post.description}</p>
                       <div className="flex flex-wrap gap-2 pt-1">
                         {post.tags.map(tag => (
                           <span key={tag} className="text-xs bg-white/10 text-white/60 px-2.5 py-0.5 rounded-full border border-white/10">

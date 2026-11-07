@@ -15,21 +15,21 @@ const FeaturedProjects = () => {
         .filter(Boolean);
 
     return (
-        <section className="py-4 md:py-16" id="featured-projects" aria-labelledby="featured-projects-heading">
+        <section className="py-6 md:py-16" id="featured-projects" aria-labelledby="featured-projects-heading">
             <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
                 <Reveal className="flex items-end justify-between gap-4 mb-3 md:mb-8">
-                    <h2 id="featured-projects-heading" className="text-xl md:text-4xl font-bold text-primary">
+                    <h2 id="featured-projects-heading" className="text-2xl md:text-4xl font-bold text-primary">
                         Featured Projects
                     </h2>
                     <Link
                         href="/projects"
-                        className="inline-flex items-center gap-1.5 whitespace-nowrap text-xs md:text-sm text-muted-foreground hover:text-primary transition-colors"
+                        className="inline-flex items-center gap-1.5 whitespace-nowrap py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
                     >
                         All projects
                         <HiArrowRight className="w-4 h-4" aria-hidden="true" />
                     </Link>
                 </Reveal>
-                <div className="space-y-2 md:space-y-4">
+                <div className="space-y-3 md:space-y-4">
                     {featured.map((project, index) => (
                         <ProjectCard key={project.id} project={project} index={index} compact />
                     ))}

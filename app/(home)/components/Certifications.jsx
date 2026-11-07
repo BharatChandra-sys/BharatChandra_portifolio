@@ -11,12 +11,12 @@ const CERTIFICATIONS = [
 ];
 
 const Certifications = () => (
-  <section className="py-4 md:py-12" id="certifications" aria-labelledby="certifications-heading">
+  <section className="py-6 md:py-12" id="certifications" aria-labelledby="certifications-heading">
     <div className="mx-auto w-full max-w-5xl px-4 md:px-6 space-y-3 md:space-y-6">
-      <Reveal as="h2" id="certifications-heading" className="text-xl md:text-4xl font-bold text-primary">
+      <Reveal as="h2" id="certifications-heading" className="text-2xl md:text-4xl font-bold text-primary">
         Certifications
       </Reveal>
-      <RevealGroup as="ul" className="grid gap-2 md:gap-4 md:grid-cols-3">
+      <RevealGroup as="ul" className="grid gap-3 md:gap-4 md:grid-cols-3">
         {CERTIFICATIONS.map((cert) => (
           <RevealItem as="li" key={cert.href}>
             <a
@@ -24,11 +24,11 @@ const Certifications = () => (
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Verify ${cert.name}, ${cert.issuer}`}
-              className="flex h-full flex-wrap items-baseline gap-x-2 md:flex-col md:items-stretch rounded-xl md:rounded-2xl border border-white/10 bg-white/[0.02] p-3 md:p-5 hover:border-white/30 transition-colors"
+              className="flex h-full flex-wrap items-baseline gap-x-2 md:flex-col md:items-stretch rounded-xl md:rounded-2xl border border-white/10 bg-white/[0.02] p-4 md:p-5 hover:border-white/30 transition-colors"
             >
-              <span className="text-xs md:text-base font-medium text-primary leading-snug">{cert.name}</span>
-              <span className="md:mt-1 text-xs md:text-sm text-muted-foreground">{cert.issuer}</span>
-              <span className="md:mt-3 text-xs md:text-sm text-muted-foreground underline underline-offset-2">Verify ↗</span>
+              <span className="text-sm md:text-base font-medium text-primary leading-snug">{cert.name}</span>
+              <span className="md:mt-1 text-sm text-muted-foreground">{cert.issuer}</span>
+              <span className="md:mt-3 text-sm text-muted-foreground underline underline-offset-2">Verify ↗</span>
             </a>
           </RevealItem>
         ))}

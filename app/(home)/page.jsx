@@ -583,10 +583,10 @@ const Home = async () => {
       <LatestWriting />
 
       {/* About — visible, so the identity details are for readers as well as crawlers */}
-      <section className="py-4 md:py-16" id="about" aria-labelledby="about-heading">
+      <section className="py-6 md:py-16" id="about" aria-labelledby="about-heading">
         <div className="mx-auto w-full max-w-5xl px-4 md:px-6">
           <Reveal
-            className="grid grid-cols-[88px_minmax(0,1fr)] gap-x-3 gap-y-3 md:gap-12 md:grid-cols-[minmax(0,320px)_1fr] items-start md:items-center rounded-2xl md:rounded-3xl border border-white/10 bg-white/[0.02] p-3 md:p-10"
+            className="grid grid-cols-[112px_minmax(0,1fr)] gap-x-4 gap-y-4 md:gap-12 md:grid-cols-[minmax(0,320px)_1fr] items-start md:items-center rounded-2xl md:rounded-3xl border border-white/10 bg-white/[0.02] p-4 md:p-10"
             itemScope
             itemType="https://schema.org/Person"
           >
@@ -603,18 +603,18 @@ const Home = async () => {
 
             <div className="contents md:block md:space-y-6">
               <div className="md:space-y-2">
-                <h2 id="about-heading" className="text-xs md:text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                <h2 id="about-heading" className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
                   About
                 </h2>
-                <p className="text-base md:text-4xl font-bold text-primary leading-snug" itemProp="name">
+                <p className="text-xl md:text-4xl font-bold text-primary leading-snug" itemProp="name">
                   Bodapati Bharat Chandra
                 </p>
-                <p className="text-xs md:text-base text-muted-foreground">
+                <p className="text-sm md:text-base text-muted-foreground">
                   <span itemProp="jobTitle">AI/ML Engineer</span> · Hyderabad, India<span className="hidden md:inline"> · BharatChandra-sys on GitHub</span>
                 </p>
               </div>
 
-              <div className="col-span-2 space-y-2 md:space-y-4 text-xs md:text-base text-muted-foreground leading-relaxed">
+              <div className="col-span-2 space-y-3 md:space-y-4 text-sm md:text-base text-muted-foreground leading-relaxed">
                 <p>
                   I&apos;m a final-year CSE student at GITAM University Hyderabad who likes the part after the notebook:
                   getting software running for real users, under real constraints.
@@ -625,11 +625,11 @@ const Home = async () => {
                 </p>
               </div>
 
-              <dl className="col-span-2 grid grid-cols-2 gap-2 md:gap-4 border-t border-white/10 pt-3 md:pt-6">
+              <dl className="col-span-2 grid grid-cols-2 gap-3 md:gap-4 border-t border-white/10 pt-4 md:pt-6">
                 {ABOUT_FACTS.map((fact) => (
                   <div key={fact.label}>
                     <dt className="text-xs font-semibold md:uppercase md:tracking-wider text-muted-foreground">{fact.label}</dt>
-                    <dd className="md:mt-1 text-xs md:text-sm text-primary leading-snug">{fact.value}</dd>
+                    <dd className="mt-0.5 md:mt-1 text-sm text-primary leading-snug">{fact.value}</dd>
                   </div>
                 ))}
               </dl>
@@ -637,7 +637,7 @@ const Home = async () => {
               <div className="col-span-2 flex flex-wrap gap-2 md:gap-3">
                 <a
                   href="mailto:bc833498@gmail.com"
-                  className="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1.5 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold text-black hover:bg-white/90 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2.5 md:px-5 text-sm font-semibold text-black hover:bg-white/90 transition-colors"
                 >
                   <HiMail className="w-4 h-4" aria-hidden="true" />
                   Email me
@@ -646,7 +646,7 @@ const Home = async () => {
                   href="https://www.linkedin.com/in/bharat-chandra-bodapati/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2.5 md:px-5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
                 >
                   <FaLinkedin className="w-4 h-4" aria-hidden="true" />
                   LinkedIn
@@ -654,7 +654,7 @@ const Home = async () => {
                 <a
                   href="/bodapati-bharat-chandra-resume.pdf"
                   download
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 md:px-5 md:py-2.5 text-xs md:text-sm font-semibold text-white hover:bg-white/10 transition-colors"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2.5 md:px-5 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
                 >
                   <HiDownload className="w-4 h-4" aria-hidden="true" />
                   Download CV
@@ -666,16 +666,16 @@ const Home = async () => {
       </section>
 
       {/* FAQ — rendered from the same data as the FAQPage schema, so the markup matches what readers see */}
-      <section className="py-4 md:py-16" id="faq" aria-labelledby="faq-heading">
+      <section className="py-6 md:py-16" id="faq" aria-labelledby="faq-heading">
         <div className="mx-auto w-full max-w-3xl px-4 md:px-6 space-y-3 md:space-y-6">
-          <Reveal as="h2" id="faq-heading" className="text-xl md:text-4xl font-bold text-primary">
+          <Reveal as="h2" id="faq-heading" className="text-2xl md:text-4xl font-bold text-primary">
             Frequently asked questions
           </Reveal>
           <RevealGroup stagger={0.05} className="space-y-2 md:space-y-3">
             {faqSchema.mainEntity.map((item) => (
-              <RevealItem as="details" key={item.name} className="group rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 md:px-5 md:py-4">
-                <summary className="cursor-pointer text-xs md:text-base font-medium text-primary">{item.name}</summary>
-                <p className="mt-2 md:mt-3 text-xs md:text-sm text-muted-foreground leading-relaxed">{item.acceptedAnswer.text}</p>
+              <RevealItem as="details" key={item.name} className="group rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 md:px-5 md:py-4">
+                <summary className="cursor-pointer text-sm md:text-base font-medium text-primary">{item.name}</summary>
+                <p className="mt-2 md:mt-3 text-sm text-muted-foreground leading-relaxed">{item.acceptedAnswer.text}</p>
               </RevealItem>
             ))}
           </RevealGroup>
@@ -683,11 +683,11 @@ const Home = async () => {
       </section>
 
       {/* Contact CTA */}
-      <section className="py-4 pb-8 md:py-16 md:pb-24">
+      <section className="py-6 pb-10 md:py-16 md:pb-24">
         <Reveal className="container mx-auto px-6 flex justify-center">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-2 px-4 py-2 md:px-6 md:py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white text-xs md:text-sm font-medium transition-all duration-300 backdrop-blur-sm hover:scale-105 active:scale-95"
+            className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/30 text-white text-sm font-medium transition-all duration-300 backdrop-blur-sm hover:scale-105 active:scale-95"
           >
             <span>Get In Touch</span>
             <HiArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" aria-hidden="true" />

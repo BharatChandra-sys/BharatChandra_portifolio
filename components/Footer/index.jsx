@@ -29,23 +29,23 @@ const Footer = () => {
                             href={href}
                             aria-label={label}
                             {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                            className="p-2 text-muted-foreground hover:text-primary transition-colors"
+                            className="p-2.5 text-muted-foreground hover:text-primary transition-colors"
                         >
                             <Icon className="w-5 h-5" aria-hidden="true" />
                         </a>
                     ))}
                 </div>
-                <nav aria-label="Legal" className="flex items-center justify-center gap-3 text-xs md:text-sm text-muted-foreground">
-                    <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+                <nav aria-label="Legal" className="flex flex-wrap items-center justify-center gap-1 text-sm text-muted-foreground">
+                    <Link href="/privacy" className="px-2 py-2 hover:text-primary transition-colors">Privacy Policy</Link>
                     <span aria-hidden="true">•</span>
-                    <Link href="/terms" className="hover:text-primary transition-colors">Terms</Link>
+                    <Link href="/terms" className="px-2 py-2 hover:text-primary transition-colors">Terms</Link>
                     {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
                         <>
                             <span aria-hidden="true">•</span>
                             <button
                                 type="button"
                                 onClick={() => window.dispatchEvent(new Event(OPEN_COOKIE_SETTINGS))}
-                                className="hover:text-primary transition-colors"
+                                className="px-2 py-2 hover:text-primary transition-colors"
                             >
                                 Cookie settings
                             </button>
